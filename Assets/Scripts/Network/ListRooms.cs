@@ -67,11 +67,17 @@ public class ListRooms : MonoBehaviour
                     continue;
 
                 GameObject button = (GameObject)Instantiate(Resources.Load("ServerButton"));
-                serverList.Add(button);
-                button.SetActive(true);
-                button.transform.SetParent(panel, false);
-                button.transform.FindChild("ServerText").GetComponent<Text>().text = hostData[i].name;
-                button.transform.FindChild("PlayerText").GetComponent<Text>().text = hostData[i].playerCount + "/" + hostData[i].maxPlayers;
+                if (button)
+                {
+                    serverList.Add(button);
+                    button.SetActive(true);
+                    button.transform.SetParent(panel, false);
+                    button.transform.FindChild("ServerText").GetComponent<Text>().text = hostData[i].name;
+                    button.transform.FindChild("PlayerText").GetComponent<Text>().text = hostData[i].playerCount + "/" + hostData[i].maxPlayers;
+                }
+                else
+                    Debug.Log("Add ServerButton prefab in folder Resources");
+              
             }
         }
       

@@ -23,14 +23,21 @@ public class CameraController : MonoBehaviour
     private Vector3 _smoothTarget;
     public GameObject target;
 
+    [SerializeField]
+    public bool isActive;
+
+    void Start()
+    {
+        isActive = true;
+    }
+
     void LateUpdate()
     {
-
-        if (target == null)
+        if (target == null || !isActive)
             return;
 
-        float x = Input.GetAxis("Mouse X") * cameraSpeed;
-        float y = -Input.GetAxis("Mouse Y") * cameraSpeed;
+        float x = Input.GetAxis("Mouse X") * 500f;
+        float y = -Input.GetAxis("Mouse Y") * 500f;
 
         _x += x * Time.deltaTime;
         _y += y * Time.deltaTime;

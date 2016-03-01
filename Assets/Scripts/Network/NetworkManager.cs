@@ -15,18 +15,29 @@ public class NetworkManager : Photon.PunBehaviour
     void Start ()
     {
         PhotonNetwork.ConnectUsingSettings("0.1");
-        PhotonNetwork.logLevel = PhotonLogLevel.Full;
+        //PhotonNetwork.logLevel = PhotonLogLevel.Full;
         _listRooms = canvas.GetComponent<ListRooms>();
+        DontDestroyOnLoad(this);
     }
 
 	void Update ()
     {
-        connectionParameters.text = PhotonNetwork.connectionStateDetailed.ToString();
+        if(connectionParameters)
+            connectionParameters.text = PhotonNetwork.connectionStateDetailed.ToString();
+        if(Input.GetKey(KeyCode.Space)) //For debug only
+            this.photonView.RPC("LoadSceneForEach", PhotonTargets.All);
     }
 
     public override void OnJoinedLobby()
     {
         //PhotonNetwork.JoinRandomRoom();
+
+    }
+
+    [PunRPC]
+    void LoadSceneForEach(PhotonMessageInfo info)
+    {
+        Application.LoadLevel("MainScene");
     }
 
     public void CreateRoom()
@@ -48,7 +59,9 @@ public class NetworkManager : Photon.PunBehaviour
     
     public override void OnJoinedRoom()
     {
-         GameObject player = PhotonNetwork.Instantiate("playerPrefab", Vector3.zero, Quaternion.identity, 0);
+        //PhotonNetwork.LoadLevel("MainScene");
+
+       /*  GameObject player = PhotonNetwork.Instantiate("playerPrefab", Vector3.zero, Quaternion.identity, 0);
          CharacController controller = player.GetComponent<CharacController>();
          controller.enabled = true;
          player.GetComponent<Rigidbody>().isKinematic = false;
@@ -56,6 +69,6 @@ public class NetworkManager : Photon.PunBehaviour
          GameObject cameraObj = Camera.main.gameObject;
          controller.cameraObj = cameraObj;
          cam.enabled = true;
-         canvas.enabled = false;
+         canvas.enabled = false;*/
     }
 }
