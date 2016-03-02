@@ -87,7 +87,7 @@ public class CharacController : MonoBehaviour
         float dotProduct = Vector3.Dot(_rigidbody.velocity, transform.right);
         Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
 
-        if (velocity.magnitude > 0.2f)
+        if (velocity.magnitude > 0.25f)
             anim.SetInteger("Speed", 2);
         else
             anim.SetInteger("Speed", 0);
