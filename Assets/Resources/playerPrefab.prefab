@@ -609,7 +609,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &6574962
 BoxCollider:
@@ -621,8 +621,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 18, z: 3}
-  m_Center: {x: 0, y: 8, z: 0}
+  m_Size: {x: 5, y: 18, z: 8}
+  m_Center: {x: 0, y: 9, z: 0}
 --- !u!95 &9564258
 Animator:
   serializedVersion: 3
@@ -833,7 +833,7 @@ Prefab:
       objectReference: {fileID: 11464788}
     - target: {fileID: 0}
       propertyPath: m_Constraints
-      value: 80
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_PositionModel.SynchronizeEnabled
@@ -862,6 +862,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: offset.y
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Center.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.z
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
