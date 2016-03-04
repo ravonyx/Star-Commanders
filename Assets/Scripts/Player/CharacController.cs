@@ -21,18 +21,15 @@ public class CharacController : MonoBehaviour
 
     void Start()
     {
+        GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
+        anim = this.gameObject.GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody>();
 
-            GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
-            anim = this.gameObject.GetComponent<Animator>();
-            _rigidbody = GetComponent<Rigidbody>();
-
-            cam = cameraObj.GetComponent<CameraController>();
-            cam.target = transform.gameObject;
-            cameraObj.transform.parent = transform;
-
-            Debug.Log(cameraObj.transform.localPosition);
-            cameraObj.transform.localPosition = offset;
-            Debug.Log(cameraObj.transform.localPosition); 
+        cameraObj = Camera.main.gameObject;
+        cam = cameraObj.GetComponent<CameraController>();
+        cam.target = transform.gameObject;
+        cameraObj.transform.parent = transform;
+        cameraObj.transform.localPosition = transform.position + offset;
          
     }
 

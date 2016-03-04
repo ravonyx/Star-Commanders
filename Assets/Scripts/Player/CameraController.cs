@@ -4,31 +4,31 @@ using UnityEngine.Networking;
 
 public class CameraController : MonoBehaviour
 {
-
-    public float distCamera;
-    public float cameraSpeed = 1f;
-    public float smoothTime = 0.3f;
-
-    public Vector3 _offset;
+    private float _cameraSpeed;
 
     private float _x = 0.0f;
     private float _y = 0.0f;
 
-    public int _yMinLimit = 0;
-    public int _yMaxLimit = 70;
+    [SerializeField]
+    private int _yMinLimit = 0;
+    [SerializeField]
+    private int _yMaxLimit = 70;
 
-    public int _xMinLimit = -90;
-    public int _xMaxLimit = 90;
-
-    private Vector3 _smoothTarget;
     public GameObject target;
+    private Vector2 _cameraRotation;
 
     [SerializeField]
     public bool isActive;
 
     void Start()
     {
+        if (!Application.isEditor)
+        {
+            UnityEngine.Cursor.visible = false;
+        }
         isActive = true;
+        _cameraRotation = Vector2.zero;
+        _cameraSpeed = 80.0f;
     }
 
     void LateUpdate()
@@ -36,19 +36,16 @@ public class CameraController : MonoBehaviour
         if (target == null || !isActive)
             return;
 
-        float x = Input.GetAxis("Mouse X") * 500f;
-        float y = -Input.GetAxis("Mouse Y") * 500f;
+        float x = Input.GetAxis("Mouse X") * _cameraSpeed * Time.deltaTime;
+        float y = -Input.GetAxis("Mouse Y") * _cameraSpeed * Time.deltaTime;
 
-        _x += x * Time.deltaTime;
-        _y += y * Time.deltaTime;
+        _cameraRotation.x += x;
+        _cameraRotation.y += y;
 
-        _y = Clamp(_y, -90, 70);
- 
-        transform.rotation = Quaternion.identity;
-        transform.Rotate(Vector3.up * _x);
-        transform.Rotate(Vector3.right * _y);
-
-        RotateCharacter(x);
+        _cameraRotation.y = ClampAngle(_cameraRotation.y, _yMinLimit, _yMaxLimit);
+        Debug.Log(_cameraRotation);
+        transform.rotation = Quaternion.Euler(_cameraRotation.y, _cameraRotation.x, 0);
+        target.transform.Rotate(Vector3.up * x);
     }
 
     float ClampAngle(float angle, float min, float max)
@@ -58,13 +55,6 @@ public class CameraController : MonoBehaviour
         if (angle > 360)
             angle -= 360;
         return Clamp(angle, min, max);
-    }
-
-    void RotateCharacter(float x)
-    {
-        _x += x * Time.deltaTime;
-        target.transform.rotation = Quaternion.identity;
-        target.transform.Rotate(Vector3.up * _x);
     }
 
     float Clamp(float value, float min , float max)

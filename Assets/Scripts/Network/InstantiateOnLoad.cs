@@ -19,10 +19,13 @@ public class InstantiateOnLoad : MonoBehaviour
             CharacController controller = player.GetComponent<CharacController>();
             controller.enabled = true;
             player.GetComponent<Rigidbody>().isKinematic = false;
-            CameraController cam = Camera.main.GetComponent<CameraController>();
-            GameObject cameraObj = Camera.main.gameObject;
-            controller.cameraObj = cameraObj;
-            cam.enabled = true;
+            if(!network)
+            {
+                player.GetComponent<NetworkPlayer>().enabled = false;
+                player.GetComponent<PhotonAnimatorView>().enabled = false;
+            }
+            
+
         }
         else
             Debug.Log("Add " + namePrefab + " in folder Resources");
