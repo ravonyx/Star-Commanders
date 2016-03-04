@@ -43,6 +43,7 @@ public class CameraController : MonoBehaviour
         _cameraRotation.y = ClampAngle(_cameraRotation.y, _yMinLimit, _yMaxLimit);
         Debug.Log(_cameraRotation);
         transform.rotation = Quaternion.Euler(_cameraRotation.y, _cameraRotation.x, 0);
+
         target.transform.Rotate(Vector3.up * x);
     }
 

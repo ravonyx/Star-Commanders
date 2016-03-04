@@ -56,19 +56,4 @@ public class NetworkManager : Photon.PunBehaviour
     {
         PhotonNetwork.JoinRoom(_listRooms.selectedRoomName);
     }
-    
-    public override void OnJoinedRoom()
-    {
-        //PhotonNetwork.LoadLevel("MainScene");
-
-       /*  GameObject player = PhotonNetwork.Instantiate("playerPrefab", Vector3.zero, Quaternion.identity, 0);
-         CharacController controller = player.GetComponent<CharacController>();
-         controller.enabled = true;
-         player.GetComponent<Rigidbody>().isKinematic = false;
-         CameraController cam = Camera.main.GetComponent<CameraController>();
-         GameObject cameraObj = Camera.main.gameObject;
-         controller.cameraObj = cameraObj;
-         cam.enabled = true;
-         canvas.enabled = false;*/
-    }
 }

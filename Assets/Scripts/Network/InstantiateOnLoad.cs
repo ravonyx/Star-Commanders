@@ -18,7 +18,6 @@ public class InstantiateOnLoad : MonoBehaviour
         {
             CharacController controller = player.GetComponent<CharacController>();
             controller.enabled = true;
-            player.GetComponent<Rigidbody>().isKinematic = false;
             if(!network)
             {
                 player.GetComponent<NetworkPlayer>().enabled = false;
