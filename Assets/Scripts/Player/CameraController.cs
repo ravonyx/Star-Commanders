@@ -9,9 +9,7 @@ public class CameraController : MonoBehaviour
     private float _x = 0.0f;
     private float _y = 0.0f;
 
-    [SerializeField]
-    private int _yMinLimit = 0;
-    [SerializeField]
+    private int _yMinLimit = -45;
     private int _yMaxLimit = 70;
 
     public GameObject target;
