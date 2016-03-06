@@ -25,12 +25,11 @@ public class CharacController : MonoBehaviour
         anim = this.gameObject.GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
 
-        cameraObj = Camera.main.gameObject;
+       /* cameraObj = Camera.main.gameObject;
         cam = cameraObj.GetComponent<CameraController>();
         cam.target = transform.gameObject;
         cameraObj.transform.parent = transform;
-        cameraObj.transform.localPosition = transform.position + offset;
-         
+        cameraObj.transform.localPosition = transform.position + offset;*/
     }
 
     void Update()
