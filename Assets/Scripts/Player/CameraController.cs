@@ -6,9 +6,6 @@ public class CameraController : MonoBehaviour
 {
     private float _cameraSpeed;
 
-    private float _x = 0.0f;
-    private float _y = 0.0f;
-
     private int _yMinLimit = -45;
     private int _yMaxLimit = 70;
 
@@ -21,9 +18,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         if (!Application.isEditor)
-        {
             UnityEngine.Cursor.visible = false;
-        }
         isActive = true;
         _cameraRotation = Vector2.zero;
         _cameraSpeed = 80.0f;
@@ -41,7 +36,6 @@ public class CameraController : MonoBehaviour
         _cameraRotation.y += y;
 
         _cameraRotation.y = ClampAngle(_cameraRotation.y, _yMinLimit, _yMaxLimit);
-        Debug.Log(_cameraRotation);
         transform.rotation = Quaternion.Euler(_cameraRotation.y, _cameraRotation.x, 0);
 
         target.transform.Rotate(Vector3.up * x);

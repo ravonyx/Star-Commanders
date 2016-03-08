@@ -496,7 +496,6 @@ GameObject:
   - 124: {fileID: 718173112}
   - 92: {fileID: 718173111}
   - 81: {fileID: 718173110}
-  - 114: {fileID: 718173109}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -504,27 +503,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &718173109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 718173108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5972a63c160622f458cb3fab667adc83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distCamera: 0
-  cameraSpeed: 1
-  smoothTime: .300000012
-  _offset: {x: 0, y: 0, z: 0}
-  _yMinLimit: 0
-  _yMaxLimit: 70
-  _xMinLimit: -90
-  _xMaxLimit: 90
-  target: {fileID: 0}
-  isActive: 0
 --- !u!81 &718173110
 AudioListener:
   m_ObjectHideFlags: 0
