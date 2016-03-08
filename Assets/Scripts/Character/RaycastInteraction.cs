@@ -15,16 +15,21 @@ using System.Collections;
 public class RaycastInteraction : MonoBehaviour
 {
     [SerializeField]
-    private ControlCharacterScript _playerControler;
+    private CameraController _camController;
 
     private GameObject _turret;
     private bool _inUse = false;
+
+    void Start()
+    {
+        _camController = Camera.main.GetComponent<CameraController>();
+    }
 
 	void FixedUpdate ()
     {
         if (_inUse && (Input.GetButtonDown("Use")))
         {
-            _playerControler._isActive = true;
+            _camController.isActive = true;
             _inUse = false;
 
             _turret.SendMessageUpwards("Activate", false);
@@ -51,7 +56,7 @@ public class RaycastInteraction : MonoBehaviour
 
                         transform.rotation = Quaternion.Euler(0, angle + 90, 0);
                         */
-                        _playerControler._isActive = false;
+                        _camController.isActive = false;
                         _inUse = true;
 
                         _turret.SendMessageUpwards("Activate", true);
