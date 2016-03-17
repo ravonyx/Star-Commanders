@@ -12,17 +12,18 @@ public class ObjectNetwork : Photon.MonoBehaviour
     {
         int viewID = PhotonNetwork.AllocateViewID();
         view = GetComponent<PhotonView>();
-        view.viewID = viewID;
+        photonView.viewID = viewID;
 
         objectPos = transform.position;
     }
 
     void Update()
     {
-        if (!view.isMine)
+        if (!photonView.isMine)
         {
              transform.position = Vector3.Lerp(transform.position, objectPos, Time.deltaTime * 15);
              transform.rotation = Quaternion.Lerp(transform.rotation, objectRot, Time.deltaTime * 20);
+              Debug.Log("your turn" + gameObject.name + photonView.isMine);
         }
     }
 

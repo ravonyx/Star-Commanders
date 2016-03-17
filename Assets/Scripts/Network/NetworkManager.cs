@@ -16,9 +16,9 @@ public class NetworkManager : Photon.PunBehaviour
     {
         UnityEngine.Cursor.visible = true;
         PhotonNetwork.ConnectUsingSettings("0.1");
-        PhotonNetwork.logLevel = PhotonLogLevel.Full;
+        PhotonNetwork.logLevel = PhotonLogLevel.ErrorsOnly;
         _listRooms = canvas.GetComponent<ListRooms>();
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
 	void Update ()
