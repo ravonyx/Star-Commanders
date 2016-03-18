@@ -31,6 +31,15 @@ public class TurretMonitors : MonoBehaviour
     // Angle Y initial
     private float rotationZ = 0.0f;
 
+    private PhotonView viewPivotY;
+    private PhotonView viewPivotZ;
+
+    void Start()
+    {
+        viewPivotY = _pivotY.GetComponent<PhotonView>();
+        viewPivotZ = _pivotZ.GetComponent<PhotonView>();
+    }
+
     void FixedUpdate()
     {
         if(_isActive)
@@ -63,6 +72,8 @@ public class TurretMonitors : MonoBehaviour
 
     void Activate(bool active)
     {
+        viewPivotY.RequestOwnership();
+        viewPivotZ.RequestOwnership();
         _isActive = active;
     }
 }
