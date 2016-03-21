@@ -19,8 +19,6 @@ public class CharacController : MonoBehaviour
     public GameObject cameraObj;
     CameraController cam;
 
-    public bool _isActiveView = true;
-
     void Start()
     {
         GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
@@ -48,8 +46,6 @@ public class CharacController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_isActiveView)
-        {
             _direction = Vector3.zero;
             if (Input.GetKey("z"))
                 _direction += transform.forward;
@@ -83,18 +79,17 @@ public class CharacController : MonoBehaviour
 
             _direction.y += _rigidbody.velocity.y;
 
-            _rigidbody.velocity = _direction;
-            float dotProduct = Vector3.Dot(_rigidbody.velocity, transform.right);
-            Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
+        _rigidbody.velocity = _direction;
+        float dotProduct = Vector3.Dot(_rigidbody.velocity, transform.right);
+        Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
 
-            if (velocity.magnitude > 0.25f)
-                anim.SetInteger("Speed", 2);
-            else
-                anim.SetInteger("Speed", 0);
+        if (velocity.magnitude > 0.25f)
+            anim.SetInteger("Speed", 2);
+        else
+            anim.SetInteger("Speed", 0);
 
-            if (jumpTimer > 0.5) jumpTimer -= Time.deltaTime;
-            else if (anim.GetBool("Jumping") == true) anim.SetBool("Jumping", false);
-        }
+        if (jumpTimer > 0.5) jumpTimer -= Time.deltaTime;
+        else if (anim.GetBool("Jumping") == true) anim.SetBool("Jumping", false);
 
     }
 }

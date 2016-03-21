@@ -14,9 +14,6 @@ using System.Collections;
 // --------------------------------------------------
 public class RaycastInteraction : MonoBehaviour
 {
-    [SerializeField]
-    CharacController _characterControler;
-
     public CameraController camController;
 
     private GameObject _turret;
@@ -29,7 +26,6 @@ public class RaycastInteraction : MonoBehaviour
         if (_inUse && (Input.GetButtonDown("Use")))
         {
             camController.isActive = true;
-            _characterControler._isActiveView = true;
             _inUse = false;
 
             _turret.SendMessageUpwards("Activate", false);
@@ -39,13 +35,13 @@ public class RaycastInteraction : MonoBehaviour
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             if (Physics.Raycast(transform.position, fwd, 0.8f))
             {
+                Debug.Log("shoot");
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, fwd, out hit) && (hit.collider.tag == "Monitor"))
                 {
                     if(Input.GetButtonDown("Use"))
                     {
                         _turret = hit.collider.gameObject;
-
                         /*
                         float rayon = 1f;
                         float angle = Quaternion.EulerAngles(_turret.transform.rotation.y);
@@ -56,9 +52,7 @@ public class RaycastInteraction : MonoBehaviour
 
                         transform.rotation = Quaternion.Euler(0, angle + 90, 0);
                         */
-
                         camController.isActive = false;
-                        _characterControler._isActiveView = false;
                         _inUse = true;
 
                         _turret.SendMessageUpwards("Activate", true);
