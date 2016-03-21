@@ -6,12 +6,21 @@ public class ShieldEffect : MonoBehaviour
     public float EffectTime;
     private UnityEngine.Color ShieldColor;
     private UnityEngine.Color tempColor;
-    [SerializeField] private ShieldController m_impactCallback;
+
+
+    [SerializeField]
+    private int mode;
+    [SerializeField] 
+    private ShieldController m_impactCallback;
+    
     void Start()
     {
         ShieldColor = GetComponent<Renderer>().material.GetColor("_ShieldColor");
         tempColor = ShieldColor;
         tempColor.a = 0.05f;
+        
+
+
     }
 
     void Update()
@@ -37,7 +46,25 @@ public class ShieldEffect : MonoBehaviour
             GetComponent<Renderer>().material.SetVector("_ShieldColor", tempColor);
             transform.FindChild("hitpoint").position = contact.point;
             EffectTime = 500;
-            m_impactCallback.ImpactReceived(collision.gameObject);
+            switch (mode)
+            {
+                case 1:
+                    m_impactCallback.FrontLeftImpact(collision.gameObject);
+                    break;
+                case 2:
+                    m_impactCallback.FrontRightImpact(collision.gameObject);
+                    break;
+                case 3:
+                    m_impactCallback.RearleftImpact(collision.gameObject);
+                    break;
+                case 4:
+                    m_impactCallback.RearRightImpact(collision.gameObject);
+                    break;
+                default:
+                    Debug.Log("Unknow mode selected (1,2,3,4)");
+                    break;
+            }
+
+            }
         }
-    }
 }
