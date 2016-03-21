@@ -19,6 +19,8 @@ public class CharacController : MonoBehaviour
     public GameObject cameraObj;
     CameraController cam;
 
+    public bool _isActiveView = true;
+
     void Start()
     {
         GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
@@ -40,45 +42,47 @@ public class CharacController : MonoBehaviour
 
     void FixedUpdate()
     {
-        _direction = Vector3.zero;
-        if (Input.GetKey("z"))
-            _direction += transform.forward;
-        if (Input.GetKey("s"))
-            _direction -= transform.forward;
-        if (Input.GetKey("q"))
-            _direction -= transform.right;
-        if (Input.GetKey("d"))
-            _direction += transform.right;
-
-        _direction.Normalize();
-        _direction *= movementSpeed;
-
-        Vector3 groundDir = -Vector3.up;
-        float groundDist = 0.2f;
-        RaycastHit hit;
-        Debug.DrawRay(transform.position, new Vector3(0, -groundDist, 0), Color.red, 2.0f, true);
-
-        int layerMask = 1 << 8;
-        layerMask = ~layerMask;
-        if (_wantToJump && Physics.Raycast(transform.position + new Vector3(0.0f,0.2f,0.0f), groundDir, out hit, groundDist, layerMask))
+        if (_isActiveView)
         {
-                _wantToJump = false;
-                jumpTimer = 1;
-                anim.SetBool("Jumping", true);
-                _direction += transform.up * jumpSpeed;
+            _direction = Vector3.zero;
+            if (Input.GetKey("z"))
+                _direction += transform.forward;
+            if (Input.GetKey("s"))
+                _direction -= transform.forward;
+            if (Input.GetKey("q"))
+                _direction -= transform.right;
+            if (Input.GetKey("d"))
+                _direction += transform.right;
+
+            _direction.Normalize();
+            _direction *= movementSpeed;
+
+            Vector3 groundDir = -Vector3.up;
+            float groundDist = 0.2f;
+            RaycastHit hit;
+            Debug.DrawRay(transform.position, new Vector3(0, -groundDist, 0), Color.red, 2.0f, true);
+
+            int layerMask = 1 << 8;
+            layerMask = ~layerMask;
+            if (_wantToJump && Physics.Raycast(transform.position + new Vector3(0.0f,0.2f,0.0f), groundDir, out hit, groundDist, layerMask))
+            {
+                    _wantToJump = false;
+                    jumpTimer = 1;
+                    anim.SetBool("Jumping", true);
+                    _direction += transform.up * jumpSpeed;
+            }
+            _direction.y += _rigidbody.velocity.y;
+            _rigidbody.velocity = _direction;
+
+            Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
+
+            if (velocity.magnitude > 0.25f)
+                anim.SetInteger("Speed", 2);
+            else
+                anim.SetInteger("Speed", 0);
+
+            if (jumpTimer > 0.5) jumpTimer -= Time.deltaTime;
+            else if (anim.GetBool("Jumping") == true) anim.SetBool("Jumping", false);
         }
-        _direction.y += _rigidbody.velocity.y;
-        _rigidbody.velocity = _direction;
-
-        Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
-
-        if (velocity.magnitude > 0.25f)
-            anim.SetInteger("Speed", 2);
-        else
-            anim.SetInteger("Speed", 0);
-
-        if (jumpTimer > 0.5) jumpTimer -= Time.deltaTime;
-        else if (anim.GetBool("Jumping") == true) anim.SetBool("Jumping", false);
-
     }
 }
