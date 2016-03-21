@@ -24,12 +24,6 @@ public class CharacController : MonoBehaviour
         GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
         anim = this.gameObject.GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
-
-       /* cameraObj = Camera.main.gameObject;
-        cam = cameraObj.GetComponent<CameraController>();
-        cam.target = transform.gameObject;
-        cameraObj.transform.parent = transform;
-        cameraObj.transform.localPosition = transform.position + offset;*/
     }
 
     void Update()
@@ -46,41 +40,36 @@ public class CharacController : MonoBehaviour
 
     void FixedUpdate()
     {
-            _direction = Vector3.zero;
-            if (Input.GetKey("z"))
-                _direction += transform.forward;
-            if (Input.GetKey("s"))
-                _direction -= transform.forward;
-            if (Input.GetKey("q"))
-                _direction -= transform.right;
-            if (Input.GetKey("d"))
-                _direction += transform.right;
+        _direction = Vector3.zero;
+        if (Input.GetKey("z"))
+            _direction += transform.forward;
+        if (Input.GetKey("s"))
+            _direction -= transform.forward;
+        if (Input.GetKey("q"))
+            _direction -= transform.right;
+        if (Input.GetKey("d"))
+            _direction += transform.right;
 
-            _direction.Normalize();
-            _direction *= movementSpeed;
+        _direction.Normalize();
+        _direction *= movementSpeed;
 
-            Vector3 groundDir = -Vector3.up;
-            float groundDist = 0.2f;
-            RaycastHit hit;
-            Debug.DrawRay(transform.position, new Vector3(0, -0.2f, 0), Color.red, 2.0f, true);
-            if (Physics.Raycast(transform.position, groundDir, out hit, groundDist))
-            {
-                
-                if (_wantToJump)
-                {
-                    _wantToJump = false;
-                    jumpTimer = 1;
-                    anim.SetBool("Jumping", true);
-                    _direction += transform.up * jumpSpeed;
+        Vector3 groundDir = -Vector3.up;
+        float groundDist = 0.2f;
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, new Vector3(0, -groundDist, 0), Color.red, 2.0f, true);
 
-                }
-            }
-           
-
-            _direction.y += _rigidbody.velocity.y;
-
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+        if (_wantToJump && Physics.Raycast(transform.position + new Vector3(0.0f,0.2f,0.0f), groundDir, out hit, groundDist, layerMask))
+        {
+                _wantToJump = false;
+                jumpTimer = 1;
+                anim.SetBool("Jumping", true);
+                _direction += transform.up * jumpSpeed;
+        }
+        _direction.y += _rigidbody.velocity.y;
         _rigidbody.velocity = _direction;
-        float dotProduct = Vector3.Dot(_rigidbody.velocity, transform.right);
+
         Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
 
         if (velocity.magnitude > 0.25f)
