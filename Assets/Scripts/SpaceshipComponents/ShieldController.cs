@@ -66,4 +66,22 @@ public class ShieldController : MonoBehaviour {
             Debug.Log("m_RearRightLevel " + m_RearRightLevel);
         }
     }
+
+    public int GetShieldsLifeLevel(int ShieldID)
+    {
+        switch (ShieldID)
+        {
+            case 1:
+                return m_FrontLeftLevel;
+            case 2:
+                return m_FrontRightLevel;
+            case 3:
+                return m_RearLeftLevel;
+            case 4:
+                return m_RearRightLevel;
+            default:
+                return 0;
+        }
+
+    }
 }

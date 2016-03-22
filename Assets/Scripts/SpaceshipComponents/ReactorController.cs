@@ -69,4 +69,22 @@ public class ReactorController : MonoBehaviour
             Debug.Log("m_rightMiddleReactor " + m_rightMiddleReactor);
         }
     }
+
+    public int GetReactorLifelevel(int ReactorID)
+    {
+        switch (ReactorID)
+        {
+            case 1:
+                return m_leftReactor;
+            case 2:
+                return m_rightReactor;
+            case 3:
+                return m_leftMiddleReactor;
+            case 4:
+                return m_rightMiddleReactor;
+            default:
+                return 0;
+        }
+
+    }
 }
