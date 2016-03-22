@@ -105,8 +105,11 @@ public class LifepartStateController : MonoBehaviour
     {
         return m_IsElectricDamages;
     }
-    public bool isExplosionDamage()
+    public bool isDestroyed()
     {
-        return m_IsExplosionDamages;
+        if (currentlife <= 0)
+            return true;
+        else
+            return false;
     }
 }
