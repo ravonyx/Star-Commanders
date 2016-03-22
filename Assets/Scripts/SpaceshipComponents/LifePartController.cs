@@ -55,7 +55,16 @@ public class LifePartController : MonoBehaviour {
             part.setMaxLife(m_InsideConsoleLifeMax);
         }
 
-       
+        //SET FIRE ON REACTORS FOR TESTING 
+        //setReactorOnFire(0, true);
+        //setReactorOnFire(1, true);
+        //setReactorOnFire(2, true);
+        //setReactorOnFire(3, true);
+
+        //SET FIRE ON CONSOLES FOR TESTING 
+        //setConsoleOnFire(0, true);
+        //setConsoleOnFire(1, true);
+        //setConsoleOnFire(2, true);
 
     }
 	
@@ -212,4 +221,20 @@ public class LifePartController : MonoBehaviour {
             return m_Console[ID].isDestroyed();
         else return false;
     }
+
+    //Damage Activation of reactors
+    public void setReactorOnFire(int ID,bool state)
+    {
+        if (ID >= 0 && ID < m_insideReactors.Length)
+             m_insideReactors[ID].setOnFire(state);
+    }
+
+    //Damage Activation of consoles
+    public void setConsoleOnFire(int ID, bool state)
+    {
+        if (ID >= 0 && ID < m_Console.Length)
+            m_Console[ID].setOnFire(state);
+    }
 }
+
+

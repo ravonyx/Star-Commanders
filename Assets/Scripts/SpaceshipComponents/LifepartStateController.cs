@@ -4,6 +4,12 @@ using System.Collections;
 public class LifepartStateController : MonoBehaviour
 {
 
+    [SerializeField]
+    private GameObject m_ParticleFireDamages;
+    [SerializeField]
+    private GameObject m_ParticleElectricalDamages;
+    
+
     private int m_lifeMax;
     private int m_fireDamages;
     private int m_EMPDamages;
@@ -16,7 +22,6 @@ public class LifepartStateController : MonoBehaviour
     private bool m_IsExplosionDamages;
 
     private int currentlife;
-    private string name;
 
     // Use this for initialization
     void Start()
@@ -24,6 +29,16 @@ public class LifepartStateController : MonoBehaviour
         currentlife = m_lifeMax;
         InvokeRepeating("applyDamages", 1, 1);
         name = gameObject.name;
+
+        if (m_ParticleFireDamages != null)
+        {
+            m_ParticleFireDamages.SetActive(false);
+        }
+
+        if (m_ParticleElectricalDamages != null)
+        {
+            m_ParticleElectricalDamages.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -35,25 +50,44 @@ public class LifepartStateController : MonoBehaviour
     public void setOnFire(bool state)
     {
         if (state)
+        {
             Debug.Log("Fire started on " + gameObject.name);
+            m_IsFireDamages = true;
+        }
         else
+        {
             Debug.Log("Fire stoped on " + gameObject.name);
+            m_IsFireDamages = false;
+        }
     }
 
     public void setElectricFailure(bool state)
     {
         if (state)
+        {
             Debug.Log("ElectricFailure started on " + gameObject.name);
+            m_IsElectricDamages = true;
+        }
         else
+        {
             Debug.Log("ElectricFailure  stopped on " + gameObject.name);
+            m_IsElectricDamages = false;
+
+        }
     }
 
     public void setEmpFailure(bool state)
     {
         if (state)
+        {
             Debug.Log("EMP Failure started on " + gameObject.name);
+            m_IsEMPDamages = true;
+        }
         else
+        {
             Debug.Log("EMP Failure  stopped on " + gameObject.name);
+            m_IsEMPDamages = false;
+        }
     }
 
     public void setDamages(int FireDamages, int ElectricDamages, int EMPDamages, int ExplosionDamages)
@@ -67,16 +101,30 @@ public class LifepartStateController : MonoBehaviour
     {
         //Debug.Log("Applying damages on " + gameObject.name);
         if (m_IsFireDamages)
+        {
             currentlife -= m_fireDamages;
+            if(m_ParticleFireDamages != null)
+            {
+                m_ParticleFireDamages.SetActive(true);
+            }
+        }
         if (m_IsElectricDamages)
+        {
             currentlife -= m_ElectricDamages;
+            if (m_ParticleElectricalDamages != null)
+            {
+                m_ParticleElectricalDamages.SetActive(true);
+            }
+        }
         if (m_IsEMPDamages)
         {
             currentlife -= m_EMPDamages;
             //Disable This system for external usage in LifePartController /!\
         }
         if (m_IsExplosionDamages)
+        {
             currentlife -= m_ExplosionDamages;
+        }
     }
 
     public int getLifeLevel()
@@ -86,7 +134,7 @@ public class LifepartStateController : MonoBehaviour
 
     public string getName()
     {
-        return name;
+        return gameObject.name; ;
     }
 
     public void setMaxLife(int maxlife)
