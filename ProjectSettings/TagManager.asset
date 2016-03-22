@@ -9,6 +9,7 @@ TagManager:
   - Turbine
   - Xhair
   - bullet
+  - PilotMonitor
   layers:
   - Default
   - TransparentFX

@@ -19,20 +19,20 @@ public class RaycastInteraction : MonoBehaviour
 
     public CameraController camController;
 
-    private GameObject _turret;
+    private GameObject _console;
     private bool _inUse = false;
 
 	void FixedUpdate ()
     {
         if (!camController)
             return;
-        if (_inUse && (Input.GetButtonDown("Use")))
+        if (_inUse && (Input.GetKeyDown(KeyCode.F)))
         {
             camController.isActive = true;
             _characterControler._isActiveView = true;
             _inUse = false;
 
-            _turret.SendMessageUpwards("Activate", false);
+            _console.SendMessageUpwards("Activate", false);
         }
         else if (!_inUse)
         {
@@ -40,11 +40,11 @@ public class RaycastInteraction : MonoBehaviour
             if (Physics.Raycast(transform.position, fwd, 0.8f))
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, fwd, out hit) && (hit.collider.tag == "Monitor"))
+                if (Physics.Raycast(transform.position, fwd, out hit) && ((hit.collider.tag == "Monitor") || (hit.collider.tag == "PilotMonitor")))
                 {
-                    if(Input.GetButtonDown("Use"))
+                    if(Input.GetKeyDown(KeyCode.F))
                     {
-                        _turret = hit.collider.gameObject;
+                        _console = hit.collider.gameObject;
 
                         /*
                         float rayon = 1f;
@@ -57,11 +57,17 @@ public class RaycastInteraction : MonoBehaviour
                         transform.rotation = Quaternion.Euler(0, angle + 90, 0);
                         */
 
-                        camController.isActive = false;
+                        if (hit.collider.tag != "PilotMonitor")
+                        {
+                            camController.isActive = false;
+                        }
+                        else
+                            Debug.Log("monitorPilot");
+
                         _characterControler._isActiveView = false;
                         _inUse = true;
 
-                        _turret.SendMessageUpwards("Activate", true);
+                        _console.SendMessageUpwards("Activate", true);
                     }
                 }
             }
