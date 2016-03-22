@@ -17,6 +17,7 @@ public class ShieldController : MonoBehaviour {
     private int m_FrontRightLevel;
     private int m_RearLeftLevel;
     private int m_RearRightLevel;
+
     // Use this for initialization
     void Start () {
 
