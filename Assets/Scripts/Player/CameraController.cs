@@ -36,9 +36,7 @@ public class CameraController : MonoBehaviour
         _cameraRotation.y += y;
 
         _cameraRotation.y = ClampAngle(_cameraRotation.y, _yMinLimit, _yMaxLimit);
-        transform.rotation = Quaternion.Euler(_cameraRotation.y, _cameraRotation.x, 0);
-
-        target.transform.Rotate(Vector3.up * x);
+        transform.localRotation = Quaternion.Euler(_cameraRotation.y, 0, 0);
     }
 
     float ClampAngle(float angle, float min, float max)

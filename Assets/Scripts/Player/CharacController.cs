@@ -19,17 +19,15 @@ public class CharacController : MonoBehaviour
     public GameObject cameraObj;
     CameraController cam;
 
+    public bool _isActiveView = true;
+    float gravity = -9.81f;
+
+    public GameObject spaceship;
+
     void Start()
     {
-        GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
         anim = this.gameObject.GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
-
-       /* cameraObj = Camera.main.gameObject;
-        cam = cameraObj.GetComponent<CameraController>();
-        cam.target = transform.gameObject;
-        cameraObj.transform.parent = transform;
-        cameraObj.transform.localPosition = transform.position + offset;*/
     }
 
     void Update()
@@ -46,6 +44,8 @@ public class CharacController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_isActiveView)
+        {
             _direction = Vector3.zero;
             if (Input.GetKey("z"))
                 _direction += transform.forward;
@@ -62,34 +62,32 @@ public class CharacController : MonoBehaviour
             Vector3 groundDir = -Vector3.up;
             float groundDist = 0.2f;
             RaycastHit hit;
-            Debug.DrawRay(transform.position, new Vector3(0, -0.2f, 0), Color.red, 2.0f, true);
-            if (Physics.Raycast(transform.position, groundDir, out hit, groundDist))
+            Debug.DrawRay(transform.position, new Vector3(0, -groundDist, 0), Color.red, 2.0f, true);
+
+            int layerMask = 1 << 8;
+            layerMask = ~layerMask;
+            if (_wantToJump && Physics.Raycast(transform.position + new Vector3(0.0f,0.2f,0.0f), groundDir, out hit, groundDist, layerMask))
             {
-                
-                if (_wantToJump)
-                {
                     _wantToJump = false;
                     jumpTimer = 1;
                     anim.SetBool("Jumping", true);
                     _direction += transform.up * jumpSpeed;
-
-                }
             }
-           
 
-            _direction.y += _rigidbody.velocity.y;
+            transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * 5));
+            transform.rotation = Quaternion.FromToRotation(transform.up, spaceship.transform.up) * transform.rotation;
 
-        _rigidbody.velocity = _direction;
-        float dotProduct = Vector3.Dot(_rigidbody.velocity, transform.right);
-        Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
+            _rigidbody.velocity = _direction;
+            _rigidbody.AddForce(gravity * spaceship.transform.up);
 
-        if (velocity.magnitude > 0.25f)
-            anim.SetInteger("Speed", 2);
-        else
-            anim.SetInteger("Speed", 0);
+            Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
+            if (velocity.magnitude > 0.25f)
+                anim.SetInteger("Speed", 2);
+            else
+                anim.SetInteger("Speed", 0);
 
-        if (jumpTimer > 0.5) jumpTimer -= Time.deltaTime;
-        else if (anim.GetBool("Jumping") == true) anim.SetBool("Jumping", false);
-
+            if (jumpTimer > 0.5) jumpTimer -= Time.deltaTime;
+            else if (anim.GetBool("Jumping") == true) anim.SetBool("Jumping", false);
+        }
     }
 }
