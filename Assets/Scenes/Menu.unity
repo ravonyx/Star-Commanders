@@ -736,7 +736,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 919446464}
         m_MethodName: JoinRoom
         m_Mode: 1
         m_Arguments:
