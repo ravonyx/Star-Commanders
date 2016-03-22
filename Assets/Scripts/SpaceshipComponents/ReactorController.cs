@@ -83,7 +83,7 @@ public class ReactorController : MonoBehaviour
             case 4:
                 return m_rightMiddleReactor;
             default:
-                return 0;
+                return -1;
         }
 
     }

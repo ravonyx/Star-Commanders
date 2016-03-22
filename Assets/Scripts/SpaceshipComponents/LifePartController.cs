@@ -78,6 +78,7 @@ public class LifePartController : MonoBehaviour {
         //TODO Use contactsPoints for inside damages calculations
     }
 
+    //Debug Function
     void showAllLifeLevel()
     {
         /*----------------------------------------------
@@ -122,4 +123,93 @@ public class LifePartController : MonoBehaviour {
         }
     }
 
+    //monitoring life level
+    public int getCoolingUnitLife(int ID)
+    {
+        return m_CoolingUnit.GetCoolingUnitLifeLevel(ID);
+    }
+    public int getTurretlife(int ID)
+    {
+        return m_turret.GetTurretLifeLevel(ID);
+    }
+    public int getEngineLife(int ID)
+    {
+        return m_engines.GetReactorLifelevel(ID);
+    }
+    public int getShieldLife(int ID)
+    {
+        return m_shields.GetShieldsLifeLevel(ID);
+    }
+    public int getProjectorLife(int ID)
+    {
+        return m_projectors.GetProjetctorLifeLevel(ID);
+    }
+    public int getConsoleLife(int ID)
+    {
+        if (ID >= 0 && ID < m_Console.Length)
+            return m_Console[ID].getLifeLevel();
+        else return -1;
+    }
+    public int getReactorLife(int ID)
+    {
+        if (ID >= 0 && ID < m_insideReactors.Length)
+            return m_insideReactors[ID].getLifeLevel();
+        else return -1;
+    }
+    public int getHullLife()
+    {
+        return HullLife;
+    }
+    
+    //monitoring state of reactors
+    public bool isReactorOnfire(int ID)
+    {
+        if (ID >= 0 && ID < m_insideReactors.Length)
+            return m_insideReactors[ID].isOnFire();
+        else return false;
+    }
+    public bool isReactorOnElectricalDamage(int ID)
+    {
+        if (ID >= 0 && ID < m_insideReactors.Length)
+            return m_insideReactors[ID].isElectricalDamage();
+        else return false;
+    }
+    public bool isOnEMPDamages(int ID)
+    {
+        if (ID >= 0 && ID < m_insideReactors.Length)
+            return m_insideReactors[ID].isOnEMPDamages();
+        else return false;
+    }
+    public bool isDestroyed(int ID)
+    {
+        if (ID >= 0 && ID < m_insideReactors.Length)
+            return m_insideReactors[ID].isDestroyed();
+        else return false;
+    }
+
+    //monitoring state of Consols
+    public bool isConsoleOnFire(int ID)
+    {
+        if (ID >= 0 && ID < m_Console.Length)
+            return m_Console[ID].isOnFire();
+        else return false;
+    }
+    public bool isConsoleOnElectricalDamages(int ID)
+    {
+        if (ID >= 0 && ID < m_Console.Length)
+            return m_Console[ID].isElectricalDamage();
+        else return false;
+    }
+    public bool isConsoleOnEMPDamage(int ID)
+    {
+        if (ID >= 0 && ID < m_Console.Length)
+            return m_Console[ID].isOnEMPDamages();
+        else return false;
+    }
+    public bool isConsoleDestroyed(int ID)
+    {
+        if (ID >= 0 && ID < m_Console.Length)
+            return m_Console[ID].isDestroyed();
+        else return false;
+    }
 }

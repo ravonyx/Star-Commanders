@@ -83,7 +83,7 @@ public class projectorController : MonoBehaviour
             case 4:
                 return m_rearRightProjector;
             default:
-                return 0;
+                return -1;
         }
 
     }
