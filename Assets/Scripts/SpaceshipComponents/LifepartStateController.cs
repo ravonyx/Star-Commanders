@@ -26,7 +26,7 @@ public class LifepartStateController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        currentlife = m_lifeMax;
+        //currentlife = m_lifeMax;
         InvokeRepeating("applyDamages", 1, 1);
         name = gameObject.name;
 

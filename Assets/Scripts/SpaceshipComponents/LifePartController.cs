@@ -53,6 +53,7 @@ public class LifePartController : MonoBehaviour {
         {
             part.setDamages(m_FireDamageInsideparts, m_ElectricDamagesInsideparts, m_EMPDamageInsideparts, m_ExplosionDamageInsideparts);
             part.setMaxLife(m_InsideConsoleLifeMax);
+            
         }
 
         //SET FIRE ON REACTORS FOR TESTING 
