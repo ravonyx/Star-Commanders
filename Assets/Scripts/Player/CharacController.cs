@@ -20,10 +20,12 @@ public class CharacController : MonoBehaviour
     CameraController cam;
 
     public bool _isActiveView = true;
+    float gravity = -9.81f;
+
+    public GameObject spaceship;
 
     void Start()
     {
-        GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
         anim = this.gameObject.GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
     }
@@ -71,11 +73,14 @@ public class CharacController : MonoBehaviour
                     anim.SetBool("Jumping", true);
                     _direction += transform.up * jumpSpeed;
             }
-            _direction.y += _rigidbody.velocity.y;
+
+            transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * 5));
+            transform.rotation = Quaternion.FromToRotation(transform.up, spaceship.transform.up) * transform.rotation;
+
             _rigidbody.velocity = _direction;
+            _rigidbody.AddForce(gravity * spaceship.transform.up);
 
             Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
-
             if (velocity.magnitude > 0.25f)
                 anim.SetInteger("Speed", 2);
             else

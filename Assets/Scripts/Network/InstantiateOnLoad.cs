@@ -6,6 +6,9 @@ public class InstantiateOnLoad : MonoBehaviour
     public string namePrefab;
     public bool network;
     public Vector3 offset;
+    public Vector3 position;
+
+    public GameObject spaceship;
 
     void Start ()
     {
@@ -13,9 +16,9 @@ public class InstantiateOnLoad : MonoBehaviour
         GameObject cameraObj = null;
 
         if (network)
-            player = PhotonNetwork.Instantiate(namePrefab, Vector3.zero, Quaternion.identity, 0);
+            player = PhotonNetwork.Instantiate(namePrefab, position, Quaternion.identity, 0);
         else
-            player = GameObject.Instantiate(Resources.Load(namePrefab), Vector3.zero, Quaternion.identity) as GameObject;
+            player = GameObject.Instantiate(Resources.Load(namePrefab), position, Quaternion.identity) as GameObject;
 
         if (player)
         {
@@ -30,6 +33,8 @@ public class InstantiateOnLoad : MonoBehaviour
 
             CharacController controller = player.GetComponent<CharacController>();
             controller.enabled = true;
+            controller.spaceship = spaceship;
+
             if(!network)
             {
                 player.GetComponent<NetworkPlayer>().enabled = false;
