@@ -17,6 +17,7 @@ public class LifepartStateController : MonoBehaviour
 
     private int currentlife;
     private string name;
+
     // Use this for initialization
     void Start()
     {
@@ -28,7 +29,7 @@ public class LifepartStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void setOnFire(bool state)
@@ -78,7 +79,7 @@ public class LifepartStateController : MonoBehaviour
             currentlife -= m_ExplosionDamages;
     }
 
-   public int getLifeLevel()
+    public int getLifeLevel()
     {
         return currentlife;
     }
@@ -91,5 +92,21 @@ public class LifepartStateController : MonoBehaviour
     public void setMaxLife(int maxlife)
     {
         currentlife = maxlife;
+    }
+    public bool isOnFire()
+    {
+        return m_IsFireDamages;
+    }
+    public bool isOnEMPDamages()
+    {
+        return m_IsEMPDamages;
+    }
+    public bool isElectricalDamage()
+    {
+        return m_IsElectricDamages;
+    }
+    public bool isExplosionDamage()
+    {
+        return m_IsExplosionDamages;
     }
 }

@@ -68,7 +68,7 @@ public class TurretController : MonoBehaviour
             case 3:
                 return m_rearRightTurret;
             default:
-                return 0;
+                return -1;
         }
         
     }

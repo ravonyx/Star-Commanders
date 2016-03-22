@@ -122,4 +122,42 @@ public class LifePartController : MonoBehaviour {
         }
     }
 
+    public int getCoolingUnitLife(int ID)
+    {
+        return m_CoolingUnit.GetCoolingUnitLifeLevel(ID);
+    }
+    public int getTurretlife(int ID)
+    {
+        return m_turret.GetTurretLifeLevel(ID);
+    }
+    public int getEngineLife(int ID)
+    {
+        return m_engines.GetReactorLifelevel(ID);
+    }
+    public int getShieldLife(int ID)
+    {
+        return m_shields.GetShieldsLifeLevel(ID);
+    }
+    public int getProjectorLife(int ID)
+    {
+        return m_projectors.GetProjetctorLifeLevel(ID);
+    }
+    public int getConsoleLife(int ID)
+    {
+        if (ID >= 0 && ID < m_Console.Length)
+            return m_Console[ID].getLifeLevel();
+        else return -1;
+    }
+    public int getReactorLife(int ID)
+    {
+        if (ID >= 0 && ID < m_insideReactors.Length)
+            return m_insideReactors[ID].getLifeLevel();
+        else return -1;
+    }
+
+    public int getHullLife()
+    {
+        return HullLife;
+    }
+
 }

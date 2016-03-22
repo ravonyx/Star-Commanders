@@ -110,7 +110,7 @@ public class CoolingUnitController : MonoBehaviour {
             case 6:
                 return m_coolingUnit_6;
             default:
-                return 0;
+                return -1;
         }
 
     }

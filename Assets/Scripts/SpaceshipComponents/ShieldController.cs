@@ -80,7 +80,7 @@ public class ShieldController : MonoBehaviour {
             case 4:
                 return m_RearRightLevel;
             default:
-                return 0;
+                return -1;
         }
 
     }
