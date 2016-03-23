@@ -11,7 +11,7 @@ public class MenuSceneScript : MonoBehaviour
     GameObject ActivePanel;
     [SerializeField]
     GameObject[] Panels;
-    Stack<GameObject> Previous = new Stack<GameObject>();
+    List<GameObject> Previous = new List<GameObject>();
 
 	// Use this for initialization
 	void Start ()
@@ -27,10 +27,12 @@ public class MenuSceneScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        foreach(var element in Previous)
+        for(int i = 0; i < Previous.Count; i++)
         {
-            Vector3 pos = transform.rotation * Vector3.forward * distance * Previous.Count;
-            element.transform.position = Vector3.Lerp(element.transform.position, pos,Time.deltaTime * speed);
+            Debug.Log(Previous[i]);
+            float dist = distance * (Previous.Count - i);
+            Vector3 pos = transform.rotation * Vector3.forward * dist;
+            Previous[i].transform.position = Vector3.Lerp(Previous[i].transform.position, pos,Time.deltaTime * speed);
         }
 	}
 
@@ -41,7 +43,7 @@ public class MenuSceneScript : MonoBehaviour
             if (Panels[i] == Panel)
             {
                 Panels[i].SetActive(true);
-                Previous.Push(ActivePanel);
+                Previous.Add(ActivePanel);
                 ActivePanel = Panel;
             }
         }
