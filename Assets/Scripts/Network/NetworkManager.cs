@@ -8,9 +8,11 @@ public class NetworkManager : Photon.PunBehaviour
 
     public Text connectionParameters;
     public Text roomName;
+    public Text nbPlayersText;
     private bool _inRoom = false;
     public Canvas canvas;
     private ListRooms _listRooms;
+    private int nbPlayers = 2;
 
     void Start ()
     {
@@ -25,7 +27,9 @@ public class NetworkManager : Photon.PunBehaviour
     {
         if(connectionParameters)
             connectionParameters.text = PhotonNetwork.connectionStateDetailed.ToString();
-        if(Input.GetKey(KeyCode.Space)) //For debug only
+        if (_inRoom)
+            nbPlayersText.text = PhotonNetwork.playerList.Length + "/" + nbPlayers.ToString(); 
+        if (Input.GetKey(KeyCode.Space)) //For debug only
             this.photonView.RPC("LoadSceneForEach", PhotonTargets.All);
     }
 
@@ -43,8 +47,10 @@ public class NetworkManager : Photon.PunBehaviour
 
     public void CreateRoom()
     {
-        if(!_inRoom)
-            PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = 4 }, null);
+        //int nb = int.Parse(nbPlayers.text);
+        byte value = (byte)nbPlayers;
+        if (!_inRoom)
+            PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = value }, null);
         _inRoom = true;
     }
 
