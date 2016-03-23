@@ -30,11 +30,37 @@ public class MenuSceneScript : MonoBehaviour
         for(int i = 0; i < Previous.Count; i++)
         {
             Debug.Log(Previous[i]);
-            float dist = distance * (Previous.Count - i);
-            Vector3 pos = transform.rotation * Vector3.forward * dist;
-            Previous[i].transform.position = Vector3.Lerp(Previous[i].transform.position, pos,Time.deltaTime * speed);
+            if (i < Previous.Count - 1 && Previous.Count != 1)
+            {
+                Previous[i].SetActive(false);
+                Previous[i].transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+            }
+            else
+            {
+                Previous[i].SetActive(true);
+                float dist = distance * (Previous.Count - i);
+                Vector3 pos = transform.rotation * Vector3.forward * dist;
+                Previous[i].transform.position = Vector3.Lerp(Previous[i].transform.position, pos, Time.deltaTime * speed);
+            }
+            
         }
 	}
+
+    public void ReturnToPanel(GameObject Panel)
+    {
+        for (int i = 0; i < Panels.Length; i++)
+        {
+            if (Panels[i] == Panel)
+            {
+                ActivePanel.SetActive(false);
+               
+                ActivePanel = Panel;
+                Previous.Remove(ActivePanel);
+                Debug.Log(Panel);
+                Panel.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
+            }
+        }
+    }
 
     public void GoToPanel(GameObject Panel)
     {
