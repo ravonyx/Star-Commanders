@@ -1866,6 +1866,10 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1574097015}
   m_Script: {fileID: 11500000, guid: a3c2de88e954b244a9cf06b9ccf5e0cf, type: 3}
+--- !u!1 &1616909326 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 125574, guid: 251bbcd206b751d42934b9155af9912a, type: 2}
+  m_PrefabInternal: {fileID: 97134993}
 --- !u!1001 &1864229314
 Prefab:
   m_ObjectHideFlags: 0
@@ -2014,8 +2018,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namePrefab: playerPrefab
-  network: 0
+  network: 1
   offset: {x: 0, y: 15, z: 1}
+  position: {x: 0, y: 0, z: 0}
+  spaceship: {fileID: 1616909326}
 --- !u!4 &1939474482
 Transform:
   m_ObjectHideFlags: 0
