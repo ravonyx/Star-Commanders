@@ -34,7 +34,7 @@ public class NetworkManager : Photon.PunBehaviour
     {
         if(connectionParameters)
             connectionParameters.text = PhotonNetwork.connectionStateDetailed.ToString();
-        if (_inRoom)
+        if (PhotonNetwork.inRoom)
             nbPlayersText.text = PhotonNetwork.playerList.Length + "/" + nbPlayers.ToString(); 
         if (Input.GetKey(KeyCode.Space)) //For debug only
             this.photonView.RPC("LoadSceneForEach", PhotonTargets.All);
@@ -66,7 +66,7 @@ public class NetworkManager : Photon.PunBehaviour
     {
         //int nb = int.Parse(nbPlayers.text);
         byte value = (byte)nbPlayers;
-        if (!_inRoom && roomName.text != "")
+        if (!PhotonNetwork.inRoom && roomName.text != "")
         {
             PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = value }, null);
             menuScript.GoToPanel(waitPanel);
@@ -82,8 +82,14 @@ public class NetworkManager : Photon.PunBehaviour
             _startTime = 0.0f;
             _fadeTime = 2.0f;
         }
-        
     }
+
+    public void LeaveRoom()
+    {
+        if (PhotonNetwork.inRoom)
+            PhotonNetwork.LeaveRoom();
+    }
+
     void OnPhotonRandomJoinFailed()
     {
         Debug.Log("Can't join random room!");

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class MenuSceneScript : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MenuSceneScript : MonoBehaviour
     GameObject[] Panels;
     List<GameObject> Previous = new List<GameObject>();
 
+    Color colorBackPanel;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -22,7 +25,10 @@ public class MenuSceneScript : MonoBehaviour
         {
             Panels[i].SetActive(false);
         }
-	}
+
+        Color color = ActivePanel.GetComponent<Image>().color;
+        colorBackPanel = new Color(color.r, color.g, color.b, 0.2f); 
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -31,20 +37,26 @@ public class MenuSceneScript : MonoBehaviour
         {
             Debug.Log(Previous[i]);
             if (i < Previous.Count - 1 && Previous.Count != 1)
-            {
                 Previous[i].SetActive(false);
-                Previous[i].transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-            }
             else
             {
                 Previous[i].SetActive(true);
                 float dist = distance * (Previous.Count - i);
                 Vector3 pos = transform.rotation * Vector3.forward * dist;
+
                 Previous[i].transform.position = Vector3.Lerp(Previous[i].transform.position, pos, Time.deltaTime * speed);
             }
             
         }
-	}
+        
+        if(ActivePanel.transform.localPosition.z != 0)
+        {
+            Vector3 posActivePanel =/* transform.rotation*/ Vector3.back * distance;
+            posActivePanel = Vector3.zero;
+            ActivePanel.transform.localPosition = Vector3.Lerp(ActivePanel.transform.localPosition, posActivePanel, Time.deltaTime * speed);
+        }
+       
+    }
 
     public void ReturnToPanel(GameObject Panel)
     {
@@ -53,11 +65,9 @@ public class MenuSceneScript : MonoBehaviour
             if (Panels[i] == Panel)
             {
                 ActivePanel.SetActive(false);
-               
+                Previous.Remove(Panel);
+                Panel.GetComponent<CanvasGroup>().alpha = 1f;
                 ActivePanel = Panel;
-                Previous.Remove(ActivePanel);
-                Debug.Log(Panel);
-                Panel.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
             }
         }
     }
@@ -70,6 +80,7 @@ public class MenuSceneScript : MonoBehaviour
             {
                 Panels[i].SetActive(true);
                 Previous.Add(ActivePanel);
+                ActivePanel.GetComponent<CanvasGroup>().alpha = 0.05f;
                 ActivePanel = Panel;
             }
         }
