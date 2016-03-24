@@ -18,7 +18,9 @@ public class CharacController : Photon.MonoBehaviour
 
     public GameObject cameraObj;
 
-    public bool _isActiveView = true;
+    public bool control = true;
+    public bool rotate = true;
+
     float gravity = -9.81f;
 
     public GameObject spaceship;
@@ -43,7 +45,7 @@ public class CharacController : Photon.MonoBehaviour
     {
         if(photonView.isMine)
         {
-            if (_isActiveView)
+            if (control)
             {
                 _direction = Vector3.zero;
                 if (Input.GetKey("z"))
@@ -86,7 +88,8 @@ public class CharacController : Photon.MonoBehaviour
                 if (jumpTimer > 0.5) jumpTimer -= Time.deltaTime;
                 else if (anim.GetBool("Jumping") == true) anim.SetBool("Jumping", false);
             }
-            transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * 5));
+            if(rotate)
+                transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * 5));
         }
     }
 }

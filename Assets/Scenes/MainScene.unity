@@ -679,6 +679,10 @@ Prefab:
       propertyPath: ObservedComponents.Array.data[0]
       value: 
       objectReference: {fileID: 417889958}
+    - target: {fileID: 11403774, guid: 251bbcd206b751d42934b9155af9912a, type: 2}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 1616909326}
     m_RemovedComponents:
     - {fileID: 11410804, guid: 251bbcd206b751d42934b9155af9912a, type: 2}
     - {fileID: 11415602, guid: 251bbcd206b751d42934b9155af9912a, type: 2}
@@ -2309,7 +2313,7 @@ MonoBehaviour:
   synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ownershipTransfer: 1
   ObservedComponents:
   - {fileID: 1616909328}
   - {fileID: 1616909327}

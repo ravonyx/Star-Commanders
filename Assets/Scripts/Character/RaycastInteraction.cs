@@ -29,7 +29,8 @@ public class RaycastInteraction : MonoBehaviour
         if (_inUse && (Input.GetKeyDown(KeyCode.F)))
         {
             camController.isActive = true;
-            _characterControler._isActiveView = true;
+            _characterControler.control = true;
+            _characterControler.rotate = true;
             _inUse = false;
 
             _console.SendMessageUpwards("Activate", false);
@@ -60,11 +61,12 @@ public class RaycastInteraction : MonoBehaviour
                         if (hit.collider.tag != "PilotMonitor")
                         {
                             camController.isActive = false;
+                            _characterControler.rotate = false;
                         }
                         else
                             Debug.Log("monitorPilot");
 
-                        _characterControler._isActiveView = false;
+                        _characterControler.control = false;
                         _inUse = true;
 
                         _console.SendMessageUpwards("Activate", true);
