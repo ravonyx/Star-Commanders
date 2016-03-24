@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Photon;
 
-public class ObjectRotation: Photon.MonoBehaviour
+public class ObjectPosition : Photon.MonoBehaviour
 {
-    private Quaternion objectRot = Quaternion.identity;
+
+    private Vector3 objectPos = Vector3.zero;
     PhotonView view;
 
     void Update()
     {
         if (!photonView.isMine)
-            transform.rotation = Quaternion.Lerp(transform.rotation, objectRot, Time.deltaTime * 20);
+            transform.position = Vector3.Lerp(transform.position, objectPos, Time.deltaTime * 15);
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -18,12 +18,12 @@ public class ObjectRotation: Photon.MonoBehaviour
         if (stream.isWriting)
         {
             // We own this player: send the others our data
-            stream.SendNext(transform.rotation);
+            stream.SendNext(transform.position);
         }
         else
         {
             // Network player, receive data
-            objectRot = (Quaternion)stream.ReceiveNext();
+            objectPos = (Vector3)stream.ReceiveNext();
         }
     }
 }
