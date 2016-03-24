@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Photon;
 
-public class CharacController : MonoBehaviour
+public class CharacController : Photon.MonoBehaviour
 {
-
     private Animator anim;
     private float jumpTimer = 0;
 
@@ -17,7 +17,6 @@ public class CharacController : MonoBehaviour
     public Vector3 offset;
 
     public GameObject cameraObj;
-    CameraController cam;
 
     public bool _isActiveView = true;
     float gravity = -9.81f;
@@ -32,19 +31,17 @@ public class CharacController : MonoBehaviour
 
     void Update()
     {
-
-            if (Input.GetKeyDown(KeyCode.Space))
-                _wantToJump = true;
-            if (Input.GetKey(KeyCode.LeftShift))
-                movementSpeed = 10.0f;
-            else
-                movementSpeed = 6.0f;
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+            _wantToJump = true;
+        if (Input.GetKey(KeyCode.LeftShift))
+            movementSpeed = 10.0f;
+        else
+            movementSpeed = 6.0f;
     }
 
     void FixedUpdate()
     {
-        if (_isActiveView)
+        if (_isActiveView && photonView.isMine)
         {
             _direction = Vector3.zero;
             if (Input.GetKey("z"))

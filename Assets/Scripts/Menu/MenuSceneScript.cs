@@ -35,7 +35,6 @@ public class MenuSceneScript : MonoBehaviour
     {
         for(int i = 0; i < Previous.Count; i++)
         {
-            Debug.Log(Previous[i]);
             if (i < Previous.Count - 1 && Previous.Count != 1)
                 Previous[i].SetActive(false);
             else
