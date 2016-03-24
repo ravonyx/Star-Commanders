@@ -40,6 +40,7 @@ public class InstantiateOnLoad : MonoBehaviour
                 player.GetComponent<NetworkPlayer>().enabled = false;
                 player.GetComponent<PhotonAnimatorView>().enabled = false;
             }
+            player.transform.parent = spaceship.transform;
         }
         else
             Debug.Log("Add " + namePrefab + " in folder Resources");
