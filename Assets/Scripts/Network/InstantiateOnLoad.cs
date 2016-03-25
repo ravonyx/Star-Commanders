@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class InstantiateOnLoad : MonoBehaviour
+public class InstantiateOnLoad : Photon.MonoBehaviour
 {
     public string namePrefab;
     public bool network;
     public Vector3 offset;
     public Vector3 position;
-
     public GameObject spaceship;
+    [SerializeField]
+    private List<GameObject> _players;
 
     void Start ()
     {
@@ -40,10 +42,16 @@ public class InstantiateOnLoad : MonoBehaviour
                 player.GetComponent<NetworkPlayer>().enabled = false;
                 player.GetComponent<PhotonAnimatorView>().enabled = false;
             }
-            player.transform.parent = spaceship.transform;
+           /* player.transform.parent = spaceship.transform;
+            photonView.RPC("AddPlayer", PhotonTargets.All, player.transform);*/
         }
         else
             Debug.Log("Add " + namePrefab + " in folder Resources");
     }
 
+    [PunRPC]
+    void AddPlayer(GameObject player)
+    {
+        _players.Add(player);
+    }
 }

@@ -7,6 +7,12 @@ public class NetworkPlayer : Photon.MonoBehaviour
     private Vector3 correctPlayerPos = Vector3.zero;
     private Quaternion correctPlayerRot = Quaternion.identity;
 
+    void Start()
+    {
+        GameObject[] array = GameObject.FindGameObjectsWithTag("PlayerShip");
+        transform.parent = array[0].transform;
+    }
+
     void Update()
     {
         if (!photonView.isMine)
