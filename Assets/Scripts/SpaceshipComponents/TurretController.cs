@@ -74,29 +74,11 @@ public class TurretController : MonoBehaviour
 
     private void OnTurretEvent(byte eventcode, object content, int senderid)
     {
-        Debug.Log("event");
         if (eventcode == 4)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_frontTurret = (int)content;
-        }
-
         else if (eventcode == 5)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_rearLeftTurret = (int)content;
-        }
-
         else if (eventcode == 6)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_rearRightTurret = (int)content;
-        }
     }
 }

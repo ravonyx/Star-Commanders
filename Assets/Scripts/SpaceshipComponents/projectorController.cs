@@ -91,37 +91,13 @@ public class projectorController : MonoBehaviour
 
     private void OnProjectorEvent(byte eventcode, object content, int senderid)
     {
-        Debug.Log("event");
         if (eventcode == 11)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_frontLeftprojector = (int)content;
-        }
-
         else if (eventcode == 12)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_frontRightprojector = (int)content;
-        }
-
         else if (eventcode == 13)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_rearLeftProjector = (int)content;
-        }
-
         if (eventcode == 14)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_rearRightProjector = (int)content;
-        }
     }
 }

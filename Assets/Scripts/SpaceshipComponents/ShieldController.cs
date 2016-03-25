@@ -92,37 +92,13 @@ public class ShieldController : MonoBehaviour {
     // handle events:
     private void OnShiedEvent(byte eventcode, object content, int senderid)
     {
-        Debug.Log("event");
         if (eventcode == 0)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_FrontLeftLevel = (int)content;
-        }
-
         else if (eventcode == 1)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_FrontRightLevel = (int)content;
-        }
-
        else if (eventcode == 2)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_RearLeftLevel = (int)content;
-        }
-
         if (eventcode == 3)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_RearRightLevel = (int)content;
-        }
     }
 }

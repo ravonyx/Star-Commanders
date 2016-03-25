@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LifePartController : MonoBehaviour {
+public class LifePartController : MonoBehaviour
+{
 
     [SerializeField]
     private LifepartStateController[] m_insideReactors;
@@ -23,7 +24,7 @@ public class LifePartController : MonoBehaviour {
     private int m_ExplosionDamageInsideparts;
 
     [SerializeField]
-    private projectorController m_projectors;  
+    private projectorController m_projectors;
     [SerializeField]
     private ShieldController m_shields;
     [SerializeField]
@@ -35,13 +36,15 @@ public class LifePartController : MonoBehaviour {
 
     [SerializeField]
     private int m_HullLifeMax;
+    private int HullLife;
 
+    void Awake()
+    {
+        PhotonNetwork.OnEventCall += this.OnHullEvent;
+    }
 
-    private int  HullLife;
-
-    // Use this for initialization
-    void Start () {
-
+    void Start()
+    {
         HullLife = m_HullLifeMax;
 
         foreach (LifepartStateController part in m_insideReactors) // set damages  and max life for reactors
@@ -53,7 +56,7 @@ public class LifePartController : MonoBehaviour {
         {
             part.setDamages(m_FireDamageInsideparts, m_ElectricDamagesInsideparts, m_EMPDamageInsideparts, m_ExplosionDamageInsideparts);
             part.setMaxLife(m_InsideConsoleLifeMax);
-            
+
         }
 
         //SET FIRE ON REACTORS FOR TESTING 
@@ -66,22 +69,14 @@ public class LifePartController : MonoBehaviour {
         //setConsoleOnFire(0, true);
         //setConsoleOnFire(1, true);
         //setConsoleOnFire(2, true);
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-
-       // showAllLifeLevel();
-
-
     }
 
     public void HullImpact(GameObject go, ContactPoint[] contactsPoints)
     {
-        if(go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             HullLife--;
+            PhotonNetwork.RaiseEvent(15, HullLife, true, null);
             Debug.Log("HullLife " + HullLife);
         }
 
@@ -170,8 +165,7 @@ public class LifePartController : MonoBehaviour {
     {
         return HullLife;
     }
-    
-    //monitoring state of reactors
+
     public bool isReactorOnfire(int ID)
     {
         if (ID >= 0 && ID < m_insideReactors.Length)
@@ -224,10 +218,10 @@ public class LifePartController : MonoBehaviour {
     }
 
     //Damage Activation of reactors
-    public void setReactorOnFire(int ID,bool state)
+    public void setReactorOnFire(int ID, bool state)
     {
         if (ID >= 0 && ID < m_insideReactors.Length)
-             m_insideReactors[ID].setOnFire(state);
+            m_insideReactors[ID].setOnFire(state);
     }
 
     //Damage Activation of consoles
@@ -236,6 +230,10 @@ public class LifePartController : MonoBehaviour {
         if (ID >= 0 && ID < m_Console.Length)
             m_Console[ID].setOnFire(state);
     }
+
+    private void OnHullEvent(byte eventcode, object content, int senderid)
+    {
+        if (eventcode == 15)
+            HullLife = (int)content;
+    }
 }
-
-

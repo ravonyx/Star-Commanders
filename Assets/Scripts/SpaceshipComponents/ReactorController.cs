@@ -92,37 +92,13 @@ public class ReactorController : MonoBehaviour
 
     private void OnReactorEvent(byte eventcode, object content, int senderid)
     {
-        Debug.Log("event");
         if (eventcode == 7)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_leftReactor = (int)content;
-        }
-
         else if (eventcode == 8)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_rightReactor = (int)content;
-        }
-
         else if (eventcode == 9)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_leftMiddleReactor = (int)content;
-        }
-
         if (eventcode == 10)
-        {
-            PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
-            Debug.Log("Sender : " + sender);
-            Debug.Log("content : " + content);
             m_rightMiddleReactor = (int)content;
-        }
     }
 }
