@@ -37,7 +37,7 @@ public class projectorController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_frontLeftprojector--;
-            PhotonNetwork.RaiseEvent(0, m_frontLeftprojector, true, null);
+            PhotonNetwork.RaiseEvent(11, m_frontLeftprojector, true, null);
             Debug.Log("m_frontLeftprojector " + m_frontLeftprojector);
         }
     }
@@ -47,7 +47,7 @@ public class projectorController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_frontRightprojector--;
-            PhotonNetwork.RaiseEvent(1, m_frontRightprojector, true, null);
+            PhotonNetwork.RaiseEvent(12, m_frontRightprojector, true, null);
             Debug.Log("m_frontRightprojector " + m_frontRightprojector);
         }
     }
@@ -57,7 +57,7 @@ public class projectorController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rearLeftProjector--;
-            PhotonNetwork.RaiseEvent(2, m_rearLeftProjector, true, null);
+            PhotonNetwork.RaiseEvent(13, m_rearLeftProjector, true, null);
             Debug.Log("m_rearLeftProjector " + m_rearLeftProjector);
         }
     }
@@ -67,7 +67,7 @@ public class projectorController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rearRightProjector--;
-            PhotonNetwork.RaiseEvent(3, m_rearRightProjector, true, null);
+            PhotonNetwork.RaiseEvent(14, m_rearRightProjector, true, null);
             Debug.Log("m_rearRightProjector " + m_rearRightProjector);
         }
     }
@@ -92,7 +92,7 @@ public class projectorController : MonoBehaviour
     private void OnProjectorEvent(byte eventcode, object content, int senderid)
     {
         Debug.Log("event");
-        if (eventcode == 0)
+        if (eventcode == 11)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
@@ -100,7 +100,7 @@ public class projectorController : MonoBehaviour
             m_frontLeftprojector = (int)content;
         }
 
-        else if (eventcode == 1)
+        else if (eventcode == 12)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
@@ -108,7 +108,7 @@ public class projectorController : MonoBehaviour
             m_frontRightprojector = (int)content;
         }
 
-        else if (eventcode == 2)
+        else if (eventcode == 13)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
@@ -116,7 +116,7 @@ public class projectorController : MonoBehaviour
             m_rearLeftProjector = (int)content;
         }
 
-        if (eventcode == 3)
+        if (eventcode == 14)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);

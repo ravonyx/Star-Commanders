@@ -37,7 +37,7 @@ public class ReactorController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_leftReactor--;
-            PhotonNetwork.RaiseEvent(0, m_leftReactor, true, null);
+            PhotonNetwork.RaiseEvent(7, m_leftReactor, true, null);
             Debug.Log("m_leftReactor " + m_leftReactor);
         }
     }
@@ -47,7 +47,7 @@ public class ReactorController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rightReactor--;
-            PhotonNetwork.RaiseEvent(1, m_rightReactor, true, null);
+            PhotonNetwork.RaiseEvent(8, m_rightReactor, true, null);
             Debug.Log("m_rightReactor " + m_rightReactor);
         }
     }
@@ -57,7 +57,7 @@ public class ReactorController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_leftMiddleReactor--;
-            PhotonNetwork.RaiseEvent(2, m_leftMiddleReactor, true, null);
+            PhotonNetwork.RaiseEvent(9, m_leftMiddleReactor, true, null);
             Debug.Log("m_leftMiddleReactor " + m_leftMiddleReactor);
         }
     }
@@ -67,7 +67,7 @@ public class ReactorController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rightMiddleReactor--;
-            PhotonNetwork.RaiseEvent(3, m_rightMiddleReactor, true, null);
+            PhotonNetwork.RaiseEvent(10, m_rightMiddleReactor, true, null);
             Debug.Log("m_rightMiddleReactor " + m_rightMiddleReactor);
         }
     }
@@ -93,7 +93,7 @@ public class ReactorController : MonoBehaviour
     private void OnReactorEvent(byte eventcode, object content, int senderid)
     {
         Debug.Log("event");
-        if (eventcode == 0)
+        if (eventcode == 7)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
@@ -101,7 +101,7 @@ public class ReactorController : MonoBehaviour
             m_leftReactor = (int)content;
         }
 
-        else if (eventcode == 1)
+        else if (eventcode == 8)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
@@ -109,7 +109,7 @@ public class ReactorController : MonoBehaviour
             m_rightReactor = (int)content;
         }
 
-        else if (eventcode == 2)
+        else if (eventcode == 9)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
@@ -117,7 +117,7 @@ public class ReactorController : MonoBehaviour
             m_leftMiddleReactor = (int)content;
         }
 
-        if (eventcode == 3)
+        if (eventcode == 10)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);

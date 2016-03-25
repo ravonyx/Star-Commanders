@@ -32,7 +32,7 @@ public class TurretController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_frontTurret--;
-            PhotonNetwork.RaiseEvent(0, m_frontTurret, true, null);
+            PhotonNetwork.RaiseEvent(4, m_frontTurret, true, null);
             Debug.Log("m_frontTurret " + m_frontTurret);
         }
     }
@@ -42,7 +42,7 @@ public class TurretController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rearLeftTurret--;
-            PhotonNetwork.RaiseEvent(1, m_rearLeftTurret, true, null);
+            PhotonNetwork.RaiseEvent(5, m_rearLeftTurret, true, null);
             Debug.Log("m_rearLeftTurret " + m_rearLeftTurret);
         }
     }
@@ -52,7 +52,7 @@ public class TurretController : MonoBehaviour
         if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rearRightTurret--;
-            PhotonNetwork.RaiseEvent(2, m_rearRightTurret, true, null);
+            PhotonNetwork.RaiseEvent(6, m_rearRightTurret, true, null);
             Debug.Log("m_rearRightTurret " + m_rearRightTurret);
         }
     }
@@ -75,7 +75,7 @@ public class TurretController : MonoBehaviour
     private void OnTurretEvent(byte eventcode, object content, int senderid)
     {
         Debug.Log("event");
-        if (eventcode == 0)
+        if (eventcode == 4)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
@@ -83,7 +83,7 @@ public class TurretController : MonoBehaviour
             m_frontTurret = (int)content;
         }
 
-        else if (eventcode == 1)
+        else if (eventcode == 5)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
@@ -91,7 +91,7 @@ public class TurretController : MonoBehaviour
             m_rearLeftTurret = (int)content;
         }
 
-        else if (eventcode == 2)
+        else if (eventcode == 6)
         {
             PhotonPlayer sender = PhotonPlayer.Find(senderid);  // who sent this?
             Debug.Log("Sender : " + sender);
