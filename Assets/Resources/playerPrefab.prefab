@@ -667,9 +667,10 @@ MonoBehaviour:
   movementSpeed: 4
   jumpSpeed: 4
   _direction: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 15, z: 1}
+  offset: {x: 0, y: 15.8500004, z: 0}
   cameraObj: {fileID: 0}
-  _isActiveView: 1
+  control: 1
+  rotate: 1
   spaceship: {fileID: 0}
 --- !u!114 &11462562
 MonoBehaviour:
@@ -860,11 +861,11 @@ Prefab:
       objectReference: {fileID: 11464788}
     - target: {fileID: 0}
       propertyPath: offset.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: offset.y
-      value: 15
+      value: 15.8500004
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.y
