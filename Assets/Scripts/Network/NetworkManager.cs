@@ -5,15 +5,14 @@ using Photon;
 
 public class NetworkManager : Photon.PunBehaviour
 {
-
     public Text connectionParameters;
     public Text roomName;
+    public Text playerName;
     public Text feedback;
     public Text nbPlayersInRoom;
     public Text nbPlayersWanted;
     public Button playButton;
 
-    private bool _inRoom = false;
     public Canvas canvas;
     private ListRooms _listRooms;
     private int nbPlayers = 2;
@@ -76,7 +75,7 @@ public class NetworkManager : Photon.PunBehaviour
 
     public void CreateRoom()
     {
-        if (nbPlayersWanted.text != "" && roomName.text != "")
+        if (nbPlayersWanted.text != "" && roomName.text != "" && playerName.text != "")
         {
             int nb = int.Parse(nbPlayersWanted.text);
             byte value = (byte)nb;
@@ -84,7 +83,7 @@ public class NetworkManager : Photon.PunBehaviour
             {
                 PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = value }, null);
                 menuScript.GoToPanel(waitPanel);
-                _inRoom = true;
+                PhotonNetwork.playerName = playerName.text;
             }
             else if(nb <= 0)
             {
@@ -98,8 +97,8 @@ public class NetworkManager : Photon.PunBehaviour
         }
         else
         {
-            if (nbPlayersWanted.text == "" && roomName.text == "")
-                feedback.text = "Fill the form";
+            if (playerName.text == "")
+                feedback.text = "Enter name";
             else if (nbPlayersWanted.text == "")
                 feedback.text = "Enter number of players";
             else if (roomName.text == "")
@@ -126,15 +125,18 @@ public class NetworkManager : Photon.PunBehaviour
 
     public void JoinRoom()
     {
-        if(_listRooms.selectedRoomName != "")
+        if(_listRooms.selectedRoomName != "" && playerName.text != "" && !PhotonNetwork.inRoom)
         {
             PhotonNetwork.JoinRoom(_listRooms.selectedRoomName);
             menuScript.GoToPanel(waitPanel);
-            _inRoom = true;
+            PhotonNetwork.playerName = playerName.text;
         }
         else
         {
-            feedback.text = "Select room";
+            if(_listRooms.selectedRoomName == "")
+                feedback.text = "Select room";
+            else if (playerName.text == "")
+                feedback.text = "Enter a name";
 
             Color color = new Color(feedback.color.r, feedback.color.g, feedback.color.b, 1.0f);
             feedback.color = color;

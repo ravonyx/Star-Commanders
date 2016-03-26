@@ -42,16 +42,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
                 player.GetComponent<NetworkPlayer>().enabled = false;
                 player.GetComponent<PhotonAnimatorView>().enabled = false;
             }
-           /* player.transform.parent = spaceship.transform;
-            photonView.RPC("AddPlayer", PhotonTargets.All, player.transform);*/
         }
         else
             Debug.Log("Add " + namePrefab + " in folder Resources");
-    }
-
-    [PunRPC]
-    void AddPlayer(GameObject player)
-    {
-        _players.Add(player);
     }
 }
