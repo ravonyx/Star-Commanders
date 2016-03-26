@@ -38,7 +38,7 @@ public class CharacController : Photon.MonoBehaviour
 
     void FixedUpdate()
     {
-        if (control)
+        if (control && photonView.isMine)
         {
             _direction = Vector3.zero;
             if (Input.GetKey("z"))
@@ -85,7 +85,7 @@ public class CharacController : Photon.MonoBehaviour
 
     void LateUpdate()
     {
-       if (rotate)
+       if (rotate && photonView.isMine)
             transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * Time.deltaTime * 80));
     }
 }
