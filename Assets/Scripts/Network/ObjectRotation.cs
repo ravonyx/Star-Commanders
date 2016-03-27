@@ -10,7 +10,7 @@ public class ObjectRotation: Photon.MonoBehaviour
     void Update()
     {
         if (!photonView.isMine)
-            transform.rotation = Quaternion.Lerp(transform.rotation, objectRot, Time.deltaTime * 20);
+            transform.rotation = Quaternion.Lerp(transform.rotation, objectRot, Time.deltaTime * 15);
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
