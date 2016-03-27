@@ -33,10 +33,6 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
             RaycastInteraction raycast = player.GetComponent<RaycastInteraction>();
             raycast.camController = cam;
 
-            CharacController controller = player.GetComponent<CharacController>();
-            controller.enabled = true;
-            controller.spaceship = spaceship;
-
             if(!network)
             {
                 player.GetComponent<NetworkPlayer>().enabled = false;

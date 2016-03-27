@@ -6,20 +6,47 @@ public class NetworkPlayer : Photon.MonoBehaviour
 {
     private Vector3 correctPlayerPos = Vector3.zero;
     private Quaternion correctPlayerRot = Quaternion.identity;
+    private Vector3 correctDirection = Vector3.zero;
+
+    private CharacController _controller;
+    private const float _gravity = -98.1f;
+    private Rigidbody _rigidbody;
 
     void Start()
     {
         GameObject[] array = GameObject.FindGameObjectsWithTag("PlayerShip");
-        transform.parent = array[0].transform;
+        if (array.Length != 1)
+            Debug.LogError("PlayerShip tag not assigned");
+        else
+        {
+            transform.parent = array[0].transform;
+            _controller = GetComponent<CharacController>();
+            _controller.spaceship = array[0];
+            _rigidbody = GetComponent<Rigidbody>();
+        }
     }
 
     void Update()
     {
         if (!photonView.isMine)
         {
-            transform.position = Vector3.Lerp(transform.position, correctPlayerPos, Time.deltaTime * 15);
-            transform.rotation = Quaternion.Lerp(transform.rotation, correctPlayerRot, Time.deltaTime * 20);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, correctPlayerPos, Time.deltaTime * 15);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, correctPlayerRot, Time.deltaTime * 15);
         }
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 newVelocity = Vector3.zero;
+        if (photonView.isMine)
+            newVelocity = _controller._direction;
+        else
+            newVelocity = correctDirection;
+        newVelocity = transform.TransformDirection(newVelocity);
+        if (_controller.spaceship != null)
+            newVelocity += _gravity * _controller.spaceship.transform.up;
+        newVelocity *= Time.deltaTime;
+        _rigidbody.velocity = newVelocity;
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -27,14 +54,16 @@ public class NetworkPlayer : Photon.MonoBehaviour
         if (stream.isWriting)
         {
             // We own this player: send the others our data
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+            stream.SendNext(_controller._direction);
         }
         else
         {
             // Network player, receive data
             correctPlayerPos = (Vector3)stream.ReceiveNext();
             correctPlayerRot = (Quaternion)stream.ReceiveNext();
+            correctDirection = (Vector3)stream.ReceiveNext();
         }
     }
 }

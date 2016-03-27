@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
         if (target == null || !isActive)
             return;
 
-        float y = -Input.GetAxis("Mouse Y") * Time.deltaTime * 80;
+        float y = -Input.GetAxis("Mouse Y") * Time.deltaTime * 100;
 
         _cameraRotation.y += y;
         _cameraRotation.y = ClampAngle(_cameraRotation.y, _yMinLimit, _yMaxLimit);
