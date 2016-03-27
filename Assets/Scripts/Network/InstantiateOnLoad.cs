@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class InstantiateOnLoad : Photon.MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     public Vector3 offset;
     public Vector3 position;
     public GameObject spaceship;
+
     [SerializeField]
     private List<GameObject> _players;
+
+    [SerializeField]
+    private Text _playerInfo;
 
     void Start ()
     {
@@ -32,12 +37,14 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
 
             RaycastInteraction raycast = player.GetComponent<RaycastInteraction>();
             raycast.camController = cam;
+            raycast._playerInfo = _playerInfo;
 
             if(!network)
             {
                 player.GetComponent<NetworkPlayer>().enabled = false;
                 player.GetComponent<PhotonAnimatorView>().enabled = false;
             }
+            player.transform.parent = spaceship.transform;
         }
         else
             Debug.Log("Add " + namePrefab + " in folder Resources");

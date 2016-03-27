@@ -5,6 +5,7 @@
 // Library
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 
 // --------------------------------------------------
@@ -18,6 +19,7 @@ public class RaycastInteraction : MonoBehaviour
     CharacController _characterControler;
 
     public CameraController camController;
+    public Text _playerInfo;
 
     private GameObject _console;
     private bool _inUse = false;
@@ -26,14 +28,32 @@ public class RaycastInteraction : MonoBehaviour
     {
         if (!camController)
             return;
+
         if (_inUse && (Input.GetKeyDown(KeyCode.F)))
         {
+            _playerInfo.alignment = TextAnchor.MiddleCenter;
             camController.isActive = true;
             _characterControler.control = true;
             _characterControler.rotate = true;
             _inUse = false;
 
             _console.SendMessageUpwards("Activate", false);
+        }
+        else if (_inUse && (Input.GetKeyDown(KeyCode.I)))
+        {
+            if (_playerInfo.text == "")
+            {
+                if (_console.tag == "PilotMonitor")
+                {
+                    _playerInfo.text = "Pilot Control:\nPitch - Z / S\nYaw - Q / D\nRoll - A / E\nAccelerate - Maj\nDeccelerate - Ctrl\nHide Info - I\nExit Console - F";
+                }
+                else if (_console.tag == "Monitor")
+                {
+                    _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
+                }
+            }
+            else
+                _playerInfo.text = "";
         }
         else if (!_inUse)
         {
@@ -43,9 +63,20 @@ public class RaycastInteraction : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, fwd, out hit) && ((hit.collider.tag == "Monitor") || (hit.collider.tag == "PilotMonitor")))
                 {
-                    if(Input.GetKeyDown(KeyCode.F))
+                    _playerInfo.text = "Press F to interact !";
+
+                    if (Input.GetKeyDown(KeyCode.F))
                     {
                         _console = hit.collider.gameObject;
+                        _playerInfo.alignment = TextAnchor.MiddleLeft;
+                        if (_console.tag == "PilotMonitor")
+                        {
+                            _playerInfo.text = "Pilot Control:\nPitch - Z / S\nYaw - Q / D\nRoll - A / E\nAccelerate - Maj\nDeccelerate - Ctrl\nHide Info - I\nExit Console - F";
+                        }
+                        else if (_console.tag == "Monitor")
+                        {
+                            _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
+                        }
 
                         /*
                         float rayon = 1f;
@@ -63,8 +94,6 @@ public class RaycastInteraction : MonoBehaviour
                             camController.isActive = false;
                             _characterControler.rotate = false;
                         }
-                        else
-                            Debug.Log("monitorPilot");
 
                         _characterControler.control = false;
                         _inUse = true;
@@ -73,6 +102,8 @@ public class RaycastInteraction : MonoBehaviour
                     }
                 }
             }
+            else if (_playerInfo.text != "")
+                _playerInfo.text = "";
         }
 	}
 }
