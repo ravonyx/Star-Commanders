@@ -80,12 +80,12 @@ public class TurretMonitors : MonoBehaviour
                 _pivotZ.localEulerAngles = new Vector3(_pivotZ.localEulerAngles.x, _pivotZ.localEulerAngles.y, rotationZ);
             }
 
-            if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !_reload)
+            if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !_reload && !_wantToShoot)
             {
                 _wantToShoot = true;
                 StartCoroutine(TryToShoot());
             }
-            if (!Input.GetMouseButton(0) && _reload)
+            if (!Input.GetMouseButton(0))
             {
                 _wantToShoot = false;
                 StopCoroutine(TryToShoot());
