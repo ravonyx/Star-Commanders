@@ -66045,7 +66045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namePrefab: playerPrefab
-  network: 0
+  network: 1
   offset: {x: 0, y: 15.8500004, z: 0}
   position: {x: 0, y: -.5, z: -22}
   spaceship: {fileID: 1616909326}
