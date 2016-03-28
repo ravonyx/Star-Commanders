@@ -43630,7 +43630,7 @@ Transform:
   - {fileID: 1628582443}
   - {fileID: 1402870221}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1322160205
 GameObject:
   m_ObjectHideFlags: 0
@@ -66045,9 +66045,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namePrefab: playerPrefab
-  network: 1
+  network: 0
   offset: {x: 0, y: 15.8500004, z: 0}
-  position: {x: 0, y: 0, z: -22}
+  position: {x: 0, y: -.5, z: -22}
   spaceship: {fileID: 1616909326}
   _players: []
   _playerInfo: {fileID: 963312413}

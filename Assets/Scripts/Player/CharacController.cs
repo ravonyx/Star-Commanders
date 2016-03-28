@@ -77,7 +77,7 @@ public class CharacController : Photon.MonoBehaviour
     }
     void LateUpdate()
     {
-       if (rotate && photonView.isMine)
+       if (rotate)
             transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * Time.deltaTime * 100));
     }
 }

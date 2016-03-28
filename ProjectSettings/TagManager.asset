@@ -10,7 +10,6 @@ TagManager:
   - Xhair
   - bullet
   - PilotMonitor
-  - PlayerShip
   - EnergyMonitor
   layers:
   - Default
