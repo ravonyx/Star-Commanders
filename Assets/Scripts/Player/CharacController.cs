@@ -7,7 +7,10 @@ public class CharacController : Photon.MonoBehaviour
     private Animator anim;
     private float jumpTimer = 0;
 
-    public float movementSpeed = 4.0f;
+    public float speedMax;
+    public float speedStandard;
+
+    private float movementSpeed;
     private float _jumpSpeed = 5.0f;
 
     private bool _wantToJump = false;
@@ -27,6 +30,7 @@ public class CharacController : Photon.MonoBehaviour
     {
         anim = this.gameObject.GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
+        movementSpeed = speedStandard;
     }
 
     void Update()
@@ -46,9 +50,9 @@ public class CharacController : Photon.MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
                 _wantToJump = true;
             if (Input.GetKey(KeyCode.LeftShift))
-                movementSpeed = 450.0f;
+                movementSpeed = speedMax;
             else
-                movementSpeed = 350.0f;
+                movementSpeed = speedStandard;
 
             _direction.Normalize();
             _direction *= movementSpeed;
