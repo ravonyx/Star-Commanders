@@ -24,20 +24,29 @@ public class RaycastInteraction : MonoBehaviour
     private GameObject _console;
     private bool _inUse = false;
 
+    private bool _keyFPush = false;
+
 	void FixedUpdate ()
     {
         if (!camController)
             return;
 
-        if (_inUse && (Input.GetKeyDown(KeyCode.F)))
+        if (Input.GetKeyUp(KeyCode.F) && _keyFPush)
+        {
+            _keyFPush = false;
+        }
+
+        if (_inUse && (Input.GetKeyDown(KeyCode.F)) && !_keyFPush)
         {
             _playerInfo.alignment = TextAnchor.MiddleCenter;
+            _playerInfo.text = "";
             camController.isActive = true;
             _characterControler.control = true;
             _characterControler.rotate = true;
             _inUse = false;
 
             _console.SendMessageUpwards("Activate", false);
+            _keyFPush = true;
         }
         else if (_inUse && (Input.GetKeyDown(KeyCode.I)))
         {
@@ -69,7 +78,7 @@ public class RaycastInteraction : MonoBehaviour
                 {
                     _playerInfo.text = "Press F to interact !";
 
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(KeyCode.F) && !_keyFPush)
                     {
                         _console = hit.collider.gameObject;
                         _playerInfo.alignment = TextAnchor.MiddleLeft;
@@ -107,6 +116,7 @@ public class RaycastInteraction : MonoBehaviour
                         _inUse = true;
 
                         _console.SendMessageUpwards("Activate", true);
+                        _keyFPush = true;
                     }
                 }
             }
