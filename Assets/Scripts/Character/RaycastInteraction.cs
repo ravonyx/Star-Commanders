@@ -45,11 +45,15 @@ public class RaycastInteraction : MonoBehaviour
             {
                 if (_console.tag == "PilotMonitor")
                 {
-                    _playerInfo.text = "Pilot Control:\nPitch - Z / S\nYaw - Q / D\nRoll - A / E\nAccelerate - Maj\nDeccelerate - Ctrl\nHide Info - I\nExit Console - F";
+                    _playerInfo.text = "Pilot Controls:\nPitch - Z / S\nYaw - Q / D\nRoll - A / E\nAccelerate - Maj\nDeccelerate - Ctrl\nHide Info - I\nExit Console - F";
                 }
                 else if (_console.tag == "Monitor")
                 {
-                    _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
+                    _playerInfo.text = "Turret Controls:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
+                }
+                else if (_console.tag == "EnergyMonitor")
+                {
+                    _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
                 }
             }
             else
@@ -61,7 +65,7 @@ public class RaycastInteraction : MonoBehaviour
             if (Physics.Raycast(transform.position, fwd, 0.8f))
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, fwd, out hit) && ((hit.collider.tag == "Monitor") || (hit.collider.tag == "PilotMonitor")))
+                if (Physics.Raycast(transform.position, fwd, out hit) && ((hit.collider.tag == "Monitor") || (hit.collider.tag == "PilotMonitor") || (hit.collider.tag == "EnergyMonitor")))
                 {
                     _playerInfo.text = "Press F to interact !";
 
@@ -77,6 +81,10 @@ public class RaycastInteraction : MonoBehaviour
                         {
                             _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
                         }
+                        else if (_console.tag == "EnergyMonitor")
+                        {
+                            _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
+                        }
 
                         /*
                         float rayon = 1f;
@@ -89,7 +97,7 @@ public class RaycastInteraction : MonoBehaviour
                         transform.rotation = Quaternion.Euler(0, angle + 90, 0);
                         */
 
-                        if (hit.collider.tag != "PilotMonitor")
+                        if (hit.collider.tag == "Monitor")
                         {
                             camController.isActive = false;
                             _characterControler.rotate = false;

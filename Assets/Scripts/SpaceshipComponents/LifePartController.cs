@@ -38,6 +38,13 @@ public class LifePartController : MonoBehaviour
     private int m_HullLifeMax;
     private int HullLife;
 
+    [SerializeField]
+    private int _energyWeapon = 100;
+    [SerializeField]
+    private int _energyShield = 100;
+    [SerializeField]
+    private int _energyPropulsor = 100;
+
     void Awake()
     {
         PhotonNetwork.OnEventCall += this.OnHullEvent;
@@ -235,5 +242,33 @@ public class LifePartController : MonoBehaviour
     {
         if (eventcode == 15)
             HullLife = (int)content;
+    }
+
+
+
+    public void setEnergyWeapon(int energy)
+    {
+        _energyWeapon += energy;
+    }
+    public void setEnergyShield(int energy)
+    {
+        _energyShield += energy;
+    }
+    public void setEnergyPropulsor(int energy)
+    {
+        _energyPropulsor += energy;
+    }
+
+    public int getEnergyWeapon()
+    {
+        return _energyWeapon;
+    }
+    public int getEnergyShield()
+    {
+        return _energyShield;
+    }
+    public int getEnergyPropulsor()
+    {
+        return _energyPropulsor;
     }
 }
