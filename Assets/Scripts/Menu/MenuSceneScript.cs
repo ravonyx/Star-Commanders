@@ -2,86 +2,123 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 public class MenuSceneScript : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Distance beetween each faded frames")]
     float distance = 20.0f;
     [SerializeField]
+    [Tooltip("Speed the frame will move and fade")]
     float speed = 10.0f;
-    GameObject ActivePanel;
+    CanvasGroup ActivePanel
+    {
+        get
+        {
+            return StackedPanels.Peek();
+        }
+    }
     [SerializeField]
-    GameObject[] Panels;
-    List<GameObject> Previous = new List<GameObject>();
-
-    Color colorBackPanel;
+    [Tooltip("Must have at least one element on position 0")]
+    CanvasGroup[] Panels;
+    Stack<CanvasGroup> StackedPanels = new Stack<CanvasGroup>();
 
 	// Use this for initialization
 	void Start ()
     {
-        ActivePanel = Panels[0];
-        ActivePanel.SetActive(true);
+        StackedPanels.Push(Panels[0]);
+        ActivePanel.gameObject.SetActive(true);
         for (int i = 1; i < Panels.Length; i++)
         {
-            Panels[i].SetActive(false);
+            Panels[i].gameObject.SetActive(false);
         }
-
-        Color color = ActivePanel.GetComponent<Image>().color;
-        colorBackPanel = new Color(color.r, color.g, color.b, 0.2f); 
     }
-	
+
+    void OnValidate()
+    {
+        if (Panels.Length > 0)
+        {
+            for (int i = 0; i < Panels.Length; i++)
+            {
+                Panels[i].gameObject.SetActive(false);
+                for (int j = i+1; j < Panels.Length; j++)
+                {
+                    if (Panels[i] == Panels[j])
+                    {
+                        Panels[j] = null;
+                        // Delete multiple references
+                        Debug.LogWarning("This image is already in the menu system.");
+                    }
+                }
+            }
+            Panels[0].gameObject.SetActive(true);
+        }
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
-        for(int i = 0; i < Previous.Count; i++)
+        for(int i = 0; i < StackedPanels.Count; i++)
         {
-            if (i < Previous.Count - 1 && Previous.Count != 1)
-                Previous[i].SetActive(false);
-            else
-            {
-                Previous[i].SetActive(true);
-                float dist = distance * (Previous.Count - i);
-                Vector3 pos = transform.rotation * Vector3.forward * dist;
-
-                Previous[i].transform.position = Vector3.Lerp(Previous[i].transform.position, pos, Time.deltaTime * speed);
-            }
-            
+            float dist = distance * i;
+            float al = StackedPanels.ElementAt(i).alpha;
+            al = 1.0f / Mathf.Exp(i);
+            Vector3 pos = transform.position + transform.rotation * Vector3.forward * dist;
+            StackedPanels.ElementAt(i).transform.position = Vector3.Lerp(StackedPanels.ElementAt(i).transform.position, pos, Time.deltaTime * speed);
+            StackedPanels.ElementAt(i).alpha = Mathf.Lerp(StackedPanels.ElementAt(i).alpha, al, Time.deltaTime * speed);
         }
-        
-        if(ActivePanel.transform.localPosition.z != 0)
-        {
-            Vector3 posActivePanel =/* transform.rotation*/ Vector3.back * distance;
-            posActivePanel = Vector3.zero;
-            ActivePanel.transform.localPosition = Vector3.Lerp(ActivePanel.transform.localPosition, posActivePanel, Time.deltaTime * speed);
-        }
-       
     }
 
-    public void ReturnToPanel(GameObject Panel)
+    public void GoToPanel(CanvasGroup Panel)
     {
-        for (int i = 0; i < Panels.Length; i++)
+        if (StackedPanels.Contains(Panel))
         {
-            if (Panels[i] == Panel)
+            while (ActivePanel != Panel)
             {
-                ActivePanel.SetActive(false);
-                Previous.Remove(Panel);
-                Panel.GetComponent<CanvasGroup>().alpha = 1f;
-                ActivePanel = Panel;
+                Back();
+            }
+        }
+        else
+        {
+            if (Panels.Contains(Panel))
+            {
+                ActivateControls(ActivePanel, false);
+                StackedPanels.Push(Panel);
+                ActivePanel.gameObject.SetActive(true);
             }
         }
     }
 
     public void GoToPanel(GameObject Panel)
     {
-        for (int i = 0; i < Panels.Length; i++)
+        try
         {
-            if (Panels[i] == Panel)
-            {
-                Panels[i].SetActive(true);
-                Previous.Add(ActivePanel);
-                ActivePanel.GetComponent<CanvasGroup>().alpha = 0.05f;
-                ActivePanel = Panel;
-            }
+            GoToPanel(Panel.GetComponent<CanvasGroup>());
+        }
+        catch( System.ArgumentNullException )
+        {
+            Debug.LogError("Panel must have a valid image as component");
+        }
+    }
+
+    public void Back()
+    {
+        if (StackedPanels.Count > 0)
+        {
+            ActivePanel.gameObject.SetActive(false);
+            StackedPanels.Pop();
+            ActivateControls(ActivePanel, true);
+            ActivePanel.gameObject.SetActive(true);
+        }
+    }
+
+    public void ActivateControls(CanvasGroup Panel, bool state = true)
+    {
+        var buttons = Panel.GetComponentsInChildren<Button>();
+        foreach (var button in buttons)
+        {
+            button.enabled = state;
         }
     }
 }
