@@ -10273,6 +10273,10 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: .800000012
       objectReference: {fileID: 0}
+    - target: {fileID: 129584, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
   m_IsPrefabParent: 0
@@ -67667,7 +67671,6 @@ MonoBehaviour:
   offset: {x: 0, y: 15.8500004, z: 0}
   position: {x: 0, y: -.5, z: -22}
   spaceship: {fileID: 1616909326}
-  _players: []
   _playerInfo: {fileID: 963312413}
 --- !u!4 &1939474482
 Transform:

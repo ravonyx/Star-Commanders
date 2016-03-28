@@ -23,7 +23,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
             if (player)
                 InitPlayer(player);
             else
-                Debug.Log("Add " + namePrefab + " in folder Resources");
+                Debug.LogError("Add " + namePrefab + " in folder Resources");
         }
         else
         {
