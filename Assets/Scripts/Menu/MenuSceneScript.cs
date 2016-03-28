@@ -83,7 +83,7 @@ public class MenuSceneScript : MonoBehaviour
         {
             if (Panels.Contains(Panel))
             {
-                ActivateControls(ActivePanel, false);
+                ActivePanel.interactable = false;
                 StackedPanels.Push(Panel);
                 ActivePanel.gameObject.SetActive(true);
             }
@@ -108,17 +108,8 @@ public class MenuSceneScript : MonoBehaviour
         {
             ActivePanel.gameObject.SetActive(false);
             StackedPanels.Pop();
-            ActivateControls(ActivePanel, true);
+            ActivePanel.interactable = true;
             ActivePanel.gameObject.SetActive(true);
-        }
-    }
-
-    public void ActivateControls(CanvasGroup Panel, bool state = true)
-    {
-        var buttons = Panel.GetComponentsInChildren<Button>();
-        foreach (var button in buttons)
-        {
-            button.enabled = state;
         }
     }
 }
