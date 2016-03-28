@@ -84,4 +84,9 @@ public class MenuSceneScript : MonoBehaviour
             }
         }
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
