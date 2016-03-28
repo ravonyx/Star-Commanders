@@ -25,7 +25,7 @@ public class ShipController : MonoBehaviour
 
     void LateUpdate()
     {
-        //Coordinates pause - play with manager object
+        // Coordinates pause - play with manager object
         if (status)
         {
             //Rotation manager
@@ -80,6 +80,11 @@ public class ShipController : MonoBehaviour
             turbine.GetComponent<LensFlare>().brightness = intensity;
         }*/
    }
+
+    public void SetActive(bool active)
+    {
+        status = active;
+    }
 
 }
 

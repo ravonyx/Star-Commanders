@@ -5,6 +5,7 @@
 // Library
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 
 // --------------------------------------------------
@@ -18,21 +19,54 @@ public class RaycastInteraction : MonoBehaviour
     CharacController _characterControler;
 
     public CameraController camController;
+    public Text _playerInfo;
 
-    private GameObject _turret;
+    private GameObject _console;
     private bool _inUse = false;
+
+    private bool _keyFPush = false;
 
 	void FixedUpdate ()
     {
         if (!camController)
             return;
-        if (_inUse && (Input.GetButtonDown("Use")))
+
+        if (Input.GetKeyUp(KeyCode.F) && _keyFPush)
         {
+            _keyFPush = false;
+        }
+
+        if (_inUse && (Input.GetKeyDown(KeyCode.F)) && !_keyFPush)
+        {
+            _playerInfo.alignment = TextAnchor.MiddleCenter;
+            _playerInfo.text = "";
             camController.isActive = true;
-            _characterControler._isActiveView = true;
+            _characterControler.control = true;
+            _characterControler.rotate = true;
             _inUse = false;
 
-            _turret.SendMessageUpwards("Activate", false);
+            _console.SendMessageUpwards("Activate", false);
+            _keyFPush = true;
+        }
+        else if (_inUse && (Input.GetKeyDown(KeyCode.I)))
+        {
+            if (_playerInfo.text == "")
+            {
+                if (_console.tag == "PilotMonitor")
+                {
+                    _playerInfo.text = "Pilot Controls:\nPitch - Z / S\nYaw - Q / D\nRoll - A / E\nAccelerate - Maj\nDeccelerate - Ctrl\nHide Info - I\nExit Console - F";
+                }
+                else if (_console.tag == "Monitor")
+                {
+                    _playerInfo.text = "Turret Controls:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
+                }
+                else if (_console.tag == "EnergyMonitor")
+                {
+                    _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
+                }
+            }
+            else
+                _playerInfo.text = "";
         }
         else if (!_inUse)
         {
@@ -40,11 +74,26 @@ public class RaycastInteraction : MonoBehaviour
             if (Physics.Raycast(transform.position, fwd, 0.8f))
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, fwd, out hit) && (hit.collider.tag == "Monitor"))
+                if (Physics.Raycast(transform.position, fwd, out hit) && ((hit.collider.tag == "Monitor") || (hit.collider.tag == "PilotMonitor") || (hit.collider.tag == "EnergyMonitor")))
                 {
-                    if(Input.GetButtonDown("Use"))
+                    _playerInfo.text = "Press F to interact !";
+
+                    if (Input.GetKeyDown(KeyCode.F) && !_keyFPush)
                     {
-                        _turret = hit.collider.gameObject;
+                        _console = hit.collider.gameObject;
+                        _playerInfo.alignment = TextAnchor.MiddleLeft;
+                        if (_console.tag == "PilotMonitor")
+                        {
+                            _playerInfo.text = "Pilot Control:\nPitch - Z / S\nYaw - Q / D\nRoll - A / E\nAccelerate - Maj\nDeccelerate - Ctrl\nHide Info - I\nExit Console - F";
+                        }
+                        else if (_console.tag == "Monitor")
+                        {
+                            _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
+                        }
+                        else if (_console.tag == "EnergyMonitor")
+                        {
+                            _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
+                        }
 
                         /*
                         float rayon = 1f;
@@ -57,14 +106,22 @@ public class RaycastInteraction : MonoBehaviour
                         transform.rotation = Quaternion.Euler(0, angle + 90, 0);
                         */
 
-                        camController.isActive = false;
-                        _characterControler._isActiveView = false;
+                        if (hit.collider.tag == "Monitor")
+                        {
+                            camController.isActive = false;
+                            _characterControler.rotate = false;
+                        }
+
+                        _characterControler.control = false;
                         _inUse = true;
 
-                        _turret.SendMessageUpwards("Activate", true);
+                        _console.SendMessageUpwards("Activate", true);
+                        _keyFPush = true;
                     }
                 }
             }
+            else if (_playerInfo.text != "")
+                _playerInfo.text = "";
         }
 	}
 }

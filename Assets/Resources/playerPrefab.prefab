@@ -565,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 196074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5.32999992}
-  m_LocalScale: {x: .0799999982, y: .0799999982, z: .0799999982}
+  m_LocalScale: {x: .0700000003, y: .0700000003, z: .0700000003}
   m_Children:
   - {fileID: 432612}
   - {fileID: 417578}
@@ -621,8 +621,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 18, z: 8}
-  m_Center: {x: 0, y: 9, z: 0}
+  m_Size: {x: 7, y: 18, z: 10}
+  m_Center: {x: .400000006, y: 9, z: .400000006}
 --- !u!95 &9564258
 Animator:
   serializedVersion: 3
@@ -667,9 +667,10 @@ MonoBehaviour:
   movementSpeed: 4
   jumpSpeed: 4
   _direction: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 15, z: 1}
+  offset: {x: 0, y: 15.8500004, z: 0}
   cameraObj: {fileID: 0}
-  _isActiveView: 1
+  control: 1
+  rotate: 1
   spaceship: {fileID: 0}
 --- !u!114 &11462562
 MonoBehaviour:
@@ -860,11 +861,11 @@ Prefab:
       objectReference: {fileID: 11464788}
     - target: {fileID: 0}
       propertyPath: offset.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: offset.y
-      value: 15
+      value: 15.8500004
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.y
@@ -872,7 +873,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.z
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _characterControler
@@ -884,15 +885,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: .0799999982
+      value: .0700000003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: .0799999982
+      value: .0700000003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
-      value: .0799999982
+      value: .0700000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Center.x
+      value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Center.z
+      value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

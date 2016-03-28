@@ -18,54 +18,56 @@ public class ReactorController : MonoBehaviour
     private int m_rightReactor;
     private int m_leftMiddleReactor;
     private int m_rightMiddleReactor;
-    // Use this for initialization
+
+    void Awake()
+    {
+        PhotonNetwork.OnEventCall += this.OnReactorEvent;
+    }
+
     void Start()
     {
-
         m_leftReactor = m_leftReactorMax;
         m_rightReactor = m_rightReactorMax;
         m_leftMiddleReactor = m_leftMiddleReactorMax;
         m_rightMiddleReactor = m_rightMiddleReactorMax;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void leftReactorImpac(GameObject go)
     {
-        if (go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_leftReactor--;
+            PhotonNetwork.RaiseEvent(7, m_leftReactor, true, null);
             Debug.Log("m_leftReactor " + m_leftReactor);
         }
     }
 
     public void rightReactorImpact(GameObject go)
     {
-        if (go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rightReactor--;
+            PhotonNetwork.RaiseEvent(8, m_rightReactor, true, null);
             Debug.Log("m_rightReactor " + m_rightReactor);
         }
     }
 
     public void leftMiddleReactorImpact(GameObject go)
     {
-        if (go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_leftMiddleReactor--;
+            PhotonNetwork.RaiseEvent(9, m_leftMiddleReactor, true, null);
             Debug.Log("m_leftMiddleReactor " + m_leftMiddleReactor);
         }
     }
 
     public void rightMiddleReactorImpact(GameObject go)
     {
-        if (go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rightMiddleReactor--;
+            PhotonNetwork.RaiseEvent(10, m_rightMiddleReactor, true, null);
             Debug.Log("m_rightMiddleReactor " + m_rightMiddleReactor);
         }
     }
@@ -86,5 +88,17 @@ public class ReactorController : MonoBehaviour
                 return -1;
         }
 
+    }
+
+    private void OnReactorEvent(byte eventcode, object content, int senderid)
+    {
+        if (eventcode == 7)
+            m_leftReactor = (int)content;
+        else if (eventcode == 8)
+            m_rightReactor = (int)content;
+        else if (eventcode == 9)
+            m_leftMiddleReactor = (int)content;
+        if (eventcode == 10)
+            m_rightMiddleReactor = (int)content;
     }
 }

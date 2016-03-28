@@ -4,10 +4,8 @@ using UnityEngine.Networking;
 
 public class CameraController : MonoBehaviour
 {
-    private float _cameraSpeed;
-
-    private int _yMinLimit = -45;
-    private int _yMaxLimit = 70;
+    private int _yMinLimit = -30;
+    private int _yMaxLimit = 50;
 
     public GameObject target;
     private Vector2 _cameraRotation;
@@ -21,7 +19,6 @@ public class CameraController : MonoBehaviour
             UnityEngine.Cursor.visible = false;
         isActive = true;
         _cameraRotation = Vector2.zero;
-        _cameraSpeed = 80.0f;
     }
 
     void LateUpdate()
@@ -29,12 +26,9 @@ public class CameraController : MonoBehaviour
         if (target == null || !isActive)
             return;
 
-        float x = Input.GetAxis("Mouse X") * _cameraSpeed * Time.deltaTime;
-        float y = -Input.GetAxis("Mouse Y") * _cameraSpeed * Time.deltaTime;
+        float y = -Input.GetAxis("Mouse Y") * Time.deltaTime * 100;
 
-        _cameraRotation.x += x;
         _cameraRotation.y += y;
-
         _cameraRotation.y = ClampAngle(_cameraRotation.y, _yMinLimit, _yMaxLimit);
         transform.localRotation = Quaternion.Euler(_cameraRotation.y, 0, 0);
     }

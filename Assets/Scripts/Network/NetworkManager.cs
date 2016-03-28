@@ -5,12 +5,23 @@ using Photon;
 
 public class NetworkManager : Photon.PunBehaviour
 {
-
     public Text connectionParameters;
     public Text roomName;
-    private bool _inRoom = false;
+    public Text playerName;
+    public Text feedback;
+    public Text nbPlayersInRoom;
+    public Text nbPlayersWanted;
+    public Button playButton;
+
     public Canvas canvas;
     private ListRooms _listRooms;
+    private int nbPlayers = 2;
+    public MenuSceneScript menuScript;
+    public GameObject waitPanel;
+
+    private bool _isFade = false;
+    private float _startTime = 0.0f;
+    private float _fadeTime;
 
     void Start ()
     {
@@ -25,14 +36,35 @@ public class NetworkManager : Photon.PunBehaviour
     {
         if(connectionParameters)
             connectionParameters.text = PhotonNetwork.connectionStateDetailed.ToString();
-        if(Input.GetKey(KeyCode.Space)) //For debug only
-            this.photonView.RPC("LoadSceneForEach", PhotonTargets.All);
+        playButton.gameObject.SetActive(false);
+        if (PhotonNetwork.inRoom)
+        {
+            nbPlayersInRoom.text = PhotonNetwork.room.playerCount + "/" + PhotonNetwork.room.maxPlayers;
+            if (PhotonNetwork.isMasterClient)
+                playButton.gameObject.SetActive(true);
+        }
+        if (_isFade)
+        {
+            float timeRatio = _startTime / _fadeTime;
+            float newAlpha = Mathf.Lerp(1.0f, 0.0f, timeRatio);
+            Color newColor = new Color(feedback.color.r, feedback.color.g, feedback.color.b, newAlpha);
+            feedback.color = newColor;
+            _startTime += Time.deltaTime;
+
+            if (_startTime > _fadeTime)
+            {
+                _isFade = false;
+                feedback.text = "";
+                Color color = new Color(feedback.color.r, feedback.color.g, feedback.color.b, 1.0f);
+                feedback.color = color;
+            }
+        }
     }
 
-    public override void OnJoinedLobby()
+    public void Play()
     {
-        //PhotonNetwork.JoinRandomRoom();
-
+        if(PhotonNetwork.inRoom && int.Parse(nbPlayersWanted.text) == PhotonNetwork.playerList.Length)
+            this.photonView.RPC("LoadSceneForEach", PhotonTargets.All);
     }
 
     [PunRPC]
@@ -43,9 +75,47 @@ public class NetworkManager : Photon.PunBehaviour
 
     public void CreateRoom()
     {
-        if(!_inRoom)
-            PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = 4 }, null);
-        _inRoom = true;
+        if (nbPlayersWanted.text != "" && roomName.text != "" && playerName.text != "")
+        {
+            int nb = int.Parse(nbPlayersWanted.text);
+            byte value = (byte)nb;
+            if (!PhotonNetwork.inRoom && PhotonNetwork.insideLobby && nb > 0)
+            {
+                PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = value }, null);
+                menuScript.GoToPanel(waitPanel);
+                PhotonNetwork.playerName = playerName.text;
+            }
+            else if(nb <= 0)
+            {
+                feedback.text = "Number < 0";
+                Color color = new Color(feedback.color.r, feedback.color.g, feedback.color.b, 1.0f);
+                feedback.color = color;
+                _isFade = true;
+                _startTime = 0.0f;
+                _fadeTime = 2.0f;
+            }
+        }
+        else
+        {
+            if (playerName.text == "")
+                feedback.text = "Enter name";
+            else if (nbPlayersWanted.text == "")
+                feedback.text = "Enter number of players";
+            else if (roomName.text == "")
+                feedback.text = "Enter a room name";
+
+            Color color = new Color(feedback.color.r, feedback.color.g, feedback.color.b, 1.0f);
+            feedback.color = color;
+            _isFade = true;
+            _startTime = 0.0f;
+            _fadeTime = 2.0f;
+        }
+    }
+
+    public void LeaveRoom()
+    {
+        if (PhotonNetwork.inRoom)
+            PhotonNetwork.LeaveRoom();
     }
 
     void OnPhotonRandomJoinFailed()
@@ -55,6 +125,24 @@ public class NetworkManager : Photon.PunBehaviour
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(_listRooms.selectedRoomName);
+        if(_listRooms.selectedRoomName != "" && playerName.text != "" && !PhotonNetwork.inRoom)
+        {
+            PhotonNetwork.JoinRoom(_listRooms.selectedRoomName);
+            menuScript.GoToPanel(waitPanel);
+            PhotonNetwork.playerName = playerName.text;
+        }
+        else
+        {
+            if(_listRooms.selectedRoomName == "")
+                feedback.text = "Select room";
+            else if (playerName.text == "")
+                feedback.text = "Enter a name";
+
+            Color color = new Color(feedback.color.r, feedback.color.g, feedback.color.b, 1.0f);
+            feedback.color = color;
+            _isFade = true;
+            _startTime = 0.0f;
+            _fadeTime = 2.0f;
+        }
     }
 }

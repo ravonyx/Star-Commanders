@@ -18,54 +18,56 @@ public class projectorController : MonoBehaviour
     private int m_frontRightprojector;
     private int m_rearLeftProjector;
     private int m_rearRightProjector;
-    // Use this for initialization
+
+    void Awake()
+    {
+        PhotonNetwork.OnEventCall += this.OnProjectorEvent;
+    }
+
     void Start()
     {
-
         m_frontLeftprojector = m_frontLeftprojectorMax;
         m_frontRightprojector = m_frontRightprojectorMax;
         m_rearLeftProjector = m_rearLeftProjectorMax;
         m_rearRightProjector = m_rearRightProjectorMax;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void frontLeftProjectorImpact(GameObject go)
     {
-        if (go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_frontLeftprojector--;
+            PhotonNetwork.RaiseEvent(11, m_frontLeftprojector, true, null);
             Debug.Log("m_frontLeftprojector " + m_frontLeftprojector);
         }
     }
 
     public void frontRightProjectorImpact(GameObject go)
     {
-        if (go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_frontRightprojector--;
+            PhotonNetwork.RaiseEvent(12, m_frontRightprojector, true, null);
             Debug.Log("m_frontRightprojector " + m_frontRightprojector);
         }
     }
 
     public void rearLeftProjectorImpact(GameObject go)
     {
-        if (go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rearLeftProjector--;
+            PhotonNetwork.RaiseEvent(13, m_rearLeftProjector, true, null);
             Debug.Log("m_rearLeftProjector " + m_rearLeftProjector);
         }
     }
 
     public void rearRightProjectorImpact(GameObject go)
     {
-        if (go.tag == "bullet")
+        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
         {
             m_rearRightProjector--;
+            PhotonNetwork.RaiseEvent(14, m_rearRightProjector, true, null);
             Debug.Log("m_rearRightProjector " + m_rearRightProjector);
         }
     }
@@ -85,6 +87,17 @@ public class projectorController : MonoBehaviour
             default:
                 return -1;
         }
+    }
 
+    private void OnProjectorEvent(byte eventcode, object content, int senderid)
+    {
+        if (eventcode == 11)
+            m_frontLeftprojector = (int)content;
+        else if (eventcode == 12)
+            m_frontRightprojector = (int)content;
+        else if (eventcode == 13)
+            m_rearLeftProjector = (int)content;
+        if (eventcode == 14)
+            m_rearRightProjector = (int)content;
     }
 }
