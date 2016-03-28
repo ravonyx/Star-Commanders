@@ -11,7 +11,7 @@ using System.Collections;
 // Script : Contrôle des Tourelles
 // 
 // --------------------------------------------------
-public class TurretMonitors : MonoBehaviour 
+public class TurretMonitors : Photon.MonoBehaviour 
 {
     // ------------------------
     // Rotation
@@ -82,13 +82,16 @@ public class TurretMonitors : MonoBehaviour
 
             if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !_reload && !_wantToShoot)
             {
-                _wantToShoot = true;
-                StartCoroutine(TryToShoot());
+                //_wantToShoot = true;
+                //StartCoroutine(TryToShoot());
+
+                photonView.RPC("SyncShoot", PhotonTargets.All);
             }
             if (!Input.GetMouseButton(0))
             {
-                _wantToShoot = false;
-                StopCoroutine(TryToShoot());
+                //_wantToShoot = false;
+                //StopCoroutine(TryToShoot());
+                photonView.RPC("StopShoot", PhotonTargets.All);
             }
         }
     }
@@ -125,5 +128,19 @@ public class TurretMonitors : MonoBehaviour
         viewPivotY.RequestOwnership();
         viewPivotZ.RequestOwnership();
         _isActive = active;
+    }
+
+    [PunRPC]
+    void SyncShoot()
+    {
+        _wantToShoot = true;
+        StartCoroutine(TryToShoot());
+    }
+
+    [PunRPC]
+    void StopShoot()
+    {
+        _wantToShoot = false;
+        StopCoroutine(TryToShoot());
     }
 }

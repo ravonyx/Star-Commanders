@@ -31,4 +31,6 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupTimes
   - LoadSceneForEach
+  - StopShoot
+  - SyncShoot
   DisableAutoOpenWizard: 1
