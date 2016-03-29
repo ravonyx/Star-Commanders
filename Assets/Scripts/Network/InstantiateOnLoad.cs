@@ -13,7 +13,6 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
 
     [SerializeField]
     private Text _playerInfo;
-    public GameObject chat;
 
     void Start ()
     {
@@ -41,9 +40,6 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         cameraObj.transform.localPosition = offset;
         CameraController cam = cameraObj.GetComponent<CameraController>();
         cam.target = player.transform.gameObject;
-
-        CharacController controller = player.GetComponent<CharacController>();
-        controller.chat = chat;
 
         RaycastInteraction raycast = player.GetComponent<RaycastInteraction>();
         raycast.camController = cam;

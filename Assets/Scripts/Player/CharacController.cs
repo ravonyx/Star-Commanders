@@ -25,21 +25,21 @@ public class CharacController : Photon.MonoBehaviour
     private Vector3 groundDir = -Vector3.up;
     private float groundDist = 0.2f;
     private RaycastHit hit;
-    public GameObject chat;
-    private ChatManager chatManager;
+
+    public ChatManager chat;
 
     void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
         movementSpeed = speedStandard;
-
-        chatManager = chat.GetComponent<ChatManager>();
     }
 
     void Update()
     {
-        if (control && !chatManager.focus)
+        if (!chat)
+            return;
+        if (control && !chat.focus)
         {
             _direction = Vector3.zero;
 

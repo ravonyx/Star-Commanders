@@ -63369,6 +63369,10 @@ Prefab:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 101124, guid: fe3417416fe5b9146ac49a27c1043cb2, type: 2}
+      propertyPath: m_TagString
+      value: Chat
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe3417416fe5b9146ac49a27c1043cb2, type: 2}
   m_IsPrefabParent: 0
@@ -67808,7 +67812,6 @@ MonoBehaviour:
   position: {x: 0, y: -.5, z: -22}
   spaceship: {fileID: 1616909326}
   _playerInfo: {fileID: 963312413}
-  chat: {fileID: 246259724}
 --- !u!4 &1939474482
 Transform:
   m_ObjectHideFlags: 0

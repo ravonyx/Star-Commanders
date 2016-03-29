@@ -14,15 +14,22 @@ public class NetworkPlayer : Photon.MonoBehaviour
 
     void Start()
     {
-        GameObject[] array = GameObject.FindGameObjectsWithTag("PlayerShip");
-        if (array.Length != 1)
+        GameObject[] spaceship = GameObject.FindGameObjectsWithTag("PlayerShip");
+        if (spaceship.Length != 1)
             Debug.LogError("PlayerShip tag not assigned");
         else
         {
-            transform.parent = array[0].transform;
-            _controller = GetComponent<CharacController>();
-            _controller.spaceship = array[0];
-            _rigidbody = GetComponent<Rigidbody>();
+            GameObject[] chat = GameObject.FindGameObjectsWithTag("Chat");
+            if (chat.Length != 1)
+                Debug.LogError("Chat tag not assigned");
+            else
+            {
+                transform.parent = spaceship[0].transform;
+                _controller = GetComponent<CharacController>();
+                _controller.spaceship = spaceship[0];
+                _controller.chat = chat[0].GetComponent<ChatManager>();
+                _rigidbody = GetComponent<Rigidbody>();
+            }
         }
     }
 
