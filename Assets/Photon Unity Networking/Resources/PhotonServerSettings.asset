@@ -33,4 +33,6 @@ MonoBehaviour:
   - LoadSceneForEach
   - StopShoot
   - SyncShoot
+  - SendMessage
+  - SendMessageOthers
   DisableAutoOpenWizard: 1
