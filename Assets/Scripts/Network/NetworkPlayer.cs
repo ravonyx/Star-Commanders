@@ -11,6 +11,7 @@ public class NetworkPlayer : Photon.MonoBehaviour
     private CharacController _controller;
     private const float _gravity = -98.1f;
     private Rigidbody _rigidbody;
+    public Vector3 spawnPosition;
 
     void Start()
     {
@@ -25,9 +26,12 @@ public class NetworkPlayer : Photon.MonoBehaviour
             else
             {
                 transform.parent = spaceship[0].transform;
+                transform.localPosition = spawnPosition;
+
                 _controller = GetComponent<CharacController>();
                 _controller.spaceship = spaceship[0];
                 _controller.chat = chat[0].GetComponent<ChatManager>();
+
                 _rigidbody = GetComponent<Rigidbody>();
             }
         }

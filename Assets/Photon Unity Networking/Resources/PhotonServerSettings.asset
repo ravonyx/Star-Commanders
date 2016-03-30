@@ -35,4 +35,6 @@ MonoBehaviour:
   - SyncShoot
   - SendMessage
   - SendMessageOthers
+  - StartCountdown
+  - StopCountdown
   DisableAutoOpenWizard: 1
