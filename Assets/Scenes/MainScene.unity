@@ -64003,7 +64003,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22458426, guid: fe3417416fe5b9146ac49a27c1043cb2, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -163.716995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22536882, guid: fe3417416fe5b9146ac49a27c1043cb2, type: 2}
       propertyPath: m_Interactable
