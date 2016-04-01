@@ -63,6 +63,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
             player = PhotonNetwork.Instantiate(namePrefab, position, Quaternion.identity, 0);
             if (player)
                 InitPlayer(player);
+            else
+                Debug.LogError("Add " + namePrefab + " in folder Resources");
 
         }
     }
