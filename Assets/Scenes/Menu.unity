@@ -1015,7 +1015,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -283.049988}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: 1}
 --- !u!114 &456997650
 MonoBehaviour:
@@ -1629,7 +1629,7 @@ GameObject:
   - 114: {fileID: 666937358}
   - 114: {fileID: 666937360}
   m_Layer: 5
-  m_Name: Team1
+  m_Name: BlueTeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1648,7 +1648,7 @@ RectTransform:
   m_Father: {fileID: 968774823}
   m_RootOrder: 5
   m_AnchorMin: {x: .200000003, y: .449999988}
-  m_AnchorMax: {x: .300000012, y: .550000012}
+  m_AnchorMax: {x: .300000012, y: .579999983}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -1671,7 +1671,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: d7eeeb44958abd640839b71e8601dbde, type: 3}
+  m_Texture: {fileID: 2800000, guid: 24ad3e6a1af0a8e45b8a45b821991d67, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2055,7 +2055,7 @@ GameObject:
   - 114: {fileID: 742225610}
   - 114: {fileID: 742225612}
   m_Layer: 5
-  m_Name: Team2
+  m_Name: RedTeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2074,7 +2074,7 @@ RectTransform:
   m_Father: {fileID: 968774823}
   m_RootOrder: 6
   m_AnchorMin: {x: .349999994, y: .449999988}
-  m_AnchorMax: {x: .449999988, y: .550000012}
+  m_AnchorMax: {x: .449999988, y: .579999983}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -2097,7 +2097,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 1dc4348205ea8ab428af2cec3e20469e, type: 3}
+  m_Texture: {fileID: 2800000, guid: 24ad3e6a1af0a8e45b8a45b821991d67, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2539,7 +2539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e48d8b3be9fe6d428df25d199e2b396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbTeam: 0
+  team1: {fileID: 666937358}
+  team2: {fileID: 742225610}
 --- !u!224 &929543185
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2574,7 +2575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &968774823
 RectTransform:
   m_ObjectHideFlags: 0

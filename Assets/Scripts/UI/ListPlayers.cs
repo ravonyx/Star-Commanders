@@ -46,7 +46,8 @@ public class ListPlayers : MonoBehaviour
                         playersList.Add(button);
                         button.SetActive(true);
                         button.transform.SetParent(panel, false);
-                        button.transform.FindChild("PlayerText").GetComponent<Text>().text = playersData[i].name;
+
+                        button.transform.FindChild("PlayerText").GetComponent<Text>().text = playersData[i].name + " - " + playersData[i].GetTeam();
                     }
                     else
                         Debug.Log("Add PlayerButton prefab in folder Resources");

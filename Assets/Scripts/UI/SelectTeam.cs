@@ -3,31 +3,38 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SelectTeam : MonoBehaviour
+public class SelectTeam : Photon.MonoBehaviour
 {
-    private GameObject selectedObject;
-    public uint nbTeam;
+    public RawImage team1, team2;
+    private PunTeams.Team team;
+
+    public void Start()
+    {
+        team1.color = Color.blue;
+    }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            GameObject team = EventSystem.current.currentSelectedGameObject;
-            if (team != null)
+            GameObject teamImg = EventSystem.current.currentSelectedGameObject;
+            if (teamImg != null)
             {
-                if (team.name == "Team1" || team.name == "Team2")
+                if (teamImg.name == "BlueTeam")
                 {
-                    if (team.name == "Team1")
-                        nbTeam = 1;
-                    else if (team.name == "Team2")
-                        nbTeam = 2;
-                    if (selectedObject != null)
-                        selectedObject.GetComponent<RawImage>().color = Color.black;
-
-                    selectedObject = team;
-                    selectedObject.GetComponent<RawImage>().color = Color.blue;
+                    PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
+                    team1.color = Color.blue;
+                    team2.color = Color.black;
+                }
+                else if (teamImg.name == "RedTeam")
+                {
+                    PhotonNetwork.player.SetTeam(PunTeams.Team.red);
+                    team2.color = Color.red;
+                    team1.color = Color.black;
                 }
             }
         }
+
+        Debug.Log(PhotonNetwork.player.GetTeam());
     }
 }
