@@ -74,6 +74,44 @@ ModelImporter:
     100132: Walls_MeshPart5
     100134: Window
     100136: Window_Structure
+    100138: DCA_turret_left_1_001
+    100140: DCA_turret_left_1_002
+    100142: DCA_turret_left_2_001
+    100144: DCA_turret_left_2_002
+    100146: DCA_turret_left_3_001
+    100148: DCA_turret_left_3_002
+    100150: DCA_turret_Left_4_001
+    100152: DCA_turret_Left_4_002
+    100154: DCA_turret_Right_1_001
+    100156: DCA_turret_Right_1_002
+    100158: DCA_turret_right_2_001
+    100160: DCA_turret_right_2_002
+    100162: DCA_turret_right_3_001
+    100164: DCA_turret_right_3_002
+    100166: DCA_turret_right_4_001
+    100168: DCA_turret_right_4_002
+    100170: front_left_kinematic_turret_001
+    100172: front_left_kinematic_turret_002
+    100174: Front_right_kinematic_turret_001
+    100176: Front_right_kinematic_turret_002
+    100178: KINETIC__turret_rear_left_001
+    100180: KINETIC__turret_rear_left_002
+    100182: KINETIC_down_turret_middle_left_001
+    100184: KINETIC_down_turret_middle_left_002
+    100186: KINETIC_turret_down_middle_right_001
+    100188: KINETIC_turret_down_middle_right_002
+    100190: KINETIC_turret_down_rear_right_001
+    100192: KINETIC_turret_down_rear_right_002
+    100194: KINETIC_turret_middle_left_001
+    100196: KINETIC_turret_middle_left_002
+    100198: KINETIC_turret_middle_right_001
+    100200: KINETIC_turret_middle_right_002
+    100202: KINETIC_turret_rear_right_001
+    100204: KINETIC_turret_rear_right_002
+    100206: KINETICturret_down_rear_left_001
+    100208: KINETICturret_down_rear_left_002
+    100210: Laset_down_turret_001
+    100212: Laset_down_turret_002
     400000: beds
     400002: Catwalk
     400004: Cooling_system
@@ -143,6 +181,44 @@ ModelImporter:
     400132: Walls_MeshPart5
     400134: Window
     400136: Window_Structure
+    400138: DCA_turret_left_1_001
+    400140: DCA_turret_left_1_002
+    400142: DCA_turret_left_2_001
+    400144: DCA_turret_left_2_002
+    400146: DCA_turret_left_3_001
+    400148: DCA_turret_left_3_002
+    400150: DCA_turret_Left_4_001
+    400152: DCA_turret_Left_4_002
+    400154: DCA_turret_Right_1_001
+    400156: DCA_turret_Right_1_002
+    400158: DCA_turret_right_2_001
+    400160: DCA_turret_right_2_002
+    400162: DCA_turret_right_3_001
+    400164: DCA_turret_right_3_002
+    400166: DCA_turret_right_4_001
+    400168: DCA_turret_right_4_002
+    400170: front_left_kinematic_turret_001
+    400172: front_left_kinematic_turret_002
+    400174: Front_right_kinematic_turret_001
+    400176: Front_right_kinematic_turret_002
+    400178: KINETIC__turret_rear_left_001
+    400180: KINETIC__turret_rear_left_002
+    400182: KINETIC_down_turret_middle_left_001
+    400184: KINETIC_down_turret_middle_left_002
+    400186: KINETIC_turret_down_middle_right_001
+    400188: KINETIC_turret_down_middle_right_002
+    400190: KINETIC_turret_down_rear_right_001
+    400192: KINETIC_turret_down_rear_right_002
+    400194: KINETIC_turret_middle_left_001
+    400196: KINETIC_turret_middle_left_002
+    400198: KINETIC_turret_middle_right_001
+    400200: KINETIC_turret_middle_right_002
+    400202: KINETIC_turret_rear_right_001
+    400204: KINETIC_turret_rear_right_002
+    400206: KINETICturret_down_rear_left_001
+    400208: KINETICturret_down_rear_left_002
+    400210: Laset_down_turret_001
+    400212: Laset_down_turret_002
     2300000: beds
     2300002: Catwalk
     2300004: Cooling_system
@@ -209,6 +285,44 @@ ModelImporter:
     2300126: Walls_MeshPart5
     2300128: Window
     2300130: Window_Structure
+    2300132: DCA_turret_left_1_001
+    2300134: DCA_turret_left_1_002
+    2300136: DCA_turret_left_2_001
+    2300138: DCA_turret_left_2_002
+    2300140: DCA_turret_left_3_001
+    2300142: DCA_turret_left_3_002
+    2300144: DCA_turret_Left_4_001
+    2300146: DCA_turret_Left_4_002
+    2300148: DCA_turret_Right_1_001
+    2300150: DCA_turret_Right_1_002
+    2300152: DCA_turret_right_2_001
+    2300154: DCA_turret_right_2_002
+    2300156: DCA_turret_right_3_001
+    2300158: DCA_turret_right_3_002
+    2300160: DCA_turret_right_4_001
+    2300162: DCA_turret_right_4_002
+    2300164: front_left_kinematic_turret_001
+    2300166: front_left_kinematic_turret_002
+    2300168: Front_right_kinematic_turret_001
+    2300170: Front_right_kinematic_turret_002
+    2300172: KINETIC__turret_rear_left_001
+    2300174: KINETIC__turret_rear_left_002
+    2300176: KINETIC_down_turret_middle_left_001
+    2300178: KINETIC_down_turret_middle_left_002
+    2300180: KINETIC_turret_down_middle_right_001
+    2300182: KINETIC_turret_down_middle_right_002
+    2300184: KINETIC_turret_down_rear_right_001
+    2300186: KINETIC_turret_down_rear_right_002
+    2300188: KINETIC_turret_middle_left_001
+    2300190: KINETIC_turret_middle_left_002
+    2300192: KINETIC_turret_middle_right_001
+    2300194: KINETIC_turret_middle_right_002
+    2300196: KINETIC_turret_rear_right_001
+    2300198: KINETIC_turret_rear_right_002
+    2300200: KINETICturret_down_rear_left_001
+    2300202: KINETICturret_down_rear_left_002
+    2300204: Laset_down_turret_001
+    2300206: Laset_down_turret_002
     3300000: beds
     3300002: Catwalk
     3300004: Cooling_system
@@ -275,6 +389,44 @@ ModelImporter:
     3300126: Walls_MeshPart5
     3300128: Window
     3300130: Window_Structure
+    3300132: DCA_turret_left_1_001
+    3300134: DCA_turret_left_1_002
+    3300136: DCA_turret_left_2_001
+    3300138: DCA_turret_left_2_002
+    3300140: DCA_turret_left_3_001
+    3300142: DCA_turret_left_3_002
+    3300144: DCA_turret_Left_4_001
+    3300146: DCA_turret_Left_4_002
+    3300148: DCA_turret_Right_1_001
+    3300150: DCA_turret_Right_1_002
+    3300152: DCA_turret_right_2_001
+    3300154: DCA_turret_right_2_002
+    3300156: DCA_turret_right_3_001
+    3300158: DCA_turret_right_3_002
+    3300160: DCA_turret_right_4_001
+    3300162: DCA_turret_right_4_002
+    3300164: front_left_kinematic_turret_001
+    3300166: front_left_kinematic_turret_002
+    3300168: Front_right_kinematic_turret_001
+    3300170: Front_right_kinematic_turret_002
+    3300172: KINETIC__turret_rear_left_001
+    3300174: KINETIC__turret_rear_left_002
+    3300176: KINETIC_down_turret_middle_left_001
+    3300178: KINETIC_down_turret_middle_left_002
+    3300180: KINETIC_turret_down_middle_right_001
+    3300182: KINETIC_turret_down_middle_right_002
+    3300184: KINETIC_turret_down_rear_right_001
+    3300186: KINETIC_turret_down_rear_right_002
+    3300188: KINETIC_turret_middle_left_001
+    3300190: KINETIC_turret_middle_left_002
+    3300192: KINETIC_turret_middle_right_001
+    3300194: KINETIC_turret_middle_right_002
+    3300196: KINETIC_turret_rear_right_001
+    3300198: KINETIC_turret_rear_right_002
+    3300200: KINETICturret_down_rear_left_001
+    3300202: KINETICturret_down_rear_left_002
+    3300204: Laset_down_turret_001
+    3300206: Laset_down_turret_002
     4300000: DCA_turret_right_2
     4300002: DCA_turret_right_3
     4300004: DCA_turret_right_4
@@ -341,6 +493,44 @@ ModelImporter:
     4300126: Propulsors
     4300128: Tables
     4300130: Hull
+    4300132: DCA_turret_right_2_002
+    4300134: DCA_turret_right_2_001
+    4300136: DCA_turret_right_3_002
+    4300138: DCA_turret_right_3_001
+    4300140: DCA_turret_right_4_002
+    4300142: DCA_turret_right_4_001
+    4300144: KINETIC_turret_middle_right_001
+    4300146: KINETIC_turret_middle_right_002
+    4300148: KINETIC_turret_rear_right_001
+    4300150: KINETIC_turret_rear_right_002
+    4300152: KINETIC_turret_down_middle_right_001
+    4300154: KINETIC_turret_down_middle_right_002
+    4300156: KINETIC_turret_down_rear_right_001
+    4300158: KINETIC_turret_down_rear_right_002
+    4300160: KINETIC__turret_rear_left_001
+    4300162: KINETIC__turret_rear_left_002
+    4300164: KINETIC_turret_middle_left_001
+    4300166: KINETIC_turret_middle_left_002
+    4300168: KINETICturret_down_rear_left_001
+    4300170: KINETICturret_down_rear_left_002
+    4300172: KINETIC_down_turret_middle_left_001
+    4300174: KINETIC_down_turret_middle_left_002
+    4300176: DCA_turret_Left_4_002
+    4300178: DCA_turret_Left_4_001
+    4300180: DCA_turret_left_3_002
+    4300182: DCA_turret_left_3_001
+    4300184: DCA_turret_left_2_002
+    4300186: DCA_turret_left_2_001
+    4300188: DCA_turret_left_1_002
+    4300190: DCA_turret_left_1_001
+    4300192: Front_right_kinematic_turret_001
+    4300194: Front_right_kinematic_turret_002
+    4300196: front_left_kinematic_turret_001
+    4300198: front_left_kinematic_turret_002
+    4300200: Laset_down_turret_001
+    4300202: Laset_down_turret_002
+    4300204: DCA_turret_Right_1_002
+    4300206: DCA_turret_Right_1_001
     7400000: Default Take
     9500000: //RootNode
   materials:
