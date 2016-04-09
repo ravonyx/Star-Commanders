@@ -44,6 +44,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         RaycastInteraction raycast = player.GetComponent<RaycastInteraction>();
         raycast.camController = cam;
         raycast._playerInfo = _playerInfo;
+
+        player.transform.position = position;
     }
     void OnJoinedLobby()
     {
@@ -60,7 +62,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         {
             Debug.Log("JoinedRoom");
             GameObject player = null;
-            player = PhotonNetwork.Instantiate(namePrefab, position, Quaternion.identity, 0);
+            player = PhotonNetwork.Instantiate(namePrefab, Vector3.zero, Quaternion.identity, 0);
             if (player)
                 InitPlayer(player);
             else
