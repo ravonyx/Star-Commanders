@@ -1,0 +1,755 @@
+fileFormatVersion: 2
+guid: cbef96fac60a9fe4fbea68281ed8f1c9
+timeCreated: 1460314727
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Armories
+    100002: Armory Left
+    100004: Armory Right
+    100006: beds
+    100008: CanonEn1
+    100010: CanonEn2
+    100012: CanonKinDL1
+    100014: CanonKinDL2
+    100016: CanonKinDR1
+    100018: CanonKinDR2
+    100020: CanonKinFL
+    100022: CanonKinFR
+    100024: CanonKinUL1
+    100026: CanonKinUL2
+    100028: CanonKinUR1
+    100030: CanonKinUR2
+    100032: CanonLeft1
+    100034: CanonLeft2
+    100036: CanonLeft3
+    100038: CanonLeft4
+    100040: CanonRight1
+    100042: CanonRight2
+    100044: CanonRight3
+    100046: CanonRight4
+    100048: Catwalk
+    100050: Consoles
+    100052: Cooling System 1
+    100054: Cooling System 2
+    100056: Cooling System 3
+    100058: Cooling System 4
+    100060: Cooling System 5
+    100062: Cooling System 6
+    100064: Cooling Unit 1
+    100066: Cooling Unit 2
+    100068: Cooling Unit 3
+    100070: Cooling Unit 4
+    100072: Cooling Unit 5
+    100074: Cooling Unit 6
+    100076: CoolingSystems
+    100078: CoolingUnits
+    100080: Cryo tubes
+    100082: DCA
+    100084: DCA Turret Left 1
+    100086: DCA Turret Left 2
+    100088: DCA Turret Left 3
+    100090: DCA Turret Left 4
+    100092: DCA Turret Right 1
+    100094: DCA Turret Right 2
+    100096: DCA Turret Right 3
+    100098: DCA Turret Right 4
+    100100: Defense platform
+    100102: DoorSAS
+    100104: EMP
+    100106: EMP Turrets
+    100108: Energy
+    100110: Energy Down Console
+    100112: ENERGY Turret Down
+    100114: ENERGY Turret Up
+    100116: Energy Turrets Monitor
+    100118: Energy Up Console
+    100120: Engineer Console
+    100122: Engineers Monitor
+    100124: ExternalStructure
+    100126: ExternSystem
+    100128: Front antenna
+    100130: Front Large Stairs
+    100132: Generator 1
+    100134: Generator 2
+    100136: Generator Decoration
+    100138: Generators
+    100140: Hull
+    100142: InteractionItems
+    100144: InternalStructure
+    100146: InternSystem
+    100148: Kinetic
+    100150: Kinetic Down Left Console
+    100152: Kinetic Down Right Console
+    100154: Kinetic Left Turrets Monitor
+    100156: Kinetic Right Turrets Monitor
+    100158: KINETIC Turret Down Left 1
+    100160: KINETIC Turret Down Left 2
+    100162: KINETIC Turret Down Right 1
+    100164: KINETIC Turret Down Right 2
+    100166: KINETIC Turret Front Left
+    100168: KINETIC Turret Front Right
+    100170: KINETIC Turret Up Left 1
+    100172: KINETIC Turret Up Left 2
+    100174: KINETIC Turret Up Right 1
+    100176: KINETIC Turret Up Right 2
+    100178: Kinetic Up Left Console
+    100180: Kinetic Up Right Console
+    100182: Kitchen stuff
+    100184: Monitors
+    100186: Pilot catwalk
+    100188: Pilot Console
+    100190: Pilot small front stairs
+    100192: Pilot Time Block
+    100194: Pilot View Monitors
+    100196: PivotEn1
+    100198: PivotEn2
+    100200: PivotKinDL1
+    100202: PivotKinDL2
+    100204: PivotKinDR1
+    100206: PivotKinDR2
+    100208: PivotKinFL
+    100210: PivotKinFR
+    100212: PivotKinUL1
+    100214: PivotKinUL2
+    100216: PivotKinUR1
+    100218: PivotKinUR2
+    100220: PivotLeft1
+    100222: PivotLeft2
+    100224: PivotLeft3
+    100226: PivotLeft4
+    100228: PivotRight1
+    100230: PivotRight2
+    100232: PivotRight3
+    100234: PivotRight4
+    100236: Propulsor Left
+    100238: Propulsor Monitor
+    100240: Propulsor Right
+    100242: Propulsors
+    100244: Reactor Left
+    100246: Reactor Right
+    100248: Reactors
+    100250: Reactors air vent
+    100252: Rear acces
+    100254: Rear large stairs
+    100256: Rear small stairs
+    100258: Shield Console
+    100260: Shield Generator 1
+    100262: Shield Generator 2
+    100264: Shield Generator 3
+    100266: Shield Generator 4
+    100268: ShieldGenerators
+    100270: Shields Monitor
+    100272: //RootNode
+    100274: STR Console
+    100276: Tables
+    100278: Turrets
+    100280: TurretsConsoles
+    100282: Walls
+    100284: Walls_MeshPart0
+    100286: Walls_MeshPart1
+    100288: Walls_MeshPart2
+    100290: Walls_MeshPart3
+    100292: Walls_MeshPart4
+    100294: Walls_MeshPart5
+    100296: Window
+    100298: Window Structure
+    400000: Armories
+    400002: Armory Left
+    400004: Armory Right
+    400006: beds
+    400008: CanonEn1
+    400010: CanonEn2
+    400012: CanonKinDL1
+    400014: CanonKinDL2
+    400016: CanonKinDR1
+    400018: CanonKinDR2
+    400020: CanonKinFL
+    400022: CanonKinFR
+    400024: CanonKinUL1
+    400026: CanonKinUL2
+    400028: CanonKinUR1
+    400030: CanonKinUR2
+    400032: CanonLeft1
+    400034: CanonLeft2
+    400036: CanonLeft3
+    400038: CanonLeft4
+    400040: CanonRight1
+    400042: CanonRight2
+    400044: CanonRight3
+    400046: CanonRight4
+    400048: Catwalk
+    400050: Consoles
+    400052: Cooling System 1
+    400054: Cooling System 2
+    400056: Cooling System 3
+    400058: Cooling System 4
+    400060: Cooling System 5
+    400062: Cooling System 6
+    400064: Cooling Unit 1
+    400066: Cooling Unit 2
+    400068: Cooling Unit 3
+    400070: Cooling Unit 4
+    400072: Cooling Unit 5
+    400074: Cooling Unit 6
+    400076: CoolingSystems
+    400078: CoolingUnits
+    400080: Cryo tubes
+    400082: DCA
+    400084: DCA Turret Left 1
+    400086: DCA Turret Left 2
+    400088: DCA Turret Left 3
+    400090: DCA Turret Left 4
+    400092: DCA Turret Right 1
+    400094: DCA Turret Right 2
+    400096: DCA Turret Right 3
+    400098: DCA Turret Right 4
+    400100: Defense platform
+    400102: DoorSAS
+    400104: EMP
+    400106: EMP Turrets
+    400108: Energy
+    400110: Energy Down Console
+    400112: ENERGY Turret Down
+    400114: ENERGY Turret Up
+    400116: Energy Turrets Monitor
+    400118: Energy Up Console
+    400120: Engineer Console
+    400122: Engineers Monitor
+    400124: ExternalStructure
+    400126: ExternSystem
+    400128: Front antenna
+    400130: Front Large Stairs
+    400132: Generator 1
+    400134: Generator 2
+    400136: Generator Decoration
+    400138: Generators
+    400140: Hull
+    400142: InteractionItems
+    400144: InternalStructure
+    400146: InternSystem
+    400148: Kinetic
+    400150: Kinetic Down Left Console
+    400152: Kinetic Down Right Console
+    400154: Kinetic Left Turrets Monitor
+    400156: Kinetic Right Turrets Monitor
+    400158: KINETIC Turret Down Left 1
+    400160: KINETIC Turret Down Left 2
+    400162: KINETIC Turret Down Right 1
+    400164: KINETIC Turret Down Right 2
+    400166: KINETIC Turret Front Left
+    400168: KINETIC Turret Front Right
+    400170: KINETIC Turret Up Left 1
+    400172: KINETIC Turret Up Left 2
+    400174: KINETIC Turret Up Right 1
+    400176: KINETIC Turret Up Right 2
+    400178: Kinetic Up Left Console
+    400180: Kinetic Up Right Console
+    400182: Kitchen stuff
+    400184: Monitors
+    400186: Pilot catwalk
+    400188: Pilot Console
+    400190: Pilot small front stairs
+    400192: Pilot Time Block
+    400194: Pilot View Monitors
+    400196: PivotEn1
+    400198: PivotEn2
+    400200: PivotKinDL1
+    400202: PivotKinDL2
+    400204: PivotKinDR1
+    400206: PivotKinDR2
+    400208: PivotKinFL
+    400210: PivotKinFR
+    400212: PivotKinUL1
+    400214: PivotKinUL2
+    400216: PivotKinUR1
+    400218: PivotKinUR2
+    400220: PivotLeft1
+    400222: PivotLeft2
+    400224: PivotLeft3
+    400226: PivotLeft4
+    400228: PivotRight1
+    400230: PivotRight2
+    400232: PivotRight3
+    400234: PivotRight4
+    400236: Propulsor Left
+    400238: Propulsor Monitor
+    400240: Propulsor Right
+    400242: Propulsors
+    400244: Reactor Left
+    400246: Reactor Right
+    400248: Reactors
+    400250: Reactors air vent
+    400252: Rear acces
+    400254: Rear large stairs
+    400256: Rear small stairs
+    400258: Shield Console
+    400260: Shield Generator 1
+    400262: Shield Generator 2
+    400264: Shield Generator 3
+    400266: Shield Generator 4
+    400268: ShieldGenerators
+    400270: Shields Monitor
+    400272: //RootNode
+    400274: STR Console
+    400276: Tables
+    400278: Turrets
+    400280: TurretsConsoles
+    400282: Walls
+    400284: Walls_MeshPart0
+    400286: Walls_MeshPart1
+    400288: Walls_MeshPart2
+    400290: Walls_MeshPart3
+    400292: Walls_MeshPart4
+    400294: Walls_MeshPart5
+    400296: Window
+    400298: Window Structure
+    2300000: Armory Left
+    2300002: Armory Right
+    2300004: beds
+    2300006: CanonEn1
+    2300008: CanonEn2
+    2300010: CanonKinDL1
+    2300012: CanonKinDL2
+    2300014: CanonKinDR1
+    2300016: CanonKinDR2
+    2300018: CanonKinFL
+    2300020: CanonKinFR
+    2300022: CanonKinUL1
+    2300024: CanonKinUL2
+    2300026: CanonKinUR1
+    2300028: CanonKinUR2
+    2300030: CanonLeft1
+    2300032: CanonLeft2
+    2300034: CanonLeft3
+    2300036: CanonLeft4
+    2300038: CanonRight1
+    2300040: CanonRight2
+    2300042: CanonRight3
+    2300044: CanonRight4
+    2300046: Catwalk
+    2300048: Cooling System 1
+    2300050: Cooling System 2
+    2300052: Cooling System 3
+    2300054: Cooling System 4
+    2300056: Cooling System 5
+    2300058: Cooling System 6
+    2300060: Cooling Unit 1
+    2300062: Cooling Unit 2
+    2300064: Cooling Unit 3
+    2300066: Cooling Unit 4
+    2300068: Cooling Unit 5
+    2300070: Cooling Unit 6
+    2300072: Cryo tubes
+    2300074: DCA Turret Left 1
+    2300076: DCA Turret Left 2
+    2300078: DCA Turret Left 3
+    2300080: DCA Turret Left 4
+    2300082: DCA Turret Right 1
+    2300084: DCA Turret Right 2
+    2300086: DCA Turret Right 3
+    2300088: DCA Turret Right 4
+    2300090: Defense platform
+    2300092: DoorSAS
+    2300094: EMP Turrets
+    2300096: Energy Down Console
+    2300098: ENERGY Turret Down
+    2300100: ENERGY Turret Up
+    2300102: Energy Turrets Monitor
+    2300104: Energy Up Console
+    2300106: Engineer Console
+    2300108: Engineers Monitor
+    2300110: Front antenna
+    2300112: Front Large Stairs
+    2300114: Generator 1
+    2300116: Generator 2
+    2300118: Generator Decoration
+    2300120: Hull
+    2300122: Kinetic Down Left Console
+    2300124: Kinetic Down Right Console
+    2300126: Kinetic Left Turrets Monitor
+    2300128: Kinetic Right Turrets Monitor
+    2300130: KINETIC Turret Down Left 1
+    2300132: KINETIC Turret Down Left 2
+    2300134: KINETIC Turret Down Right 1
+    2300136: KINETIC Turret Down Right 2
+    2300138: KINETIC Turret Front Left
+    2300140: KINETIC Turret Front Right
+    2300142: KINETIC Turret Up Left 1
+    2300144: KINETIC Turret Up Left 2
+    2300146: KINETIC Turret Up Right 1
+    2300148: KINETIC Turret Up Right 2
+    2300150: Kinetic Up Left Console
+    2300152: Kinetic Up Right Console
+    2300154: Kitchen stuff
+    2300156: Pilot catwalk
+    2300158: Pilot Console
+    2300160: Pilot small front stairs
+    2300162: Pilot Time Block
+    2300164: Pilot View Monitors
+    2300166: PivotEn1
+    2300168: PivotEn2
+    2300170: PivotKinDL1
+    2300172: PivotKinDL2
+    2300174: PivotKinDR1
+    2300176: PivotKinDR2
+    2300178: PivotKinFL
+    2300180: PivotKinFR
+    2300182: PivotKinUL1
+    2300184: PivotKinUL2
+    2300186: PivotKinUR1
+    2300188: PivotKinUR2
+    2300190: PivotLeft1
+    2300192: PivotLeft2
+    2300194: PivotLeft3
+    2300196: PivotLeft4
+    2300198: PivotRight1
+    2300200: PivotRight2
+    2300202: PivotRight3
+    2300204: PivotRight4
+    2300206: Propulsor Left
+    2300208: Propulsor Monitor
+    2300210: Propulsor Right
+    2300212: Reactor Left
+    2300214: Reactor Right
+    2300216: Reactors air vent
+    2300218: Rear acces
+    2300220: Rear large stairs
+    2300222: Rear small stairs
+    2300224: Shield Console
+    2300226: Shield Generator 1
+    2300228: Shield Generator 2
+    2300230: Shield Generator 3
+    2300232: Shield Generator 4
+    2300234: Shields Monitor
+    2300236: STR Console
+    2300238: Tables
+    2300240: Walls_MeshPart0
+    2300242: Walls_MeshPart1
+    2300244: Walls_MeshPart2
+    2300246: Walls_MeshPart3
+    2300248: Walls_MeshPart4
+    2300250: Walls_MeshPart5
+    2300252: Window
+    2300254: Window Structure
+    3300000: Armory Left
+    3300002: Armory Right
+    3300004: beds
+    3300006: CanonEn1
+    3300008: CanonEn2
+    3300010: CanonKinDL1
+    3300012: CanonKinDL2
+    3300014: CanonKinDR1
+    3300016: CanonKinDR2
+    3300018: CanonKinFL
+    3300020: CanonKinFR
+    3300022: CanonKinUL1
+    3300024: CanonKinUL2
+    3300026: CanonKinUR1
+    3300028: CanonKinUR2
+    3300030: CanonLeft1
+    3300032: CanonLeft2
+    3300034: CanonLeft3
+    3300036: CanonLeft4
+    3300038: CanonRight1
+    3300040: CanonRight2
+    3300042: CanonRight3
+    3300044: CanonRight4
+    3300046: Catwalk
+    3300048: Cooling System 1
+    3300050: Cooling System 2
+    3300052: Cooling System 3
+    3300054: Cooling System 4
+    3300056: Cooling System 5
+    3300058: Cooling System 6
+    3300060: Cooling Unit 1
+    3300062: Cooling Unit 2
+    3300064: Cooling Unit 3
+    3300066: Cooling Unit 4
+    3300068: Cooling Unit 5
+    3300070: Cooling Unit 6
+    3300072: Cryo tubes
+    3300074: DCA Turret Left 1
+    3300076: DCA Turret Left 2
+    3300078: DCA Turret Left 3
+    3300080: DCA Turret Left 4
+    3300082: DCA Turret Right 1
+    3300084: DCA Turret Right 2
+    3300086: DCA Turret Right 3
+    3300088: DCA Turret Right 4
+    3300090: Defense platform
+    3300092: DoorSAS
+    3300094: EMP Turrets
+    3300096: Energy Down Console
+    3300098: ENERGY Turret Down
+    3300100: ENERGY Turret Up
+    3300102: Energy Turrets Monitor
+    3300104: Energy Up Console
+    3300106: Engineer Console
+    3300108: Engineers Monitor
+    3300110: Front antenna
+    3300112: Front Large Stairs
+    3300114: Generator 1
+    3300116: Generator 2
+    3300118: Generator Decoration
+    3300120: Hull
+    3300122: Kinetic Down Left Console
+    3300124: Kinetic Down Right Console
+    3300126: Kinetic Left Turrets Monitor
+    3300128: Kinetic Right Turrets Monitor
+    3300130: KINETIC Turret Down Left 1
+    3300132: KINETIC Turret Down Left 2
+    3300134: KINETIC Turret Down Right 1
+    3300136: KINETIC Turret Down Right 2
+    3300138: KINETIC Turret Front Left
+    3300140: KINETIC Turret Front Right
+    3300142: KINETIC Turret Up Left 1
+    3300144: KINETIC Turret Up Left 2
+    3300146: KINETIC Turret Up Right 1
+    3300148: KINETIC Turret Up Right 2
+    3300150: Kinetic Up Left Console
+    3300152: Kinetic Up Right Console
+    3300154: Kitchen stuff
+    3300156: Pilot catwalk
+    3300158: Pilot Console
+    3300160: Pilot small front stairs
+    3300162: Pilot Time Block
+    3300164: Pilot View Monitors
+    3300166: PivotEn1
+    3300168: PivotEn2
+    3300170: PivotKinDL1
+    3300172: PivotKinDL2
+    3300174: PivotKinDR1
+    3300176: PivotKinDR2
+    3300178: PivotKinFL
+    3300180: PivotKinFR
+    3300182: PivotKinUL1
+    3300184: PivotKinUL2
+    3300186: PivotKinUR1
+    3300188: PivotKinUR2
+    3300190: PivotLeft1
+    3300192: PivotLeft2
+    3300194: PivotLeft3
+    3300196: PivotLeft4
+    3300198: PivotRight1
+    3300200: PivotRight2
+    3300202: PivotRight3
+    3300204: PivotRight4
+    3300206: Propulsor Left
+    3300208: Propulsor Monitor
+    3300210: Propulsor Right
+    3300212: Reactor Left
+    3300214: Reactor Right
+    3300216: Reactors air vent
+    3300218: Rear acces
+    3300220: Rear large stairs
+    3300222: Rear small stairs
+    3300224: Shield Console
+    3300226: Shield Generator 1
+    3300228: Shield Generator 2
+    3300230: Shield Generator 3
+    3300232: Shield Generator 4
+    3300234: Shields Monitor
+    3300236: STR Console
+    3300238: Tables
+    3300240: Walls_MeshPart0
+    3300242: Walls_MeshPart1
+    3300244: Walls_MeshPart2
+    3300246: Walls_MeshPart3
+    3300248: Walls_MeshPart4
+    3300250: Walls_MeshPart5
+    3300252: Window
+    3300254: Window Structure
+    4300000: EMP Turrets
+    4300002: DCA Turret Left 4
+    4300004: PivotLeft4
+    4300006: CanonLeft4
+    4300008: DCA Turret Right 4
+    4300010: PivotRight4
+    4300012: CanonRight4
+    4300014: DCA Turret Right 3
+    4300016: PivotRight3
+    4300018: CanonRight3
+    4300020: DCA Turret Right 2
+    4300022: PivotRight2
+    4300024: CanonRight2
+    4300026: DCA Turret Left 3
+    4300028: PivotLeft3
+    4300030: CanonLeft3
+    4300032: DCA Turret Left 2
+    4300034: PivotLeft2
+    4300036: CanonLeft2
+    4300038: DCA Turret Left 1
+    4300040: PivotLeft1
+    4300042: CanonLeft1
+    4300044: DCA Turret Right 1
+    4300046: PivotRight1
+    4300048: CanonRight1
+    4300050: KINETIC Turret Up Left 2
+    4300052: PivotKinUL2
+    4300054: CanonKinUL2
+    4300056: KINETIC Turret Down Left 2
+    4300058: PivotKinDL2
+    4300060: CanonKinDL2
+    4300062: KINETIC Turret Up Right 2
+    4300064: PivotKinUR2
+    4300066: CanonKinUR2
+    4300068: KINETIC Turret Up Right 1
+    4300070: PivotKinUR1
+    4300072: CanonKinUR1
+    4300074: KINETIC Turret Up Left 1
+    4300076: PivotKinUL1
+    4300078: CanonKinUL1
+    4300080: KINETIC Turret Down Right 2
+    4300082: PivotKinDR2
+    4300084: CanonKinDR2
+    4300086: KINETIC Turret Down Right 1
+    4300088: PivotKinDR1
+    4300090: CanonKinDR1
+    4300092: KINETIC Turret Down Left 1
+    4300094: PivotKinDL1
+    4300096: CanonKinDL1
+    4300098: KINETIC Turret Front Right
+    4300100: PivotKinFR
+    4300102: CanonKinFR
+    4300104: KINETIC Turret Front Left
+    4300106: PivotKinFL
+    4300108: CanonKinFL
+    4300110: ENERGY Turret Up
+    4300112: PivotEn2
+    4300114: CanonEn2
+    4300116: ENERGY Turret Down
+    4300118: PivotEn1
+    4300120: CanonEn1
+    4300122: Catwalk
+    4300124: Defense platform
+    4300126: Front Large Stairs
+    4300128: Generator Decoration
+    4300130: Kitchen stuff
+    4300132: Pilot Time Block
+    4300134: Pilot catwalk
+    4300136: Pilot small front stairs
+    4300138: Reactors air vent
+    4300140: Rear large stairs
+    4300142: Rear acces
+    4300144: Rear small stairs
+    4300146: Cryo tubes
+    4300148: Tables
+    4300150: Walls_MeshPart0
+    4300152: Walls_MeshPart1
+    4300154: Walls_MeshPart2
+    4300156: Walls_MeshPart3
+    4300158: Walls_MeshPart4
+    4300160: Walls_MeshPart5
+    4300162: beds
+    4300164: Shields Monitor
+    4300166: Propulsor Monitor
+    4300168: Pilot View Monitors
+    4300170: Kinetic Right Turrets Monitor
+    4300172: Kinetic Left Turrets Monitor
+    4300174: Engineers Monitor
+    4300176: Energy Turrets Monitor
+    4300178: Kinetic Up Left Console
+    4300180: Kinetic Down Right Console
+    4300182: Kinetic Down Left Console
+    4300184: Energy Up Console
+    4300186: Energy Down Console
+    4300188: Kinetic Up Right Console
+    4300190: STR Console
+    4300192: Engineer Console
+    4300194: Pilot Console
+    4300196: Shield Console
+    4300198: Reactor Right
+    4300200: Reactor Left
+    4300202: Shield Generator 3
+    4300204: Shield Generator 2
+    4300206: Shield Generator 1
+    4300208: Shield Generator 4
+    4300210: Cooling System 5
+    4300212: Cooling System 4
+    4300214: Cooling System 3
+    4300216: Cooling System 2
+    4300218: Cooling System 1
+    4300220: Cooling System 6
+    4300222: Generator 1
+    4300224: Generator 2
+    4300226: Armory Left
+    4300228: Armory Right
+    4300230: Propulsor Right
+    4300232: Propulsor Left
+    4300234: Cooling Unit 6
+    4300236: Cooling Unit 5
+    4300238: Cooling Unit 4
+    4300240: Cooling Unit 2
+    4300242: Cooling Unit 1
+    4300244: Cooling Unit 3
+    4300246: DoorSAS
+    4300248: Front antenna
+    4300250: Window
+    4300252: Window Structure
+    4300254: Hull
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
