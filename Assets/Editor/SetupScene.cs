@@ -36,8 +36,10 @@ public class SetupScene : EditorWindow
             Init(basePrefab, asteroidPrefab, stationPrefab, taille, nbAsteroid);
         if (GUILayout.Button("EraseBase"))
         {
-            GameObject[] basePoints = GameObject.FindGameObjectsWithTag("BasePoint") as GameObject[];
-            ErasePrefab(basePoints);
+            GameObject[] redBase = GameObject.FindGameObjectsWithTag("RedTeam") as GameObject[];
+            ErasePrefab(redBase);
+            GameObject[] blueBase = GameObject.FindGameObjectsWithTag("BlueTeam") as GameObject[];
+            ErasePrefab(blueBase);
         }
         if (GUILayout.Button("EraseStation"))
         {
@@ -56,11 +58,13 @@ public class SetupScene : EditorWindow
     {
         if (basePrefab != null && asteroidPrefab != null && stationPrefab != null)
         {
-            GameObject[] basePoints = GameObject.FindGameObjectsWithTag("BasePoint") as GameObject[];
+            GameObject[] redBase = GameObject.FindGameObjectsWithTag("RedTeam") as GameObject[];
+            GameObject[] blueBase = GameObject.FindGameObjectsWithTag("BlueTeam") as GameObject[];
             GameObject[] stationPoints = GameObject.FindGameObjectsWithTag("StationPoint") as GameObject[];
             GameObject[] asteroidPoints = GameObject.FindGameObjectsWithTag("AsteroidPoint") as GameObject[];
 
-            SetupPrefab(basePrefab, basePoints);
+            SetupPrefab(basePrefab, redBase);
+            SetupPrefab(basePrefab, blueBase);
             SetupPrefab(stationPrefab, stationPoints);
 
             for (int i = 0; i < nbAsteroid; i++)

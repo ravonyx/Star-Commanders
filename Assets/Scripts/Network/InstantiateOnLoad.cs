@@ -16,15 +16,16 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
 
     void Start ()
     {
-        GameObject player = null;
         if(network)
         {
+            GameObject player = null;
             player = PhotonNetwork.Instantiate(namePrefab, Vector3.zero, Quaternion.identity, 0);
             if (player)
                 InitPlayer(player);
             else
                 Debug.LogError("Add " + namePrefab + " in folder Resources");
         }
+        //Debug only
         else
         {
             PhotonNetwork.ConnectUsingSettings("v0.1");
@@ -47,7 +48,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     }
     void OnJoinedLobby()
     {
-        if(!network)
+        //Debug only
+        if (!network)
         {
             Debug.Log("JoinedLobby");
             PhotonNetwork.CreateRoom("test", new RoomOptions() { maxPlayers = 1 }, null);
@@ -56,6 +58,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     }
     void OnJoinedRoom()
     {
+        //Debug only
         if (!network)
         {
             Debug.Log("JoinedRoom");

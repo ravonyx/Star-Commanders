@@ -7,12 +7,12 @@ public class BaseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        /*if (Input.GetKeyDown(KeyCode.I))
             _wantToInvokeSpaceship = true;
         if(_wantToInvokeSpaceship)
         {
             _wantToInvokeSpaceship = false;
             PhotonNetwork.Instantiate("spaceshipTest", Vector3.zero, Quaternion.identity, 0);
-        }
+        }*/
     }
 }
