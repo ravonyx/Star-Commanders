@@ -5541,6 +5541,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11401170, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
   m_IsPrefabParent: 0
@@ -14779,7 +14783,7 @@ GameObject:
   - 4: {fileID: 1097983243}
   m_Layer: 0
   m_Name: baseEquip2
-  m_TagString: BasePoint
+  m_TagString: RedTeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18006,7 +18010,7 @@ GameObject:
   - 114: {fileID: 1335276942}
   m_Layer: 0
   m_Name: baseEquip1
-  m_TagString: BasePoint
+  m_TagString: BlueTeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23346,7 +23350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22458426, guid: fe3417416fe5b9146ac49a27c1043cb2, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -109.116997
+      value: -163.444
       objectReference: {fileID: 0}
     - target: {fileID: 22536882, guid: fe3417416fe5b9146ac49a27c1043cb2, type: 2}
       propertyPath: m_Interactable
@@ -25388,7 +25392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namePrefab: playerPrefab
-  network: 0
+  network: 1
   offset: {x: 0, y: 15, z: 0}
   position: {x: 0, y: 23, z: 100}
   spaceship: {fileID: 1933098066}

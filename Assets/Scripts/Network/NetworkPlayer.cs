@@ -25,7 +25,7 @@ public class NetworkPlayer : Photon.MonoBehaviour
         
         else
         {
-            if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
+            if (photonView.owner.GetTeam() == PunTeams.Team.blue)
             {
                 GameObject baseTeam = GameObject.FindGameObjectWithTag("BlueTeam");
                 transform.parent = baseTeam.transform;
