@@ -44,8 +44,30 @@ public class ChatManager : Photon.MonoBehaviour
         }
         else if (_showChat && focus && input.text != "" && Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log(input.text);
-            photonView.RPC("SendMessageOthers", PhotonTargets.All, PhotonNetwork.playerName, message.GetComponent<Text>().text);
+            //Debug only
+            if (input.text == "/invoke_ship")
+            {
+                if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
+                    PhotonNetwork.Instantiate("spaceshipTest", new Vector3(0, 1, -4480), Quaternion.identity, 0);
+                else
+                    PhotonNetwork.Instantiate("spaceshipTest", new Vector3(0, 0, 4500), Quaternion.identity, 0);
+            }
+            if (input.text == "/tp_ship")
+            {
+                GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+                foreach (GameObject player in players)
+                {
+                    int playerLoopId = player.GetComponent<PhotonView>().owner.ID;
+                    if (playerLoopId == PhotonNetwork.player.ID)
+                    {
+                        GameObject[] spaceship = GameObject.FindGameObjectsWithTag("PlayerShip");
+                        player.transform.parent = spaceship[0].transform;
+                        player.transform.localPosition = new Vector3(0, 0, -90);
+                    }
+                }
+            }
+            else
+                photonView.RPC("SendMessageOthers", PhotonTargets.All, PhotonNetwork.playerName, message.GetComponent<Text>().text);
 
             focus = false;
             input.text = "";
