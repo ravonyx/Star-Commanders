@@ -10,16 +10,16 @@ public class CharacController : Photon.MonoBehaviour
     public float speedMax;
     public float speedStandard;
 
-    private float movementSpeed;
+    public float movementSpeed;
     private float _jumpSpeed = 5.0f;
 
     private bool _wantToJump = false;
-    private Rigidbody _rigidbody;
+    public Rigidbody rigidbody;
     public Vector3 _direction;
 
     public bool control = true;
     public bool rotate = true;
-    private bool _isWalking = false;
+    public bool isWalking = false;
 
     public GameObject spaceship;
     private Vector3 groundDir = -Vector3.up;
@@ -40,7 +40,7 @@ public class CharacController : Photon.MonoBehaviour
     void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
-        _rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
         _stepCycle = 0f;
         _nextStep = _stepCycle / 2f;
@@ -73,6 +73,16 @@ public class CharacController : Photon.MonoBehaviour
             _direction.Normalize();
             _direction *= movementSpeed;
 
+            //step offset
+            Debug.DrawRay(transform.position + new Vector3(0, 0.2f, 0), transform.forward, Color.red, 0.5f, true);
+            int layerMask = 1 << 8;
+            layerMask = ~layerMask;
+            if (Physics.Raycast(transform.position + new Vector3(0, 0.2f, 0), transform.forward, out hit, 0.5f, layerMask))
+            {
+               
+                transform.localPosition += new Vector3(0, 0.5f, 0f);
+                _direction += new Vector3(0, 0f, 3f);
+            }
             /*  Debug.DrawRay(transform.position, new Vector3(0, -groundDist, 0), Color.red, 2.0f, true);
               int layerMask = 1 << 8;
               layerMask = ~layerMask;
@@ -83,18 +93,18 @@ public class CharacController : Photon.MonoBehaviour
                   anim.SetBool("Jumping", true);
                   _direction += transform.up * _jumpSpeed;
               }*/
-            
+
         }
-        Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
+        Vector3 velocity = new Vector3(rigidbody.velocity.x, 0.0f, rigidbody.velocity.z);
         if (velocity.magnitude > 0.25f)
         {
-            _isWalking = true;
+            isWalking = true;
             
             anim.SetInteger("Speed", 2);
         }
         else
         {
-            _isWalking = false;
+            isWalking = false;
             anim.SetInteger("Speed", 0);
         }
         /*if (jumpTimer > 0.5)
@@ -108,12 +118,13 @@ public class CharacController : Photon.MonoBehaviour
        if (rotate)
             transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * Time.deltaTime * 100));
     }
+ 
 
     private void ProgressStepCycle(float speed)
     {
-        if (_isWalking)
+        if (isWalking)
         {
-            _stepCycle += (_rigidbody.velocity.magnitude + 5) * Time.fixedDeltaTime;
+            _stepCycle += (rigidbody.velocity.magnitude + 5) * Time.fixedDeltaTime;
         }
 
         if (!(_stepCycle > _nextStep))

@@ -14,9 +14,10 @@ TagManager:
   - Chat
   - LimitScene
   - Shield
-  - BasePoint
   - StationPoint
   - AsteroidPoint
+  - BlueTeam
+  - RedTeam
   layers:
   - Default
   - TransparentFX
