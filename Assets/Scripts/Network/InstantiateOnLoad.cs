@@ -8,7 +8,6 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     public string namePrefab;
     public bool network;
     public Vector3 offset;
-    public Vector3 position;
     public GameObject spaceship;
 
     [SerializeField]
@@ -45,8 +44,6 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         RaycastInteraction raycast = player.GetComponent<RaycastInteraction>();
         raycast.camController = cam;
         raycast._playerInfo = _playerInfo;
-
-        player.transform.position = position;
     }
     void OnJoinedLobby()
     {

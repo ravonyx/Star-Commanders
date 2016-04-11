@@ -48,9 +48,9 @@ public class ChatManager : Photon.MonoBehaviour
             if (input.text == "/invoke_ship")
             {
                 if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
-                    PhotonNetwork.Instantiate("spaceshipTest", new Vector3(0, 1, -4480), Quaternion.identity, 0);
+                    PhotonNetwork.Instantiate("Spaceship", new Vector3(0, 50, -4500), Quaternion.identity, 0);
                 else
-                    PhotonNetwork.Instantiate("spaceshipTest", new Vector3(0, 0, 4500), Quaternion.identity, 0);
+                    PhotonNetwork.Instantiate("Spaceship", new Vector3(0, 50, 4500), Quaternion.identity, 0);
             }
             if (input.text == "/tp_ship")
             {

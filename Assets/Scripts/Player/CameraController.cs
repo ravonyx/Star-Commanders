@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
-using UnityStandardAssets.Utility;
 
 public class CameraController : MonoBehaviour
 {

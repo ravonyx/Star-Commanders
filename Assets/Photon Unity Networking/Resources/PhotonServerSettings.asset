@@ -37,4 +37,5 @@ MonoBehaviour:
   - SendMessageOthers
   - StartCountdown
   - StopCountdown
+  - SyncParent
   DisableAutoOpenWizard: 1
