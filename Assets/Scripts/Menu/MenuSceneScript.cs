@@ -24,8 +24,8 @@ public class MenuSceneScript : MonoBehaviour
     CanvasGroup[] Panels;
     Stack<CanvasGroup> StackedPanels = new Stack<CanvasGroup>();
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         StackedPanels.Push(Panels[0]);
         ActivePanel.gameObject.SetActive(true);
@@ -37,27 +37,33 @@ public class MenuSceneScript : MonoBehaviour
 
     void OnValidate()
     {
-        if (Panels.Length > 0)
+        try
         {
-            for (int i = 0; i < Panels.Length; i++)
+            if (Panels[0] == null)
             {
-                Panels[i].gameObject.SetActive(false);
-                for (int j = i+1; j < Panels.Length; j++)
+                throw new System.NullReferenceException("Need a Panel as element 0 of this component.");
+            }
+        }
+        catch (System.IndexOutOfRangeException)
+        {
+            throw new System.NullReferenceException("Need a Panel as element 0 of this component.");
+        }
+        for (int i = 0; i < Panels.Length; i++)
+        {
+            for (int j = i+1; j < Panels.Length; j++)
+            {
+                if (Panels[i] == Panels[j])
                 {
-                    if (Panels[i] == Panels[j])
-                    {
-                        Panels[j] = null;
-                        // Delete multiple references
-                        Debug.LogWarning("This image is already in the menu system.");
-                    }
+                    Panels[j] = null;
+                    // Delete multiple references
+                    Debug.LogWarning("This image is already in the menu system.");
                 }
             }
-            Panels[0].gameObject.SetActive(true);
         }
     }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update ()
     {
         for(int i = 0; i < StackedPanels.Count; i++)
         {
@@ -111,5 +117,10 @@ public class MenuSceneScript : MonoBehaviour
             ActivePanel.interactable = true;
             ActivePanel.gameObject.SetActive(true);
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
