@@ -70,11 +70,11 @@ public class RaycastInteraction : MonoBehaviour
         }
         else if (!_inUse)
         {
-            Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            if (Physics.Raycast(transform.position, fwd, 0.8f))
+            Vector3 fwd = camController.transform.TransformDirection(Vector3.forward);
+            if (Physics.Raycast(camController.transform.position, fwd, 2.0f))
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, fwd, out hit) && ((hit.collider.tag == "Monitor") || (hit.collider.tag == "PilotMonitor") || (hit.collider.tag == "EnergyMonitor")))
+                if (Physics.Raycast(camController.transform.position, fwd, out hit) && ((hit.collider.tag == "Monitor") || (hit.collider.tag == "PilotMonitor") || (hit.collider.tag == "EnergyMonitor")))
                 {
                     _playerInfo.text = "Press F to interact !";
 
