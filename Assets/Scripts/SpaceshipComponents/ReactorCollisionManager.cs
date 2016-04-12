@@ -28,16 +28,10 @@ public class ReactorCollisionManager : MonoBehaviour {
                     m_impactCallback.leftReactorImpac(collision.gameObject);
                     break;
                 case 2:
-                    m_impactCallback.leftMiddleReactorImpact(collision.gameObject);
-                    break;
-                case 3:
-                    m_impactCallback.rightMiddleReactorImpact(collision.gameObject);
-                    break;
-                case 4:
                     m_impactCallback.rightReactorImpact(collision.gameObject);
                     break;
                 default:
-                    Debug.Log("Unknow mode selected (1,2,3,4)");
+                    Debug.Log("Unknow mode selected (1,2)");
                     break;
             }
 

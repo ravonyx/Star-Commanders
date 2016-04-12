@@ -9,10 +9,9 @@ public class PropulsorControl : MonoBehaviour {
     public float baseState;
 
     void Start () 
-    {
-        /*
+    { 
         Propulsor_1.startSpeed = baseState;
-        Propulsor_2.startSpeed = baseState;*/
+        Propulsor_2.startSpeed = baseState;
     }
 	
     public void PropulsorRenderer(bool increase)

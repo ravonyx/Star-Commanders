@@ -119,7 +119,7 @@ public class LifePartController : MonoBehaviour
             Debug.Log("shield : " + i + " pv  " + m_shields.GetShieldsLifeLevel(i));
         }
         Debug.Log("ENGINE STATE");
-        for (int i = 1; i < 5; i++)
+        for (int i = 1; i < 3; i++)
         {
             Debug.Log("engine : " + i + " " + m_engines.GetReactorLifelevel(i));
         }
@@ -179,13 +179,13 @@ public class LifePartController : MonoBehaviour
             return m_insideReactors[ID].isOnFire();
         else return false;
     }
-    public bool isReactorOnElectricalDamage(int ID)
+    public bool isReactorOnElectrical(int ID)
     {
         if (ID >= 0 && ID < m_insideReactors.Length)
             return m_insideReactors[ID].isElectricalDamage();
         else return false;
     }
-    public bool isOnEMPDamages(int ID)
+    public bool isReactorOnEMP(int ID)
     {
         if (ID >= 0 && ID < m_insideReactors.Length)
             return m_insideReactors[ID].isOnEMPDamages();

@@ -16,12 +16,12 @@ public class LifepartStateController : MonoBehaviour
     private int m_ElectricDamages;
     private int m_ExplosionDamages;
 
-    private bool m_IsFireDamages;
-    private bool m_IsEMPDamages;
-    private bool m_IsElectricDamages;
-    private bool m_IsExplosionDamages;
+    public bool m_IsFireDamages;
+    public bool m_IsEMPDamages;
+    public bool m_IsElectricDamages;
+    public bool m_IsExplosionDamages;
 
-    private int currentlife;
+    public int currentlife;
 
     // Use this for initialization
     void Start()
@@ -100,7 +100,7 @@ public class LifepartStateController : MonoBehaviour
     void applyDamages()
     {
         //Debug.Log("Applying damages on " + gameObject.name);
-        if (m_IsFireDamages)
+        if (m_IsFireDamages && currentlife > 0)
         {
             currentlife -= m_fireDamages;
             if(m_ParticleFireDamages != null)
@@ -108,7 +108,7 @@ public class LifepartStateController : MonoBehaviour
                 m_ParticleFireDamages.SetActive(true);
             }
         }
-        if (m_IsElectricDamages)
+        if (m_IsElectricDamages && currentlife > 0)
         {
             currentlife -= m_ElectricDamages;
             if (m_ParticleElectricalDamages != null)
@@ -116,15 +116,17 @@ public class LifepartStateController : MonoBehaviour
                 m_ParticleElectricalDamages.SetActive(true);
             }
         }
-        if (m_IsEMPDamages)
+        if (m_IsEMPDamages && currentlife > 0)
         {
             currentlife -= m_EMPDamages;
             //Disable This system for external usage in LifePartController /!\
         }
-        if (m_IsExplosionDamages)
+        if (m_IsExplosionDamages && currentlife > 0)
         {
             currentlife -= m_ExplosionDamages;
         }
+        if (currentlife < 0)
+            currentlife = 0;
     }
 
     public int getLifeLevel()
