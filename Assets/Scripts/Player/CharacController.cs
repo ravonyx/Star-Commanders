@@ -74,15 +74,15 @@ public class CharacController : Photon.MonoBehaviour
             _direction *= movementSpeed;
 
             //step offset
-            Debug.DrawRay(transform.position + new Vector3(0, 0.2f, 0), transform.forward, Color.red, 0.5f, true);
-            int layerMask = 1 << 8;
-            layerMask = ~layerMask;
-            if (Physics.Raycast(transform.position + new Vector3(0, 0.2f, 0), transform.forward, out hit, 0.5f, layerMask))
-            {
-               
-                transform.localPosition += new Vector3(0, 0.5f, 0f);
-                _direction += new Vector3(0, 0f, 3f);
-            }
+            //Debug.DrawRay(transform.position + new Vector3(0, 0.2f, 0), transform.forward, Color.red, 0.5f, true);
+            //int layerMask = 1 << 8;
+            //layerMask = ~layerMask;
+            //if (Physics.Raycast(transform.position + new Vector3(0, 0.2f, 0), transform.forward, out hit, 0.5f, layerMask))
+            //{
+            //   
+            //    transform.localPosition += new Vector3(0, 0.5f, 0f);
+            //    _direction += new Vector3(0, 0f, 3f);
+            //}
             /*  Debug.DrawRay(transform.position, new Vector3(0, -groundDist, 0), Color.red, 2.0f, true);
               int layerMask = 1 << 8;
               layerMask = ~layerMask;

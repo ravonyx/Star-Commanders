@@ -46,8 +46,9 @@ GameObject:
   - 198: {fileID: 19846700}
   - 199: {fileID: 19930744}
   - 65: {fileID: 6534170}
-  - 114: {fileID: 11423238}
-  - 114: {fileID: 11486188}
+  - 114: {fileID: 11441834}
+  - 114: {fileID: 11463256}
+  - 114: {fileID: 11458602}
   m_Layer: 0
   m_Name: teleporter
   m_TagString: Untagged
@@ -210,7 +211,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 8, z: 8}
   m_Center: {x: 0, y: 4, z: 0}
---- !u!114 &11423238
+--- !u!114 &11441834
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -218,12 +219,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 163500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b05048a3192650418f093832e800310, type: 3}
+  m_Script: {fileID: 11500000, guid: 8acd15a46dedd3e4c9617e191ab94c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfSpacehip: 1
-  spawnPosition: {x: 0, y: 5, z: -13}
---- !u!114 &11486188
+  menuToShow: {fileID: 0}
+--- !u!114 &11458602
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -245,9 +245,21 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 2
-  instantiationId: 2
+  viewIdField: 0
+  instantiationId: -1
   isRuntimeInstantiated: 0
+--- !u!114 &11463256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930094a38a52c5b4085e67dd0f157af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPosition: {x: 0, y: 5, z: -13}
 --- !u!198 &19805750
 ParticleSystem:
   m_ObjectHideFlags: 1

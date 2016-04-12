@@ -1,0 +1,45 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class TP : MonoBehaviour
+{
+    public Vector3 spawnPosition;
+    private PhotonView _photonView;
+	private GameObject _player;
+
+    void Start()
+    {
+		_photonView = GetComponent<PhotonView>();
+    }
+
+	void OnTriggerEnter(Collider other)
+	{
+		Debug.Log(other);
+		_player = other.gameObject;
+	}
+	void OnTriggerExit(Collider other)
+	{
+		Debug.Log(other);
+		_player = null;
+	}
+
+	public void doTP(int indexSpaceship)
+    {
+		if (indexSpaceship >= 0 && _player != null)
+			_photonView.RPC("SyncParent", PhotonTargets.All, _player.GetComponent<PhotonView>().viewID, indexSpaceship);
+        else if(indexSpaceship < 0)
+            Debug.LogError("You have to invoke a ship - /invoke_ship");
+		else if(_player == null)
+			Debug.LogError("You have to be in tp");
+	}
+
+    [PunRPC]
+    void SyncParent(int player, int indexSpaceship)
+    {
+        GameObject[] spaceship = GameObject.FindGameObjectsWithTag("PlayerShip");
+        GameObject target = PhotonView.Find(player).gameObject;
+        target.transform.parent = spaceship[indexSpaceship].transform;
+        target.transform.localPosition = spawnPosition;
+        target.GetComponent<CharacController>().spaceship = spaceship[indexSpaceship];
+    }
+}
