@@ -17,13 +17,27 @@ public class ShieldViewMonitor : MonoBehaviour
     Image[] _projectorImages;
 
     [SerializeField]
+    Image[] _projectorImagesMain;
+
+    [SerializeField]
     Text[] _shieldStates;
 
     [SerializeField]
     Text[] _projectorStates;
 
+    [SerializeField]
+    Text[] _projectorStatus;
 
-	void Start () 
+    [SerializeField]
+    Image[] _fireImg;
+
+    [SerializeField]
+    Image[] _lightningImg;
+
+    [SerializeField]
+    Image[] _empImg;
+
+    void Start () 
     {
         InvokeRepeating("UpdateInterface", 1.0f, 2.0f);
 	}
@@ -40,6 +54,38 @@ public class ShieldViewMonitor : MonoBehaviour
             int lifeProjector = _projectorCont.GetProjetctorLifeLevel(id + 1);
             _projectorStates[id].text = lifeProjector + "/100";
             _projectorImages[id].color = new Color((100.0f - lifeProjector) / 100.0f, lifeProjector / 100.0f, 0.0f, 1.0f);
+            _projectorImagesMain[id].color = new Color((100.0f - lifeProjector) / 100.0f, lifeProjector / 100.0f, 0.0f, 1.0f);
+
+
+            if (lifeProjector > 80)
+            {
+                _projectorStatus[id].text = "ONLINE";
+                _projectorStatus[id].color = new Color(0.0f, 200.0f / 255.0f, 0.0f, 1.0f);
+            }
+            else if (lifeProjector > 50)
+            {
+                _projectorStatus[id].text = "WARNING";
+                _projectorStatus[id].color = new Color(200.0f / 255.0f, 200.0f / 255.0f, 0.0f, 1.0f);
+            }
+            else if (lifeProjector > 20)
+            {
+                _projectorStatus[id].text = "ALERT";
+                _projectorStatus[id].color = new Color(1.0f, 0.0f, 100.0f / 255.0f, 1.0f);
+            }
+            else if (lifeProjector > 0)
+            {
+                _projectorStatus[id].text = "CRITICAL";
+                _projectorStatus[id].color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
+            }
+            else if (lifeProjector == 0)
+            {
+                _projectorStatus[id].text = "OFFLINE";
+                _projectorStatus[id].color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
+            }
+            /*
+            _fireImg[id].color = _propulsorCont.isReactorOnfire(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            _lightningImg[id].color = _propulsorCont.isReactorOnElectrical(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            _empImg[id].color = _propulsorCont.isReactorOnEMP(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);*/
         }
 	}
 }

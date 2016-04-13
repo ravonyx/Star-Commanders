@@ -48,27 +48,27 @@ public class PropulsorViewMonitor : MonoBehaviour
             _propulsorStates[id].text = lifeProp + "/100";
             _propulsorImages[id].color = new Color((100.0f - lifeProp) / 100.0f, lifeProp / 100.0f, 0.0f, 1.0f);
 
-            if (stateEff > 80)
+            if (lifeProp > 80)
             {
                 _propulsorStatus[id].text = "ONLINE";
                 _propulsorStatus[id].color = new Color(0.0f, 200.0f / 255.0f, 0.0f, 1.0f);
             }
-            else if (stateEff > 50)
+            else if (lifeProp > 50)
             {
                 _propulsorStatus[id].text = "WARNING";
                 _propulsorStatus[id].color = new Color(200.0f / 255.0f, 200.0f / 255.0f, 0.0f, 1.0f);
             }
-            else if (stateEff > 20)
+            else if (lifeProp > 20)
             {
                 _propulsorStatus[id].text = "ALERT";
                 _propulsorStatus[id].color = new Color(1.0f, 0.0f, 100.0f / 255.0f, 1.0f);
             }
-            else if (stateEff > 0)
+            else if (lifeProp > 0)
             {
                 _propulsorStatus[id].text = "CRITICAL";
                 _propulsorStatus[id].color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
             }
-            else if (stateEff == 0)
+            else if (lifeProp == 0)
             {
                 _propulsorStatus[id].text = "OFFLINE";
                 _propulsorStatus[id].color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
