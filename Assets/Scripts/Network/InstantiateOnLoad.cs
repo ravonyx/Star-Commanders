@@ -7,7 +7,6 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
 {
     public string namePrefab;
     public bool network;
-    public Vector3 offset;
     public GameObject spaceship;
 
     [SerializeField]
@@ -37,7 +36,6 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
 
         cameraObj = GameObject.Instantiate(Resources.Load("MainCamera"), Vector3.zero, Quaternion.identity) as GameObject;
         cameraObj.transform.parent = player.transform;
-        cameraObj.transform.localPosition = offset;
         CameraController cam = cameraObj.GetComponent<CameraController>();
         cam.target = player.transform.gameObject;
 
