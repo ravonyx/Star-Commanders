@@ -50,8 +50,12 @@ public class TurretMonitors : Photon.MonoBehaviour
     private PhotonView[] viewTourelle = new PhotonView[2];
     private PhotonView[] viewPivotCanons = new PhotonView[2];
 
+    private PhotonView _photonView;
+
     void Start()
     {
+        _photonView = GetComponent<PhotonView>();
+
         viewTourelle[0] = _pivotTourelle[0].GetComponent<PhotonView>();
         viewPivotCanons[0] = _pivotCanons[0].GetComponent<PhotonView>();
 
@@ -94,13 +98,13 @@ public class TurretMonitors : Photon.MonoBehaviour
             {
                 //_wantToShoot = true;
                 //StartCoroutine(TryToShoot());
-                photonView.RPC("SyncShoot", PhotonTargets.All);
+                _photonView.RPC("SyncShoot", PhotonTargets.All);
             }
             if (!Input.GetMouseButton(0))
             {
                 //_wantToShoot = false;
                 //StopCoroutine(TryToShoot());
-                photonView.RPC("StopShoot", PhotonTargets.All);
+                _photonView.RPC("StopShoot", PhotonTargets.All);
             }
         }
     }
