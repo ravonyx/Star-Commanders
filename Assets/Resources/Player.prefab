@@ -916,9 +916,10 @@ GameObject:
   - 114: {fileID: 11415094}
   - 114: {fileID: 11459184}
   - 54: {fileID: 5437412}
-  - 65: {fileID: 6554942}
   - 114: {fileID: 11495058}
   - 82: {fileID: 8248148}
+  - 65: {fileID: 6554942}
+  - 65: {fileID: 6572432}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1967,8 +1968,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8, z: 0.6}
+  m_Size: {x: 0.8, y: 1.8, z: 0.6}
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!65 &6572432
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1, z: 0.6}
+  m_Center: {x: 0, y: 0.8, z: 0.5}
 --- !u!82 &8248148
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2083,8 +2096,8 @@ MonoBehaviour:
   - {fileID: 11441964}
   - {fileID: 11432632}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 2
+  instantiationId: 2
   isRuntimeInstantiated: 0
 --- !u!114 &11432632
 MonoBehaviour:
