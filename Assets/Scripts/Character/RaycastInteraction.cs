@@ -85,18 +85,15 @@ public class RaycastInteraction : MonoBehaviour
                 }
                 else if (_console.tag == "Monitor")
                 {
+                    camController.isActive = false;
+                    _characterControler.rotate = false;
                     _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
                 }
                 else if (_console.tag == "EnergyMonitor")
                 {
                     _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
                 }
-
-                if (_console.tag == "Monitor")
-                {
-                    camController.isActive = false;
-                    _characterControler.rotate = false;
-                }
+                
 
                 _characterControler.control = false;
                 _inUse = true;
