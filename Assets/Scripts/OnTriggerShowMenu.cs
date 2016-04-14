@@ -4,14 +4,22 @@ using System.Collections;
 public class OnTriggerShowMenu : MonoBehaviour
 {
 	public GameObject menuToShow;
+    private PhotonView _photonView;
 
-	void OnTriggerEnter(Collider other)
+    void Start()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
+
+    void OnTriggerEnter(Collider other)
 	{
-		menuToShow.SetActive(true);
+        if (other.GetComponent<PhotonView>().isMine)
+            menuToShow.SetActive(true);
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		menuToShow.SetActive(false);
+        if (other.GetComponent<PhotonView>().isMine)
+            menuToShow.SetActive(false);
 	}
 }

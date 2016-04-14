@@ -5,7 +5,7 @@ public class TP : MonoBehaviour
 {
     public Vector3 spawnPosition;
     private PhotonView _photonView;
-	private GameObject _player;
+	public GameObject _player;
 
     void Start()
     {
@@ -14,17 +14,24 @@ public class TP : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log(other);
-		_player = other.gameObject;
+        if(other.GetComponent<PhotonView>().isMine)
+        {
+             Debug.Log("enter" + other);
+            _player = other.gameObject;
+        }
 	}
 	void OnTriggerExit(Collider other)
 	{
-		Debug.Log(other);
-		_player = null;
+        if (other.GetComponent<PhotonView>().isMine)
+        {
+            Debug.Log("exit" + other);
+            _player = null;
+        }
 	}
 
 	public void doTP(int indexSpaceship)
     {
+        Debug.Log(_player);
 		if (indexSpaceship >= 0 && _player != null)
 			_photonView.RPC("SyncParent", PhotonTargets.All, _player.GetComponent<PhotonView>().viewID, indexSpaceship);
         else if(indexSpaceship < 0)

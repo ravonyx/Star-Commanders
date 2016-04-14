@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 
 public class CameraController : MonoBehaviour
 {
-    private int _yMinLimit = -30;
+    private int _yMinLimit = -40;
     private int _yMaxLimit = 50;
 
     public GameObject target;

@@ -519,11 +519,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423776}
-  - 54: {fileID: 5457472}
-  - 65: {fileID: 6557076}
-  - 82: {fileID: 8229898}
-  - 114: {fileID: 11458060}
-  - 114: {fileID: 11484944}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -919,6 +914,11 @@ GameObject:
   - 114: {fileID: 11432632}
   - 114: {fileID: 11441964}
   - 114: {fileID: 11415094}
+  - 114: {fileID: 11459184}
+  - 54: {fileID: 5437412}
+  - 65: {fileID: 6554942}
+  - 114: {fileID: 11495058}
+  - 82: {fileID: 8248148}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1252,7 +1252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3000, y: 1500, z: -1890.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 427110}
@@ -1942,12 +1942,12 @@ Transform:
   - {fileID: 409400}
   m_Father: {fileID: 478034}
   m_RootOrder: 0
---- !u!54 &5457472
+--- !u!54 &5437412
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155990}
+  m_GameObject: {fileID: 190558}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -1957,24 +1957,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &6557076
+--- !u!65 &6554942
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155990}
+  m_GameObject: {fileID: 190558}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.8, z: 0.6}
-  m_Center: {x: 0, y: 0.88826233, z: 0}
---- !u!82 &8229898
+  m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!82 &8248148
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155990}
+  m_GameObject: {fileID: 190558}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -2020,7 +2020,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2042,7 +2042,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
 --- !u!95 &9566634
 Animator:
   serializedVersion: 3
@@ -2083,8 +2083,8 @@ MonoBehaviour:
   - {fileID: 11441964}
   - {fileID: 11432632}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 5
-  instantiationId: 5
+  viewIdField: 0
+  instantiationId: -1
   isRuntimeInstantiated: 0
 --- !u!114 &11432632
 MonoBehaviour:
@@ -2130,33 +2130,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
---- !u!114 &11458060
+--- !u!114 &11459184
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c3cdd27012c65046b4c3bfe1178e05a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _characterControler: {fileID: 0}
-  camController: {fileID: 0}
-  _playerInfo: {fileID: 0}
---- !u!114 &11484944
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155990}
+  m_GameObject: {fileID: 190558}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad94ed70e34f90647b8334880458169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMax: 0
-  speedStandard: 0
+  speedMax: 450
+  speedStandard: 350
   movementSpeed: 0
   rigidbody: {fileID: 0}
   _direction: {x: 0, y: 0, z: 0}
@@ -2166,9 +2152,23 @@ MonoBehaviour:
   spaceship: {fileID: 0}
   chat: {fileID: 0}
   footstepSounds:
-  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
-  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   _stepInterval: 5
+--- !u!114 &11495058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3cdd27012c65046b4c3bfe1178e05a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterControler: {fileID: 11459184}
+  camController: {fileID: 0}
+  _playerInfo: {fileID: 0}
 --- !u!137 &13728722
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2320,7 +2320,59 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: footstepSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _stepInterval
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Center.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _characterControler
+      value: 
+      objectReference: {fileID: 11459184}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speedMax
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speedStandard
+      value: 350
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190558}

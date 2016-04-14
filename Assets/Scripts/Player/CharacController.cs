@@ -96,17 +96,35 @@ public class CharacController : Photon.MonoBehaviour
 
         }
         Vector3 velocity = new Vector3(rigidbody.velocity.x, 0.0f, rigidbody.velocity.z);
-        if (velocity.magnitude > 0.25f)
-        {
-            isWalking = true;
-            
-            anim.SetInteger("Speed", 2);
-        }
+        float dotProduct = Vector3.Dot(rigidbody.velocity, transform.right);
+
+        if (dotProduct < -0.1f)
+            anim.SetBool("strafe_left", true);
+        else if (dotProduct > 0.1f)
+            anim.SetBool("strafe_right", true);
         else
         {
-            isWalking = false;
-            anim.SetInteger("Speed", 0);
+            anim.SetBool("strafe_right", false);
+            anim.SetBool("strafe_left", false);
+            if (velocity.magnitude > 0.25f && velocity.magnitude < 8.0f)
+            {
+                isWalking = true;
+                anim.SetBool("fast", false);
+                anim.SetBool("run", true);
+            }
+            else if (velocity.magnitude > 8.0f)
+            {
+                isWalking = true;
+                anim.SetBool("fast", true);
+            }
+            else
+            {
+                isWalking = false;
+                anim.SetBool("run", false);
+            }
         }
+
+        
         /*if (jumpTimer > 0.5)
             jumpTimer -= Time.deltaTime;
         else if (anim.GetBool("Jumping") == true)
