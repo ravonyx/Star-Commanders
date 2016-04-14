@@ -48,23 +48,9 @@ public class ChatManager : Photon.MonoBehaviour
             if (input.text == "/invoke_ship")
             {
                 if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
-                    PhotonNetwork.Instantiate("Spaceship", new Vector3(0, 50, -4500), Quaternion.identity, 0);
+                     PhotonNetwork.Instantiate("SpaceshipBlue", new Vector3(0, 50, -4500), Quaternion.identity, 0);
                 else
-                    PhotonNetwork.Instantiate("Spaceship", new Vector3(0, 50, 4500), Quaternion.identity, 0);
-            }
-            if (input.text == "/tp_ship")
-            {
-                GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-                foreach (GameObject player in players)
-                {
-                    int playerLoopId = player.GetComponent<PhotonView>().owner.ID;
-                    if (playerLoopId == PhotonNetwork.player.ID)
-                    {
-                        GameObject[] spaceship = GameObject.FindGameObjectsWithTag("PlayerShip");
-                        player.transform.parent = spaceship[0].transform;
-                        player.transform.localPosition = new Vector3(0, 0, -90);
-                    }
-                }
+                   PhotonNetwork.Instantiate("SpaceshipRed", new Vector3(0, 50, 4500), Quaternion.identity, 0);
             }
             else
                 photonView.RPC("SendMessageOthers", PhotonTargets.All, PhotonNetwork.playerName, message.GetComponent<Text>().text);

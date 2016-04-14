@@ -18,6 +18,8 @@ TagManager:
   - AsteroidPoint
   - BlueTeam
   - RedTeam
+  - SpaceshipBlue
+  - SpaceshipRed
   layers:
   - Default
   - TransparentFX

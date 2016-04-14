@@ -58,8 +58,13 @@ public class ChoosePanel : MonoBehaviour
 			Destroy(_spaceshipList[j]);
 		}
 		_spaceshipList.Clear();
-		GameObject[] spaceship = GameObject.FindGameObjectsWithTag("PlayerShip");
+        string tag = "";
+        if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
+            tag = "SpaceshipBlue";
+        else
+            tag = "SpaceshipRed";
 
+        GameObject[] spaceship = GameObject.FindGameObjectsWithTag(tag);
 		for (int i = 0; i < spaceship.Length; i++)
 		{
 

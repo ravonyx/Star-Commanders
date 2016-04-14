@@ -61,6 +61,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
             Debug.Log("JoinedRoom");
             GameObject player = null;
             player = PhotonNetwork.Instantiate(namePrefab, Vector3.zero, Quaternion.identity, 0);
+            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
             if (player)
                 InitPlayer(player);
             else
