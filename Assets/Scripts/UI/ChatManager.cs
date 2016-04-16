@@ -48,9 +48,9 @@ public class ChatManager : Photon.MonoBehaviour
             if (input.text == "/invoke_ship")
             {
                 if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
-                     PhotonNetwork.Instantiate("SpaceshipBlue", new Vector3(0, 50, -4500), Quaternion.identity, 0);
+                     PhotonNetwork.Instantiate("Spaceship/SpaceshipBlue", new Vector3(0, 50, -4500), Quaternion.identity, 0);
                 else
-                   PhotonNetwork.Instantiate("SpaceshipRed", new Vector3(0, 50, 4500), Quaternion.identity, 0);
+                   PhotonNetwork.Instantiate("Spaceship/SpaceshipRed", new Vector3(0, 50, 4500), Quaternion.identity, 0);
             }
             else
                 photonView.RPC("SendMessageOthers", PhotonTargets.All, PhotonNetwork.playerName, message.GetComponent<Text>().text);

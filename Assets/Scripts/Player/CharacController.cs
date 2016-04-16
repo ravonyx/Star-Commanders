@@ -142,7 +142,7 @@ public class CharacController : Photon.MonoBehaviour
     {
         if (isWalking)
         {
-            _stepCycle += (rigidbody.velocity.magnitude + 5) * Time.fixedDeltaTime;
+            _stepCycle += (rigidbody.velocity.magnitude + _stepInterval) * Time.fixedDeltaTime;
         }
 
         if (!(_stepCycle > _nextStep))
