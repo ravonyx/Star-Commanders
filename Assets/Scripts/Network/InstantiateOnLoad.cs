@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class InstantiateOnLoad : Photon.MonoBehaviour
 {
-    public string namePrefab;
     public bool network;
     public GameObject spaceship;
-
     [SerializeField]
     private Text _playerInfo;
 
@@ -17,11 +15,11 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         if(network)
         {
             GameObject player = null;
-            player = PhotonNetwork.Instantiate(namePrefab, Vector3.zero, Quaternion.identity, 0);
+            player = PhotonNetwork.Instantiate("Player/Player", Vector3.zero, Quaternion.identity, 0);
             if (player)
                 InitPlayer(player);
             else
-                Debug.LogError("Add " + namePrefab + " in folder Resources");
+                Debug.LogError("Add player in folder Resources");
         }
         //Debug only
         else
@@ -33,7 +31,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     private void InitPlayer(GameObject player)
     {
         GameObject cameraObj = null;
-        cameraObj = GameObject.Instantiate(Resources.Load("MainCamera"), Vector3.zero, Quaternion.identity) as GameObject;
+        cameraObj = GameObject.Instantiate(Resources.Load("Player/MainCamera"), Vector3.zero, Quaternion.identity) as GameObject;
         cameraObj.transform.parent = player.transform;
         CameraController cam = cameraObj.GetComponent<CameraController>();
         cam.target = player.transform.gameObject;
@@ -67,12 +65,12 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         {
             Debug.Log("JoinedRoom");
             GameObject player = null;
-            player = PhotonNetwork.Instantiate(namePrefab, Vector3.zero, Quaternion.identity, 0);
+            player = PhotonNetwork.Instantiate("Player/Player", Vector3.zero, Quaternion.identity, 0);
             PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
             if (player)
                 InitPlayer(player);
             else
-                Debug.LogError("Add " + namePrefab + " in folder Resources");
+                Debug.LogError("Add player in folder Resources");
 
         }
     }

@@ -59,7 +59,7 @@ public class NetworkPlayer : Photon.MonoBehaviour
         newVelocity = transform.TransformDirection(newVelocity);
         if (_controller.spaceship != null)
             newVelocity += _gravity * _controller.spaceship.transform.up;
-        newVelocity *= Time.deltaTime;
+        newVelocity *= Time.fixedDeltaTime;
         _rigidbody.velocity = newVelocity;
     }
 

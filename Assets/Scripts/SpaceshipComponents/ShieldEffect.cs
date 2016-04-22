@@ -18,9 +18,8 @@ public class ShieldEffect : MonoBehaviour
         ShieldColor = GetComponent<Renderer>().material.GetColor("_ShieldColor");
         tempColor = ShieldColor;
         tempColor.a = 0.05f;
-        
 
-
+        m_impactCallback = GetComponentInParent<ShieldController>();
     }
 
     void Update()
@@ -42,10 +41,11 @@ public class ShieldEffect : MonoBehaviour
     {
         foreach (ContactPoint contact in collision.contacts)
         {
-            //Debug.Log("contact");
             GetComponent<Renderer>().material.SetVector("_ShieldColor", tempColor);
             transform.FindChild("hitpoint").position = contact.point;
             EffectTime = 500;
+            Debug.Log(mode);
+            Debug.Log(m_impactCallback);
             switch (mode)
             {
                 case 1:

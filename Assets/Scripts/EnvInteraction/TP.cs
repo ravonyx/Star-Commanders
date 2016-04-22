@@ -15,23 +15,16 @@ public class TP : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
         if(other.GetComponent<PhotonView>().isMine)
-        {
-             Debug.Log("enter" + other);
             _player = other.gameObject;
-        }
 	}
 	void OnTriggerExit(Collider other)
 	{
         if (other.GetComponent<PhotonView>().isMine)
-        {
-            Debug.Log("exit" + other);
             _player = null;
-        }
 	}
 
 	public void doTP(int indexSpaceship)
     {
-        Debug.Log(_player);
         string tag = "";
         if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
             tag = "SpaceshipBlue";
