@@ -9,7 +9,7 @@ public class NetworkPlayer : Photon.MonoBehaviour
     private Vector3 correctDirection = Vector3.zero;
 
     private CharacController _controller;
-    private const float _gravity = -98.1f;
+    private const float _gravity = -200f;
     private Rigidbody _rigidbody;
     public Vector3 spawnPosition;
 
