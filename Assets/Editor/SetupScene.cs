@@ -56,25 +56,27 @@ public class SetupScene : EditorWindow
 
     static void Init(GameObject basePrefab, GameObject asteroidPrefab, GameObject stationPrefab, int taille, int nbAsteroid)
     {
-        if (basePrefab != null && asteroidPrefab != null && stationPrefab != null)
+        if (basePrefab != null && stationPrefab != null)
         {
             GameObject[] redBase = GameObject.FindGameObjectsWithTag("RedTeam") as GameObject[];
             GameObject[] blueBase = GameObject.FindGameObjectsWithTag("BlueTeam") as GameObject[];
             GameObject[] stationPoints = GameObject.FindGameObjectsWithTag("StationPoint") as GameObject[];
-            GameObject[] asteroidPoints = GameObject.FindGameObjectsWithTag("AsteroidPoint") as GameObject[];
 
             SetupPrefab(basePrefab, redBase);
             SetupPrefab(basePrefab, blueBase);
             SetupPrefab(stationPrefab, stationPoints);
-
-            for (int i = 0; i < nbAsteroid; i++)
+        }
+        if(asteroidPrefab != null)
+        {
+            GameObject[] asteroidPoints = GameObject.FindGameObjectsWithTag("AsteroidPoint") as GameObject[];
+            for (int i = 0; i<nbAsteroid; i++)
             {
                 int x, y, z = 0;
                 if (i > nbAsteroid / 3)
                 {
                     x = Random.Range(-taille / 2, taille / 2);
                     y = Random.Range(-taille, taille);
-                    z = Random.Range(-3500, 3500);
+                    z = Random.Range(-(taille -500), taille - 500);
                 }
                 else
                 {
@@ -90,13 +92,9 @@ public class SetupScene : EditorWindow
                 int scale = Random.Range(100, 200);
                 obj.transform.localScale = new Vector3(scale, scale, scale);
                 obj.transform.localRotation = Quaternion.identity;
-
             }
         }
-        else
-            Debug.LogError("Fill prefab");
     }
-
     static void ErasePrefab(GameObject[] points)
     {
         for (int i = 0; i < points.Length; i++)
