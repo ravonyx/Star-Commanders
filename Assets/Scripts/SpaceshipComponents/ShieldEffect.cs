@@ -44,8 +44,8 @@ public class ShieldEffect : MonoBehaviour
             GetComponent<Renderer>().material.SetVector("_ShieldColor", tempColor);
             transform.FindChild("hitpoint").position = contact.point;
             EffectTime = 500;
-            Debug.Log(mode);
-            Debug.Log(m_impactCallback);
+           // Debug.Log(mode);
+           // Debug.Log(m_impactCallback);
             switch (mode)
             {
                 case 1:

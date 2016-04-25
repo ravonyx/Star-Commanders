@@ -38,7 +38,7 @@ public class ShieldController : MonoBehaviour {
 
     void UpdateShields()
     {
-        Debug.Log("Update Shields State");
+        //Debug.Log("Update Shields State");
         if(m_power == 0)
         {
             m_FrontLeftLevel = 0;

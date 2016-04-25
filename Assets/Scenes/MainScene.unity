@@ -12516,6 +12516,10 @@ Prefab:
       propertyPath: m_Generators.Array.data[1]
       value: 
       objectReference: {fileID: 1353408621}
+    - target: {fileID: 178622, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_IsPrefabParent: 0
@@ -14024,7 +14028,7 @@ GameObject:
   - 54: {fileID: 1536591228}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
