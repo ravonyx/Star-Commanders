@@ -53,10 +53,9 @@ public class GeneratorManager : MonoBehaviour {
         {
             m_PowerCurrentGeneration = m_PowerBaseGeneration * OverloadFactor;
 
-            if(Random.Range(0,100) < OverloadFactor * 10)
+            if(Random.Range(0,101) < OverloadFactor * 10)
             {
-
-                switch (Random.Range(0, 1))
+                switch (Random.Range(0, 2))
                 {
                     case 0:
                         if(!isOnFire())

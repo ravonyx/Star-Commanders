@@ -97,11 +97,9 @@ public class LifePartController : MonoBehaviour
         m_Generators[1].FailureEventAutoStopChances(m_regenChances);
         m_AvailablePower = m_Generators[0].AvailablePower() + m_Generators[1].AvailablePower();
         m_AvailablePower += m_CoolingUnit.getWorkingCoolingUnit();
-        
 
-        m_shields.setPower(1);
-        //m_Generators[0].SetOverload(8);
-        //m_Generators[0].FailureEventAutoStopChances(100);
+        m_shields.setPower(AllocatePower(1));
+
 
 
 
@@ -329,5 +327,22 @@ public class LifePartController : MonoBehaviour
     public int getEnergyPropulsor()
     {
         return m_PropulsorPower;
+    }
+
+    public int AllocatePower(int power)
+    {
+        if (power < m_AvailablePower)
+        {
+            m_AvailablePower -= power;
+            return power;
+        }
+        else
+            return 0;
+    }
+
+    public int RemovePower(int power)
+    {
+        m_AvailablePower += power;
+        return power;
     }
 }
