@@ -39,11 +39,17 @@ public class LifePartController : MonoBehaviour
     private int HullLife;
 
     [SerializeField]
-    private int _energyWeapon = 100;
-    [SerializeField]
-    private int _energyShield = 100;
-    [SerializeField]
-    private int _energyPropulsor = 100;
+    private GeneratorManager[] m_Generators;
+    //------------- Power Management
+    //[SerializeField]
+    private int m_ShieldsPower;
+   // [SerializeField]
+    private int m_PropulsorPower;
+    //[SerializeField]
+    private int m_WeaponPower;
+
+    private int m_AvailablePower;
+   //--------------END OF Power management
 
     void Awake()
     {
@@ -76,6 +82,13 @@ public class LifePartController : MonoBehaviour
         //setConsoleOnFire(0, true);
         //setConsoleOnFire(1, true);
         //setConsoleOnFire(2, true);
+        m_AvailablePower = m_Generators[0].AvailablePower() + m_Generators[1].AvailablePower();
+        m_AvailablePower += m_CoolingUnit.getWorkingCoolingUnit();
+        Debug.Log("AVAILABLE POWER = " + m_AvailablePower);
+        m_shields.setPower(1);
+
+
+
     }
 
     public void HullImpact(GameObject go, ContactPoint[] contactsPoints)
@@ -248,27 +261,27 @@ public class LifePartController : MonoBehaviour
 
     public void setEnergyWeapon(int energy)
     {
-        _energyWeapon += energy;
+        m_WeaponPower += energy;
     }
     public void setEnergyShield(int energy)
     {
-        _energyShield += energy;
+        m_ShieldsPower += energy;
     }
     public void setEnergyPropulsor(int energy)
     {
-        _energyPropulsor += energy;
+        m_PropulsorPower += energy;
     }
 
     public int getEnergyWeapon()
     {
-        return _energyWeapon;
+        return m_WeaponPower;
     }
     public int getEnergyShield()
     {
-        return _energyShield;
+        return m_ShieldsPower;
     }
     public int getEnergyPropulsor()
     {
-        return _energyPropulsor;
+        return m_PropulsorPower;
     }
 }

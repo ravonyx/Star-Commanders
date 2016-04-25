@@ -24,8 +24,7 @@ public class CoolingUnitColliderManager : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        foreach (ContactPoint contact in collision.contacts)
-        {
+
             switch (mode)
             {
                 case 1:
@@ -47,10 +46,9 @@ public class CoolingUnitColliderManager : MonoBehaviour {
                     m_impactCallback.CoolingUnitImpact_6(collision.gameObject);
                     break;
                 default:
-                    Debug.Log("Unknow mode selected (1,2,3,4)");
+                    Debug.Log("Unknow mode selected (1,2,3,4,5,6)");
                     break;
             }
 
-        }
     }
 }

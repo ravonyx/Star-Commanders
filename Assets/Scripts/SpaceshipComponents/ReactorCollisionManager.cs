@@ -20,8 +20,7 @@ public class ReactorCollisionManager : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        foreach (ContactPoint contact in collision.contacts)
-        {
+        Debug.Log("Collision");
             switch (mode)
             {
                 case 1:
@@ -34,7 +33,5 @@ public class ReactorCollisionManager : MonoBehaviour {
                     Debug.Log("Unknow mode selected (1,2)");
                     break;
             }
-
-        }
     }
 }

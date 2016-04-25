@@ -13,6 +13,8 @@ public class ReactorController : MonoBehaviour
     private int m_leftReactor;
     private int m_rightReactor;
 
+   
+
     void Awake()
     {
         PhotonNetwork.OnEventCall += this.OnReactorEvent;
