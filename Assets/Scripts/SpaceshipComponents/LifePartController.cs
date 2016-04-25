@@ -40,6 +40,10 @@ public class LifePartController : MonoBehaviour
 
     [SerializeField]
     private GeneratorManager[] m_Generators;
+    [SerializeField]
+    private int m_GeneratorMaxLIfe;
+    [SerializeField]
+    private int m_regenChances;
     //------------- Power Management
     //[SerializeField]
     private int m_ShieldsPower;
@@ -54,6 +58,11 @@ public class LifePartController : MonoBehaviour
     void Awake()
     {
         PhotonNetwork.OnEventCall += this.OnHullEvent;
+    }
+
+    void Update()
+    {
+        //showAllLifeLevel();
     }
 
     void Start()
@@ -82,10 +91,17 @@ public class LifePartController : MonoBehaviour
         //setConsoleOnFire(0, true);
         //setConsoleOnFire(1, true);
         //setConsoleOnFire(2, true);
+        m_Generators[0].setMaxLife(m_GeneratorMaxLIfe);
+        m_Generators[1].setMaxLife(m_GeneratorMaxLIfe);
+        m_Generators[0].FailureEventAutoStopChances(m_regenChances);
+        m_Generators[1].FailureEventAutoStopChances(m_regenChances);
         m_AvailablePower = m_Generators[0].AvailablePower() + m_Generators[1].AvailablePower();
         m_AvailablePower += m_CoolingUnit.getWorkingCoolingUnit();
-        Debug.Log("AVAILABLE POWER = " + m_AvailablePower);
+        
+
         m_shields.setPower(1);
+        //m_Generators[0].SetOverload(8);
+        //m_Generators[0].FailureEventAutoStopChances(100);
 
 
 
@@ -146,6 +162,12 @@ public class LifePartController : MonoBehaviour
         {
             Debug.Log("cooling unit : " + i + " " + m_CoolingUnit.GetCoolingUnitLifeLevel(i));
         }
+        Debug.Log("GENERATOR STATE");
+        for (int i = 0; i < 2; i++)
+        {
+            Debug.Log("Generator : " + i + " " + m_Generators[i].getLifeLevel());
+        }
+
     }
 
     //monitoring life level
@@ -249,6 +271,30 @@ public class LifePartController : MonoBehaviour
     {
         if (ID >= 0 && ID < m_Console.Length)
             m_Console[ID].setOnFire(state);
+    }
+
+    public void setGeneratorOnFire(int ID,bool state)
+    {
+        if(ID >= 0 && ID < m_Generators.Length)
+        {
+            m_Generators[ID].setOnFire(state);
+        }
+    }
+
+    public void setGeneratorOnelectricalFailure(int ID, bool state)
+    {
+        if (ID >= 0 && ID < m_Generators.Length)
+        {
+            m_Generators[ID].setElectricFailure(state);
+        }
+    }
+
+    public void setGeneratorOnEMPFailure(int ID, bool state)
+    {
+        if (ID >= 0 && ID < m_Generators.Length)
+        {
+            m_Generators[ID].setEmpFailure(state);
+        }
     }
 
     private void OnHullEvent(byte eventcode, object content, int senderid)

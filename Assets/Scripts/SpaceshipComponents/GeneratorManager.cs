@@ -14,6 +14,7 @@ public class GeneratorManager : MonoBehaviour {
     [SerializeField]
     private GameObject m_ParticleElectricalDamages;
 
+    private int m_RegenChances;
 
     private int m_lifeMax;
     private int m_fireDamages;
@@ -58,10 +59,12 @@ public class GeneratorManager : MonoBehaviour {
                 switch (Random.Range(0, 1))
                 {
                     case 0:
-                        setOnFire(true);
+                        if(!isOnFire())
+                            setOnFire(true);
                         break;
                     case 1:
-                        setElectricFailure(true);
+                        if(!isElectricalDamage())
+                            setElectricFailure(true);
                         break;
                     default:
                         break;
@@ -99,6 +102,15 @@ public class GeneratorManager : MonoBehaviour {
         }
         if (currentlife < 0)
             currentlife = 0;
+
+        if(Random.Range(0,100) < m_RegenChances)
+        {
+            if (isOnFire())
+                setOnFire(false);
+            else if (isElectricalDamage())
+                setElectricFailure(false);
+
+        }
     }
 
     public int AvailablePower()
@@ -197,5 +209,9 @@ public class GeneratorManager : MonoBehaviour {
             return true;
         else
             return false;
+    }
+    public void FailureEventAutoStopChances(int percent)
+    {
+        m_RegenChances = percent;
     }
 }
