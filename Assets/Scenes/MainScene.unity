@@ -5729,6 +5729,72 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 612883533}
   m_Script: {fileID: 11500000, guid: a3c2de88e954b244a9cf06b9ccf5e0cf, type: 3}
+--- !u!1 &623569967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 623569968}
+  - 65: {fileID: 623569969}
+  - 65: {fileID: 623569971}
+  - 65: {fileID: 623569970}
+  m_Layer: 0
+  m_Name: Hull
+  m_TagString: Shield
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &623569968
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623569967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 19.2, z: 51.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1775876109}
+  m_RootOrder: 9
+--- !u!65 &623569969
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623569967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: -33.881416, y: 14.573811, z: 132.90723}
+  m_Center: {x: 2.0058918, y: -2.6780891, z: 6.554882}
+--- !u!65 &623569970
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623569967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 17.9517, y: 6.598572, z: 37.234604}
+  m_Center: {x: -1.3075056, y: 7.5692787, z: 46.23164}
+--- !u!65 &623569971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623569967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 57.998215, y: 20.060791, z: 37.943665}
+  m_Center: {x: 1.334755, y: -4.937832, z: 49.739452}
 --- !u!4 &624070157 stripped
 Transform:
   m_PrefabParentObject: {fileID: 490114, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
@@ -9696,6 +9762,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033303401}
+--- !u!114 &1038288350 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11497434, guid: deed8307f85637b4d82740669fddb84e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1379390187}
+  m_Script: {fileID: 11500000, guid: 2bfae1ecd8bdde649b6719d42c5c39c5, type: 3}
 --- !u!4 &1040386720 stripped
 Transform:
   m_PrefabParentObject: {fileID: 490114, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
@@ -12528,6 +12600,22 @@ Prefab:
       propertyPath: m_regenChances
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11450980, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_impactCallback
+      value: 
+      objectReference: {fileID: 1038288350}
+    - target: {fileID: 11499838, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_impactCallback
+      value: 
+      objectReference: {fileID: 1038288350}
+    - target: {fileID: 11448604, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_impactCallback
+      value: 
+      objectReference: {fileID: 1038288350}
+    - target: {fileID: 11475786, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_impactCallback
+      value: 
+      objectReference: {fileID: 1038288350}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_IsPrefabParent: 0
@@ -15862,6 +15950,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 490114, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
   m_PrefabInternal: {fileID: 1103772444}
+--- !u!4 &1775876109 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 476940, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1379390187}
 --- !u!4 &1780280677 stripped
 Transform:
   m_PrefabParentObject: {fileID: 490114, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
