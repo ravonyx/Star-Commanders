@@ -98,10 +98,17 @@ public class CharacController : Photon.MonoBehaviour
         Vector3 velocity = new Vector3(rigidbody.velocity.x, 0.0f, rigidbody.velocity.z);
         float dotProduct = Vector3.Dot(rigidbody.velocity, transform.right);
 
+
         if (dotProduct < -0.1f)
+        {
             anim.SetBool("strafe_left", true);
+            isWalking = true;
+        }
         else if (dotProduct > 0.1f)
+        {
             anim.SetBool("strafe_right", true);
+            isWalking = true;
+        }
         else
         {
             anim.SetBool("strafe_right", false);
