@@ -2195,7 +2195,7 @@ MonoBehaviour:
   footstepSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
-  _stepInterval: 5
+  _stepInterval: 0.75
 --- !u!114 &11446312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2429,6 +2429,10 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: _stepInterval
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135002}
