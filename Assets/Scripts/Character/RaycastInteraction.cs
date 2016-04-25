@@ -42,6 +42,7 @@ public class RaycastInteraction : MonoBehaviour
             _playerInfo.alignment = TextAnchor.MiddleCenter;
             _playerInfo.text = "";
             camController.isActive = true;
+            camController.gameObject.SetActive(true);
             _characterControler.control = true;
             _characterControler.rotate = true;
             _inUse = false;
@@ -87,6 +88,7 @@ public class RaycastInteraction : MonoBehaviour
                 {
                     camController.isActive = false;
                     _characterControler.rotate = false;
+                    camController.gameObject.SetActive(false);
                     _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
                 }
                 else if (_console.tag == "EnergyMonitor")

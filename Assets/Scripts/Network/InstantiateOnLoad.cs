@@ -54,7 +54,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         if (!network)
         {
             Debug.Log("JoinedLobby");
-            PhotonNetwork.CreateRoom("test", new RoomOptions() { maxPlayers = 1 }, null);
+            PhotonNetwork.CreateRoom("test2", new RoomOptions() { maxPlayers = 1 }, null);
 
         }
     }

@@ -23,6 +23,12 @@ public class TurretMonitors : Photon.MonoBehaviour
 
     [SerializeField]
     private float _sensitivity = 5.0f; // 5 par défaut
+
+    [SerializeField]
+    GameObject _cameraX;
+
+    [SerializeField]
+    GameObject _cameraY;
     // ------------------------
 
     // ------------------------
@@ -36,6 +42,7 @@ public class TurretMonitors : Photon.MonoBehaviour
     [SerializeField]
     ParticleSystem[] _particleProjectiles;
 
+
     private bool _salve = false;
     // ------------------------
 
@@ -44,8 +51,15 @@ public class TurretMonitors : Photon.MonoBehaviour
     private bool _isActive = false;
 
     // Angle Y initial
-    private float rotationTurret = 270.0f;
     private float rotationCanon = 0.0f;
+    private float rotationTurret = 0.0f;
+
+    public float _rotationTurretInit = 270.0f;
+    public float _rotationTurretMin = -60.0f; // Rotation Turret Seuil Bas
+    public float _rotationTurretMax = 60.0f; // Rotation Turret Seuil Haut
+
+    public float _rotationCameraInitX = 0.0f; // Rotation Turret Seuil Haut
+    public float _rotationCameraInitY = 0.0f; // Rotation Turret Seuil Haut
 
     private PhotonView[] viewTourelle = new PhotonView[2];
     private PhotonView[] viewPivotCanons = new PhotonView[2];
@@ -62,8 +76,8 @@ public class TurretMonitors : Photon.MonoBehaviour
         viewTourelle[1] = _pivotTourelle[1].GetComponent<PhotonView>();
         viewPivotCanons[1] = _pivotCanons[1].GetComponent<PhotonView>();
 
-        _pivotTourelle[0].localEulerAngles = new Vector3(0, 0, rotationTurret);
-        _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, rotationTurret);
+        _pivotTourelle[0].localEulerAngles = new Vector3(0, 0, _rotationTurretInit);
+        _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, _rotationTurretInit);
         _pivotCanons[0].localEulerAngles = new Vector3(rotationCanon, 0, 0);
         _pivotCanons[1].localEulerAngles = new Vector3(rotationCanon, 0, 0);
     }
@@ -77,11 +91,12 @@ public class TurretMonitors : Photon.MonoBehaviour
             if (Input.GetAxis("Mouse X") != 0)
             {
                 rotationTurret += Input.GetAxis("Mouse X") * _sensitivity;
-                rotationTurret = Mathf.Clamp(rotationTurret, 210, 330);
+                rotationTurret = Mathf.Clamp(rotationTurret, _rotationTurretMin, _rotationTurretMax);
 
                 // Rotation sur l'axe Y
-                _pivotTourelle[0].localEulerAngles = new Vector3(0, 0, rotationTurret);
-                _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, rotationTurret);
+                _cameraX.transform.localEulerAngles = new Vector3(_rotationCameraInitX - rotationTurret, 90, 90);
+                _pivotTourelle[0].localEulerAngles = new Vector3(0, 0, _rotationTurretInit + rotationTurret);
+                _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, _rotationTurretInit + rotationTurret);
             }
 
             // Si le joueur déplace la souris sur l'axe Vertical
@@ -90,6 +105,7 @@ public class TurretMonitors : Photon.MonoBehaviour
                 rotationCanon -= Input.GetAxis("Mouse Y") * _sensitivity;
                 rotationCanon = Mathf.Clamp(rotationCanon, -5, 90);
 
+                _cameraY.transform.localEulerAngles = new Vector3(_rotationCameraInitY - rotationCanon, 0, 0);
                 _pivotCanons[0].localEulerAngles = new Vector3(rotationCanon, 0, 0);
                 _pivotCanons[1].localEulerAngles = new Vector3(rotationCanon, 0, 0);
             }
@@ -140,6 +156,7 @@ public class TurretMonitors : Photon.MonoBehaviour
         viewTourelle[1].RequestOwnership();
         viewPivotCanons[1].RequestOwnership();
         _isActive = active;
+        _cameraX.SetActive(active);
     }
 
     [PunRPC]
