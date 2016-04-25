@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ExitZone : Photon.MonoBehaviour
 {
@@ -19,23 +20,23 @@ public class ExitZone : Photon.MonoBehaviour
 
     IEnumerator CountdownExitZone()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         warningText.text = "You lose";
         yield return new WaitForSeconds(1);
-        Application.LoadLevel("Menu");
+        SceneManager.LoadScene("Menu");
     }
 
     [PunRPC]
     void StartCountdown()
     {
-        StartCoroutine(CountdownExitZone());
+        StartCoroutine("CountdownExitZone");
         warningText.text = "Exit Zone !!";
     }
 
     [PunRPC]
     void StopCountdown()
     {
-        StopCoroutine(CountdownExitZone());
+        StopCoroutine("CountdownExitZone");
         warningText.text = "";
     }
 }
