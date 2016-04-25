@@ -133,4 +133,24 @@ public class CoolingUnitController : MonoBehaviour
         else if (eventcode == 21)
             m_coolingUnit_6 = (int)content;
     }
+
+    public int getWorkingCoolingUnit()
+    {
+        int Amount = 0;
+        if (m_coolingUnit_1 == 0)
+            Amount++;
+        if (m_coolingUnit_2 == 0)
+            Amount++;
+        if (m_coolingUnit_3 == 0)
+            Amount++;
+        if (m_coolingUnit_4 == 0)
+            Amount++;
+        if (m_coolingUnit_5 == 0)
+            Amount++;
+        if (m_coolingUnit_6 == 0)
+            Amount++;
+
+        return Amount;
+
+    }
 }

@@ -12,13 +12,15 @@ public class ShieldEffect : MonoBehaviour
     private int mode;
     [SerializeField] 
     private ShieldController m_impactCallback;
+
+    private MeshCollider m_collider;
     
     void Start()
     {
         ShieldColor = GetComponent<Renderer>().material.GetColor("_ShieldColor");
         tempColor = ShieldColor;
         tempColor.a = 0.05f;
-
+        m_collider = GetComponent<MeshCollider>();
         m_impactCallback = GetComponentInParent<ShieldController>();
     }
 
@@ -35,6 +37,11 @@ public class ShieldEffect : MonoBehaviour
             GetComponent<Renderer>().material.SetVector("_Position", transform.FindChild("hitpoint").position);
             GetComponent<Renderer>().material.SetFloat("_EffectTime", EffectTime);
         }
+        if (m_impactCallback.GetShieldsLifeLevel(mode) == 0)
+            m_collider.enabled = false;
+        else
+            m_collider.enabled = true;
+
     }
 
     void  OnCollisionEnter(Collision collision)
@@ -44,8 +51,8 @@ public class ShieldEffect : MonoBehaviour
             GetComponent<Renderer>().material.SetVector("_ShieldColor", tempColor);
             transform.FindChild("hitpoint").position = contact.point;
             EffectTime = 500;
-            Debug.Log(mode);
-            Debug.Log(m_impactCallback);
+           // Debug.Log(mode);
+           // Debug.Log(m_impactCallback);
             switch (mode)
             {
                 case 1:
