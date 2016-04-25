@@ -789,8 +789,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 310993252}
+  m_RootOrder: 7
 --- !u!114 &43942261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3357,7 +3357,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 310993252}
   m_Layer: 0
-  m_Name: Env
+  m_Name: Environement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3380,8 +3380,10 @@ Transform:
   - {fileID: 1165217761}
   - {fileID: 1130479089}
   - {fileID: 708307224}
+  - {fileID: 43942260}
+  - {fileID: 1715041217}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 4
 --- !u!4 &314216900 stripped
 Transform:
   m_PrefabParentObject: {fileID: 490114, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
@@ -3710,7 +3712,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22461908, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11401822, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
@@ -6058,7 +6060,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 5
 --- !u!4 &656452218 stripped
 Transform:
   m_PrefabParentObject: {fileID: 490114, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
@@ -9154,7 +9156,7 @@ Transform:
   - {fileID: 857428536}
   - {fileID: 769929895}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &994048884
 GameObject:
   m_ObjectHideFlags: 0
@@ -12379,7 +12381,7 @@ Transform:
   - {fileID: 1628582443}
   - {fileID: 1402870221}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1321413617
 Prefab:
   m_ObjectHideFlags: 0
@@ -15933,8 +15935,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 109.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 310993252}
+  m_RootOrder: 8
 --- !u!4 &1715655850 stripped
 Transform:
   m_PrefabParentObject: {fileID: 490114, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
@@ -17278,7 +17280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b509d1d20dfc926449de70fc7846d705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  network: 0
+  network: 1
   spaceship: {fileID: 0}
   _playerInfo: {fileID: 963312413}
 --- !u!4 &1939474482
