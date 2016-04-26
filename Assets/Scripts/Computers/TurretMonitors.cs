@@ -32,6 +32,9 @@ public class TurretMonitors : Photon.MonoBehaviour
 
     [SerializeField]
     bool _upIsDown = false;
+
+    [SerializeField]
+    bool _isRight = false;
     // ------------------------
 
     // ------------------------
@@ -60,14 +63,13 @@ public class TurretMonitors : Photon.MonoBehaviour
     public float _rotationTurretInit = 270.0f;
     public float _rotationTurretMin = -60.0f; // Rotation Turret Seuil Bas
     public float _rotationTurretMax = 60.0f; // Rotation Turret Seuil Haut
-
-    public float _rotationCameraInitX = 0.0f; // Rotation Turret Seuil Haut
-    public float _rotationCameraInitY = 0.0f; // Rotation Turret Seuil Haut
-
+    
     private PhotonView[] viewTourelle = new PhotonView[2];
     private PhotonView[] viewPivotCanons = new PhotonView[2];
 
     private PhotonView _photonView;
+    private Vector3 _initRotX;
+    private Vector3 _initRotY;
 
     void Start()
     {
@@ -83,6 +85,10 @@ public class TurretMonitors : Photon.MonoBehaviour
         _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, _rotationTurretInit);
         _pivotCanons[0].localEulerAngles = new Vector3(rotationCanon, 0, 0);
         _pivotCanons[1].localEulerAngles = new Vector3(rotationCanon, 0, 0);
+
+        _initRotX = _cameraX.transform.localEulerAngles;
+        _initRotY = _cameraY.transform.localEulerAngles;
+
     }
 
     void Update()
@@ -97,7 +103,7 @@ public class TurretMonitors : Photon.MonoBehaviour
                 rotationTurret = Mathf.Clamp(rotationTurret, _rotationTurretMin, _rotationTurretMax);
 
                 // Rotation sur l'axe Y
-                _cameraX.transform.localEulerAngles = new Vector3(_rotationCameraInitX - rotationTurret, 90, 90);
+                _cameraX.transform.localEulerAngles = _initRotX + new Vector3((_isRight ? rotationTurret : -rotationTurret), 0, 0);
                 _pivotTourelle[0].localEulerAngles = new Vector3(0, 0, _rotationTurretInit + rotationTurret);
                 _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, _rotationTurretInit + rotationTurret);
             }
@@ -108,7 +114,7 @@ public class TurretMonitors : Photon.MonoBehaviour
                 rotationCanon -= Input.GetAxis("Mouse Y") * _sensitivity;
                 rotationCanon = Mathf.Clamp(rotationCanon, -5, 90);
 
-                _cameraY.transform.localEulerAngles = new Vector3(_rotationCameraInitY + (_upIsDown ? rotationCanon : -rotationCanon), 0, 0);
+                _cameraY.transform.localEulerAngles = _initRotY + new Vector3((_upIsDown ? rotationCanon : -rotationCanon), 0, 0);
                 _pivotCanons[0].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
                 _pivotCanons[1].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
             }
