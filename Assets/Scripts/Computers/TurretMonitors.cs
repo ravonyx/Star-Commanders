@@ -29,6 +29,9 @@ public class TurretMonitors : Photon.MonoBehaviour
 
     [SerializeField]
     GameObject _cameraY;
+
+    [SerializeField]
+    bool _upIsDown = false;
     // ------------------------
 
     // ------------------------
@@ -105,9 +108,9 @@ public class TurretMonitors : Photon.MonoBehaviour
                 rotationCanon -= Input.GetAxis("Mouse Y") * _sensitivity;
                 rotationCanon = Mathf.Clamp(rotationCanon, -5, 90);
 
-                _cameraY.transform.localEulerAngles = new Vector3(_rotationCameraInitY - rotationCanon, 0, 0);
-                _pivotCanons[0].localEulerAngles = new Vector3(rotationCanon, 0, 0);
-                _pivotCanons[1].localEulerAngles = new Vector3(rotationCanon, 0, 0);
+                _cameraY.transform.localEulerAngles = new Vector3(_rotationCameraInitY + (_upIsDown ? rotationCanon : -rotationCanon), 0, 0);
+                _pivotCanons[0].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
+                _pivotCanons[1].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
             }
 
             if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !_reload && !_wantToShoot)
