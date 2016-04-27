@@ -9,12 +9,12 @@ public class ExitZone : Photon.MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
     {
-        if (PhotonNetwork.isMasterClient && other.tag == "Shield")
+        if (PhotonNetwork.isMasterClient && other.tag == "Hull")
             photonView.RPC("StopCountdown", PhotonTargets.All);
     }
     void OnTriggerExit(Collider other)
     {
-        if (PhotonNetwork.isMasterClient && other.tag == "Shield")
+        if (PhotonNetwork.isMasterClient && other.tag == "Hull")
             photonView.RPC("StartCountdown", PhotonTargets.All);
     }
 
