@@ -21,12 +21,6 @@ public class ShieldController : MonoBehaviour {
     private int m_power; // Set Power  Rate for all shields 
    // private int m_regenRate; // Set Regeneration  Rate for all shields  
 
-
-    void Awake()
-    {
-        PhotonNetwork.OnEventCall += this.OnShiedEvent;
-    }
-
     void Start ()
     {
         m_FrontLeftLevel = m_FrontLeftMax;
@@ -65,44 +59,28 @@ public class ShieldController : MonoBehaviour {
         }
     }
 
-   public void FrontLeftImpact(GameObject go)
+   public void FrontLeftImpact()
     {
-        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
-        {
-            m_FrontLeftLevel--;
-            PhotonNetwork.RaiseEvent(0, m_FrontLeftLevel, true, null);
-            Debug.Log("m_FrontLeftLevel " + m_FrontLeftLevel);
-        }
+        m_FrontLeftLevel--;
+        Debug.Log("m_FrontLeftLevel " + m_FrontLeftLevel);
     }
 
-    public void FrontRightImpact(GameObject go)
-    {
-        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
-        {
-            m_FrontRightLevel--;
-            PhotonNetwork.RaiseEvent(1, m_FrontRightLevel, true, null);
-            Debug.Log("m_FrontRightLevel " + m_FrontRightLevel);
-        }
+    public void FrontRightImpact()
+{
+        m_FrontRightLevel--;
+        Debug.Log("m_FrontRightLevel " + m_FrontRightLevel);
     }
 
-    public void RearleftImpact(GameObject go)
+    public void RearleftImpact()
     {
-        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
-        {
-            m_RearLeftLevel--;
-            PhotonNetwork.RaiseEvent(2, m_RearLeftLevel, true, null);
-            Debug.Log("m_RearLeftLevel " + m_RearLeftLevel);
-        }
+        m_RearLeftLevel--;
+        Debug.Log("m_RearLeftLevel " + m_RearLeftLevel);
     }
 
-    public void RearRightImpact(GameObject go)
+    public void RearRightImpact()
     {
-        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
-        {
-            m_RearRightLevel--;
-            PhotonNetwork.RaiseEvent(3, m_RearRightLevel, true, null);
-            Debug.Log("m_RearRightLevel " + m_RearRightLevel);
-        }
+        m_RearRightLevel--;
+        Debug.Log("m_RearRightLevel " + m_RearRightLevel);
     }
 
     public int GetShieldsLifeLevel(int ShieldID)
@@ -131,18 +109,5 @@ public class ShieldController : MonoBehaviour {
     public int getPower()
     {
         return m_power;
-    }
-
-    // handle events:
-    private void OnShiedEvent(byte eventcode, object content, int senderid)
-    {
-        if (eventcode == 0)
-            m_FrontLeftLevel = (int)content;
-        else if (eventcode == 1)
-            m_FrontRightLevel = (int)content;
-       else if (eventcode == 2)
-            m_RearLeftLevel = (int)content;
-        if (eventcode == 3)
-            m_RearRightLevel = (int)content;
     }
 }

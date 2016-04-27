@@ -38,4 +38,5 @@ MonoBehaviour:
   - StartCountdown
   - StopCountdown
   - SyncParent
+  - OnShiedCollide
   DisableAutoOpenWizard: 1
