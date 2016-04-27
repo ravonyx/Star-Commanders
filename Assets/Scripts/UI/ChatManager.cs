@@ -48,29 +48,31 @@ public class ChatManager : Photon.MonoBehaviour
             if (input.text == "/invoke_ship")
             {
                 if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
-                     PhotonNetwork.Instantiate("Spaceship/SpaceshipBlue", new Vector3(0, 50, -2500), Quaternion.identity, 0);
+                    PhotonNetwork.Instantiate("Spaceship/SpaceshipBlue", new Vector3(0, 50, -2500), Quaternion.identity, 0);
                 else
-                   PhotonNetwork.Instantiate("Spaceship/SpaceshipRed", new Vector3(0, 50, 2500), Quaternion.identity, 0);
+                    PhotonNetwork.Instantiate("Spaceship/SpaceshipRed", new Vector3(0, 50, 2500), Quaternion.identity, 0);
             }
             else
-                photonView.RPC("SendMessageOthers", PhotonTargets.All, PhotonNetwork.playerName, message.GetComponent<Text>().text);
-
+                photonView.RPC("SendMessageOthers", PhotonTargets.All, PhotonNetwork.playerName, message.GetComponent<Text>().text, PhotonNetwork.player.GetTeam().ToString());
             focus = false;
             input.text = "";
         }
 	}
 
     [PunRPC]
-    void SendMessageOthers(string sender, string text)
+    void SendMessageOthers(string sender, string text, string team)
     {
-        GameObject message = (GameObject)Instantiate(Resources.Load("MessagePlayer"));
-        if (message)
+        if(PhotonNetwork.player.GetTeam().ToString() == team)
         {
-            message.SetActive(true);
-            message.transform.SetParent(panelMessages.transform, false);
-            message.GetComponent<Text>().text = sender + " : " + text;
-            Canvas.ForceUpdateCanvases();
-            scrollChat.verticalNormalizedPosition = 0.0f;
+            GameObject message = (GameObject)Instantiate(Resources.Load("MessagePlayer"));
+            if (message)
+            {
+                message.SetActive(true);
+                message.transform.SetParent(panelMessages.transform, false);
+                message.GetComponent<Text>().text = sender + " : " + text;
+                Canvas.ForceUpdateCanvases();
+                scrollChat.verticalNormalizedPosition = 0.0f;
+            }
         }
     }
 }
