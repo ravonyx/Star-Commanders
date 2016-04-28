@@ -25,10 +25,7 @@ public class TurretMonitors : Photon.MonoBehaviour
     private float _sensitivity = 5.0f; // 5 par défaut
 
     [SerializeField]
-    GameObject _cameraX;
-
-    [SerializeField]
-    GameObject _cameraY;
+    GameObject _camera;
 
     [SerializeField]
     bool _upIsDown = false;
@@ -40,14 +37,16 @@ public class TurretMonitors : Photon.MonoBehaviour
     // ------------------------
     // Tir
     [SerializeField]
-    float _shootDelay = 1;
+    float _shootDelay = 0.5f;
 
     [SerializeField]
     float _projectileSpeed = 50;
 
     [SerializeField]
-    ParticleSystem[] _particleProjectiles;
+    KineticProjectilPoolScript _projectilePool;
 
+    [SerializeField]
+    AudioSource _fireSound;
 
     private bool _salve = false;
     // ------------------------
@@ -68,8 +67,6 @@ public class TurretMonitors : Photon.MonoBehaviour
     private PhotonView[] viewPivotCanons = new PhotonView[2];
 
     private PhotonView _photonView;
-    private Vector3 _initRotX;
-    private Vector3 _initRotY;
 
     void Start()
     {
@@ -85,10 +82,6 @@ public class TurretMonitors : Photon.MonoBehaviour
         _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, _rotationTurretInit);
         _pivotCanons[0].localEulerAngles = new Vector3(rotationCanon, 0, 0);
         _pivotCanons[1].localEulerAngles = new Vector3(rotationCanon, 0, 0);
-
-        _initRotX = _cameraX.transform.localEulerAngles;
-        _initRotY = _cameraY.transform.localEulerAngles;
-
     }
 
     void Update()
@@ -103,7 +96,6 @@ public class TurretMonitors : Photon.MonoBehaviour
                 rotationTurret = Mathf.Clamp(rotationTurret, _rotationTurretMin, _rotationTurretMax);
 
                 // Rotation sur l'axe Y
-                _cameraX.transform.localEulerAngles = _initRotX + new Vector3((_isRight ? rotationTurret : -rotationTurret), 0, 0);
                 _pivotTourelle[0].localEulerAngles = new Vector3(0, 0, _rotationTurretInit + rotationTurret);
                 _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, _rotationTurretInit + rotationTurret);
             }
@@ -113,8 +105,7 @@ public class TurretMonitors : Photon.MonoBehaviour
             {
                 rotationCanon -= Input.GetAxis("Mouse Y") * _sensitivity;
                 rotationCanon = Mathf.Clamp(rotationCanon, -5, 90);
-
-                _cameraY.transform.localEulerAngles = _initRotY + new Vector3((_upIsDown ? rotationCanon : -rotationCanon), 0, 0);
+                
                 _pivotCanons[0].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
                 _pivotCanons[1].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
             }
@@ -139,21 +130,48 @@ public class TurretMonitors : Photon.MonoBehaviour
         while (_wantToShoot)
         {
             yield return new WaitForFixedUpdate();
-            if (_salve)
+
+            KineticProjectilScript ps1 = _projectilePool.GetProjectile();
+            KineticProjectilScript ps2 = _projectilePool.GetProjectile();
+            KineticProjectilScript ps3 = _projectilePool.GetProjectile();
+            KineticProjectilScript ps4 = _projectilePool.GetProjectile();
+
+            if ((ps1 != null) && (ps2 != null) && (ps3 != null) && (ps4 != null))
             {
-                _salve = true;
-                _particleProjectiles[0].Play();
-                _particleProjectiles[1].Play();
-                _particleProjectiles[4].Play();
-                _particleProjectiles[5].Play();
-            }
-            else if (!_salve)
-            {
-                _salve = false;
-                _particleProjectiles[2].Play();
-                _particleProjectiles[3].Play();
-                _particleProjectiles[6].Play();
-                _particleProjectiles[7].Play();
+                ps1.gameObject.SetActive(true);
+                ps2.gameObject.SetActive(true);
+                ps3.gameObject.SetActive(true);
+                ps4.gameObject.SetActive(true);
+
+                
+                _reload = true;
+                if (_salve)
+                {
+                    ps1.transform.position = _pivotCanons[0].position + _pivotCanons[0].right * 1.4f + _pivotCanons[0].up * 4 + _pivotCanons[0].forward * 0.2f;
+                    ps2.transform.position = _pivotCanons[0].position - _pivotCanons[0].right * 1.4f + _pivotCanons[0].up * 4 + _pivotCanons[0].forward * 0.2f;
+                    ps3.transform.position = _pivotCanons[1].position + _pivotCanons[1].right * 1.4f + _pivotCanons[1].up * 4 + _pivotCanons[1].forward * 0.2f;
+                    ps4.transform.position = _pivotCanons[1].position - _pivotCanons[1].right * 1.4f + _pivotCanons[1].up * 4 + _pivotCanons[1].forward * 0.2f;
+                    _salve = false;
+                }
+                else if (!_salve)
+                {
+                    ps1.transform.position = _pivotCanons[0].position + _pivotCanons[0].right * 1.4f + _pivotCanons[0].up * 4 - _pivotCanons[0].forward * 0.2f;
+                    ps2.transform.position = _pivotCanons[0].position - _pivotCanons[0].right * 1.4f + _pivotCanons[0].up * 4 - _pivotCanons[0].forward * 0.2f;
+                    ps3.transform.position = _pivotCanons[1].position + _pivotCanons[1].right * 1.4f + _pivotCanons[0].up * 4 - _pivotCanons[1].forward * 0.2f;
+                    ps4.transform.position = _pivotCanons[1].position - _pivotCanons[1].right * 1.4f + _pivotCanons[0].up * 4 - _pivotCanons[1].forward * 0.2f;
+                    _salve = true;
+                }
+                
+                ps1._rigidbody.velocity = (_pivotCanons[0].up).normalized * _projectileSpeed;
+                ps2._rigidbody.velocity = (_pivotCanons[0].up).normalized * _projectileSpeed;
+                ps3._rigidbody.velocity = (_pivotCanons[1].up).normalized * _projectileSpeed;
+                ps4._rigidbody.velocity = (_pivotCanons[1].up).normalized * _projectileSpeed;
+
+                _fireSound.Stop();
+                _fireSound.Play();
+
+                yield return new WaitForSeconds(_shootDelay);
+                _reload = false;
             }
         }
     }
@@ -165,7 +183,7 @@ public class TurretMonitors : Photon.MonoBehaviour
         viewTourelle[1].RequestOwnership();
         viewPivotCanons[1].RequestOwnership();
         _isActive = active;
-        _cameraX.SetActive(active);
+        _camera.SetActive(active);
     }
 
     [PunRPC]

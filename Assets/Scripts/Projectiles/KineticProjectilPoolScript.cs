@@ -51,6 +51,7 @@ public class KineticProjectilPoolScript : MonoBehaviour
                 Physics.IgnoreCollision(_shieldsSpaceship[2], proj._collider, true);
                 Physics.IgnoreCollision(_shieldsSpaceship[3], proj._collider, true);
             }
+            proj.startExpiration();
             return proj;
         }
         return null;

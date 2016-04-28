@@ -26,20 +26,27 @@ public class KineticProjectilScript : MonoBehaviour
 
     [SerializeField]
     KineticProjectilPoolScript poolRappel;
-
-    [SerializeField]
-    float maxDistance = 200; // Distance max avant disparition
-
-    void Update()
-    {
-        if (Mathf.Abs(transform.position.x) >= maxDistance || Mathf.Abs(transform.position.y) >= maxDistance || Mathf.Abs(transform.position.z) >= maxDistance)
-        {
-            poolRappel.ReturnProjectile(this);
-        }
-    }
-
+    
     void OnTriggerEnter(Collider _col)
     {
+        returnPool();
+    }
+
+    public void startExpiration()
+    {
+        StartCoroutine(expireTime());
+    }
+    
+    IEnumerator expireTime()
+    {
+        yield return new WaitForSeconds(5);
+        returnPool();
+    }
+
+    void returnPool()
+    {
+        StopAllCoroutines();
+        gameObject.SetActive(false);
         poolRappel.ReturnProjectile(this);
     }
 }

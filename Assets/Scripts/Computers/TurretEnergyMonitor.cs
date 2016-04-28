@@ -16,10 +16,7 @@ public class TurretEnergyMonitor : MonoBehaviour
     private float _sensitivity = 5.0f; // 5 par défaut
 
     [SerializeField]
-    GameObject _cameraX;
-
-    [SerializeField]
-    GameObject _cameraY;
+    GameObject _camera;
 
     [SerializeField]
     bool _upIsDown = false;
@@ -35,8 +32,11 @@ public class TurretEnergyMonitor : MonoBehaviour
     float _projectileSpeed = 50;
 
     [SerializeField]
-    ParticleSystem[] _particleProjectiles;
-    
+    KineticProjectilPoolScript _projectilePool;
+
+    [SerializeField]
+    AudioSource _fireSound;
+
     // ------------------------
 
     private bool _wantToShoot = false;
@@ -63,9 +63,6 @@ public class TurretEnergyMonitor : MonoBehaviour
         
         _pivotTourelle.localEulerAngles = new Vector3(0, 0, 0);
         _pivotCanons.localEulerAngles = new Vector3(0, 0, 0);
-
-        _initRotX = _cameraX.transform.localEulerAngles;
-        _initRotY = _cameraY.transform.localEulerAngles;
     }
 
     void Update()
@@ -84,7 +81,6 @@ public class TurretEnergyMonitor : MonoBehaviour
 
 
                 // Rotation sur l'axe Y
-                _cameraX.transform.localEulerAngles = _initRotX + new Vector3(0, 0, rotationTurret);
                 _pivotTourelle.localEulerAngles = new Vector3(0, 0, rotationTurret);
             }
 
@@ -92,9 +88,8 @@ public class TurretEnergyMonitor : MonoBehaviour
             if (Input.GetAxis("Mouse Y") != 0)
             {
                 rotationCanon -= Input.GetAxis("Mouse Y") * _sensitivity;
-                rotationCanon = Mathf.Clamp(rotationCanon, -5, 90);
-
-                _cameraY.transform.localEulerAngles = _initRotY + new Vector3((_upIsDown ? rotationCanon : -rotationCanon), 0, 0);
+                rotationCanon = Mathf.Clamp(rotationCanon, -5, 20);
+                
                 _pivotCanons.localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
             }
 
@@ -118,6 +113,22 @@ public class TurretEnergyMonitor : MonoBehaviour
         while (_wantToShoot)
         {
             yield return new WaitForFixedUpdate();
+            KineticProjectilScript ps1 = _projectilePool.GetProjectile();
+
+            if (ps1 != null)
+            {
+                ps1.gameObject.SetActive(true);
+                
+                ps1._rigidbody.velocity = (_pivotCanons.up).normalized * _projectileSpeed;
+
+                ps1.transform.position = _pivotCanons.position + _pivotCanons.up * 6;
+                _fireSound.Stop();
+                _fireSound.Play();
+
+                _reload = true;
+                yield return new WaitForSeconds(_shootDelay);
+                _reload = false;
+            }
         }
     }
 
@@ -126,7 +137,7 @@ public class TurretEnergyMonitor : MonoBehaviour
         viewTourelle.RequestOwnership();
         viewPivotCanons.RequestOwnership();
         _isActive = active;
-        _cameraX.SetActive(active);
+        _camera.SetActive(active);
     }
 
     [PunRPC]
