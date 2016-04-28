@@ -23,6 +23,7 @@ public class RaycastInteraction : MonoBehaviour
 
     private GameObject _console;
     private bool _inUse = false;
+    private bool _nearConsole = false;
 
     private bool _keyFPush = false;
 
@@ -41,12 +42,16 @@ public class RaycastInteraction : MonoBehaviour
             _playerInfo.alignment = TextAnchor.MiddleCenter;
             _playerInfo.text = "";
             camController.isActive = true;
+            camController.gameObject.SetActive(true);
             _characterControler.control = true;
             _characterControler.rotate = true;
             _inUse = false;
 
             _console.SendMessageUpwards("Activate", false);
             _keyFPush = true;
+
+            _nearConsole = false;
+            _playerInfo.text = "";
         }
         else if (_inUse && (Input.GetKeyDown(KeyCode.I)))
         {
@@ -68,60 +73,54 @@ public class RaycastInteraction : MonoBehaviour
             else
                 _playerInfo.text = "";
         }
-        else if (!_inUse)
+        else if (!_inUse && _nearConsole)
         {
-            Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            if (Physics.Raycast(transform.position, fwd, 0.8f))
+            _playerInfo.text = "Press F to interact !";
+
+            if (Input.GetKeyDown(KeyCode.F) && !_keyFPush)
             {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, fwd, out hit) && ((hit.collider.tag == "Monitor") || (hit.collider.tag == "PilotMonitor") || (hit.collider.tag == "EnergyMonitor")))
+                _playerInfo.alignment = TextAnchor.MiddleLeft;
+                if (_console.tag == "PilotMonitor")
                 {
-                    _playerInfo.text = "Press F to interact !";
-
-                    if (Input.GetKeyDown(KeyCode.F) && !_keyFPush)
-                    {
-                        _console = hit.collider.gameObject;
-                        _playerInfo.alignment = TextAnchor.MiddleLeft;
-                        if (_console.tag == "PilotMonitor")
-                        {
-                            _playerInfo.text = "Pilot Control:\nPitch - Z / S\nYaw - Q / D\nRoll - A / E\nAccelerate - Maj\nDeccelerate - Ctrl\nHide Info - I\nExit Console - F";
-                        }
-                        else if (_console.tag == "Monitor")
-                        {
-                            _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
-                        }
-                        else if (_console.tag == "EnergyMonitor")
-                        {
-                            _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
-                        }
-
-                        /*
-                        float rayon = 1f;
-                        float angle = Quaternion.EulerAngles(_turret.transform.rotation.y);
-                        transform.position = new Vector3(
-                            _turret.transform.position.x + rayon * Mathf.Sin(angle),
-                            0,
-                            _turret.transform.position.z + rayon * Mathf.Cos(angle));
-
-                        transform.rotation = Quaternion.Euler(0, angle + 90, 0);
-                        */
-
-                        if (hit.collider.tag == "Monitor")
-                        {
-                            camController.isActive = false;
-                            _characterControler.rotate = false;
-                        }
-
-                        _characterControler.control = false;
-                        _inUse = true;
-
-                        _console.SendMessageUpwards("Activate", true);
-                        _keyFPush = true;
-                    }
+                    _playerInfo.text = "Pilot Control:\nPitch - Z / S\nYaw - Q / D\nRoll - A / E\nAccelerate - Maj\nDeccelerate - Ctrl\nHide Info - I\nExit Console - F";
                 }
+                else if (_console.tag == "Monitor")
+                {
+                    camController.isActive = false;
+                    _characterControler.rotate = false;
+                    camController.gameObject.SetActive(false);
+                    _playerInfo.text = "Turret Control:\nMove View - Mouse\nFire - Left Click\nHide Info - I\nExit Console - F";
+                }
+                else if (_console.tag == "EnergyMonitor")
+                {
+                    _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
+                }
+                
+
+                _characterControler.control = false;
+                _inUse = true;
+
+                _console.SendMessageUpwards("Activate", true);
+                _keyFPush = true;
             }
-            else if (_playerInfo.text != "")
-                _playerInfo.text = "";
         }
-	}
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor"))
+        {
+            _nearConsole = true;
+            _console = other.gameObject;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (!_inUse && ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor")))
+        {
+            _nearConsole = false;
+            _playerInfo.text = "";
+        }
+    }
 }

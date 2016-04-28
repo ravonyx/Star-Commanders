@@ -31,4 +31,12 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupTimes
   - LoadSceneForEach
+  - StopShoot
+  - SyncShoot
+  - SendMessage
+  - SendMessageOthers
+  - StartCountdown
+  - StopCountdown
+  - SyncParent
+  - OnShiedCollide
   DisableAutoOpenWizard: 1

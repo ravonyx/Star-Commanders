@@ -5,12 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monitor
-  - PlayerShip
   - Turbine
-  - Xhair
   - bullet
   - PilotMonitor
   - EnergyMonitor
+  - Chat
+  - LimitScene
+  - Hull
+  - StationPoint
+  - AsteroidPoint
+  - BlueTeam
+  - RedTeam
+  - SpaceshipBlue
+  - SpaceshipRed
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -22,8 +30,8 @@ TagManager:
   - 
   - player
   - Shields
-  - 
-  - 
+  - LimitScene
+  - Hull
   - 
   - 
   - 

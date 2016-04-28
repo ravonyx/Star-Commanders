@@ -84,6 +84,7 @@ public class NetworkManager : Photon.PunBehaviour
                 PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = value }, null);
                 menuScript.GoToPanel(waitPanel);
                 PhotonNetwork.playerName = playerName.text;
+                PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
             }
             else if(nb <= 0)
             {
@@ -130,6 +131,7 @@ public class NetworkManager : Photon.PunBehaviour
             PhotonNetwork.JoinRoom(_listRooms.selectedRoomName);
             menuScript.GoToPanel(waitPanel);
             PhotonNetwork.playerName = playerName.text;
+            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
         }
         else
         {

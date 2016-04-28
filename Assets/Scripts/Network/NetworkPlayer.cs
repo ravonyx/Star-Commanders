@@ -9,19 +9,33 @@ public class NetworkPlayer : Photon.MonoBehaviour
     private Vector3 correctDirection = Vector3.zero;
 
     private CharacController _controller;
-    private const float _gravity = -98.1f;
+    private const float _gravity = -200f;
     private Rigidbody _rigidbody;
+    public Vector3 spawnPosition;
 
     void Start()
     {
-        GameObject[] array = GameObject.FindGameObjectsWithTag("PlayerShip");
-        if (array.Length != 1)
-            Debug.LogError("PlayerShip tag not assigned");
+        GameObject[] chat = GameObject.FindGameObjectsWithTag("Chat");
+        if (chat.Length != 1)
+            Debug.LogError("Chat tag not assigned");
+        
         else
         {
-            transform.parent = array[0].transform;
+            if (photonView.owner.GetTeam() == PunTeams.Team.blue)
+            {
+                GameObject baseTeam = GameObject.FindGameObjectWithTag("BlueTeam");
+                transform.parent = baseTeam.transform;
+                transform.localPosition = spawnPosition;
+            }
+            else
+            {
+                GameObject baseTeam = GameObject.FindGameObjectWithTag("RedTeam");
+                transform.parent = baseTeam.transform;
+                transform.localPosition = spawnPosition;
+            }
+
             _controller = GetComponent<CharacController>();
-            _controller.spaceship = array[0];
+            _controller.chat = chat[0].GetComponent<ChatManager>();
             _rigidbody = GetComponent<Rigidbody>();
         }
     }
@@ -45,7 +59,7 @@ public class NetworkPlayer : Photon.MonoBehaviour
         newVelocity = transform.TransformDirection(newVelocity);
         if (_controller.spaceship != null)
             newVelocity += _gravity * _controller.spaceship.transform.up;
-        newVelocity *= Time.deltaTime;
+        newVelocity *= Time.fixedDeltaTime;
         _rigidbody.velocity = newVelocity;
     }
 

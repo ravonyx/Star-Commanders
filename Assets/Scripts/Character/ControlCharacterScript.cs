@@ -14,7 +14,7 @@ using System.Collections;
 public class ControlCharacterScript : MonoBehaviour
 {
     [SerializeField]
-    Camera _cameraPlayer = new Camera();
+    public Camera _cameraPlayer = new Camera();
 
     [SerializeField]
     public bool _isActive = true;

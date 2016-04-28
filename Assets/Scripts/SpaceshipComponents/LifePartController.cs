@@ -39,15 +39,30 @@ public class LifePartController : MonoBehaviour
     private int HullLife;
 
     [SerializeField]
-    private int _energyWeapon = 100;
+    private GeneratorManager[] m_Generators;
     [SerializeField]
-    private int _energyShield = 100;
+    private int m_GeneratorMaxLIfe;
     [SerializeField]
-    private int _energyPropulsor = 100;
+    private int m_regenChances;
+    //------------- Power Management
+    //[SerializeField]
+    private int m_ShieldsPower;
+   // [SerializeField]
+    private int m_PropulsorPower;
+    //[SerializeField]
+    private int m_WeaponPower;
+
+    private int m_AvailablePower;
+   //--------------END OF Power management
 
     void Awake()
     {
         PhotonNetwork.OnEventCall += this.OnHullEvent;
+    }
+
+    void Update()
+    {
+        //showAllLifeLevel();
     }
 
     void Start()
@@ -76,6 +91,18 @@ public class LifePartController : MonoBehaviour
         //setConsoleOnFire(0, true);
         //setConsoleOnFire(1, true);
         //setConsoleOnFire(2, true);
+        m_Generators[0].setMaxLife(m_GeneratorMaxLIfe);
+        m_Generators[1].setMaxLife(m_GeneratorMaxLIfe);
+        m_Generators[0].FailureEventAutoStopChances(m_regenChances);
+        m_Generators[1].FailureEventAutoStopChances(m_regenChances);
+        m_AvailablePower = m_Generators[0].AvailablePower() + m_Generators[1].AvailablePower();
+        m_AvailablePower += m_CoolingUnit.getWorkingCoolingUnit();
+
+        m_shields.setPower(AllocatePower(1));
+
+
+
+
     }
 
     public void HullImpact(GameObject go, ContactPoint[] contactsPoints)
@@ -119,7 +146,7 @@ public class LifePartController : MonoBehaviour
             Debug.Log("shield : " + i + " pv  " + m_shields.GetShieldsLifeLevel(i));
         }
         Debug.Log("ENGINE STATE");
-        for (int i = 1; i < 5; i++)
+        for (int i = 1; i < 3; i++)
         {
             Debug.Log("engine : " + i + " " + m_engines.GetReactorLifelevel(i));
         }
@@ -133,6 +160,12 @@ public class LifePartController : MonoBehaviour
         {
             Debug.Log("cooling unit : " + i + " " + m_CoolingUnit.GetCoolingUnitLifeLevel(i));
         }
+        Debug.Log("GENERATOR STATE");
+        for (int i = 0; i < 2; i++)
+        {
+            Debug.Log("Generator : " + i + " " + m_Generators[i].getLifeLevel());
+        }
+
     }
 
     //monitoring life level
@@ -179,13 +212,13 @@ public class LifePartController : MonoBehaviour
             return m_insideReactors[ID].isOnFire();
         else return false;
     }
-    public bool isReactorOnElectricalDamage(int ID)
+    public bool isReactorOnElectrical(int ID)
     {
         if (ID >= 0 && ID < m_insideReactors.Length)
             return m_insideReactors[ID].isElectricalDamage();
         else return false;
     }
-    public bool isOnEMPDamages(int ID)
+    public bool isReactorOnEMP(int ID)
     {
         if (ID >= 0 && ID < m_insideReactors.Length)
             return m_insideReactors[ID].isOnEMPDamages();
@@ -238,6 +271,30 @@ public class LifePartController : MonoBehaviour
             m_Console[ID].setOnFire(state);
     }
 
+    public void setGeneratorOnFire(int ID,bool state)
+    {
+        if(ID >= 0 && ID < m_Generators.Length)
+        {
+            m_Generators[ID].setOnFire(state);
+        }
+    }
+
+    public void setGeneratorOnelectricalFailure(int ID, bool state)
+    {
+        if (ID >= 0 && ID < m_Generators.Length)
+        {
+            m_Generators[ID].setElectricFailure(state);
+        }
+    }
+
+    public void setGeneratorOnEMPFailure(int ID, bool state)
+    {
+        if (ID >= 0 && ID < m_Generators.Length)
+        {
+            m_Generators[ID].setEmpFailure(state);
+        }
+    }
+
     private void OnHullEvent(byte eventcode, object content, int senderid)
     {
         if (eventcode == 15)
@@ -248,27 +305,44 @@ public class LifePartController : MonoBehaviour
 
     public void setEnergyWeapon(int energy)
     {
-        _energyWeapon += energy;
+        m_WeaponPower += energy;
     }
     public void setEnergyShield(int energy)
     {
-        _energyShield += energy;
+        m_ShieldsPower += energy;
     }
     public void setEnergyPropulsor(int energy)
     {
-        _energyPropulsor += energy;
+        m_PropulsorPower += energy;
     }
 
     public int getEnergyWeapon()
     {
-        return _energyWeapon;
+        return m_WeaponPower;
     }
     public int getEnergyShield()
     {
-        return _energyShield;
+        return m_ShieldsPower;
     }
     public int getEnergyPropulsor()
     {
-        return _energyPropulsor;
+        return m_PropulsorPower;
+    }
+
+    public int AllocatePower(int power)
+    {
+        if (power < m_AvailablePower)
+        {
+            m_AvailablePower -= power;
+            return power;
+        }
+        else
+            return 0;
+    }
+
+    public int RemovePower(int power)
+    {
+        m_AvailablePower += power;
+        return power;
     }
 }

@@ -11,52 +11,84 @@ using System.Collections;
 // Script : Contrôle des Tourelles
 // 
 // --------------------------------------------------
-public class TurretMonitors : MonoBehaviour 
+public class TurretMonitors : Photon.MonoBehaviour
 {
     // ------------------------
     // Rotation
     [SerializeField]
-    private Transform _pivotY; // Rotation Y de la Tourelle (Horizontal)
+    private Transform[] _pivotTourelle; // Rotation Y de la Tourelle (Horizontal)
 
     [SerializeField]
-    private Transform _pivotZ; // Rotation Z des Canons (Vertical)
+    private Transform[] _pivotCanons; // Rotation Z des Canons (Vertical)
 
     [SerializeField]
     private float _sensitivity = 5.0f; // 5 par défaut
+
+    [SerializeField]
+    GameObject _cameraX;
+
+    [SerializeField]
+    GameObject _cameraY;
+
+    [SerializeField]
+    bool _upIsDown = false;
+
+    [SerializeField]
+    bool _isRight = false;
     // ------------------------
 
     // ------------------------
     // Tir
     [SerializeField]
-    private Transform[] _muzzles; // Position des bouches
+    float _shootDelay = 1;
 
     [SerializeField]
-    private Transform[] _canons; // Position des bouches
+    float _projectileSpeed = 50;
 
     [SerializeField]
-    float _shootDelay;
+    ParticleSystem[] _particleProjectiles;
 
-    [SerializeField]
-    KineticProjectilPoolScript _projectilePool;
 
-    [SerializeField]
-    float _projectileSpeed = 200;
+    private bool _salve = false;
     // ------------------------
 
-    private bool _wantToShoot;
-    private bool _reload;
+    private bool _wantToShoot = false;
+    private bool _reload = false;
     private bool _isActive = false;
 
     // Angle Y initial
-    private float rotationZ = 0.0f;
+    private float rotationCanon = 0.0f;
+    private float rotationTurret = 0.0f;
 
-    private PhotonView viewPivotY;
-    private PhotonView viewPivotZ;
+    public float _rotationTurretInit = 270.0f;
+    public float _rotationTurretMin = -60.0f; // Rotation Turret Seuil Bas
+    public float _rotationTurretMax = 60.0f; // Rotation Turret Seuil Haut
+    
+    private PhotonView[] viewTourelle = new PhotonView[2];
+    private PhotonView[] viewPivotCanons = new PhotonView[2];
+
+    private PhotonView _photonView;
+    private Vector3 _initRotX;
+    private Vector3 _initRotY;
 
     void Start()
     {
-        viewPivotY = _pivotY.GetComponent<PhotonView>();
-        viewPivotZ = _pivotZ.GetComponent<PhotonView>();
+        _photonView = GetComponent<PhotonView>();
+
+        viewTourelle[0] = _pivotTourelle[0].GetComponent<PhotonView>();
+        viewPivotCanons[0] = _pivotCanons[0].GetComponent<PhotonView>();
+
+        viewTourelle[1] = _pivotTourelle[1].GetComponent<PhotonView>();
+        viewPivotCanons[1] = _pivotCanons[1].GetComponent<PhotonView>();
+
+        _pivotTourelle[0].localEulerAngles = new Vector3(0, 0, _rotationTurretInit);
+        _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, _rotationTurretInit);
+        _pivotCanons[0].localEulerAngles = new Vector3(rotationCanon, 0, 0);
+        _pivotCanons[1].localEulerAngles = new Vector3(rotationCanon, 0, 0);
+
+        _initRotX = _cameraX.transform.localEulerAngles;
+        _initRotY = _cameraY.transform.localEulerAngles;
+
     }
 
     void Update()
@@ -67,28 +99,37 @@ public class TurretMonitors : MonoBehaviour
             // Si le joueur déplace la souris sur l'axe Horizontal
             if (Input.GetAxis("Mouse X") != 0)
             {
+                rotationTurret += Input.GetAxis("Mouse X") * _sensitivity;
+                rotationTurret = Mathf.Clamp(rotationTurret, _rotationTurretMin, _rotationTurretMax);
+
                 // Rotation sur l'axe Y
-                _pivotY.Rotate(0, Input.GetAxis("Mouse X") * _sensitivity, 0);
+                _cameraX.transform.localEulerAngles = _initRotX + new Vector3((_isRight ? rotationTurret : -rotationTurret), 0, 0);
+                _pivotTourelle[0].localEulerAngles = new Vector3(0, 0, _rotationTurretInit + rotationTurret);
+                _pivotTourelle[1].localEulerAngles = new Vector3(0, 0, _rotationTurretInit + rotationTurret);
             }
 
             // Si le joueur déplace la souris sur l'axe Vertical
             if (Input.GetAxis("Mouse Y") != 0)
             {
-                rotationZ -= Input.GetAxis("Mouse Y") * _sensitivity;
-                rotationZ = Mathf.Clamp(rotationZ, -30, 10);
+                rotationCanon -= Input.GetAxis("Mouse Y") * _sensitivity;
+                rotationCanon = Mathf.Clamp(rotationCanon, -5, 90);
 
-                _pivotZ.localEulerAngles = new Vector3(_pivotZ.localEulerAngles.x, _pivotZ.localEulerAngles.y, rotationZ);
+                _cameraY.transform.localEulerAngles = _initRotY + new Vector3((_upIsDown ? rotationCanon : -rotationCanon), 0, 0);
+                _pivotCanons[0].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
+                _pivotCanons[1].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
             }
 
-            if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !_reload)
+            if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && !_reload && !_wantToShoot)
             {
-                _wantToShoot = true;
-                StartCoroutine(TryToShoot());
+                //_wantToShoot = true;
+                //StartCoroutine(TryToShoot());
+                _photonView.RPC("SyncShoot", PhotonTargets.All);
             }
-            if (!Input.GetMouseButton(0) && _reload)
+            if (!Input.GetMouseButton(0))
             {
-                _wantToShoot = false;
-                StopCoroutine(TryToShoot());
+                //_wantToShoot = false;
+                //StopCoroutine(TryToShoot());
+                _photonView.RPC("StopShoot", PhotonTargets.All);
             }
         }
     }
@@ -98,32 +139,46 @@ public class TurretMonitors : MonoBehaviour
         while (_wantToShoot)
         {
             yield return new WaitForFixedUpdate();
-
-            KineticProjectilScript ps1 = _projectilePool.GetProjectile();
-            KineticProjectilScript ps2 = _projectilePool.GetProjectile();
-
-            if ((ps1 != null) && (ps2 != null))
+            if (_salve)
             {
-                ps1.gameObject.SetActive(true);
-                ps2.gameObject.SetActive(true);
-
-                ps1.transform.position = _muzzles[0].position;
-                ps2.transform.position = _muzzles[1].position;
-
-                ps1._rigidbody.velocity = (ps1.transform.position - _canons[0].position).normalized * _projectileSpeed;
-                ps2._rigidbody.velocity = (ps2.transform.position - _canons[1].position).normalized * _projectileSpeed;
-
-                _reload = true;
-                yield return new WaitForSeconds(_shootDelay);
-                _reload = false;
+                _salve = true;
+                _particleProjectiles[0].Play();
+                _particleProjectiles[1].Play();
+                _particleProjectiles[4].Play();
+                _particleProjectiles[5].Play();
+            }
+            else if (!_salve)
+            {
+                _salve = false;
+                _particleProjectiles[2].Play();
+                _particleProjectiles[3].Play();
+                _particleProjectiles[6].Play();
+                _particleProjectiles[7].Play();
             }
         }
     }
 
     void Activate(bool active)
     {
-        viewPivotY.RequestOwnership();
-        viewPivotZ.RequestOwnership();
+        viewTourelle[0].RequestOwnership();
+        viewPivotCanons[0].RequestOwnership();
+        viewTourelle[1].RequestOwnership();
+        viewPivotCanons[1].RequestOwnership();
         _isActive = active;
+        _cameraX.SetActive(active);
+    }
+
+    [PunRPC]
+    void SyncShoot()
+    {
+        _wantToShoot = true;
+        StartCoroutine(TryToShoot());
+    }
+
+    [PunRPC]
+    void StopShoot()
+    {
+        _wantToShoot = false;
+        StopCoroutine(TryToShoot());
     }
 }

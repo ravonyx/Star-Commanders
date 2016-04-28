@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 public class ShipController : MonoBehaviour
 {
-    public int maxSpeed = 70;
+    public int maxSpeed = 5;
     public int minSpeed = 0;
     public float rotationSpeed = 150;
     public float increaseFactor = 0.2f;
@@ -61,7 +61,7 @@ public class ShipController : MonoBehaviour
                 }
                 //MaxTurbines(0.3f);
             }//Cruise speed
-
+            
             if (currrentSpeed >= 0.0f) // Little fix for stabiolity reasons
                 transform.Translate(Vector3.forward * currrentSpeed);
             else
