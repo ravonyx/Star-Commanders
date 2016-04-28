@@ -11,7 +11,7 @@ public class ReactorCollisionManager : Photon.MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "bullet" && PhotonNetwork.isMasterClient)
-            photonView.RPC("OnCoolingCollide", PhotonTargets.All);
+            photonView.RPC("OnReactorCollide", PhotonTargets.All);
     }
 
     [PunRPC]
@@ -20,7 +20,7 @@ public class ReactorCollisionManager : Photon.MonoBehaviour
         switch (mode)
         {
             case 1:
-                m_impactCallback.leftReactorImpac();
+                m_impactCallback.leftReactorImpact();
                 break;
             case 2:
                 m_impactCallback.rightReactorImpact();
