@@ -17,14 +17,14 @@ public class ReactorController : MonoBehaviour
         m_rightReactor = m_rightReactorMax;
     }
 
-    public void leftReactorImpac(GameObject go)
+    public void leftReactorImpact()
     {
         m_leftReactor--;
         PhotonNetwork.RaiseEvent(7, m_leftReactor, true, null);
         Debug.Log("m_leftReactor " + m_leftReactor);
     }
 
-    public void rightReactorImpact(GameObject go)
+    public void rightReactorImpact()
     {
         m_rightReactor--;
         PhotonNetwork.RaiseEvent(8, m_rightReactor, true, null);
