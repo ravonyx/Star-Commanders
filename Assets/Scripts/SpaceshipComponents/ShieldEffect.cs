@@ -46,11 +46,7 @@ public class ShieldEffect : Photon.MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "bullet" && PhotonNetwork.isMasterClient && collision.contacts.Length > 0)
-        {
-            Debug.Log(photonView);
-            Debug.Log(collision.contacts[0].point);
             photonView.RPC("OnShiedCollide", PhotonTargets.All, collision.contacts[0].point);
-        }
     }
 
     [PunRPC]
