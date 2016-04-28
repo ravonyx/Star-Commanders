@@ -7,9 +7,9 @@ public class ShieldEffect : Photon.MonoBehaviour
     private UnityEngine.Color ShieldColor;
     private UnityEngine.Color tempColor;
 
-
     [SerializeField]
     private int mode;
+    [SerializeField]
     private ShieldController m_impactCallback;
 
     private MeshCollider m_collider;

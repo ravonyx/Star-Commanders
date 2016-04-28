@@ -39,4 +39,7 @@ MonoBehaviour:
   - StopCountdown
   - SyncParent
   - OnShiedCollide
+  - OnProjectorCollide
+  - OnCoolingCollide
+  - OnReactorCollide
   DisableAutoOpenWizard: 1

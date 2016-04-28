@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraFacing : MonoBehaviour
+public class CameraNameFacing : MonoBehaviour
 {
     private Camera _cam;
 	void Start ()
     {
         _cam = Camera.main;
+        GetComponent<TextMesh>().text = PhotonNetwork.player.name;
 	}
 	
 	// Update is called once per frame
