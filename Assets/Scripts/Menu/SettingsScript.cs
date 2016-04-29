@@ -11,25 +11,24 @@ public class SettingsScript : MonoBehaviour
     [SerializeField]
     Toggle AntiAlias;
 
-    void Start()
-    {
-        VolumeSlider.value = AudioListener.volume;
-        QualitySlider.value = QualitySettings.GetQualityLevel();
-        AntiAlias.isOn = QualitySettings.antiAliasing > 0 ? true : false;
-    }
 
     public void SetVolume(float new_volume)
     {
+        Debug.Log(VolumeSlider.value);
         AudioListener.volume = new_volume;
     }
 
     public void SetQuality(float new_quality)
     {
+        Debug.Log(QualitySlider.value);
+
         QualitySettings.SetQualityLevel((int)new_quality, false);
     }
 
     public void SetAntiAlias(bool activated)
     {
+        Debug.Log(AntiAlias.isOn);
+
         if (activated)
         {
             QualitySettings.antiAliasing = 2;
