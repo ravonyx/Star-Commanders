@@ -33,16 +33,16 @@ public class KineticProjectilPoolScript : MonoBehaviour
                 int id = idProjectileUnset[0];
                 idProjectileUnset.Remove(id);
                 proj = _projectiles[id];
-                proj.gameObject.SetActive(true);
             }
             else if (index < _projectiles.Length)
             {
                 proj = _projectiles[index];
                 proj.id = index;
-
                 index++;
             }
+
             proj.gameObject.SetActive(true);
+            proj.startExpiration();
 
             if (_shieldsSpaceship.Length == 4)
             {
@@ -51,7 +51,7 @@ public class KineticProjectilPoolScript : MonoBehaviour
                 Physics.IgnoreCollision(_shieldsSpaceship[2], proj._collider, true);
                 Physics.IgnoreCollision(_shieldsSpaceship[3], proj._collider, true);
             }
-            proj.startExpiration();
+
             return proj;
         }
         return null;
