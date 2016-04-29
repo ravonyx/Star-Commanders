@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Monitor
   - Turbine
-  - bullet
+  - KineticProjectile
   - PilotMonitor
   - EnergyMonitor
   - Chat
@@ -19,6 +19,8 @@ TagManager:
   - SpaceshipBlue
   - SpaceshipRed
   - Shield
+  - EnergyProjectile
+  - bullet
   layers:
   - Default
   - TransparentFX
@@ -32,7 +34,7 @@ TagManager:
   - Shields
   - LimitScene
   - Hull
-  - 
+  - Projectile
   - 
   - 
   - 
