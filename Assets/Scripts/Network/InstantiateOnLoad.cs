@@ -9,6 +9,10 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     public GameObject spaceship;
     [SerializeField]
     private Text _playerInfo;
+    [SerializeField]
+    private Image _loader;
+    [SerializeField]
+    private Image _extinguisherStatus;
 
     void Start ()
     {
@@ -39,6 +43,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         RaycastInteraction raycast = player.GetComponent<RaycastInteraction>();
         raycast.camController = cam;
         raycast._playerInfo = _playerInfo;
+        raycast._loader = _loader;
+        raycast._extinguisherStatus = _extinguisherStatus;
 
         GameObject baseTeam;
         if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
@@ -54,7 +60,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         if (!network)
         {
             Debug.Log("JoinedLobby");
-            PhotonNetwork.CreateRoom("test2", new RoomOptions() { maxPlayers = 1 }, null);
+            PhotonNetwork.CreateRoom("test3", new RoomOptions() { maxPlayers = 1 }, null);
 
         }
     }

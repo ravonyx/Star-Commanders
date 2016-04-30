@@ -21,6 +21,9 @@ TagManager:
   - Shield
   - EnergyProjectile
   - bullet
+  - MonitorDestroy
+  - PlayerShip
+  - Extinguisher
   layers:
   - Default
   - TransparentFX

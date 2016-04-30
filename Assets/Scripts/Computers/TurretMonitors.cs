@@ -240,15 +240,16 @@ public class TurretMonitors : Photon.MonoBehaviour
         _health.value = _consoleLifeController.currentlife / 100.0f;
         _healthColor[0].color = new Color((100.0f - _consoleLifeController.currentlife) / 100.0f, _consoleLifeController.currentlife / 100.0f, 0.0f, 1.0f);
 
-        if(_consoleLifeController.currentlife == 0 || _consoleLifeController.isOnEMPDamages())
+        if(!_consoleLifeController.isOnEMPDamages())
+            _offline.text = "";
+
+        if (_consoleLifeController.currentlife == 0 || _consoleLifeController.isOnEMPDamages())
         {
-            _interfaceCollider.SetActive(false);
             _offline.text = "O F F L I N E";
             _photonView.RPC("StopShoot", PhotonTargets.All);
         }
         else if(_consoleLifeController.currentlife == 100 && _offline.text == "O F F L I N E")
         {
-            _interfaceCollider.SetActive(true);
             _offline.text = "";
         }
 

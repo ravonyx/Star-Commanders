@@ -21,11 +21,23 @@ public class LifepartStateController : MonoBehaviour
     public bool m_IsElectricDamages;
     public bool m_IsExplosionDamages;
 
+    [SerializeField]
+    private int _fireHealth = 100;
+
+    [SerializeField]
+    private int _EMPHealth = 100;
+
+    [SerializeField]
+    private int _ElectricHealth = 100;
+
     public int currentlife;
 
-    // Use this for initialization
+    private PhotonView _photonView;
+
     void Start()
     {
+        _photonView = GetComponent<PhotonView>();
+
         //currentlife = m_lifeMax;
         InvokeRepeating("applyDamages", 1, 1);
         name = gameObject.name;
@@ -53,11 +65,13 @@ public class LifepartStateController : MonoBehaviour
         {
             Debug.Log("Fire started on " + gameObject.name);
             m_IsFireDamages = true;
+            _fireHealth = 100;
         }
         else
         {
             Debug.Log("Fire stoped on " + gameObject.name);
             m_IsFireDamages = false;
+            _fireHealth = 0;
         }
     }
 
@@ -67,11 +81,13 @@ public class LifepartStateController : MonoBehaviour
         {
             Debug.Log("ElectricFailure started on " + gameObject.name);
             m_IsElectricDamages = true;
+            _ElectricHealth = 100;
         }
         else
         {
             Debug.Log("ElectricFailure  stopped on " + gameObject.name);
             m_IsElectricDamages = false;
+            _ElectricHealth = 0;
 
         }
     }
@@ -82,11 +98,13 @@ public class LifepartStateController : MonoBehaviour
         {
             Debug.Log("EMP Failure started on " + gameObject.name);
             m_IsEMPDamages = true;
+            _EMPHealth = 100;
         }
         else
         {
             Debug.Log("EMP Failure  stopped on " + gameObject.name);
             m_IsEMPDamages = false;
+            _EMPHealth = 0;
         }
     }
 
@@ -151,6 +169,18 @@ public class LifepartStateController : MonoBehaviour
     {
         return currentlife;
     }
+    public int getFireLevel()
+    {
+        return _fireHealth;
+    }
+    public int getEletricLevel()
+    {
+        return _ElectricHealth;
+    }
+    public int getEmpLevel()
+    {
+        return _EMPHealth;
+    }
 
     public string getName()
     {
@@ -179,5 +209,54 @@ public class LifepartStateController : MonoBehaviour
             return true;
         else
             return false;
+    }
+    
+    public void ResolveIncident(int incident)
+    {
+        switch(incident)
+        {
+            case 0: // repair
+                _photonView.RPC("AddLife", PhotonTargets.All);
+                break;
+            case 1: // fire
+                _photonView.RPC("resolveFire", PhotonTargets.All);
+                break;
+            case 2: // electric
+                _photonView.RPC("resolveElectric", PhotonTargets.All);
+                break;
+            case 3: // emp
+                _photonView.RPC("resolveEmp", PhotonTargets.All);
+                break;
+        }
+    }
+
+    [PunRPC]
+    void AddLife()
+    {
+        currentlife++;
+    }
+
+    [PunRPC]
+    void resolveFire()
+    {
+        _fireHealth--;
+        if (_fireHealth <= 0)
+            setOnFire(false);
+    }
+
+    [PunRPC]
+    void resolveElectric()
+    {
+        _ElectricHealth--;
+        if (_ElectricHealth <= 0)
+            setElectricFailure(false);
+    }
+
+    [PunRPC]
+    void resolveEmp()
+    {
+        _EMPHealth--;
+        if (_EMPHealth <= 0)
+            setEmpFailure(false);
     }
 }

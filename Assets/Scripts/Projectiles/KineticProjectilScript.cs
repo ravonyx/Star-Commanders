@@ -27,7 +27,7 @@ public class KineticProjectilScript : MonoBehaviour
     [SerializeField]
     KineticProjectilPoolScript poolRappel;
     
-    void OnCollisionEnter(Collision col)
+    void OnColliderEnter(Collision _col)
     {
         returnPool();
     }
