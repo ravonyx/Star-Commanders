@@ -100,33 +100,51 @@ public class LifepartStateController : MonoBehaviour
     void applyDamages()
     {
         //Debug.Log("Applying damages on " + gameObject.name);
-        if (m_IsFireDamages && currentlife > 0)
+        if(currentlife > 0)
         {
-            currentlife -= m_fireDamages;
-            if(m_ParticleFireDamages != null)
+            if (m_IsFireDamages)
             {
-                m_ParticleFireDamages.SetActive(true);
+                currentlife -= m_fireDamages;
+                if (m_ParticleFireDamages != null)
+                {
+                    m_ParticleFireDamages.SetActive(true);
+                }
+            }
+            else if(m_ParticleFireDamages != null)
+            {
+                m_ParticleFireDamages.SetActive(false);
+            }
+
+            if (m_IsElectricDamages)
+            {
+                currentlife -= m_ElectricDamages;
+                if (m_ParticleElectricalDamages != null)
+                {
+                    m_ParticleElectricalDamages.SetActive(true);
+                }
+            }
+            else if (m_ParticleElectricalDamages != null)
+            {
+                m_ParticleElectricalDamages.SetActive(false);
+            }
+
+            if (m_IsEMPDamages)
+            {
+                currentlife -= m_EMPDamages;
+                //Disable This system for external usage in LifePartController /!\
+            }
+
+            if (m_IsExplosionDamages)
+            {
+                currentlife -= m_ExplosionDamages;
             }
         }
-        if (m_IsElectricDamages && currentlife > 0)
+        if (currentlife <= 0)
         {
-            currentlife -= m_ElectricDamages;
-            if (m_ParticleElectricalDamages != null)
-            {
-                m_ParticleElectricalDamages.SetActive(true);
-            }
-        }
-        if (m_IsEMPDamages && currentlife > 0)
-        {
-            currentlife -= m_EMPDamages;
-            //Disable This system for external usage in LifePartController /!\
-        }
-        if (m_IsExplosionDamages && currentlife > 0)
-        {
-            currentlife -= m_ExplosionDamages;
-        }
-        if (currentlife < 0)
             currentlife = 0;
+            m_ParticleFireDamages.SetActive(false);
+            m_ParticleElectricalDamages.SetActive(false);
+        }
     }
 
     public int getLifeLevel()

@@ -117,7 +117,7 @@ public class TurretMonitors : Photon.MonoBehaviour
 
     void Update()
     {
-        if(_isActive && _consoleLifeController.currentlife > 0)
+        if(_isActive && _consoleLifeController.currentlife > 0 && !_consoleLifeController.isOnEMPDamages())
         {
 
             // Si le joueur déplace la souris sur l'axe Horizontal
@@ -240,7 +240,7 @@ public class TurretMonitors : Photon.MonoBehaviour
         _health.value = _consoleLifeController.currentlife / 100.0f;
         _healthColor[0].color = new Color((100.0f - _consoleLifeController.currentlife) / 100.0f, _consoleLifeController.currentlife / 100.0f, 0.0f, 1.0f);
 
-        if(_consoleLifeController.currentlife == 0)
+        if(_consoleLifeController.currentlife == 0 || _consoleLifeController.isOnEMPDamages())
         {
             _interfaceCollider.SetActive(false);
             _offline.text = "O F F L I N E";
