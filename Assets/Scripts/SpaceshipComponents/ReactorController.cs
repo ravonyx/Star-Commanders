@@ -20,14 +20,12 @@ public class ReactorController : MonoBehaviour
     public void leftReactorImpact()
     {
         m_leftReactor--;
-        PhotonNetwork.RaiseEvent(7, m_leftReactor, true, null);
         Debug.Log("m_leftReactor " + m_leftReactor);
     }
 
     public void rightReactorImpact()
     {
         m_rightReactor--;
-        PhotonNetwork.RaiseEvent(8, m_rightReactor, true, null);
         Debug.Log("m_rightReactor " + m_rightReactor);
     }
     
