@@ -56,15 +56,18 @@ public class SetupScene : EditorWindow
 
     static void Init(GameObject basePrefab, GameObject asteroidPrefab, GameObject stationPrefab, int taille, int nbAsteroid)
     {
+        if (stationPrefab != null)
+        {
+            GameObject[] stationPoints = GameObject.FindGameObjectsWithTag("StationPoint") as GameObject[];
+            SetupPrefab(stationPrefab, stationPoints);
+        }
         if (basePrefab != null && stationPrefab != null)
         {
             GameObject[] redBase = GameObject.FindGameObjectsWithTag("RedTeam") as GameObject[];
             GameObject[] blueBase = GameObject.FindGameObjectsWithTag("BlueTeam") as GameObject[];
-            GameObject[] stationPoints = GameObject.FindGameObjectsWithTag("StationPoint") as GameObject[];
 
             SetupPrefab(basePrefab, redBase);
             SetupPrefab(basePrefab, blueBase);
-            SetupPrefab(stationPrefab, stationPoints);
         }
         if(asteroidPrefab != null)
         {
