@@ -783,7 +783,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 142330, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
       propertyPath: m_TagString
-      value: bullet
+      value: KineticProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 142330, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
       propertyPath: m_Name
@@ -2541,6 +2541,518 @@ Prefab:
     - target: {fileID: 11402222, guid: deed8307f85637b4d82740669fddb84e, type: 2}
       propertyPath: instantiationId
       value: 91
+      objectReference: {fileID: 0}
+    - target: {fileID: 197364, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 196298, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 193192, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 192640, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 192180, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 192090, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 191726, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 190754, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 190680, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 190436, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 190190, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 188814, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 188050, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 188046, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 187990, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 186110, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 184876, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 184716, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 183486, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 183336, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 182948, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 182908, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 182442, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 181310, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 181274, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 181252, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 180976, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 180854, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 180470, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 179680, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 178722, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 177586, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 177000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 176200, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 174492, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 173480, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 173392, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 170390, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 169642, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 168740, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 168514, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 168484, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 166200, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 165826, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 163804, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 162918, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 161700, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 161184, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 159190, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 159184, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 158292, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 158234, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 157568, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 155924, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 155106, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 154488, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 154020, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 152342, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 152178, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 148430, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 147510, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 147124, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 146026, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 145124, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 144906, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 143790, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 143578, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 143110, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 142072, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 141906, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 140682, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 140092, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 139260, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 139166, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 138304, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 137410, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 137216, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 136752, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 136340, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 135860, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 135698, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 135298, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 134820, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 134262, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 133708, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 133190, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 129086, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 129006, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 128910, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 128460, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 128070, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 124948, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 124660, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 123836, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 123646, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 123434, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 123306, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 120182, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 119626, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 119482, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 119062, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 118990, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 118850, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 117594, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 117566, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 117558, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 116158, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 116136, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 115824, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 114270, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 112582, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 111646, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 111326, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 109374, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 108944, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 108362, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 108136, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 107050, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 106626, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 105712, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 105596, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 103896, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 103310, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 103278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 101438, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 100400, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 100246, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 145008, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: KineticProjectile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}

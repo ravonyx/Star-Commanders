@@ -59,27 +59,27 @@ public class ShieldController : MonoBehaviour {
         }
     }
 
-   public void FrontLeftImpact()
+   public void FrontLeftImpact(int damages)
     {
-        m_FrontLeftLevel--;
+        m_FrontLeftLevel -= damages;
         Debug.Log("m_FrontLeftLevel " + m_FrontLeftLevel);
     }
 
-    public void FrontRightImpact()
+    public void FrontRightImpact(int damages)
 {
-        m_FrontRightLevel--;
+        m_FrontRightLevel -= damages;
         Debug.Log("m_FrontRightLevel " + m_FrontRightLevel);
     }
 
-    public void RearleftImpact()
+    public void RearleftImpact(int damages)
     {
-        m_RearLeftLevel--;
+        m_RearLeftLevel -= damages;
         Debug.Log("m_RearLeftLevel " + m_RearLeftLevel);
     }
 
-    public void RearRightImpact()
+    public void RearRightImpact(int damages)
     {
-        m_RearRightLevel--;
+        m_RearRightLevel -= damages;
         Debug.Log("m_RearRightLevel " + m_RearRightLevel);
     }
 
