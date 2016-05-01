@@ -9,7 +9,6 @@ TagManager:
   - KineticProjectile
   - PilotMonitor
   - EnergyMonitor
-  - Chat
   - LimitScene
   - Hull
   - StationPoint

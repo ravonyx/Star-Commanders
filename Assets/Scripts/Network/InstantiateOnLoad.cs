@@ -13,6 +13,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     private Image _loader;
     [SerializeField]
     private Image _extinguisherStatus;
+    [SerializeField]
+    private ChatManager chatPanel;
 
     void Start ()
     {
@@ -51,8 +53,9 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
             baseTeam = GameObject.FindGameObjectWithTag("BlueTeam");
         else
             baseTeam = GameObject.FindGameObjectWithTag("RedTeam");
-        player.GetComponent<CharacController>().spaceship = baseTeam;
-
+        CharacController characController = player.GetComponent<CharacController>();
+        characController.spaceship = baseTeam;
+        characController.chat = chatPanel;
     }
     void OnJoinedLobby()
     {
