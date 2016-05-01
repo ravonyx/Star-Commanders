@@ -7,11 +7,16 @@ using System.Linq;
 public class MenuSceneScript : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("Distance beetween each faded frames")]
+    [Tooltip("Distance beetween faded fames")]
     float distance = 20.0f;
     [SerializeField]
-    [Tooltip("Speed the frame will move and fade")]
+    [Tooltip("Fade level between faded frames")]
+    float fading = 1.0f;
+    [SerializeField]
+    [Tooltip("Speed of the fading frame")]
     float speed = 10.0f;
+    
+
     CanvasGroup ActivePanel
     {
         get
@@ -68,8 +73,7 @@ public class MenuSceneScript : MonoBehaviour
         for (int i = 0; i < StackedPanels.Count; i++)
         {
             float dist = distance * i;
-            float al = StackedPanels.ElementAt(i).alpha;
-            al = 1.0f / Mathf.Exp(i);
+            float al = 1.0f / Mathf.Exp(i * fading);
             Vector3 pos = transform.position + transform.rotation * Vector3.forward * dist;
             StackedPanels.ElementAt(i).transform.position = Vector3.Lerp(StackedPanels.ElementAt(i).transform.position, pos, Time.deltaTime * speed);
             StackedPanels.ElementAt(i).alpha = Mathf.Lerp(StackedPanels.ElementAt(i).alpha, al, Time.deltaTime * speed);
