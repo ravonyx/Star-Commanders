@@ -9,13 +9,12 @@ public class TurretColliderManager : Photon.MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision);
-        if (collision.gameObject.tag == "KineticProjectile")
+        if (collision.gameObject.tag == "KineticProjectile" && PhotonNetwork.isMasterClient)
         {
             int rand = Random.Range(1, 101);
             photonView.RPC("OnTurretCollide", PhotonTargets.All, 5, rand, 0);
         }
-        else if (collision.gameObject.tag == "EnergyProjectile")
+        else if (collision.gameObject.tag == "EnergyProjectile" && PhotonNetwork.isMasterClient)
         {
             int rand = Random.Range(1, 101);
             photonView.RPC("OnTurretCollide", PhotonTargets.All, 2, rand, 1);

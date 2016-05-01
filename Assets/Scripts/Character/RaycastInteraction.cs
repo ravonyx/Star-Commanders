@@ -253,35 +253,41 @@ public class RaycastInteraction : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor"))
+        if (_photonView.isMine)
         {
-            _nearConsole = true;
-            _console = other.gameObject;
-            _consoleState = _console.GetComponentInParent<LifepartStateController>();
-        }
-        else if (other.tag == "Extinguisher")
-        {
-            _nearExtinguisher = true;
-            _console = other.gameObject;
-            _extinguisherPost = _console.GetComponent<ExtinguisherPost>();
+            if ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor"))
+            {
+                _nearConsole = true;
+                _console = other.gameObject;
+                _consoleState = _console.GetComponentInParent<LifepartStateController>();
+            }
+            else if (other.tag == "Extinguisher")
+            {
+                _nearExtinguisher = true;
+                _console = other.gameObject;
+                _extinguisherPost = _console.GetComponent<ExtinguisherPost>();
+            }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (!_inUse && ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor")))
+        if(_photonView.isMine)
         {
-            _nearConsole = false;
-            _playerInfo.text = "";
-            _extinguisherStatus.gameObject.SetActive(false);
-            _toolInUse = false;
-            StopCoroutine(TryToRepair());
-            _photonView.RPC("ExtinguisherOnOff", PhotonTargets.All, false);
-        }
-        else if (other.tag == "Extinguisher")
-        {
-            _nearExtinguisher = false;
-            _playerInfo.text = "";
+            if (!_inUse && ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor")))
+            {
+                _nearConsole = false;
+                _playerInfo.text = "";
+                _extinguisherStatus.gameObject.SetActive(false);
+                _toolInUse = false;
+                StopCoroutine(TryToRepair());
+                _photonView.RPC("ExtinguisherOnOff", PhotonTargets.All, false);
+            }
+            else if (other.tag == "Extinguisher")
+            {
+                _nearExtinguisher = false;
+                _playerInfo.text = "";
+            }
         }
     }
     

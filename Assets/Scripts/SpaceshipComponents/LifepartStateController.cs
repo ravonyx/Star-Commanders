@@ -111,7 +111,6 @@ public class LifepartStateController : MonoBehaviour
     }
     void applyDamages()
     {
-        //Debug.Log("Applying damages on " + gameObject.name);
         if(currentlife > 0)
         {
             if (m_IsFireDamages)
