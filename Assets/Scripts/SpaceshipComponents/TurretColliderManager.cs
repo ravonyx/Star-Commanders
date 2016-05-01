@@ -25,7 +25,7 @@ public class TurretColliderManager : Photon.MonoBehaviour
     void OnTurretCollide(int damage, int rand, int type)
     {
         _console.ReduceLife(damage);
-        if (rand <= 100)
+        if (rand <= 2)
         {
             if(type == 0)
                 _console.setOnFire(true);
