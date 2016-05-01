@@ -7,7 +7,8 @@ public class CameraNameFacing : MonoBehaviour
 	void Start ()
     {
         _cam = Camera.main;
-        GetComponent<TextMesh>().text = PhotonNetwork.player.name;
+        GetComponent<TextMesh>().text = GetComponentInParent<PhotonView>().owner.name;
+        GetComponentInParent<PhotonView>();
 	}
 	
 	// Update is called once per frame
