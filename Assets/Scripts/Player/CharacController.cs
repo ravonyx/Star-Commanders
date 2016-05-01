@@ -128,7 +128,6 @@ public class CharacController : Photon.MonoBehaviour
         {
             int n = Random.Range(1, footstepSounds.Length);
             _audioSource.clip = footstepSounds[n];
-            Debug.Log("play");
             _audioSource.Stop();
             _audioSource.Play();
             _audioSource.PlayOneShot(_audioSource.clip);
