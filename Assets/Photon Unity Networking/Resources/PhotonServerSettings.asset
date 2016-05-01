@@ -42,4 +42,16 @@ MonoBehaviour:
   - OnProjectorCollide
   - OnCoolingCollide
   - OnReactorCollide
+  - AddLife
+  - StopRepair
+  - SyncRepair
+  - resolveElectric
+  - resolveEmp
+  - resolveFire
+  - ActivateReload
+  - StopReload
+  - reduceCycle
+  - ExtinguisherOnOff
+  - ReduceLife
+  - OnTurretCollide
   DisableAutoOpenWizard: 1

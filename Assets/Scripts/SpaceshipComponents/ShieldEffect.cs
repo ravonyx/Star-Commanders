@@ -45,12 +45,14 @@ public class ShieldEffect : Photon.MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "bullet" && PhotonNetwork.isMasterClient && collision.contacts.Length > 0)
-            photonView.RPC("OnShiedCollide", PhotonTargets.All, collision.contacts[0].point);
+        if (collision.gameObject.tag == "EnergyProjectile" && PhotonNetwork.isMasterClient && collision.contacts.Length > 0)
+            photonView.RPC("OnShiedCollide", PhotonTargets.All, collision.contacts[0].point, 3);
+        if (collision.gameObject.tag == "KineticProjectile" && PhotonNetwork.isMasterClient && collision.contacts.Length > 0)
+            photonView.RPC("OnShiedCollide", PhotonTargets.All, collision.contacts[0].point, 1);
     }
 
     [PunRPC]
-    void OnShiedCollide(Vector3 position)
+    void OnShiedCollide(Vector3 position, int damages)
     {
         GetComponent<Renderer>().material.SetVector("_ShieldColor", tempColor);
         transform.FindChild("hitpoint").position = position;
@@ -58,16 +60,16 @@ public class ShieldEffect : Photon.MonoBehaviour
         switch (mode)
         {
             case 1:
-                m_impactCallback.FrontLeftImpact();
+                m_impactCallback.FrontLeftImpact(damages);
                 break;
             case 2:
-                m_impactCallback.FrontRightImpact();
+                m_impactCallback.FrontRightImpact(damages);
                 break;
             case 3:
-                m_impactCallback.RearleftImpact();
+                m_impactCallback.RearleftImpact(damages);
                 break;
             case 4:
-                m_impactCallback.RearRightImpact();
+                m_impactCallback.RearRightImpact(damages);
                 break;
             default:
                 Debug.Log("Unknow mode selected (1,2,3,4)");

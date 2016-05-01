@@ -9,7 +9,6 @@ TagManager:
   - KineticProjectile
   - PilotMonitor
   - EnergyMonitor
-  - Chat
   - LimitScene
   - Hull
   - StationPoint
@@ -21,6 +20,12 @@ TagManager:
   - Shield
   - EnergyProjectile
   - bullet
+  - MonitorDestroy
+  - PlayerShip
+  - Extinguisher
+  - Chat
+  - LoadExtinguisher
+  - Load
   layers:
   - Default
   - TransparentFX
@@ -35,8 +40,8 @@ TagManager:
   - LimitScene
   - Hull
   - Projectile
-  - 
-  - 
+  - Turrets
+  - Base
   - 
   - 
   - 

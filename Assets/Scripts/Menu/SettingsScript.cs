@@ -1,35 +1,53 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SettingsScript : MonoBehaviour
 {
     [SerializeField]
-    Slider VolumeSlider;
+    private Dropdown qualityDropdown;
     [SerializeField]
-    Slider QualitySlider;
+    private Dropdown screenDropdown;
+    [SerializeField]
+    Slider VolumeSlider;
     [SerializeField]
     Toggle AntiAlias;
 
     void Start()
     {
-        VolumeSlider.value = AudioListener.volume;
-        QualitySlider.value = QualitySettings.GetQualityLevel();
-        AntiAlias.isOn = QualitySettings.antiAliasing > 0 ? true : false;
+        Debug.Log("Start");
+        for(int i = 0; i < Screen.resolutions.Length; i++)
+            screenDropdown.options.Add(new Dropdown.OptionData() { text = Screen.resolutions[i].width + " X " + Screen.resolutions[i].height});
+        screenDropdown.GetComponentInChildren<Text>().text = Screen.width + " X " + Screen.height;
+
+        for (int i = 0; i < QualitySettings.names.Length; i++)
+            qualityDropdown.options.Add(new Dropdown.OptionData() { text = QualitySettings.names[i] });
+        qualityDropdown.GetComponentInChildren<Text>().text = QualitySettings.names[QualitySettings.GetQualityLevel()];
+    }
+
+    public void SetResolution()
+    {
+        Debug.Log(screenDropdown.value);
+        Screen.SetResolution(Screen.resolutions[screenDropdown.value].width, Screen.resolutions[screenDropdown.value].height, Screen.fullScreen);
     }
 
     public void SetVolume(float new_volume)
     {
+        Debug.Log(VolumeSlider.value);
         AudioListener.volume = new_volume;
     }
 
-    public void SetQuality(float new_quality)
+    public void SetQuality()
     {
-        QualitySettings.SetQualityLevel((int)new_quality, false);
+        Debug.Log(qualityDropdown.value);
+        QualitySettings.SetQualityLevel((int)qualityDropdown.value, true);
     }
 
     public void SetAntiAlias(bool activated)
     {
+        Debug.Log(AntiAlias.isOn);
+
         if (activated)
         {
             QualitySettings.antiAliasing = 2;

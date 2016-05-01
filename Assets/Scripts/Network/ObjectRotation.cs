@@ -4,8 +4,13 @@ using Photon;
 
 public class ObjectRotation: Photon.MonoBehaviour
 {
-    private Quaternion objectRot = Quaternion.identity;
+    private Quaternion objectRot;
     PhotonView view;
+
+    void Start()
+    {
+        objectRot = transform.rotation;
+    }
 
     void Update()
     {

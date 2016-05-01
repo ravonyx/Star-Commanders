@@ -37,6 +37,9 @@ public class CharacController : Photon.MonoBehaviour
     private float _stepCycle;
     private float _nextStep;
 
+    private float _walkAudioSpeed = 0.544f;
+    private float _walkAudioTimer;
+
     void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
@@ -73,27 +76,8 @@ public class CharacController : Photon.MonoBehaviour
             _direction.Normalize();
             _direction *= movementSpeed;
 
-            //step offset
-            //Debug.DrawRay(transform.position + new Vector3(0, 0.2f, 0), transform.forward, Color.red, 0.5f, true);
-            //int layerMask = 1 << 8;
-            //layerMask = ~layerMask;
-            //if (Physics.Raycast(transform.position + new Vector3(0, 0.2f, 0), transform.forward, out hit, 0.5f, layerMask))
-            //{
-            //   
-            //    transform.localPosition += new Vector3(0, 0.5f, 0f);
-            //    _direction += new Vector3(0, 0f, 3f);
-            //}
-            /*  Debug.DrawRay(transform.position, new Vector3(0, -groundDist, 0), Color.red, 2.0f, true);
-              int layerMask = 1 << 8;
-              layerMask = ~layerMask;
-              if (_wantToJump && Physics.Raycast(transform.position + new Vector3(0.0f, 0.2f, 0.0f), groundDir, out hit, groundDist, layerMask))
-              {
-                  _wantToJump = false;
-                  jumpTimer = 1;
-                  anim.SetBool("Jumping", true);
-                  _direction += transform.up * _jumpSpeed;
-              }*/
-
+            if (isWalking)
+                PlayFootstepAudio();
         }
         Vector3 velocity = new Vector3(rigidbody.velocity.x, 0.0f, rigidbody.velocity.z);
         float dotProduct = Vector3.Dot(rigidbody.velocity, transform.right);
@@ -130,47 +114,27 @@ public class CharacController : Photon.MonoBehaviour
                 anim.SetBool("run", false);
             }
         }
-
-        
-        /*if (jumpTimer > 0.5)
-            jumpTimer -= Time.deltaTime;
-        else if (anim.GetBool("Jumping") == true)
-            anim.SetBool("Jumping", false);*/
-        ProgressStepCycle(movementSpeed);
     }
+
     void LateUpdate()
     {
        if (rotate)
             transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * Time.deltaTime * 100));
     }
- 
-
-    private void ProgressStepCycle(float speed)
-    {
-        if (isWalking)
-        {
-            _stepCycle += (rigidbody.velocity.magnitude + _stepInterval) * Time.fixedDeltaTime;
-        }
-
-        if (!(_stepCycle > _nextStep))
-        {
-            return;
-        }
-
-        _nextStep = _stepCycle + _stepInterval;
-
-        PlayFootstepAudio();
-    }
 
     private void PlayFootstepAudio()
     {
-        // pick & play a random footstep sound from the array,
-        // excluding sound at index 0
-        int n = Random.Range(1, footstepSounds.Length);
-        _audioSource.clip = footstepSounds[n];
-        _audioSource.PlayOneShot(_audioSource.clip);
-        // move picked sound to index 0 so it's not picked next time
-        footstepSounds[n] = footstepSounds[0];
-        footstepSounds[0] = _audioSource.clip;
+        if (!_audioSource.isPlaying)
+        {
+            int n = Random.Range(1, footstepSounds.Length);
+            _audioSource.clip = footstepSounds[n];
+            _audioSource.Stop();
+            _audioSource.Play();
+            _audioSource.PlayOneShot(_audioSource.clip);
+            _walkAudioTimer = 0.0f;
+            footstepSounds[n] = footstepSounds[0];
+            footstepSounds[0] = _audioSource.clip;
+        }
+        _walkAudioTimer += Time.deltaTime;
     }
 }

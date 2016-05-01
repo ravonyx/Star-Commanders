@@ -43,7 +43,7 @@ public class PropulsorViewMonitor : MonoBehaviour
         int stateEff = 0;
         for (int id = 0; id < _propulsorStates.Length; id++)
         {
-            int lifeProp = _propulsorCont.getReactorLife(id);
+            int lifeProp = _propulsorCont.getEngineLife(id + 1);
             stateEff += lifeProp;
             _propulsorStates[id].text = lifeProp + "/100";
             _propulsorImages[id].color = new Color((100.0f - lifeProp) / 100.0f, lifeProp / 100.0f, 0.0f, 1.0f);

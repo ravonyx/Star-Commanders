@@ -39,7 +39,7 @@ public class ShieldViewMonitor : MonoBehaviour
 
     void Start () 
     {
-        InvokeRepeating("UpdateInterface", 1.0f, 2.0f);
+        InvokeRepeating("UpdateInterface", 1.0f, 1.0f);
 	}
 	
 
@@ -83,9 +83,9 @@ public class ShieldViewMonitor : MonoBehaviour
                 _projectorStatus[id].color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
             }
             /*
-            _fireImg[id].color = _propulsorCont.isReactorOnfire(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
-            _lightningImg[id].color = _propulsorCont.isReactorOnElectrical(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
-            _empImg[id].color = _propulsorCont.isReactorOnEMP(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);*/
+            _fireImg[id].color = _projectorCont.isReactorOnfire(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            _lightningImg[id].color = _projectorCont.isReactorOnElectrical(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            _empImg[id].color = _projectorCont.isReactorOnEMP(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);*/
         }
 	}
 }

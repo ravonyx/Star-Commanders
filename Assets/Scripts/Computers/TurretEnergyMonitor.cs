@@ -1,6 +1,17 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿// --------------------------------------------------
+// Project: Star Commanders
+// --------------------------------------------------
 
+// Library
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+// --------------------------------------------------
+// 
+// Script : Contrôle des Tourelles Energy
+// 
+// --------------------------------------------------
 public class TurretEnergyMonitor : MonoBehaviour
 {
 
@@ -20,7 +31,34 @@ public class TurretEnergyMonitor : MonoBehaviour
 
     [SerializeField]
     bool _upIsDown = false;
-    
+
+    // ------------------------
+
+    // ------------------------
+    // Interfaces
+    [SerializeField]
+    Image[] _fireImg;
+
+    [SerializeField]
+    Image[] _lightningImg;
+
+    [SerializeField]
+    Image[] _empImg;
+
+    [SerializeField]
+    Image[] _healthColor;
+
+    [SerializeField]
+    Slider _health;
+
+    [SerializeField]
+    LifepartStateController _consoleLifeController;
+
+    [SerializeField]
+    Text _offline;
+
+    [SerializeField]
+    GameObject _interfaceCollider;
     // ------------------------
 
     // ------------------------
@@ -63,11 +101,13 @@ public class TurretEnergyMonitor : MonoBehaviour
         
         _pivotTourelle.localEulerAngles = new Vector3(0, 0, 0);
         _pivotCanons.localEulerAngles = new Vector3(0, 0, 0);
+
+        InvokeRepeating("UpdateInterface", 1.0f, 1.0f);
     }
 
     void Update()
     {
-        if (_isActive)
+        if (_isActive && _consoleLifeController.currentlife > 0 && !_consoleLifeController.isOnEMPDamages())
         {
 
             // Si le joueur déplace la souris sur l'axe Horizontal
@@ -152,5 +192,30 @@ public class TurretEnergyMonitor : MonoBehaviour
     {
         _wantToShoot = false;
         StopCoroutine(TryToShoot());
+    }
+
+    void UpdateInterface()
+    {
+        _fireImg[0].color = _consoleLifeController.isOnFire() ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+        _lightningImg[0].color = _consoleLifeController.isElectricalDamage() ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+        _empImg[0].color = _consoleLifeController.isOnEMPDamages() ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+
+        _health.value = _consoleLifeController.currentlife / 100.0f;
+        _healthColor[0].color = new Color((100.0f - _consoleLifeController.currentlife) / 100.0f, _consoleLifeController.currentlife / 100.0f, 0.0f, 1.0f);
+
+        if (!_consoleLifeController.isOnEMPDamages())
+            _offline.text = "";
+
+        if (_consoleLifeController.currentlife == 0 || _consoleLifeController.isOnEMPDamages())
+        {
+            _offline.text = "O F F L I N E";
+            _photonView.RPC("StopShoot", PhotonTargets.All);
+        }
+        else if (_consoleLifeController.currentlife == 100 && _offline.text == "O F F L I N E")
+        {
+            _interfaceCollider.tag = "Monitor";
+            _offline.text = "";
+        }
+
     }
 }

@@ -1,43 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurretColliderManager : MonoBehaviour {
+public class TurretColliderManager : Photon.MonoBehaviour
+{
 
     [SerializeField]
-    private int mode;
-    [SerializeField]
-    private TurretController m_impactCallback;
+    LifepartStateController _console;
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
     void OnCollisionEnter(Collision collision)
     {
-        foreach (ContactPoint contact in collision.contacts)
+        if (collision.gameObject.tag == "KineticProjectile" && PhotonNetwork.isMasterClient)
         {
-            switch (mode)
-            {
-                case 1:
-                    m_impactCallback.frontTurretImpact(collision.gameObject);
-                    break;
-                case 2:
-                    m_impactCallback.rearLeftTurretImpact(collision.gameObject);
-                    break;
-                case 3:
-                    m_impactCallback.rearRightTurretImpact(collision.gameObject);
-                    break;
-                default:
-                    Debug.Log("Unknow mode selected (1,2,3)");
-                    break;
-            }
-
+            int rand = Random.Range(1, 101);
+            photonView.RPC("OnTurretCollide", PhotonTargets.All, 5, rand, 0);
+        }
+        else if (collision.gameObject.tag == "EnergyProjectile" && PhotonNetwork.isMasterClient)
+        {
+            int rand = Random.Range(1, 101);
+            photonView.RPC("OnTurretCollide", PhotonTargets.All, 2, rand, 1);
         }
     }
 
+    [PunRPC]
+    void OnTurretCollide(int damage, int rand, int type)
+    {
+        _console.ReduceLife(damage);
+        if (rand <= 2)
+        {
+            if(type == 0)
+                _console.setOnFire(true);
+            else if(type == 1)
+                _console.setElectricFailure(true);
+        }
+    }
 }
