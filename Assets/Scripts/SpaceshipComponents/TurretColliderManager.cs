@@ -4,9 +4,7 @@ using System.Collections;
 public class TurretColliderManager : MonoBehaviour {
 
     [SerializeField]
-    private int mode;
-    [SerializeField]
-    private TurretController m_impactCallback;
+    LifepartStateController _console;
 
     // Use this for initialization
     void Start () {
@@ -17,8 +15,23 @@ public class TurretColliderManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
     void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.tag == "KineticProjectile")
+        {
+            _console.TakeDamage(5);
+
+            if (Random.Range(1, 101) <= 2)
+                _console.setOnFire(true);
+        }
+        else if (collision.gameObject.tag == "EnergyProjectile")
+        {
+            _console.TakeDamage(2);
+            if (Random.Range(1, 101) <= 2)
+                _console.setElectricFailure(true);
+        }
+        /*
         foreach (ContactPoint contact in collision.contacts)
         {
             switch (mode)
@@ -37,7 +50,9 @@ public class TurretColliderManager : MonoBehaviour {
                     break;
             }
 
-        }
+        }*/
+
+
     }
 
 }

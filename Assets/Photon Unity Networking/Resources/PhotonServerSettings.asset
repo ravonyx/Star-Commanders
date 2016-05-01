@@ -52,4 +52,5 @@ MonoBehaviour:
   - StopReload
   - reduceCycle
   - ExtinguisherOnOff
+  - ReduceLife
   DisableAutoOpenWizard: 1

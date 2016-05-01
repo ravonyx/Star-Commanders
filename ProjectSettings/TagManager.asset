@@ -23,6 +23,7 @@ TagManager:
   - MonitorDestroy
   - PlayerShip
   - Extinguisher
+  - Chat
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - LimitScene
   - Hull
   - Projectile
-  - 
+  - Turrets
   - 
   - 
   - 

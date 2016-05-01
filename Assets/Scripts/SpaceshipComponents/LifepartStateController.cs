@@ -230,10 +230,22 @@ public class LifepartStateController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int amount)
+    {
+        _photonView.RPC("ReduceLife", PhotonTargets.All);
+    }
+
+
     [PunRPC]
     void AddLife()
     {
         currentlife++;
+    }
+
+    [PunRPC]
+    void ReduceLife(int amount)
+    {
+        currentlife -= amount;
     }
 
     [PunRPC]
