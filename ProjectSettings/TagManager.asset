@@ -24,6 +24,8 @@ TagManager:
   - PlayerShip
   - Extinguisher
   - Chat
+  - LoadExtinguisher
+  - Load
   layers:
   - Default
   - TransparentFX
@@ -39,7 +41,7 @@ TagManager:
   - Hull
   - Projectile
   - Turrets
-  - 
+  - Base
   - 
   - 
   - 
