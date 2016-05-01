@@ -53,12 +53,6 @@ public class LifepartStateController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void setOnFire(bool state)
     {
         if (state)
@@ -230,20 +224,13 @@ public class LifepartStateController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
-    {
-        _photonView.RPC("ReduceLife", PhotonTargets.All);
-    }
-
-
     [PunRPC]
-    void AddLife()
+    public void AddLife()
     {
         currentlife++;
     }
 
-    [PunRPC]
-    void ReduceLife(int amount)
+    public void ReduceLife(int amount)
     {
         currentlife -= amount;
     }

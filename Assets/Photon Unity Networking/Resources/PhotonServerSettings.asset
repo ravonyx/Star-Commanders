@@ -53,4 +53,5 @@ MonoBehaviour:
   - reduceCycle
   - ExtinguisherOnOff
   - ReduceLife
+  - OnTurretCollide
   DisableAutoOpenWizard: 1

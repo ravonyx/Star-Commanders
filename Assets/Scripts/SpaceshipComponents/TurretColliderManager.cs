@@ -1,58 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurretColliderManager : MonoBehaviour {
+public class TurretColliderManager : Photon.MonoBehaviour
+{
 
     [SerializeField]
     LifepartStateController _console;
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "KineticProjectile")
+        Debug.Log(collision);
+        if (collision.gameObject.tag == "KineticProjectile")
         {
-            _console.TakeDamage(5);
-
-            if (Random.Range(1, 101) <= 2)
-                _console.setOnFire(true);
+            int rand = Random.Range(1, 101);
+            photonView.RPC("OnTurretCollide", PhotonTargets.All, 5, rand, 0);
         }
         else if (collision.gameObject.tag == "EnergyProjectile")
         {
-            _console.TakeDamage(2);
-            if (Random.Range(1, 101) <= 2)
-                _console.setElectricFailure(true);
+            int rand = Random.Range(1, 101);
+            photonView.RPC("OnTurretCollide", PhotonTargets.All, 2, rand, 1);
         }
-        /*
-        foreach (ContactPoint contact in collision.contacts)
-        {
-            switch (mode)
-            {
-                case 1:
-                    m_impactCallback.frontTurretImpact(collision.gameObject);
-                    break;
-                case 2:
-                    m_impactCallback.rearLeftTurretImpact(collision.gameObject);
-                    break;
-                case 3:
-                    m_impactCallback.rearRightTurretImpact(collision.gameObject);
-                    break;
-                default:
-                    Debug.Log("Unknow mode selected (1,2,3)");
-                    break;
-            }
-
-        }*/
-
-
     }
 
+    [PunRPC]
+    void OnTurretCollide(int damage, int rand, int type)
+    {
+        _console.ReduceLife(damage);
+        if (rand <= 100)
+        {
+            if(type == 0)
+                _console.setOnFire(true);
+            else if(type == 1)
+                _console.setElectricFailure(true);
+        }
+    }
 }
