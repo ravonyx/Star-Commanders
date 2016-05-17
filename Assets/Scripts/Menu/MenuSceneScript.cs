@@ -24,7 +24,6 @@ public class MenuSceneScript : MonoBehaviour
     CanvasGroup[] Panels;
     Stack<CanvasGroup> StackedPanels = new Stack<CanvasGroup>();
 
-    // Use this for initialization
     void Start()
     {
         StackedPanels.Push(Panels[0]);
@@ -62,7 +61,6 @@ public class MenuSceneScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         for (int i = 0; i < StackedPanels.Count; i++)
@@ -76,7 +74,7 @@ public class MenuSceneScript : MonoBehaviour
         }
     }
 
-    public void GoToPanel(CanvasGroup Panel)
+    private void GoToPanel(CanvasGroup Panel)
     {
         if (StackedPanels.Contains(Panel))
         {

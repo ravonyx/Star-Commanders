@@ -40,7 +40,7 @@ public class ListPlayers : MonoBehaviour
             {
                 for (i = 0; i < playersData.Length; i++)
                 {
-                    GameObject button = (GameObject)Instantiate(Resources.Load("PlayerButton"));
+                    GameObject button = (GameObject)Instantiate(Resources.Load("UI/PlayerButton"));
                     if (button)
                     {
                         playersList.Add(button);

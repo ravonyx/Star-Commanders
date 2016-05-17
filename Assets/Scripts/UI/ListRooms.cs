@@ -66,7 +66,7 @@ public class ListRooms : MonoBehaviour
                 if (!hostData[i].open)
                     continue;
 
-                GameObject button = (GameObject)Instantiate(Resources.Load("ServerButton"));
+                GameObject button = (GameObject)Instantiate(Resources.Load("UI/ServerButton"));
                 if (button)
                 {
                     serverList.Add(button);

@@ -24,13 +24,13 @@ public class SelectTeam : Photon.MonoBehaviour
                 {
                     PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
                     team1.color = Color.blue;
-                    team2.color = Color.black;
+                    team2.color = Color.white;
                 }
                 else if (teamImg.name == "RedTeam")
                 {
                     PhotonNetwork.player.SetTeam(PunTeams.Team.red);
                     team2.color = Color.red;
-                    team1.color = Color.black;
+                    team1.color = Color.white;
                 }
             }
         }
