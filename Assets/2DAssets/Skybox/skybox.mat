@@ -143,7 +143,7 @@ Material:
       data:
         first:
           name: _Exposure
-        second: 1.5
+        second: 1
       data:
         first:
           name: _SunDisk
@@ -195,7 +195,7 @@ Material:
       data:
         first:
           name: _Rotation
-        second: 139
+        second: 357
     m_Colors:
       data:
         first:
@@ -216,4 +216,4 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: 0.4705882, g: 0.4705882, b: 0.4705882, a: 0.5}
+        second: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 0.5}
