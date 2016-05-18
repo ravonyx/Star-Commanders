@@ -30,7 +30,10 @@ public class MenuSceneScript : MonoBehaviour
         ActivePanel.gameObject.SetActive(true);
         for (int i = 1; i < Panels.Length; i++)
         {
-            Panels[i].gameObject.SetActive(false);
+            CanvasGroup canvasGroup = Panels[i].GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
         }
     }
 
@@ -88,8 +91,10 @@ public class MenuSceneScript : MonoBehaviour
             if (Panels.Contains(Panel))
             {
                 ActivePanel.interactable = false;
+                ActivePanel.blocksRaycasts = false;
                 StackedPanels.Push(Panel);
-                ActivePanel.gameObject.SetActive(true);
+                ActivePanel.interactable = true;
+                ActivePanel.blocksRaycasts = true;
             }
         }
     }
@@ -110,10 +115,12 @@ public class MenuSceneScript : MonoBehaviour
     {
         if (StackedPanels.Count > 0)
         {
-            ActivePanel.gameObject.SetActive(false);
+            ActivePanel.alpha = 0;
+            ActivePanel.interactable = false;
+            ActivePanel.blocksRaycasts = false;
             StackedPanels.Pop();
             ActivePanel.interactable = true;
-            ActivePanel.gameObject.SetActive(true);
+            ActivePanel.blocksRaycasts = true;
         }
     }
 
