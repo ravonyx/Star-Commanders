@@ -28,19 +28,17 @@ public class SettingsScript : MonoBehaviour
 
     public void SetResolution()
     {
-        Debug.Log(screenDropdown.value);
         Screen.SetResolution(Screen.resolutions[screenDropdown.value].width, Screen.resolutions[screenDropdown.value].height, Screen.fullScreen);
     }
 
-    public void SetVolume(float new_volume)
+    public void SetVolume()
     {
         Debug.Log(VolumeSlider.value);
-        AudioListener.volume = new_volume;
+        AudioListener.volume = VolumeSlider.value;
     }
 
     public void SetQuality()
     {
-        Debug.Log(qualityDropdown.value);
         QualitySettings.SetQualityLevel((int)qualityDropdown.value, true);
     }
 
