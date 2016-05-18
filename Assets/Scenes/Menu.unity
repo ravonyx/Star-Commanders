@@ -156,6 +156,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1 &62340151 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 190600, guid: aefb2770767bc6e488106474b7a36880, type: 2}
+  m_PrefabInternal: {fileID: 1061358830}
+--- !u!114 &62340156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62340151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &65107311 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 142712, guid: 3314d08ef9d99f74483d4004d19578d2, type: 2}
@@ -231,6 +265,40 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &244545871 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 194082, guid: 117adcfcf3d8b7b4d825f4d64fbb6887, type: 2}
+  m_PrefabInternal: {fileID: 2079904887}
+--- !u!114 &244545877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 244545871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &351865956 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11418724, guid: 3314d08ef9d99f74483d4004d19578d2,
@@ -304,6 +372,40 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1061358830}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &456903911 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 167240, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
+  m_PrefabInternal: {fileID: 573439326}
+--- !u!114 &456903918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456903911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!224 &456997649 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22481498, guid: aefb2770767bc6e488106474b7a36880,
@@ -446,6 +548,40 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &557764878 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 104184, guid: aefb2770767bc6e488106474b7a36880, type: 2}
+  m_PrefabInternal: {fileID: 1061358830}
+--- !u!114 &557764884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 557764878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &573439326
 Prefab:
   m_ObjectHideFlags: 0
@@ -551,75 +687,75 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22426906, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22426906, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22426906, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 162.75
       objectReference: {fileID: 0}
     - target: {fileID: 22426906, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -31.199999
       objectReference: {fileID: 0}
     - target: {fileID: 22426906, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 325.5
       objectReference: {fileID: 0}
     - target: {fileID: 22426906, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 62.399998
       objectReference: {fileID: 0}
     - target: {fileID: 22456464, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22456464, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22456464, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 162.75
       objectReference: {fileID: 0}
     - target: {fileID: 22456464, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -103.59999
       objectReference: {fileID: 0}
     - target: {fileID: 22456464, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 325.5
       objectReference: {fileID: 0}
     - target: {fileID: 22456464, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 62.399998
       objectReference: {fileID: 0}
     - target: {fileID: 22414194, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22414194, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22414194, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 162.75
       objectReference: {fileID: 0}
     - target: {fileID: 22414194, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -175.99998
       objectReference: {fileID: 0}
     - target: {fileID: 22414194, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 325.5
       objectReference: {fileID: 0}
     - target: {fileID: 22414194, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 62.399998
       objectReference: {fileID: 0}
     - target: {fileID: 11409284, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -687,7 +823,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3.47
   m_Range: 200
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1157,7 +1293,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470156, guid: 3314d08ef9d99f74483d4004d19578d2, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -325.6
       objectReference: {fileID: 0}
     - target: {fileID: 22508224, guid: 3314d08ef9d99f74483d4004d19578d2, type: 2}
       propertyPath: m_Alpha
@@ -1166,6 +1302,40 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3314d08ef9d99f74483d4004d19578d2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &816462986 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 105376, guid: 3314d08ef9d99f74483d4004d19578d2, type: 2}
+  m_PrefabInternal: {fileID: 793683072}
+--- !u!114 &816462992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 816462986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &919446462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,12 +3362,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22481498, guid: aefb2770767bc6e488106474b7a36880, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -325.6
       objectReference: {fileID: 0}
     - target: {fileID: 22540670, guid: aefb2770767bc6e488106474b7a36880, type: 2}
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500092, guid: aefb2770767bc6e488106474b7a36880, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 009d5176c100257498d0a0df5c9be7fa, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefb2770767bc6e488106474b7a36880, type: 2}
   m_IsPrefabParent: 0
@@ -3207,6 +3381,121 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 793683072}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &1263724240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1263724243}
+  - 82: {fileID: 1263724241}
+  - 114: {fileID: 1263724242}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1263724241
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263724240}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &1263724242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263724240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bffd04034b09cb4dbe68e6d6be518fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundHover: {fileID: 8300000, guid: 80fe04bd11e7d5446a0d24214dc386fa, type: 3}
+--- !u!4 &1263724243
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263724240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.67474365, y: 22.335938, z: 4.5859375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &1392046382
 GameObject:
   m_ObjectHideFlags: 0
@@ -3300,6 +3589,36 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1532355490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1532355483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1590125739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,7 +3645,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3.47
   m_Range: 200
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3452,6 +3771,40 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 973665435}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &1799174251 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 117714, guid: 3314d08ef9d99f74483d4004d19578d2, type: 2}
+  m_PrefabInternal: {fileID: 793683072}
+--- !u!114 &1799174257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799174251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1833245363 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 183776, guid: ad37c375f666e6449a3119884c65abdb, type: 2}
@@ -3461,6 +3814,40 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22475472, guid: ad37c375f666e6449a3119884c65abdb,
     type: 2}
   m_PrefabInternal: {fileID: 973665435}
+--- !u!1 &2014845237 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161534, guid: 564460bd5dc2a164ea34b4dc015a507b, type: 2}
+  m_PrefabInternal: {fileID: 573439326}
+--- !u!114 &2014845239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2014845237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2016851554
 GameObject:
   m_ObjectHideFlags: 0
@@ -3528,6 +3915,40 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 793683072}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &2049554241 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 185244, guid: 3314d08ef9d99f74483d4004d19578d2, type: 2}
+  m_PrefabInternal: {fileID: 793683072}
+--- !u!114 &2049554247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049554241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1263724242}
+          m_MethodName: Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &2075467386 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11440112, guid: ad37c375f666e6449a3119884c65abdb,
