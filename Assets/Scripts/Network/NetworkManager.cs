@@ -22,6 +22,7 @@ public class NetworkManager : Photon.PunBehaviour
     private bool _isFade = false;
     private float _startTime = 0.0f;
     private float _fadeTime;
+    public LevelLoader levelLoader;
 
     void Start ()
     {
@@ -70,7 +71,7 @@ public class NetworkManager : Photon.PunBehaviour
     [PunRPC]
     void LoadSceneForEach(PhotonMessageInfo info)
     {
-        PhotonNetwork.LoadLevel("MainScene");
+        levelLoader.LoadLevel();
     }
 
     public void CreateRoom()
