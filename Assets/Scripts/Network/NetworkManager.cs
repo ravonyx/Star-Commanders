@@ -30,20 +30,15 @@ public class NetworkManager : Photon.PunBehaviour
         PhotonNetwork.ConnectUsingSettings("0.1");
         PhotonNetwork.logLevel = PhotonLogLevel.ErrorsOnly;
         _listRooms = canvas.GetComponent<ListRooms>();
-        //DontDestroyOnLoad(this);
+        playButton.gameObject.SetActive(false);
     }
 
 	void Update ()
     {
         if(connectionParameters)
             connectionParameters.text = PhotonNetwork.connectionStateDetailed.ToString();
-        playButton.gameObject.SetActive(false);
         if (PhotonNetwork.inRoom)
-        {
             nbPlayersInRoom.text = PhotonNetwork.room.playerCount + "/" + PhotonNetwork.room.maxPlayers;
-            if (PhotonNetwork.isMasterClient)
-                playButton.gameObject.SetActive(true);
-        }
         if (_isFade)
         {
             float timeRatio = _startTime / _fadeTime;
@@ -86,6 +81,7 @@ public class NetworkManager : Photon.PunBehaviour
                 menuScript.GoToPanel(waitPanel);
                 PhotonNetwork.playerName = playerName.text;
                 PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
+                playButton.gameObject.SetActive(true);
             }
             else if(nb <= 0)
             {
@@ -117,7 +113,10 @@ public class NetworkManager : Photon.PunBehaviour
     public void LeaveRoom()
     {
         if (PhotonNetwork.inRoom)
+        {
             PhotonNetwork.LeaveRoom();
+            playButton.gameObject.SetActive(false);
+        }
     }
 
     void OnPhotonRandomJoinFailed()
