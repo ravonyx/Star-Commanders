@@ -8,7 +8,7 @@ public class MenuSceneScript : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Distance beetween each faded frames")]
-    float distance = 20.0f;
+    float distance = 25.0f;
     [SerializeField]
     [Tooltip("Speed the frame will move and fade")]
     float speed = 10.0f;
@@ -71,8 +71,8 @@ public class MenuSceneScript : MonoBehaviour
         {
             float dist = distance * i;
             float al = StackedPanels.ElementAt(i).alpha;
-            al = 1.0f / Mathf.Exp(i);
-            Vector3 pos = transform.position + transform.rotation * Vector3.forward * dist;
+            al = 1.0f / (0.8f * i);
+            Vector3 pos = transform.position + transform.rotation * new Vector3(1, 0, 1) * dist;
             StackedPanels.ElementAt(i).transform.position = Vector3.Lerp(StackedPanels.ElementAt(i).transform.position, pos, Time.deltaTime * speed);
             StackedPanels.ElementAt(i).alpha = Mathf.Lerp(StackedPanels.ElementAt(i).alpha, al, Time.deltaTime * speed);
         }
