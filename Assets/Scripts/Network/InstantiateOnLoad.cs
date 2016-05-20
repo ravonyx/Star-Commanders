@@ -15,6 +15,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     private Image _extinguisherStatus;
     [SerializeField]
     private ChatManager chatPanel;
+    [SerializeField]
+    private PauseMenu pauseMenu;
 
     void Start ()
     {
@@ -56,6 +58,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         CharacController characController = player.GetComponent<CharacController>();
         characController.spaceship = baseTeam;
         characController.chat = chatPanel;
+
+        pauseMenu.player = player;
     }
     void OnJoinedLobby()
     {

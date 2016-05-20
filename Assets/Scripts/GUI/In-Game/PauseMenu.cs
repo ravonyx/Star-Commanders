@@ -6,10 +6,24 @@ public class PauseMenu : MonoBehaviour
 {
     public CanvasGroup pauseMenu;
     public Slider volumeSlider;
+    public Slider sensitivitySlider;
+    public GameObject player;
 
     void Start()
     {
         volumeSlider.value = AudioListener.volume;
+        sensitivitySlider.value = 100;
+    }
+
+    public void changeSensitivity()
+    {
+        player.GetComponent<CharacController>().sensitivity = sensitivitySlider.value;
+        player.GetComponentInChildren<CameraController>().sensitivity = sensitivitySlider.value;
+    }
+
+    public void changeSound()
+    {
+        AudioListener.volume = volumeSlider.value;
     }
 
     void Update()
