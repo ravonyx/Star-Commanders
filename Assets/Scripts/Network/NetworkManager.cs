@@ -15,7 +15,6 @@ public class NetworkManager : Photon.PunBehaviour
 
     public Canvas canvas;
     private ListRooms _listRooms;
-    private int nbPlayers = 2;
     public MenuSceneScript menuScript;
     public GameObject waitPanel;
 

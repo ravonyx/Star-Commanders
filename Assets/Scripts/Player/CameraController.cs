@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
     public float bobAmount; 
 
     float timer = Mathf.PI / 2;
+    public float sensitivity;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class CameraController : MonoBehaviour
         isActive = true;
         _cameraRotation = Vector2.zero;
         _characController = GetComponentInParent<CharacController>();
+        sensitivity = 100;
     }
 
     void LateUpdate()
@@ -35,7 +37,7 @@ public class CameraController : MonoBehaviour
         if (target == null || !isActive)
             return;
 
-        float y = -Input.GetAxis("Mouse Y") * Time.deltaTime * 100;
+        float y = -Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
 
         _cameraRotation.y += y;
         _cameraRotation.y = ClampAngle(_cameraRotation.y, _yMinLimit, _yMaxLimit);

@@ -5,19 +5,19 @@ public class SoundUI : MonoBehaviour
 {
     public AudioClip soundHover;
     public AudioClip soundCLick;
-    AudioSource audio;
+    private AudioSource _audio;
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        _audio = GetComponent<AudioSource>();
     }
 
     public void Hover()
     {
-        audio.PlayOneShot(soundHover, 0.5F);
+        _audio.PlayOneShot(soundHover, 0.5F);
     }
     public void Click()
     {
-        audio.PlayOneShot(soundCLick, 0.5F);
+        _audio.PlayOneShot(soundCLick, 0.5F);
     }
 }

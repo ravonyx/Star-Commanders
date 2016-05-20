@@ -38,9 +38,9 @@ public class ChoosePanel : MonoBehaviour
 		if (_spaceshipList.Count > _indexSelected)
 		{
 			for(int i = 0; i < _spaceshipList.Count; i++)
-				_spaceshipList[i].GetComponent<RawImage>().color = _unselectedColor;
+				_spaceshipList[i].GetComponent<Image>().color = _unselectedColor;
 			if (_spaceshipList[_indexSelected] != null)
-				_spaceshipList[_indexSelected].GetComponent<RawImage>().color = Color.green;
+				_spaceshipList[_indexSelected].GetComponent<Image>().color = Color.green;
 
 			if (Input.GetKeyDown(KeyCode.LeftArrow) && _indexSelected > 0)
 				_indexSelected--;

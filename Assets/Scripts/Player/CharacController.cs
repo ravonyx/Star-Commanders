@@ -5,15 +5,11 @@ using Photon;
 public class CharacController : Photon.MonoBehaviour
 {
     private Animator anim;
-    private float jumpTimer = 0;
 
     public float speedMax;
     public float speedStandard;
 
     public float movementSpeed;
-    private float _jumpSpeed = 5.0f;
-
-    private bool _wantToJump = false;
     public Rigidbody rigidbody;
     public Vector3 _direction;
 
@@ -22,8 +18,6 @@ public class CharacController : Photon.MonoBehaviour
     public bool isWalking = false;
 
     public GameObject spaceship;
-    private Vector3 groundDir = -Vector3.up;
-    private float groundDist = 0.2f;
     private RaycastHit hit;
 
     public ChatManager chat;
@@ -34,20 +28,16 @@ public class CharacController : Photon.MonoBehaviour
 
     [SerializeField]
     private float _stepInterval;
-    private float _stepCycle;
-    private float _nextStep;
-
-    private float _walkAudioSpeed = 0.544f;
     private float _walkAudioTimer;
+    public float sensitivity;
 
     void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
-        _stepCycle = 0f;
-        _nextStep = _stepCycle / 2f;
         movementSpeed = speedStandard;
+        sensitivity = 100;
     }
 
     void Update()
@@ -66,8 +56,6 @@ public class CharacController : Photon.MonoBehaviour
                 _direction -= Vector3.right;
             if (Input.GetKey("d"))
                 _direction += Vector3.right;
-            if (Input.GetKeyDown(KeyCode.Space))
-                _wantToJump = true;
             if (Input.GetKey(KeyCode.LeftShift))
                 movementSpeed = speedMax;
             else
@@ -119,7 +107,7 @@ public class CharacController : Photon.MonoBehaviour
     void LateUpdate()
     {
        if (rotate)
-            transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * Time.deltaTime * 100));
+            transform.Rotate(Vector3.up * (Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity));
     }
 
     private void PlayFootstepAudio()

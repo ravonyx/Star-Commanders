@@ -5,12 +5,6 @@ public class OnTriggerShowMenu : MonoBehaviour
 {
 	public GameObject menuToShow;
 	public GameObject chat;
-    private PhotonView _photonView;
-
-    void Start()
-    {
-        _photonView = GetComponent<PhotonView>();
-    }
 
     void OnTriggerEnter(Collider other)
 	{
