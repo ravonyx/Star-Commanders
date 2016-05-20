@@ -23,6 +23,7 @@ public class MenuSceneScript : MonoBehaviour
     [Tooltip("Must have at least one element on position 0")]
     CanvasGroup[] Panels;
     Stack<CanvasGroup> StackedPanels = new Stack<CanvasGroup>();
+    public Texture guiTexture;
 
     void Start()
     {
