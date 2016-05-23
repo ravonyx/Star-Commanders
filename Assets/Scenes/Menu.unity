@@ -3614,15 +3614,15 @@ Prefab:
       objectReference: {fileID: 1263724242}
     - target: {fileID: 22456630, guid: 117adcfcf3d8b7b4d825f4d64fbb6887, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22456630, guid: 117adcfcf3d8b7b4d825f4d64fbb6887, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22456630, guid: 117adcfcf3d8b7b4d825f4d64fbb6887, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22490636, guid: 117adcfcf3d8b7b4d825f4d64fbb6887, type: 2}
       propertyPath: m_AnchorMin.y
