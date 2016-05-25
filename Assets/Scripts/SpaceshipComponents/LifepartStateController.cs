@@ -155,6 +155,10 @@ public class LifepartStateController : MonoBehaviour
             currentlife = 0;
             m_ParticleFireDamages.SetActive(false);
             m_ParticleElectricalDamages.SetActive(false);
+
+            setOnFire(false);
+            setElectricFailure(false);
+            setEmpFailure(false);
         }
     }
 

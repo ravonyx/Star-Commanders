@@ -63,7 +63,7 @@ public class RaycastInteraction : MonoBehaviour
         #region UseConsole
         if (_toolSelected != 2 && _toolSelected == 0)
         {
-            _playerInfo.text = "";
+            //_playerInfo.text = "";
             if (_inUse && Input.GetKeyDown(KeyCode.F))
             {
                 _playerInfo.alignment = TextAnchor.MiddleCenter;
@@ -145,7 +145,7 @@ public class RaycastInteraction : MonoBehaviour
                 _loader.gameObject.SetActive(true);
                 _loader.color = new Color((100.0f - _consoleState.currentlife) / 100.0f, _consoleState.currentlife / 100.0f, 0.0f, 1.0f);
                 _loader.fillAmount = _consoleState.currentlife / 100.0f;
-
+                
                 if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0) && !_toolReload && !_toolInUse))
                 {
                     _toolInUse = true;
@@ -157,7 +157,7 @@ public class RaycastInteraction : MonoBehaviour
                     StopCoroutine(TryToRepair());
                 }
             }
-            else if (_toolSelected == 2)
+            else if (_toolSelected == 2 && _consoleState.isOnFire())
             {
                 _playerInfo.text = "\nMaintain 'MOUSE 0' to extinguish Fire";
                 _loader.gameObject.SetActive(true);
