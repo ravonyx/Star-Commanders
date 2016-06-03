@@ -16,7 +16,6 @@ public class SettingsScript : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Start");
         for(int i = 0; i < Screen.resolutions.Length; i++)
             screenDropdown.options.Add(new Dropdown.OptionData() { text = Screen.resolutions[i].width + " X " + Screen.resolutions[i].height});
         screenDropdown.GetComponentInChildren<Text>().text = Screen.width + " X " + Screen.height;
@@ -33,7 +32,6 @@ public class SettingsScript : MonoBehaviour
 
     public void SetVolume()
     {
-        Debug.Log(VolumeSlider.value);
         AudioListener.volume = VolumeSlider.value;
     }
 

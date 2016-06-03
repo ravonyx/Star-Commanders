@@ -6,7 +6,6 @@ using Photon;
 public class NetworkManager : Photon.PunBehaviour
 {
     public Text connectionParameters;
-    public Text roomName;
     public Text playerName;
     public Text feedback;
     public Text nbPlayersInRoom;
@@ -70,13 +69,13 @@ public class NetworkManager : Photon.PunBehaviour
 
     public void CreateRoom()
     {
-        if (nbPlayersWanted.text != "" && roomName.text != "" && playerName.text != "")
+        if (nbPlayersWanted.text != "" && playerName.text != "")
         {
             int nb = int.Parse(nbPlayersWanted.text);
             byte value = (byte)nb;
             if (!PhotonNetwork.inRoom && PhotonNetwork.insideLobby && nb > 0)
             {
-                PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { maxPlayers = value }, null);
+                PhotonNetwork.CreateRoom(playerName.text + "game", new RoomOptions() { maxPlayers = value }, null);
                 menuScript.GoToPanel(waitPanel);
                 PhotonNetwork.playerName = playerName.text;
                 PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
@@ -98,8 +97,6 @@ public class NetworkManager : Photon.PunBehaviour
                 feedback.text = "Enter name";
             else if (nbPlayersWanted.text == "")
                 feedback.text = "Enter number of players";
-            else if (roomName.text == "")
-                feedback.text = "Enter a room name";
 
             Color color = new Color(feedback.color.r, feedback.color.g, feedback.color.b, 1.0f);
             feedback.color = color;
