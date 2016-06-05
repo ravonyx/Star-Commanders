@@ -4,7 +4,7 @@ using Photon;
 
 public class ObjectNetwork : Photon.MonoBehaviour
 {
-    private Vector3 objectPos = Vector3.zero;
+    private Vector3 objectPos;
     private Quaternion objectRot = Quaternion.identity;
     PhotonView view;
 

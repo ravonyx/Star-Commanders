@@ -4,8 +4,13 @@ using System.Collections;
 public class ObjectPosition : Photon.MonoBehaviour
 {
 
-    private Vector3 objectPos = Vector3.zero;
+    private Vector3 objectPos;
     PhotonView view;
+
+    void Start()
+    {
+        objectPos = transform.position;
+    }
 
     void Update()
     {

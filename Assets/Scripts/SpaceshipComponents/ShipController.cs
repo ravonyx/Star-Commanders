@@ -8,8 +8,8 @@ using System.Collections.Generic;
 
 public class ShipController : MonoBehaviour
 {
-    public int maxSpeed = 5;
-    public int minSpeed = 0;
+    public float maxSpeed = 5.0f;
+    public float minSpeed = 0.0f;
     public float rotationSpeed = 150;
     public float increaseFactor = 0.2f;
     public bool status = false;
