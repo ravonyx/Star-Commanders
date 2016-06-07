@@ -17,6 +17,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     private ChatManager chatPanel;
     [SerializeField]
     private PauseMenu pauseMenu;
+    [SerializeField]
+    private ActivateLight activateLights;
 
     void Start ()
     {
@@ -60,6 +62,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         characController.chat = chatPanel;
 
         pauseMenu.player = player;
+        activateLights.player = player;
     }
     void OnJoinedLobby()
     {
@@ -67,7 +70,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         if (!network)
         {
             Debug.Log("JoinedLobby");
-            PhotonNetwork.CreateRoom("test3", new RoomOptions() { maxPlayers = 1 }, null);
+            PhotonNetwork.CreateRoom("test2", new RoomOptions() { maxPlayers = 1 }, null);
 
         }
     }
