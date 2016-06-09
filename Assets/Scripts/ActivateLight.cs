@@ -18,6 +18,8 @@ public class ActivateLight : MonoBehaviour
 	
     void CheckLight()
     {
+        if (!player)
+            return;
         for(int i = 0; i < gameObjLights.Length; i++)
        {
             if (InRange(i, player.transform.localPosition))
@@ -44,7 +46,6 @@ public class ActivateLight : MonoBehaviour
         if (gameObjLights[i].transform.localPosition.x <= playerPos.x + rangeLight && gameObjLights[i].transform.localPosition.x >= playerPos.x - rangeLight
                 && gameObjLights[i].transform.localPosition.z <= playerPos.z + rangeLight && gameObjLights[i].transform.localPosition.z >= playerPos.z - rangeLight)
         {
-            Debug.Log(i + " Obj x " + gameObjLights[i].transform.localPosition.x + " z " + gameObjLights[i].transform.localPosition.z + "Player x " + playerPos.x + " z" + playerPos.z);
             return true;
         }
         else
