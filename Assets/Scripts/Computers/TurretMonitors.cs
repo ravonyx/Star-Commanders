@@ -52,7 +52,6 @@ public class TurretMonitors : Photon.MonoBehaviour
     private bool _salve = false;
     // ------------------------
 
-
     // ------------------------
     // Interfaces
     [SerializeField]
@@ -174,7 +173,11 @@ public class TurretMonitors : Photon.MonoBehaviour
                 ps3.gameObject.SetActive(true);
                 ps4.gameObject.SetActive(true);
 
-                
+                ps1.transform.parent = null;
+                ps2.transform.parent = null;
+                ps3.transform.parent = null;
+                ps4.transform.parent = null;
+
                 _reload = true;
                 if (_salve)
                 {
@@ -252,6 +255,5 @@ public class TurretMonitors : Photon.MonoBehaviour
         {
             _offline.text = "";
         }
-
     }
 }

@@ -64,6 +64,7 @@ public class KineticProjectilPoolScript : MonoBehaviour
     // ----------
     public void ReturnProjectile(KineticProjectilScript proj)
     {
+        proj.transform.parent = this.transform; // Replace le projectile dans la pool
         proj.transform.position = this.transform.position; // Replace le projectile dans la pool
         proj._rigidbody.velocity = new Vector3(0, 0, 0);
         idProjectileUnset.Add(proj.id); // Retire l'objet de la liste des projectiles utilisés
