@@ -62,25 +62,29 @@ public class ShieldController : MonoBehaviour {
    public void FrontLeftImpact(int damages)
     {
         m_FrontLeftLevel -= damages;
-        Debug.Log("m_FrontLeftLevel " + m_FrontLeftLevel);
+        if (m_FrontLeftLevel < 0)
+            m_FrontLeftLevel = 0;
     }
 
     public void FrontRightImpact(int damages)
 {
         m_FrontRightLevel -= damages;
-        Debug.Log("m_FrontRightLevel " + m_FrontRightLevel);
+        if (m_FrontRightLevel < 0)
+            m_FrontRightLevel = 0;
     }
 
     public void RearleftImpact(int damages)
     {
         m_RearLeftLevel -= damages;
-        Debug.Log("m_RearLeftLevel " + m_RearLeftLevel);
+        if (m_RearLeftLevel < 0)
+            m_RearLeftLevel = 0;
     }
 
     public void RearRightImpact(int damages)
     {
         m_RearRightLevel -= damages;
-        Debug.Log("m_RearRightLevel " + m_RearRightLevel);
+        if (m_RearRightLevel < 0)
+            m_RearRightLevel = 0;
     }
 
     public int GetShieldsLifeLevel(int ShieldID)
@@ -98,7 +102,6 @@ public class ShieldController : MonoBehaviour {
             default:
                 return -1;
         }
-
     }
 
     public void setPower(int power)

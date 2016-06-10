@@ -10,7 +10,8 @@ public class ReactorCollisionManager : Photon.MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "bullet" && PhotonNetwork.isMasterClient)
+        Debug.Log("collision enter");
+        if ((collision.gameObject.tag == "KineticProjectile" || collision.gameObject.tag == "EnergyProjectile") && PhotonNetwork.isMasterClient)
             photonView.RPC("OnReactorCollide", PhotonTargets.All);
     }
 
