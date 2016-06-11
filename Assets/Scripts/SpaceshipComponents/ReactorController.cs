@@ -17,15 +17,15 @@ public class ReactorController : MonoBehaviour
         m_rightReactor = m_rightReactorMax;
     }
 
-    public void leftReactorImpact()
+    public void leftReactorImpact(int damageDone)
     {
-        m_leftReactor--;
+        m_leftReactor -= damageDone;
         Debug.Log("m_leftReactor " + m_leftReactor);
     }
 
-    public void rightReactorImpact()
+    public void rightReactorImpact(int damageDone)
     {
-        m_rightReactor--;
+        m_rightReactor -= damageDone;
         Debug.Log("m_rightReactor " + m_rightReactor);
     }
     

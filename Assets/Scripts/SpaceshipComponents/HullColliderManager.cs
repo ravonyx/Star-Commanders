@@ -1,25 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HullColliderManager : MonoBehaviour {
-
+public class HullColliderManager : Photon.MonoBehaviour
+{
     [SerializeField]
     private LifePartController m_callback;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void OnCollisionEnter(Collision collision)
     {
-        foreach (ContactPoint contact in collision.contacts)
-        {
-            m_callback.HullImpact(collision.gameObject, collision.contacts);
-        }
+        if (collision.gameObject.tag == "EnergyProjectile" && PhotonNetwork.isMasterClient)
+            photonView.RPC("OnHullCollide", PhotonTargets.All, 1);
+        else if (collision.gameObject.tag == "KineticProjectile" && PhotonNetwork.isMasterClient)
+            photonView.RPC("OnHullCollide", PhotonTargets.All, 3);
+    }
+
+    [PunRPC]
+    void OnHullCollide(int damageDone)
+    {
+        m_callback.HullImpact(damageDone);
     }
 }

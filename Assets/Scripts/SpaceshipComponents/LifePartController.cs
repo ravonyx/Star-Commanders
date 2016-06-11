@@ -54,12 +54,6 @@ public class LifePartController : MonoBehaviour
 
     private int m_AvailablePower;
    //--------------END OF Power management
-
-    void Awake()
-    {
-        PhotonNetwork.OnEventCall += this.OnHullEvent;
-    }
-
     void Update()
     {
         //showAllLifeLevel();
@@ -99,25 +93,15 @@ public class LifePartController : MonoBehaviour
         m_AvailablePower += m_CoolingUnit.getWorkingCoolingUnit();
 
         m_shields.setPower(AllocatePower(1));
-
-
-
-
     }
 
-    public void HullImpact(GameObject go, ContactPoint[] contactsPoints)
+    public void HullImpact(int damageDone)
     {
-        if (go.tag == "bullet" && PhotonNetwork.isMasterClient)
-        {
-            HullLife--;
-            PhotonNetwork.RaiseEvent(15, HullLife, true, null);
-            Debug.Log("HullLife " + HullLife);
-        }
-
-        //TODO Use contactsPoints for inside damages calculations
+        HullLife -= damageDone;
+        Debug.Log("HullLife " + HullLife);
     }
 
-    //Debug Function
+
     void showAllLifeLevel()
     {
         /*----------------------------------------------
@@ -165,7 +149,6 @@ public class LifePartController : MonoBehaviour
         {
             Debug.Log("Generator : " + i + " " + m_Generators[i].getLifeLevel());
         }
-
     }
 
     //monitoring life level
@@ -294,14 +277,6 @@ public class LifePartController : MonoBehaviour
             m_Generators[ID].setEmpFailure(state);
         }
     }
-
-    private void OnHullEvent(byte eventcode, object content, int senderid)
-    {
-        if (eventcode == 15)
-            HullLife = (int)content;
-    }
-
-
 
     public void setEnergyWeapon(int energy)
     {
