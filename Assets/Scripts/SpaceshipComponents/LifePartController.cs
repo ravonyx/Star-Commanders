@@ -98,7 +98,8 @@ public class LifePartController : MonoBehaviour
     public void HullImpact(int damageDone)
     {
         HullLife -= damageDone;
-        Debug.Log("HullLife " + HullLife);
+        if (HullLife < 0)
+            HullLife = 0;
     }
 
 

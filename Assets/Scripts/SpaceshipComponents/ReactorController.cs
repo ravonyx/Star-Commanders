@@ -20,13 +20,15 @@ public class ReactorController : MonoBehaviour
     public void leftReactorImpact(int damageDone)
     {
         m_leftReactor -= damageDone;
-        Debug.Log("m_leftReactor " + m_leftReactor);
+        if (m_leftReactor < 0)
+            m_leftReactor = 0;
     }
 
     public void rightReactorImpact(int damageDone)
     {
         m_rightReactor -= damageDone;
-        Debug.Log("m_rightReactor " + m_rightReactor);
+        if (m_rightReactor < 0)
+            m_rightReactor = 0;
     }
     
     public int GetReactorLifelevel(int ReactorID)

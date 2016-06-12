@@ -27,7 +27,7 @@ public class ShieldController : MonoBehaviour {
         m_FrontRightLevel = m_FrontRightMax;
         m_RearLeftLevel = m_RearLeftMax;
         m_RearRightLevel = m_RearRightMax;
-        InvokeRepeating("UpdateShields", 1.0f, 1.0f);
+        InvokeRepeating("UpdateShields", 0.0f, 5.0f);
     }
 
     void UpdateShields()

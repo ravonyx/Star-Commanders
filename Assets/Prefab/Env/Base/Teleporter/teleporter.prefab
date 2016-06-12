@@ -94,6 +94,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 5, z: -13}
   _player: {fileID: 0}
+  baseTeam: {fileID: 0}
+  menuToShow: {fileID: 0}
+  chat: {fileID: 0}
 --- !u!114 &11467610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,8 +119,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 13
-  instantiationId: 13
+  viewIdField: 0
+  instantiationId: -1
   isRuntimeInstantiated: 0
 --- !u!114 &11488920
 MonoBehaviour:

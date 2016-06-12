@@ -19,6 +19,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
     private PauseMenu pauseMenu;
     [SerializeField]
     private ActivateLight activateLights;
+    [SerializeField]
+    private PunTeams.Team team;
 
     void Start ()
     {
@@ -91,7 +93,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
             Debug.Log("JoinedRoom");
             GameObject player = null;
             player = PhotonNetwork.Instantiate("Player/Player", Vector3.zero, Quaternion.identity, 0);
-            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
+            PhotonNetwork.player.SetTeam(team);
             if (player)
                 InitPlayer(player);
             else
