@@ -36,7 +36,7 @@ public class LifePartController : MonoBehaviour
 
     [SerializeField]
     private int m_HullLifeMax;
-    private int HullLife;
+    private int m_hullLife;
 
     [SerializeField]
     private GeneratorManager[] m_Generators;
@@ -61,7 +61,7 @@ public class LifePartController : MonoBehaviour
 
     void Start()
     {
-        HullLife = m_HullLifeMax;
+        m_hullLife = m_HullLifeMax;
 
         foreach (LifepartStateController part in m_insideReactors) // set damages  and max life for reactors
         {
@@ -97,9 +97,9 @@ public class LifePartController : MonoBehaviour
 
     public void HullImpact(int damageDone)
     {
-        HullLife -= damageDone;
-        if (HullLife < 0)
-            HullLife = 0;
+        m_hullLife -= damageDone;
+        if (m_hullLife < 0)
+            m_hullLife = 0;
     }
 
 
@@ -187,7 +187,7 @@ public class LifePartController : MonoBehaviour
     }
     public int getHullLife()
     {
-        return HullLife;
+        return m_hullLife;
     }
 
     public bool isReactorOnfire(int ID)

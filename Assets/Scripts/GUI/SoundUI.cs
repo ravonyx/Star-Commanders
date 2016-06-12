@@ -4,7 +4,7 @@ using System.Collections;
 public class SoundUI : MonoBehaviour
 {
     public AudioClip soundHover;
-    public AudioClip soundCLick;
+    public AudioClip soundClick;
     private AudioSource _audio;
 
     void Start()
@@ -18,6 +18,6 @@ public class SoundUI : MonoBehaviour
     }
     public void Click()
     {
-        _audio.PlayOneShot(soundCLick, 0.5F);
+        _audio.PlayOneShot(soundClick, 0.5F);
     }
 }
