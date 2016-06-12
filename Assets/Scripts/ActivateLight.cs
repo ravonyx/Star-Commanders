@@ -6,7 +6,7 @@ public class ActivateLight : MonoBehaviour
     public GameObject player;
     public GameObject[] gameObjLights;
     public int rangeLight;
-
+    public int rangeLighty;
     void Start ()
     {
 	    for(int i = 0; i < gameObjLights.Length; i++)
@@ -22,7 +22,7 @@ public class ActivateLight : MonoBehaviour
             return;
         for(int i = 0; i < gameObjLights.Length; i++)
        {
-            if (InRange(i, player.transform.localPosition))
+            if (InRange(i, player.transform.position))
                 gameObjLights[i].SetActive(true);
             else
                 gameObjLights[i].SetActive(false);
@@ -43,9 +43,11 @@ public class ActivateLight : MonoBehaviour
     
     bool InRange(int i, Vector3 playerPos)
     {
-        if (gameObjLights[i].transform.localPosition.x <= playerPos.x + rangeLight && gameObjLights[i].transform.localPosition.x >= playerPos.x - rangeLight
-                && gameObjLights[i].transform.localPosition.z <= playerPos.z + rangeLight && gameObjLights[i].transform.localPosition.z >= playerPos.z - rangeLight)
+        if (gameObjLights[i].transform.position.x <= playerPos.x + rangeLight && gameObjLights[i].transform.position.x >= playerPos.x - rangeLight
+                && gameObjLights[i].transform.position.z <= playerPos.z + rangeLight && gameObjLights[i].transform.position.z >= playerPos.z - rangeLight
+                && gameObjLights[i].transform.position.y <= playerPos.y + rangeLighty)
         {
+
             return true;
         }
         else

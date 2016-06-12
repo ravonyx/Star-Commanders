@@ -6,6 +6,9 @@ public class TP : MonoBehaviour
     public Vector3 spawnPosition;
     private PhotonView _photonView;
 	public GameObject _player;
+    public GameObject baseTeam;
+    public GameObject menuToShow;
+    public GameObject chat;
 
     void Start()
     {
@@ -14,8 +17,12 @@ public class TP : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-        if(other.GetComponent<PhotonView>().isMine)
+        if (other.GetComponent<PhotonView>().isMine)
+        {
             _player = other.gameObject;
+            menuToShow.SetActive(true);
+            chat.SetActive(false);
+        }
 	}
 	void OnTriggerExit(Collider other)
 	{
@@ -30,13 +37,18 @@ public class TP : MonoBehaviour
             tag = "SpaceshipBlue";
         else
             tag = "SpaceshipRed";
-		if (indexSpaceship >= 0 && _player != null)
-			_photonView.RPC("SyncParent", PhotonTargets.All, _player.GetComponent<PhotonView>().viewID, indexSpaceship, tag);
-        else if(indexSpaceship < 0)
+        if (indexSpaceship >= 0 && _player != null)
+        {
+            _photonView.RPC("SyncParent", PhotonTargets.All, _player.GetComponent<PhotonView>().viewID, indexSpaceship, tag);
+            menuToShow.SetActive(false);
+            chat.SetActive(false);
+            baseTeam.SetActive(false);
+        }
+        else if (indexSpaceship < 0)
             Debug.LogError("You have to invoke a ship - /invoke_ship");
-		else if(_player == null)
-			Debug.LogError("You have to be in tp");
-	}
+        else if (_player == null)
+            Debug.LogError("You have to be in tp");
+    }
 
     [PunRPC]
     void SyncParent(int player, int indexSpaceship, string tag)

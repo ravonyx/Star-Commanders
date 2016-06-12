@@ -52,11 +52,20 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         raycast._loader = _loader;
         raycast._extinguisherStatus = _extinguisherStatus;
 
-        GameObject baseTeam;
+        GameObject baseTeam, redBase, blueBase;
+        blueBase = GameObject.FindGameObjectWithTag("BlueTeam");
+        redBase = GameObject.FindGameObjectWithTag("RedTeam");
+
         if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
-            baseTeam = GameObject.FindGameObjectWithTag("BlueTeam");
+        {
+            baseTeam = blueBase;
+            redBase.SetActive(false);
+        }
         else
-            baseTeam = GameObject.FindGameObjectWithTag("RedTeam");
+        {
+            baseTeam = redBase;
+            blueBase.SetActive(false);
+        }
         CharacController characController = player.GetComponent<CharacController>();
         characController.spaceship = baseTeam;
         characController.chat = chatPanel;
