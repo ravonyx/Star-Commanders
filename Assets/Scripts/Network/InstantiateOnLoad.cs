@@ -69,8 +69,10 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
             blueBase.SetActive(false);
         }
         CharacController characController = player.GetComponent<CharacController>();
-        characController.spaceship = baseTeam;
         characController.chat = chatPanel;
+
+        NetworkPlayer networkPlayer = player.GetComponent<NetworkPlayer>();
+        networkPlayer.setRefGravity(baseTeam);
 
         pauseMenu.player = player;
         activateLights.player = player;

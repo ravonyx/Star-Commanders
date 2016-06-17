@@ -9,9 +9,14 @@ public class NetworkPlayer : Photon.MonoBehaviour
     private Vector3 correctDirection = Vector3.zero;
 
     private CharacController _controller;
-    private const float _gravity = -200f;
+
+    [SerializeField]
+    private float _gravity = -200f;
     private Rigidbody _rigidbody;
     public Vector3 spawnPosition;
+
+    [SerializeField]
+    private GameObject _refGravity;
 
     void Start()
     {
@@ -49,8 +54,8 @@ public class NetworkPlayer : Photon.MonoBehaviour
         else
             newVelocity = correctDirection;
         newVelocity = transform.TransformDirection(newVelocity);
-        if (_controller.spaceship != null)
-            newVelocity += _gravity * _controller.spaceship.transform.up;
+        if (_refGravity != null)
+            newVelocity += _gravity * _refGravity.transform.up;
         newVelocity *= Time.fixedDeltaTime;
         _rigidbody.velocity = newVelocity;
     }
@@ -71,5 +76,10 @@ public class NetworkPlayer : Photon.MonoBehaviour
             correctPlayerRot = (Quaternion)stream.ReceiveNext();
             correctDirection = (Vector3)stream.ReceiveNext();
         }
+    }
+
+    public void setRefGravity(GameObject refGravity)
+    {
+        _refGravity = refGravity;
     }
 }

@@ -10,14 +10,13 @@ public class CharacController : Photon.MonoBehaviour
     public float speedStandard;
 
     public float movementSpeed;
-    public Rigidbody rigidbody;
+    private Rigidbody _rigidbody;
     public Vector3 _direction;
 
     public bool control = true;
     public bool rotate = true;
     public bool isWalking = false;
 
-    public GameObject spaceship;
     private RaycastHit hit;
 
     public ChatManager chat;
@@ -34,7 +33,7 @@ public class CharacController : Photon.MonoBehaviour
     void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
         movementSpeed = speedStandard;
         sensitivity = 100;
@@ -48,57 +47,57 @@ public class CharacController : Photon.MonoBehaviour
         {
             _direction = Vector3.zero;
 
-            if (Input.GetKey("z"))
-                _direction += Vector3.forward;
-            if (Input.GetKey("s"))
-                _direction -= Vector3.forward;
-            if (Input.GetKey("q"))
-                _direction -= Vector3.right;
-            if (Input.GetKey("d"))
-                _direction += Vector3.right;
-            if (Input.GetKey(KeyCode.LeftShift))
-                movementSpeed = speedMax;
+            if (Input.GetKey("z") || Input.GetKey("s") || Input.GetKey("q") || Input.GetKey("d"))
+            {
+                isWalking = true;
+                if (Input.GetKey("z"))
+                    _direction += Vector3.forward;
+                if (Input.GetKey("s"))
+                    _direction -= Vector3.forward;
+                if (Input.GetKey("q"))
+                    _direction -= Vector3.right;
+                if (Input.GetKey("d"))
+                    _direction += Vector3.right;
+                if (Input.GetKey(KeyCode.LeftShift))
+                    movementSpeed = speedMax;
+                else
+                    movementSpeed = speedStandard;
+            }
             else
-                movementSpeed = speedStandard;
-
+                isWalking = false;
             _direction.Normalize();
             _direction *= movementSpeed;
 
             if (isWalking)
                 PlayFootstepAudio();
         }
-        Vector3 velocity = new Vector3(rigidbody.velocity.x, 0.0f, rigidbody.velocity.z);
-        float dotProduct = Vector3.Dot(rigidbody.velocity, transform.right);
+        Vector3 velocity = new Vector3(_rigidbody.velocity.x, 0.0f, _rigidbody.velocity.z);
+        float dotProduct = Vector3.Dot(_rigidbody.velocity, transform.right);
 
 
         if (dotProduct < -0.1f)
         {
             anim.SetBool("strafe_left", true);
-            isWalking = true;
         }
         else if (dotProduct > 0.1f)
         {
             anim.SetBool("strafe_right", true);
-            isWalking = true;
         }
         else
         {
             anim.SetBool("strafe_right", false);
             anim.SetBool("strafe_left", false);
-            if (velocity.magnitude > 0.25f && velocity.magnitude < 8.0f)
+            if (velocity.magnitude > 0.25f && velocity.magnitude < 12.0f)
             {
-                isWalking = true;
                 anim.SetBool("fast", false);
                 anim.SetBool("run", true);
             }
-            else if (velocity.magnitude > 8.0f)
+            else if (velocity.magnitude >= 12.0f)
             {
-                isWalking = true;
                 anim.SetBool("fast", true);
             }
             else
             {
-                isWalking = false;
                 anim.SetBool("run", false);
             }
         }

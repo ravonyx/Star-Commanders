@@ -28,7 +28,8 @@ public class TP : MonoBehaviour
 	{
         if (other.GetComponent<PhotonView>().isMine)
             _player = null;
-	}
+        menuToShow.SetActive(false);
+    }
 
 	public void doTP(int indexSpaceship)
     {
@@ -57,6 +58,6 @@ public class TP : MonoBehaviour
         GameObject target = PhotonView.Find(player).gameObject;
         target.transform.parent = spaceship[indexSpaceship].transform;
         target.transform.localPosition = spawnPosition;
-        target.GetComponent<CharacController>().spaceship = spaceship[indexSpaceship];
+        target.GetComponent<NetworkPlayer>().setRefGravity(spaceship[indexSpaceship]);
     }
 }
