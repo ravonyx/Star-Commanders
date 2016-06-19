@@ -9,15 +9,15 @@ public class LevelLoader : MonoBehaviour
     public Image loadingBar;
     public Text labelLoading;
 
-    public void LoadLevel()
+    public void LoadLevel(int idScene)
     {
-        StartCoroutine(LevelCoroutine());
+        StartCoroutine(LevelCoroutine(idScene));
     }
 
-    IEnumerator LevelCoroutine()
+    IEnumerator LevelCoroutine(int idScene)
     {
         loadingScene.SetActive(true);
-        AsyncOperation async = SceneManager.LoadSceneAsync(1);
+        AsyncOperation async = SceneManager.LoadSceneAsync(idScene);
 
         while (!async.isDone)
         {

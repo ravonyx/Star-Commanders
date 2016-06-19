@@ -64,7 +64,7 @@ public class NetworkManager : Photon.PunBehaviour
     [PunRPC]
     void LoadSceneForEach(PhotonMessageInfo info)
     {
-        levelLoader.LoadLevel();
+        levelLoader.LoadLevel(1);
     }
 
     public void CreateRoom()

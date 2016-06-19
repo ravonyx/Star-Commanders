@@ -6,8 +6,14 @@ public class StateGameController : Photon.MonoBehaviour
 {
     public LifePartController lifeControllerBlue;
     public LifePartController lifeControllerRed;
-    public Text warningText;
+    public Text infoText;
     bool countdown = false;
+    public LevelLoader levelLoader;
+
+    void Start()
+    {
+        levelLoader = GetComponent<LevelLoader>();
+    }
 
     void Update()
     {
@@ -20,7 +26,8 @@ public class StateGameController : Photon.MonoBehaviour
     IEnumerator CountdownEndGame()
     {
         yield return new WaitForSeconds(5);
-        warningText.text = "";
+        infoText.text = "";
+        levelLoader.LoadLevel(0);
     }
 
     [PunRPC]
@@ -30,13 +37,13 @@ public class StateGameController : Photon.MonoBehaviour
         if (PhotonNetwork.player.GetTeam().ToString() == team)
         {
             StartCoroutine("CountdownEndGame");
-            warningText.text = "Your team lose";
+            infoText.text = "Your team lose";
         }
         else
         {
 
             StartCoroutine("CountdownEndGame");
-            warningText.text = "Your team win";
+            infoText.text = "Your team win";
         }
     }
 }
