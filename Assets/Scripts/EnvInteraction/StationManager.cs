@@ -123,4 +123,12 @@ public class StationManager : MonoBehaviour {
                 return -1;
         }
     }
+
+    public bool checkStationWin(int idTeam)
+    {
+        if (station1Status[1] == idTeam && station2Status[1] == idTeam && station3Status[1] == idTeam && station4Status[1] == idTeam)
+            return true;
+        else
+            return false;
+    }
 }
