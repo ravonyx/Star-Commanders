@@ -4064,6 +4064,14 @@ Prefab:
       propertyPath: instantiationId
       value: 114
       objectReference: {fileID: 0}
+    - target: {fileID: 142998, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 126388, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_IsPrefabParent: 0
