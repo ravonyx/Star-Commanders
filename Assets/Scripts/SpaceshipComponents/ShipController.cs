@@ -61,16 +61,14 @@ public class ShipController : MonoBehaviour
                 }
                 //MaxTurbines(0.3f);
             }//Cruise speed
-            
-            if (currrentSpeed >= 0.0f) // Little fix for stabiolity reasons
-                transform.Translate(Vector3.forward * currrentSpeed);
-            else
-                currrentSpeed = 0.0f;
-
            /* Vector3 mouseMovement = (Input.mousePosition - (new Vector3(Screen.width, Screen.height, 0) / 2.0f)) * 1;
             transform.Rotate(new Vector3(-mouseMovement.y, mouseMovement.x, -mouseMovement.x) * 0.025f);
             transform.Translate(Vector3.forward * Time.deltaTime * currrentSpeed);*/
         }
+        if (currrentSpeed >= 0.0f) // Little fix for stabiolity reasons
+            transform.Translate(Vector3.forward * currrentSpeed);
+        else
+            currrentSpeed = 0.0f;
     }
 
     void MaxTurbines(float intensity)
