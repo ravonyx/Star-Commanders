@@ -18,6 +18,9 @@ public class ShipController : MonoBehaviour
     public float currrentSpeed = 0;
     private GameObject[] turbines;
 
+    public Vector3 previous;
+    public Vector3 velocity;
+
     void Start()
     {
        // turbines = GameObject.FindGameObjectsWithTag("Turbine");
@@ -69,6 +72,9 @@ public class ShipController : MonoBehaviour
             transform.Translate(Vector3.forward * currrentSpeed);
         else
             currrentSpeed = 0.0f;
+
+        velocity = (transform.position - previous) / Time.deltaTime;
+        previous = transform.position;
     }
 
     void MaxTurbines(float intensity)
