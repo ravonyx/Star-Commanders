@@ -5,6 +5,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ShipController : MonoBehaviour
 {
@@ -20,10 +21,12 @@ public class ShipController : MonoBehaviour
 
     public Vector3 previous;
     public Vector3 velocity;
+    public Text speedText;
 
     void Start()
     {
-       // turbines = GameObject.FindGameObjectsWithTag("Turbine");
+        // turbines = GameObject.FindGameObjectsWithTag("Turbine");
+        InvokeRepeating("UpdateSpeed", 1.0f, 2.0f);
     }
 
     void LateUpdate()
@@ -75,6 +78,13 @@ public class ShipController : MonoBehaviour
 
         velocity = (transform.position - previous) / Time.deltaTime;
         previous = transform.position;
+
+        
+    }
+
+    void UpdateSpeed()
+    {
+        speedText.text = "Speed Spaceship : " + velocity.ToString();
     }
 
     void MaxTurbines(float intensity)

@@ -19,4 +19,14 @@ public class CollisionSpaceship : MonoBehaviour
             Debug.Log("trigger spaceship");
         }
     }
+
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("OnTriggerExit");
+        if ((gameObject.tag == "SpaceshipBlue" && other.tag == "SpaceshipRed") || (gameObject.tag == "SpaceshipRed" && other.tag == "SpaceshipBlue"))
+        {
+            velocity = new Vector3(0, 0, 0);
+            Debug.Log("trigger spaceship");
+        }
+    }
 }
