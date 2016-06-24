@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 public class ShipController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class ShipController : MonoBehaviour
 
     public Vector3 previous;
     public Vector3 velocity;
+    public Text directionText;
     public Text speedText;
 
     void Start()
@@ -83,7 +85,10 @@ public class ShipController : MonoBehaviour
 
     void UpdateSpeed()
     {
-        speedText.text = "Speed Spaceship : " + velocity.ToString();
+        directionText.text = "Direction Spaceship : " + "X: " + Math.Round(velocity.x, 2) 
+            + " Y: " + Math.Round(velocity.y, 2)
+            + " Z: " + Math.Round(velocity.z, 2);
+        speedText.text = "Speed Spaceship : " + Math.Round(currrentSpeed, 2);
     }
 
     public void SetActive(bool active)

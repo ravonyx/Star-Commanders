@@ -29,7 +29,7 @@ public class ExitZone : Photon.MonoBehaviour
         yield return new WaitForSeconds(5);
 
         string team = (string)parms[1];
-        warningText.text = "Team" + team + "have respawned ! ";
+        warningText.text = "Team " + team + " have respawned ! ";
         yield return new WaitForSeconds(1);
 
         if (spaceship.tag == "SpaceshipBlue")
@@ -53,7 +53,7 @@ public class ExitZone : Photon.MonoBehaviour
 
         object[] parms = new object[2] { spaceship, team };
         StartCoroutine("CountdownExitZone", parms);
-        warningText.text = "Team" + team + "exit the zone !!";
+        warningText.text = "Team " + team + " exit the zone !!";
     }
 
     [PunRPC]
