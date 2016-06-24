@@ -434,7 +434,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22461908, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192204, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_IsActive
@@ -3301,6 +3301,38 @@ Prefab:
       propertyPath: instantiationId
       value: 113
       objectReference: {fileID: 0}
+    - target: {fileID: 117488, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170024, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 177558, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 157556, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199254, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 118016, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 171588, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 178622, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_IsPrefabParent: 0
@@ -3397,7 +3429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b509d1d20dfc926449de70fc7846d705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  network: 0
+  network: 1
   spaceship: {fileID: 0}
   _playerInfo: {fileID: 963312413}
   _loader: {fileID: 1405035870}
