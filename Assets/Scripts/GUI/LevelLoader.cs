@@ -21,7 +21,6 @@ public class LevelLoader : MonoBehaviour
 
         while (!async.isDone)
         {
-            Debug.Log(async.progress / 0.9f);
             loadingBar.fillAmount = async.progress / 0.9f;
             labelLoading.text = System.Math.Round((async.progress / 0.9f) * 100, 2) + " % ";
             yield return null;

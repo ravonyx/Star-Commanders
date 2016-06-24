@@ -20,17 +20,19 @@ public class ExitZone : Photon.MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (PhotonNetwork.isMasterClient && other.tag == "Hull")
-            photonView.RPC("StartCountdown", PhotonTargets.All, PhotonNetwork.player.GetTeam().ToString(), other.transform.root.gameObject.GetComponent<PhotonView>().viewID);
+            photonView.RPC("StartCountdown", PhotonTargets.All, other.transform.root.gameObject.GetComponent<PhotonView>().viewID);
     }
 
     IEnumerator CountdownExitZone(object[] parms)
     {
+        GameObject spaceship = (GameObject)parms[0];
         yield return new WaitForSeconds(5);
-        warningText.text = "Repop ! ";
+
+        string team = (string)parms[1];
+        warningText.text = "Team" + team + "have respawned ! ";
         yield return new WaitForSeconds(1);
 
-        GameObject spaceship = (GameObject)parms[0];
-        if ((string)parms[1] == PunTeams.Team.blue.ToString())
+        if (spaceship.tag == "SpaceshipBlue")
             spaceship.transform.position = spawnPosBlue.position;
         else
             spaceship.transform.position = spawnPosRed.position;
@@ -38,15 +40,20 @@ public class ExitZone : Photon.MonoBehaviour
     }
 
     [PunRPC]
-    void StartCountdown(string team, int spaceshipID)
+    void StartCountdown(int spaceshipID)
     {
         GameObject spaceship = PhotonView.Find(spaceshipID).gameObject;
+
+        string team = "";
+        if (spaceship.tag == "SpaceshipBlue")
+            team = PunTeams.Team.blue.ToString();
+        else
+            team = PunTeams.Team.red.ToString();
+        Debug.Log(spaceship.tag);
+
         object[] parms = new object[2] { spaceship, team };
-        if (PhotonNetwork.player.GetTeam().ToString() == team)
-        {
-            StartCoroutine("CountdownExitZone", parms);
-            warningText.text = "Exit Zone !!";
-        }
+        StartCoroutine("CountdownExitZone", parms);
+        warningText.text = "Team" + team + "exit the zone !!";
     }
 
     [PunRPC]

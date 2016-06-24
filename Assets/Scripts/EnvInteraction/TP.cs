@@ -43,7 +43,7 @@ public class TP : MonoBehaviour
             _photonView.RPC("SyncParent", PhotonTargets.All, _player.GetComponent<PhotonView>().viewID, indexSpaceship, tag);
             menuToShow.SetActive(false);
             chat.SetActive(false);
-            baseTeam.SetActive(false);
+            baseTeam.transform.GetChild(0).gameObject.SetActive(false);
         }
         else if (indexSpaceship < 0)
             Debug.LogError("You have to invoke a ship - /invoke_ship");

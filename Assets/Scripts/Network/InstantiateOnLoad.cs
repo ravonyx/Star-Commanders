@@ -61,12 +61,12 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
         {
             baseTeam = blueBase;
-            redBase.SetActive(false);
+            redBase.transform.GetChild(0).gameObject.SetActive(false);
         }
         else
         {
             baseTeam = redBase;
-            blueBase.SetActive(false);
+            blueBase.transform.GetChild(0).gameObject.SetActive(false);
         }
         CharacController characController = player.GetComponent<CharacController>();
         characController.chat = chatPanel;
