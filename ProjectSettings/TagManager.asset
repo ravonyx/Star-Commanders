@@ -26,6 +26,7 @@ TagManager:
   - Chat
   - LoadExtinguisher
   - Load
+  - Asteroid
   layers:
   - Default
   - TransparentFX
@@ -45,7 +46,7 @@ TagManager:
   - Station
   - Reactor
   - Spaceship
-  - 
+  - Asteroid
   - 
   - 
   - 
