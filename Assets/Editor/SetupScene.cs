@@ -92,7 +92,7 @@ public class SetupScene : EditorWindow
                 obj.transform.parent = asteroidPoints[0].gameObject.transform;
                 obj.transform.localPosition = new Vector3(x, y, z);
 
-                int scale = Random.Range(100, 200);
+                int scale = Random.Range(50, 100);
                 obj.transform.localScale = new Vector3(scale, scale, scale);
                 obj.transform.localRotation = Quaternion.identity;
             }
