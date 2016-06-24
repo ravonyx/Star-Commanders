@@ -5,6 +5,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ShipController : MonoBehaviour
 {
@@ -13,17 +14,20 @@ public class ShipController : MonoBehaviour
     public float rotationSpeed = 150;
     public float increaseFactor = 0.2f;
     public bool status = false;
-    public PropulsorControl propulstion;
+    public PropulsorControl propulsion;
 
     public float currrentSpeed = 0;
     private GameObject[] turbines;
 
     public Vector3 previous;
     public Vector3 velocity;
+    public Text speedText;
 
     void Start()
     {
-       // turbines = GameObject.FindGameObjectsWithTag("Turbine");
+        // turbines = GameObject.FindGameObjectsWithTag("Turbine");
+        InvokeRepeating("UpdateSpeed", 1.0f, 2.0f);
+        propulsion = GetComponent<PropulsorControl>();
     }
 
     void LateUpdate()
@@ -51,7 +55,7 @@ public class ShipController : MonoBehaviour
                 if (currrentSpeed < maxSpeed)
                 {
                     currrentSpeed += increaseFactor;
-                    propulstion.PropulsorRenderer(true);
+                    propulsion.PropulsorRenderer(true);
                 }
                 //MaxTurbines(0.65f);
             }//Decrease speed
@@ -60,7 +64,7 @@ public class ShipController : MonoBehaviour
                 if (currrentSpeed > minSpeed)
                 {
                     currrentSpeed -= increaseFactor;
-                    propulstion.PropulsorRenderer(false);
+                    propulsion.PropulsorRenderer(false);
                 }
                 //MaxTurbines(0.3f);
             }//Cruise speed
@@ -77,18 +81,14 @@ public class ShipController : MonoBehaviour
         previous = transform.position;
     }
 
-    void MaxTurbines(float intensity)
+    void UpdateSpeed()
     {
-       /* foreach (GameObject turbine in turbines)
-        {
-            turbine.GetComponent<LensFlare>().brightness = intensity;
-        }*/
-   }
+        speedText.text = "Speed Spaceship : " + velocity.ToString();
+    }
 
     public void SetActive(bool active)
     {
         status = active;
     }
-
 }
 
