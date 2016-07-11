@@ -47,14 +47,14 @@ public class StationManager : MonoBehaviour {
         }*/
     }
 
-    public void updateStatus(int stationID,int teamAttacking)
+    public int updateStatus(int stationID,int teamAttacking)
     {
-        Debug.Log("Station " + stationID + " In Capture by " + teamAttacking);
+        int status = -1;
         switch(stationID)
         {
             case 1:
                 if(teamAttacking != station1Status[1])
-                    station1Status[0]--;
+                    status = station1Status[0]--;
                 if (station1Status[0] < 0)
                 {
                     station1Status[1] = teamAttacking;
@@ -67,7 +67,7 @@ public class StationManager : MonoBehaviour {
                 break;
             case 2:
                 if (teamAttacking != station2Status[1])
-                    station2Status[0]--;
+                    status = station2Status[0]--;
                 if (station2Status[0] < 0)
                 {
                     station2Status[1] = teamAttacking;
@@ -80,7 +80,7 @@ public class StationManager : MonoBehaviour {
                 break;
             case 3:
                 if (teamAttacking != station3Status[1])
-                    station3Status[0]--;
+                    status =station3Status[0]--;
                 if (station3Status[0] < 0)
                 {
                     station3Status[1] = teamAttacking;
@@ -93,7 +93,7 @@ public class StationManager : MonoBehaviour {
                 break;
             case 4:
                 if (teamAttacking != station4Status[1])
-                    station4Status[0]--;
+                    status = station4Status[0]--;
                 if (station4Status[0] < 0)
                 {
                     station4Status[1] = teamAttacking;
@@ -105,6 +105,7 @@ public class StationManager : MonoBehaviour {
                 }
                 break;
         }
+        return status;
     }
 
     public int getStationStatus(int stationID)

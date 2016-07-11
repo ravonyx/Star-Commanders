@@ -55,4 +55,7 @@ MonoBehaviour:
   - ReduceLife
   - OnTurretCollide
   - OnHullCollide
+  - UpdateInterface
+  - StationCaptured
+  - ExitStation
   DisableAutoOpenWizard: 1

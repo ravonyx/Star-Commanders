@@ -408,27 +408,27 @@ Prefab:
       objectReference: {fileID: 1780441087}
     - target: {fileID: 22488642, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.16666667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488642, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.16666667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488642, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22407348, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22407348, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22407348, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11498030, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: viewIdField
@@ -440,15 +440,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22461908, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -164.809
+      value: -161.53299
       objectReference: {fileID: 0}
     - target: {fileID: 192204, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 111124, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 135486, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_Name
@@ -461,6 +461,10 @@ Prefab:
     - target: {fileID: 11499224, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_FontData.m_MinSize
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475636, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
@@ -590,6 +594,7 @@ GameObject:
   - 135: {fileID: 660077091}
   - 54: {fileID: 660077090}
   - 114: {fileID: 660077089}
+  - 114: {fileID: 660077092}
   m_Layer: 15
   m_Name: station3
   m_TagString: StationPoint
@@ -623,6 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Manager: {fileID: 1939474483}
   m_stationID: 3
+  info: {fileID: 330618274}
 --- !u!54 &660077090
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -650,6 +656,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &660077092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660077087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents: []
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 121
+  instantiationId: 121
+  isRuntimeInstantiated: 0
 --- !u!1 &674958591 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 119852, guid: deed8307f85637b4d82740669fddb84e, type: 2}
@@ -960,6 +990,7 @@ GameObject:
   - 135: {fileID: 1130479092}
   - 54: {fileID: 1130479091}
   - 114: {fileID: 1130479090}
+  - 114: {fileID: 1130479093}
   m_Layer: 15
   m_Name: station4
   m_TagString: StationPoint
@@ -993,6 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Manager: {fileID: 1939474483}
   m_stationID: 4
+  info: {fileID: 330618274}
 --- !u!54 &1130479091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1020,6 +1052,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1130479093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130479088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents: []
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 120
+  instantiationId: 120
+  isRuntimeInstantiated: 0
 --- !u!1001 &1136325064
 Prefab:
   m_ObjectHideFlags: 0
@@ -1639,6 +1695,10 @@ Prefab:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1054408482}
+    - target: {fileID: 168566, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_TagString
+      value: SpaceshipBlue
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_IsPrefabParent: 0
@@ -1653,8 +1713,9 @@ GameObject:
   - 135: {fileID: 1165217764}
   - 54: {fileID: 1165217763}
   - 114: {fileID: 1165217762}
+  - 114: {fileID: 1165217765}
   m_Layer: 15
-  m_Name: station 2
+  m_Name: station2
   m_TagString: StationPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1686,6 +1747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Manager: {fileID: 1939474483}
   m_stationID: 2
+  info: {fileID: 330618274}
 --- !u!54 &1165217763
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1713,6 +1775,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1165217765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165217760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents: []
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 119
+  instantiationId: 119
+  isRuntimeInstantiated: 0
 --- !u!1 &1172604615 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 147492, guid: deed8307f85637b4d82740669fddb84e, type: 2}
@@ -2480,6 +2566,7 @@ GameObject:
   - 135: {fileID: 1353934773}
   - 54: {fileID: 1353934772}
   - 114: {fileID: 1353934771}
+  - 114: {fileID: 1353934774}
   m_Layer: 15
   m_Name: station1
   m_TagString: StationPoint
@@ -2513,6 +2600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Manager: {fileID: 1939474483}
   m_stationID: 1
+  info: {fileID: 330618274}
 --- !u!54 &1353934772
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2540,6 +2628,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1353934774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1353934769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents: []
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 118
+  instantiationId: 118
+  isRuntimeInstantiated: 0
 --- !u!114 &1405035870 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11465152, guid: 86b1ed1b4fd137f4b87130bc7f0fff20,

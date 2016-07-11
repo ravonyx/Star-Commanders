@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class StationCapture : MonoBehaviour
+public class StationCapture : Photon.MonoBehaviour
 {
     [SerializeField]
     private StationManager m_Manager;
@@ -10,7 +11,8 @@ public class StationCapture : MonoBehaviour
 
     private float m_captureRate = 0.2f;
     private float m_lastcapturetick = 0;
-	
+    public Text info;
+
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.name == "Hull")
@@ -22,9 +24,53 @@ public class StationCapture : MonoBehaviour
                 teamId = 1;
             if (Time.time - m_lastcapturetick > m_captureRate)
             {
-                m_Manager.updateStatus(m_stationID, teamId);
+                int status = m_Manager.updateStatus(m_stationID, teamId);
+                if(status != -1 && status != 0)
+                    photonView.RPC("UpdateInterface", PhotonTargets.All, teamId, m_stationID, status);
+                else if(status == 0)
+                    photonView.RPC("StationCaptured", PhotonTargets.All, teamId, m_stationID);
                 m_lastcapturetick = Time.time;
             }
         }
+    }
+
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Hull")
+        {
+            int teamId = -1;
+            if (other.transform.root.gameObject.name == "SpaceshipBlue")
+                teamId = 0;
+            else
+                teamId = 1;
+            photonView.RPC("ExitStation", PhotonTargets.All, teamId);
+        }
+    }
+
+    [PunRPC]
+    void UpdateInterface(int teamAttacking, int stationID, int status)
+    {
+        if ((PhotonNetwork.player.GetTeam() == PunTeams.Team.blue && teamAttacking == 0) || (PhotonNetwork.player.GetTeam() == PunTeams.Team.red && teamAttacking == 1))
+            info.text = "Station " + stationID + " capturing. State : " + status;
+    }
+    [PunRPC]
+    void StationCaptured(int teamAttacking, int stationID)
+    {
+        if ((PhotonNetwork.player.GetTeam() == PunTeams.Team.blue && teamAttacking == 0) || (PhotonNetwork.player.GetTeam() == PunTeams.Team.red && teamAttacking == 1))
+            StartCoroutine("CountdownStationCaptured", stationID);
+    }
+    [PunRPC]
+    void ExitStation(int teamAttacking)
+    {
+        if ((PhotonNetwork.player.GetTeam() == PunTeams.Team.blue && teamAttacking == 0) || (PhotonNetwork.player.GetTeam() == PunTeams.Team.red && teamAttacking == 1))
+            info.text = "";
+    }
+
+    IEnumerator CountdownStationCaptured(int stationID)
+    {
+        info.text = "Station " + stationID + " captured";
+        yield return new WaitForSeconds(2);
+        info.text = "";
     }
 }
