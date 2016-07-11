@@ -59,10 +59,7 @@ public class ExitZone : Photon.MonoBehaviour
     [PunRPC]
     void StopCountdown(string team)
     {
-        if (PhotonNetwork.player.GetTeam().ToString() == team)
-        {
-            StopCoroutine("CountdownExitZone");
-            warningText.text = "";
-        }
+        StopCoroutine("CountdownExitZone");
+        warningText.text = "";
     }
 }

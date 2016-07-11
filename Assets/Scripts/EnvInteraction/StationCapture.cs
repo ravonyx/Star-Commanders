@@ -44,7 +44,7 @@ public class StationCapture : Photon.MonoBehaviour
                 teamId = 0;
             else
                 teamId = 1;
-            photonView.RPC("ExitStation", PhotonTargets.All, teamId);
+            photonView.RPC("ExitStation", PhotonTargets.All, teamId, m_stationID);
         }
     }
 
@@ -61,10 +61,11 @@ public class StationCapture : Photon.MonoBehaviour
             StartCoroutine("CountdownStationCaptured", stationID);
     }
     [PunRPC]
-    void ExitStation(int teamAttacking)
+    void ExitStation(int teamAttacking, int stationID)
     {
         if ((PhotonNetwork.player.GetTeam() == PunTeams.Team.blue && teamAttacking == 0) || (PhotonNetwork.player.GetTeam() == PunTeams.Team.red && teamAttacking == 1))
             info.text = "";
+        m_Manager.resetStation(stationID);
     }
 
     IEnumerator CountdownStationCaptured(int stationID)
