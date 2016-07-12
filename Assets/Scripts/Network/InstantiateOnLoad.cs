@@ -68,6 +68,8 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
             baseTeam = redBase;
             blueBase.transform.GetChild(0).gameObject.SetActive(false);
         }
+
+        player.transform.localRotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
         CharacController characController = player.GetComponent<CharacController>();
         characController.chat = chatPanel;
 

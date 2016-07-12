@@ -58,6 +58,7 @@ public class TP : MonoBehaviour
         GameObject target = PhotonView.Find(player).gameObject;
         target.transform.parent = spaceship[indexSpaceship].transform;
         target.transform.localPosition = spawnPosition;
+        target.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         target.GetComponent<NetworkPlayer>().setRefGravity(spaceship[indexSpaceship]);
     }
 }
