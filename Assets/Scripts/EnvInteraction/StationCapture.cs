@@ -13,38 +13,44 @@ public class StationCapture : Photon.MonoBehaviour
     private float m_lastcapturetick = 0;
     public Text info;
 
-    void OnTriggerStay(Collider other)
+    public int teamStation = -1;
+
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Hull")
+        if (other.gameObject.name == "Hull" && teamStation == -1)
         {
-            int teamId = -1;
             if (other.transform.root.gameObject.name == "SpaceshipBlue")
-                teamId = 0;
-            else
-                teamId = 1;
-            if (Time.time - m_lastcapturetick > m_captureRate)
-            {
-                int status = m_Manager.updateStatus(m_stationID, teamId);
-                if(status != -1 && status != 0)
-                    photonView.RPC("UpdateInterface", PhotonTargets.All, teamId, m_stationID, status);
-                else if(status == 0)
-                    photonView.RPC("StationCaptured", PhotonTargets.All, teamId, m_stationID);
-                m_lastcapturetick = Time.time;
-            }
+                teamStation = 0;
+            else if (other.transform.root.gameObject.name == "SpaceshipRed")
+                teamStation = 1;
         }
     }
-
+    void OnTriggerStay(Collider other)
+    {
+        if (((other.transform.root.gameObject.name == "SpaceshipBlue" && teamStation == 0) ||
+            (other.transform.root.gameObject.name == "SpaceshipRed" && teamStation == 1)) && 
+            Time.time - m_lastcapturetick > m_captureRate)
+        {
+            int status = m_Manager.updateStatus(m_stationID, teamStation);
+            if (status != -1 && status != 0)
+                photonView.RPC("UpdateInterface", PhotonTargets.All, teamStation, m_stationID, status);
+            else if (status == 0)
+                photonView.RPC("StationCaptured", PhotonTargets.All, teamStation, m_stationID);
+            m_lastcapturetick = Time.time;
+        }
+    }
 
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "Hull")
         {
-            int teamId = -1;
+            int teamSpaceship = -1;
             if (other.transform.root.gameObject.name == "SpaceshipBlue")
-                teamId = 0;
+                teamSpaceship = 0;
             else
-                teamId = 1;
-            photonView.RPC("ExitStation", PhotonTargets.All, teamId, m_stationID);
+                teamSpaceship = 1;
+            teamStation = -1;
+            photonView.RPC("ExitStation", PhotonTargets.All, teamSpaceship, m_stationID);
         }
     }
 

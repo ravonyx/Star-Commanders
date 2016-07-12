@@ -61,64 +61,68 @@ public class StationManager : MonoBehaviour {
                 {
                     status = station1Status[0]--;
                     station1Status[2] = teamAttacking;
+                    if (station1Status[0] < 0)
+                    {
+                        station1Status[1] = teamAttacking;
+                        station1Status[0] = 0;
+                        if (teamAttacking == 0)
+                            particles[0].startColor = teamBlue;
+                        else
+                            particles[0].startColor = teamRed;
+                    }
                 }
-                if (station1Status[0] < 0)
-                {
-                    station1Status[1] = teamAttacking;
-                    station1Status[0] = 0;
-                    if (teamAttacking == 0)
-                        particles[0].startColor = teamBlue;
-                    else
-                        particles[0].startColor = teamRed;
-                }
+                
                 break;
             case 2:
                 if (teamAttacking != station2Status[1] && (station2Status[2] == -1 || teamAttacking == station2Status[2]))
                 {
                     status = station2Status[0]--;
                     station2Status[2] = teamAttacking;
+                    if (station2Status[0] < 0)
+                    {
+                        station2Status[1] = teamAttacking;
+                        station2Status[0] = 0;
+                        if (teamAttacking == 0)
+                            particles[1].startColor = teamBlue;
+                        else
+                            particles[1].startColor = teamRed;
+                    }
                 }
-                if (station2Status[0] < 0)
-                {
-                    station2Status[1] = teamAttacking;
-                    station2Status[0] = 0;
-                    if (teamAttacking == 0)
-                        particles[1].startColor = teamBlue;
-                    else
-                        particles[1].startColor = teamRed;
-                }
+               
                 break;
             case 3:
                 if (teamAttacking != station3Status[1] && (station3Status[2] == -1 || teamAttacking == station3Status[2]))
                 {
                     status = station3Status[0]--;
                     station3Status[2] = teamAttacking;
+                    if (station3Status[0] < 0)
+                    {
+                        station3Status[1] = teamAttacking;
+                        station3Status[0] = 0;
+                        if (teamAttacking == 0)
+                            particles[2].startColor = teamBlue;
+                        else
+                            particles[2].startColor = teamRed;
+                    }
                 }
-                if (station3Status[0] < 0)
-                {
-                    station3Status[1] = teamAttacking;
-                    station3Status[0] = 0;
-                    if (teamAttacking == 0)
-                        particles[2].startColor = teamBlue;
-                    else
-                        particles[2].startColor = teamRed;
-                }
+                
                 break;
             case 4:
                 if (teamAttacking != station4Status[1] && (station4Status[2] == -1 || teamAttacking == station4Status[2]))
                 {
                     status = station4Status[0]--;
                     station4Status[2] = teamAttacking;
+                    if (station4Status[0] < 0)
+                    {
+                        station4Status[1] = teamAttacking;
+                        station4Status[0] = 0;
+                        if (teamAttacking == 0)
+                            particles[3].startColor = teamBlue;
+                        else
+                            particles[3].startColor = teamRed;
+                    }
                 }
-                if (station4Status[0] < 0)
-                {
-                    station4Status[1] = teamAttacking;
-                    station4Status[0] = 0;
-                    if (teamAttacking == 0)
-                        particles[3].startColor = teamBlue;
-                    else
-                        particles[3].startColor = teamRed;
-                }
+                
                 break;
         }
         return status;
