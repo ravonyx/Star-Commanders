@@ -133,7 +133,7 @@ public class TurretMonitors : Photon.MonoBehaviour
             // Si le joueur déplace la souris sur l'axe Vertical
             if (Input.GetAxis("Mouse Y") != 0)
             {
-                rotationCanon -= Input.GetAxis("Mouse Y") * _sensitivity;
+                rotationCanon += Input.GetAxis("Mouse Y") * _sensitivity;
                 rotationCanon = Mathf.Clamp(rotationCanon, -5, 90);
                 
                 _pivotCanons[0].localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);

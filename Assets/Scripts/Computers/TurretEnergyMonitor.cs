@@ -127,7 +127,7 @@ public class TurretEnergyMonitor : MonoBehaviour
             // Si le joueur déplace la souris sur l'axe Vertical
             if (Input.GetAxis("Mouse Y") != 0)
             {
-                rotationCanon -= Input.GetAxis("Mouse Y") * _sensitivity;
+                rotationCanon += Input.GetAxis("Mouse Y") * _sensitivity;
                 rotationCanon = Mathf.Clamp(rotationCanon, -5, 20);
                 
                 _pivotCanons.localEulerAngles = new Vector3((_upIsDown ? -rotationCanon : rotationCanon), 0, 0);
