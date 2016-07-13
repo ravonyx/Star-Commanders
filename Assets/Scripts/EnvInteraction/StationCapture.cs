@@ -14,16 +14,29 @@ public class StationCapture : Photon.MonoBehaviour
     public Text info;
 
     public int teamStation = -1;
+    public int teamWait = -1;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Hull" && teamStation == -1)
+        if (other.gameObject.name == "Hull")
         {
-            if (other.transform.root.gameObject.name == "SpaceshipBlue")
-                teamStation = 0;
-            else if (other.transform.root.gameObject.name == "SpaceshipRed")
-                teamStation = 1;
+            string nameSpaceship = other.transform.root.gameObject.name;
+            if (teamStation == -1)
+            {
+                if (nameSpaceship == "SpaceshipBlue")
+                    teamStation = 0;
+                else
+                    teamStation = 1;
+            }
+            else
+            {
+                if (nameSpaceship == "SpaceshipBlue")
+                    teamWait = 0;
+                else
+                    teamWait = 1;
+            }
         }
+        
     }
     void OnTriggerStay(Collider other)
     {
@@ -49,7 +62,12 @@ public class StationCapture : Photon.MonoBehaviour
                 teamSpaceship = 0;
             else
                 teamSpaceship = 1;
+
             teamStation = -1;
+            if (teamWait != 1)
+                teamStation = teamWait;
+            teamWait = -1;
+
             photonView.RPC("ExitStation", PhotonTargets.All, teamSpaceship, m_stationID);
         }
     }
