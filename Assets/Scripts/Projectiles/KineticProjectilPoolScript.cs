@@ -16,6 +16,8 @@ public class KineticProjectilPoolScript : MonoBehaviour
 {
     [SerializeField]
     Collider[] _shieldsSpaceship;
+    [SerializeField]
+    Collider _hull;
 
     private List<int> idProjectileUnset = new List<int>();
     private int index = 0;
@@ -50,6 +52,7 @@ public class KineticProjectilPoolScript : MonoBehaviour
                 Physics.IgnoreCollision(_shieldsSpaceship[1], proj._collider, true);
                 Physics.IgnoreCollision(_shieldsSpaceship[2], proj._collider, true);
                 Physics.IgnoreCollision(_shieldsSpaceship[3], proj._collider, true);
+                Physics.IgnoreCollision(_hull, proj._collider, true);
             }
 
             return proj;

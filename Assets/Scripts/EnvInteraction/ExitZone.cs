@@ -49,7 +49,6 @@ public class ExitZone : Photon.MonoBehaviour
             team = PunTeams.Team.blue.ToString();
         else
             team = PunTeams.Team.red.ToString();
-        Debug.Log(spaceship.tag);
 
         object[] parms = new object[2] { spaceship, team };
         StartCoroutine("CountdownExitZone", parms);

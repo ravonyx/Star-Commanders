@@ -33,45 +33,39 @@ public class CoolingUnitController : MonoBehaviour
         m_coolingUnit_6 = m_coolingUnit_6_Max;
     }
 
-    public void CoolingUnitImpact_1()
+    public void CoolingUnitImpact_1(int damage)
     {
-        m_coolingUnit_1--;
-        PhotonNetwork.RaiseEvent(16, m_coolingUnit_1, true, null);
+        m_coolingUnit_1 -= damage;
         Debug.Log("m_coolingUnit_1 " + m_coolingUnit_1);
     }
 
-    public void CoolingUnitImpact_2()
+    public void CoolingUnitImpact_2(int damage)
     {
-        m_coolingUnit_2--;
-        PhotonNetwork.RaiseEvent(17, m_coolingUnit_2, true, null);
+        m_coolingUnit_2 -= damage;
         Debug.Log("m_coolingUnit_2 " + m_coolingUnit_2);
     }
 
-    public void CoolingUnitImpact_3()
+    public void CoolingUnitImpact_3(int damage)
     {
-        m_coolingUnit_3--;
-        PhotonNetwork.RaiseEvent(18, m_coolingUnit_3, true, null);
+        m_coolingUnit_3 -= damage;
         Debug.Log("m_coolingUnit_3 " + m_coolingUnit_3);
     }
 
-    public void CoolingUnitImpact_4()
+    public void CoolingUnitImpact_4(int damage)
     {
-        m_coolingUnit_4--;
-        PhotonNetwork.RaiseEvent(19, m_coolingUnit_4, true, null);
+        m_coolingUnit_4 -= damage;
         Debug.Log("m_coolingUnit_4 " + m_coolingUnit_4);
     }
 
-    public void CoolingUnitImpact_5()
+    public void CoolingUnitImpact_5(int damage)
     {
-        m_coolingUnit_5--;
-        PhotonNetwork.RaiseEvent(20, m_coolingUnit_5, true, null);
+        m_coolingUnit_5 -= damage;
         Debug.Log("m_coolingUnit_5 " + m_coolingUnit_5);
     }
 
-    public void CoolingUnitImpact_6()
+    public void CoolingUnitImpact_6(int damage)
     {
-        m_coolingUnit_6--;
-        PhotonNetwork.RaiseEvent(21, m_coolingUnit_6, true, null);
+        m_coolingUnit_6 -= damage;
         Debug.Log("m_coolingUnit_6 " + m_coolingUnit_6);
     }
 

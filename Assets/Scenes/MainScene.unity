@@ -90,7 +90,7 @@ NavMeshSettings:
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11476754, guid: deed8307f85637b4d82740669fddb84e,
     type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
   m_Script: {fileID: 11500000, guid: 1c71c8ad5006f724eae2ea50022a3aa6, type: 3}
 --- !u!4 &43109292 stripped
 Transform:
@@ -198,10 +198,29 @@ Rigidbody:
 GameObject:
   m_PrefabParentObject: {fileID: 123794, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_PrefabInternal: {fileID: 1175917296}
+--- !u!1 &160432269 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 134106, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &160432271
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160432269}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &188161968 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 153154, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &246259724 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 102042, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
@@ -215,7 +234,7 @@ MonoBehaviour:
 --- !u!1 &292976287 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 113128, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &310993251
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,27 +421,27 @@ Prefab:
       objectReference: {fileID: 1780441087}
     - target: {fileID: 22488642, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.16666667
       objectReference: {fileID: 0}
     - target: {fileID: 22488642, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.16666667
       objectReference: {fileID: 0}
     - target: {fileID: 22488642, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22407348, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22407348, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22407348, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11498030, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: viewIdField
@@ -434,15 +453,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22461908, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -161.26001
       objectReference: {fileID: 0}
     - target: {fileID: 192204, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 111124, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 135486, guid: 86b1ed1b4fd137f4b87130bc7f0fff20, type: 2}
       propertyPath: m_Name
@@ -473,6 +492,25 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1564991357}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &432029708 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 103494, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &432029710
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 432029708}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &446084404 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 172134, guid: f9c07c4509c5dfb4a8dffceb969b7ab9, type: 2}
@@ -485,6 +523,25 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 131144, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_PrefabInternal: {fileID: 1175917296}
+--- !u!1 &516607967 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 120650, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &516607974
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516607967}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &526359649 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11438320, guid: 86b1ed1b4fd137f4b87130bc7f0fff20,
@@ -494,7 +551,7 @@ MonoBehaviour:
 --- !u!1 &556227566 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 116196, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &566806503 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 197576, guid: deed8307f85637b4d82740669fddb84e, type: 2}
@@ -680,11 +737,11 @@ MonoBehaviour:
 --- !u!1 &674958591 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 119852, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &700799224 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 191698, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &708307223
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +794,7 @@ GameObject:
 --- !u!1 &867051507 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 167392, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1001 &894869595
 Prefab:
   m_ObjectHideFlags: 0
@@ -805,6 +862,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13511528, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13511528, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3372cd7211afcfa44b09cadde775f1e0, type: 2}
   m_IsPrefabParent: 0
@@ -852,7 +917,7 @@ MonoBehaviour:
 --- !u!1 &1028884855 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 149764, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &1046970770 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 187354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
@@ -860,11 +925,11 @@ GameObject:
 --- !u!1 &1057991473 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 164170, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &1067567865 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 187354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1001 &1087515899
 Prefab:
   m_ObjectHideFlags: 0
@@ -1069,620 +1134,6 @@ MonoBehaviour:
   viewIdField: 120
   instantiationId: 120
   isRuntimeInstantiated: 0
---- !u!1001 &1136325064
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -960.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 168566, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_Name
-      value: SpaceshipBlue
-      objectReference: {fileID: 0}
-    - target: {fileID: 22498922, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22498922, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22474246, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22474246, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22474246, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22419940, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22419940, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22411884, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22411884, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22411884, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22484284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22484284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22487160, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22487160, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22487160, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22411676, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22411676, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22487284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22487284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22487284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22458524, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22458524, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22438204, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22438204, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22438204, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22475314, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22475314, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22462542, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22462542, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22462542, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406368, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406368, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11473570, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11473570, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403534, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403534, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400792, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400792, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11463368, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11463368, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472768, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472768, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 11466380, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 51
-      objectReference: {fileID: 0}
-    - target: {fileID: 11466380, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 51
-      objectReference: {fileID: 0}
-    - target: {fileID: 11461920, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 52
-      objectReference: {fileID: 0}
-    - target: {fileID: 11461920, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 52
-      objectReference: {fileID: 0}
-    - target: {fileID: 11411688, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 53
-      objectReference: {fileID: 0}
-    - target: {fileID: 11411688, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 53
-      objectReference: {fileID: 0}
-    - target: {fileID: 11420442, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 11420442, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475938, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475938, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472654, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 56
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472654, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 56
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454240, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 57
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454240, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 57
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449866, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 58
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449866, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 58
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447698, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 59
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447698, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 59
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 11482044, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 61
-      objectReference: {fileID: 0}
-    - target: {fileID: 11482044, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 61
-      objectReference: {fileID: 0}
-    - target: {fileID: 11480034, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 62
-      objectReference: {fileID: 0}
-    - target: {fileID: 11480034, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 62
-      objectReference: {fileID: 0}
-    - target: {fileID: 11462930, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 63
-      objectReference: {fileID: 0}
-    - target: {fileID: 11462930, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 63
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460410, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460410, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 11456392, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 11456392, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449718, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449718, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 11446278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 71
-      objectReference: {fileID: 0}
-    - target: {fileID: 11446278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 71
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 11436618, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 73
-      objectReference: {fileID: 0}
-    - target: {fileID: 11436618, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 73
-      objectReference: {fileID: 0}
-    - target: {fileID: 11431996, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 74
-      objectReference: {fileID: 0}
-    - target: {fileID: 11431996, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 74
-      objectReference: {fileID: 0}
-    - target: {fileID: 11426030, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 11426030, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 11413878, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 76
-      objectReference: {fileID: 0}
-    - target: {fileID: 11413878, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 76
-      objectReference: {fileID: 0}
-    - target: {fileID: 11409196, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 77
-      objectReference: {fileID: 0}
-    - target: {fileID: 11409196, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 77
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406536, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 78
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406536, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 78
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403998, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 79
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403998, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 79
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489260, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489260, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421758, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 81
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421758, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11486532, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 91
-      objectReference: {fileID: 0}
-    - target: {fileID: 11486532, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11499026, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 94
-      objectReference: {fileID: 0}
-    - target: {fileID: 11499026, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 94
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495236, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495236, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455014, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 96
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455014, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 96
-      objectReference: {fileID: 0}
-    - target: {fileID: 11436758, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 11436758, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 11433702, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 98
-      objectReference: {fileID: 0}
-    - target: {fileID: 11433702, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 98
-      objectReference: {fileID: 0}
-    - target: {fileID: 11422354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 11422354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 11405910, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11405910, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11401278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: 11401278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419794, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 102
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419794, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 102
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402222, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 103
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402222, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 103
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479340, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 104
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479340, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 104
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440302, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 105
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440302, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 105
-      objectReference: {fileID: 0}
-    - target: {fileID: 11446570, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 106
-      objectReference: {fileID: 0}
-    - target: {fileID: 11446570, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 106
-      objectReference: {fileID: 0}
-    - target: {fileID: 11481892, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 107
-      objectReference: {fileID: 0}
-    - target: {fileID: 11481892, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 107
-      objectReference: {fileID: 0}
-    - target: {fileID: 11418704, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 108
-      objectReference: {fileID: 0}
-    - target: {fileID: 11418704, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 108
-      objectReference: {fileID: 0}
-    - target: {fileID: 11401294, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 109
-      objectReference: {fileID: 0}
-    - target: {fileID: 11401294, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 109
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492156, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492156, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 11429162, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 111
-      objectReference: {fileID: 0}
-    - target: {fileID: 11429162, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 111
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483682, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483682, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484062, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: viewIdField
-      value: 113
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484062, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-      propertyPath: instantiationId
-      value: 113
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1165217760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,7 +1236,7 @@ MonoBehaviour:
 --- !u!1 &1172604615 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 147492, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1001 &1175917296
 Prefab:
   m_ObjectHideFlags: 0
@@ -2409,9 +1860,477 @@ Prefab:
       propertyPath: m_TagString
       value: SpaceshipRed
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 22496662, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496662, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496662, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496662, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496662, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496662, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22451504, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22451504, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22451504, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22451504, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22451504, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22451504, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22466564, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22466564, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22466564, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22466564, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22466564, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22466564, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116596, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22479242, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22479242, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22479242, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22479242, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22479242, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22479242, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400254, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400254, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400254, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400254, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400254, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400254, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443024, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443024, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443024, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443024, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443024, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443024, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22435176, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22435176, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22435176, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22435176, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22435176, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22435176, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22430526, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22430526, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22430526, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22430526, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22430526, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22430526, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409622, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409622, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409622, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409622, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409622, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409622, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22449914, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22449914, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22449914, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22449914, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22449914, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22449914, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461830, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461830, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461830, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461830, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461830, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461830, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22478098, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22478098, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22478098, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22478098, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22478098, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22478098, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193836, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22480154, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22480154, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22480154, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22480154, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22480154, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22480154, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22459528, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22459528, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22459528, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22459528, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22459528, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22459528, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425250, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425250, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425250, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425250, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425250, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425250, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453344, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453344, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453344, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453344, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453344, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453344, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461664, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461664, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461664, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461664, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461664, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461664, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533120, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435036, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1182968631 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 131110, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &1182968633
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182968631}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1222621122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,11 +2699,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 310993252}
   m_RootOrder: 1
+--- !u!1 &1519966619 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 141674, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &1519966627
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1519966619}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!224 &1524154798 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22408012, guid: 86b1ed1b4fd137f4b87130bc7f0fff20,
     type: 2}
   m_PrefabInternal: {fileID: 333197632}
+--- !u!1 &1544976859 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 167142, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &1544976867
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1544976859}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1564991357
 Prefab:
   m_ObjectHideFlags: 0
@@ -2871,6 +2828,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad37c375f666e6449a3119884c65abdb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1574523851 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 105082, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &1574523859
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1574523851}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1574528685 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 113128, guid: deed8307f85637b4d82740669fddb84e, type: 2}
@@ -2920,7 +2896,7 @@ Prefab:
 --- !u!1 &1586670930 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 138454, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1001 &1588396357
 Prefab:
   m_ObjectHideFlags: 0
@@ -2975,10 +2951,643 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 164170, guid: deed8307f85637b4d82740669fddb84e, type: 2}
   m_PrefabInternal: {fileID: 1175917296}
+--- !u!1001 &1602809984
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -960.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445848, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 168566, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_Name
+      value: SpaceshipBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 22498922, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22498922, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22474246, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22474246, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22474246, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22419940, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22419940, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411884, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411884, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411884, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22484284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22484284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487160, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487160, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487160, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411676, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22411676, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22487284, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22458524, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22458524, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438204, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438204, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438204, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22475314, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22475314, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22462542, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22462542, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22462542, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406368, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406368, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473570, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473570, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403534, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403534, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400792, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400792, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463368, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463368, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472768, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472768, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466380, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466380, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 11461920, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 11461920, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411688, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411688, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420442, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420442, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475938, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475938, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472654, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472654, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454240, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454240, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449866, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449866, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447698, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447698, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482044, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482044, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 11480034, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 11480034, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462930, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462930, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460410, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460410, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456392, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456392, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449718, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449718, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436618, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436618, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431996, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431996, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426030, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426030, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413878, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 76
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413878, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 76
+      objectReference: {fileID: 0}
+    - target: {fileID: 11409196, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 11409196, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406536, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406536, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403998, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403998, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489260, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489260, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421758, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 81
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421758, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486532, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 91
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486532, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499026, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 94
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499026, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 94
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495236, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495236, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455014, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455014, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436758, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436758, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433702, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433702, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422354, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405910, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405910, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401278, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419794, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419794, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402222, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402222, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479340, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479340, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440302, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440302, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446570, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446570, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481892, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 107
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481892, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 107
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418704, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418704, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401294, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 109
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401294, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 109
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492156, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492156, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429162, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429162, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483682, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483682, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484062, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: viewIdField
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484062, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+      propertyPath: instantiationId
+      value: 113
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1629667394 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 197576, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
+--- !u!1 &1635250888 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 171114, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &1635250896
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1635250888}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1686875025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,7 +3626,7 @@ Transform:
 --- !u!1 &1731284624 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 172384, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!114 &1780441087 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11477386, guid: 09611fd2067b611469e9a1c4813fba52,
@@ -3069,15 +3678,15 @@ Prefab:
 --- !u!1 &1805020102 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 131144, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &1898891338 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 149488, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &1911974598 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 123794, guid: deed8307f85637b4d82740669fddb84e, type: 2}
-  m_PrefabInternal: {fileID: 1136325064}
+  m_PrefabInternal: {fileID: 1602809984}
 --- !u!1 &1939474480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b509d1d20dfc926449de70fc7846d705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  network: 1
+  network: 0
   spaceship: {fileID: 0}
   _playerInfo: {fileID: 963312413}
   _loader: {fileID: 1405035870}
@@ -3276,3 +3885,41 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1564991357}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &2118509296 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 143006, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &2118509298
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118509296}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &2139658937 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 168566, guid: deed8307f85637b4d82740669fddb84e, type: 2}
+  m_PrefabInternal: {fileID: 1175917296}
+--- !u!54 &2139658944
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139658937}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -11,9 +11,15 @@ public class ReactorColliderManager : Photon.MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "EnergyProjectile" && PhotonNetwork.isMasterClient)
+        {
             photonView.RPC("OnReactorCollide", PhotonTargets.All, 1);
-        else if(collision.gameObject.tag == "KineticProjectile" && PhotonNetwork.isMasterClient)
+            collision.gameObject.GetComponent<KineticProjectilScript>().returnPool();
+        }
+        else if (collision.gameObject.tag == "KineticProjectile" && PhotonNetwork.isMasterClient)
+        {
             photonView.RPC("OnReactorCollide", PhotonTargets.All, 3);
+            collision.gameObject.GetComponent<KineticProjectilScript>().returnPool();
+        }
     }
 
     [PunRPC]

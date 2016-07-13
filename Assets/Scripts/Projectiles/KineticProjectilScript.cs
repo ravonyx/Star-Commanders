@@ -26,11 +26,6 @@ public class KineticProjectilScript : MonoBehaviour
 
     [SerializeField]
     KineticProjectilPoolScript poolRappel;
-    
-    void OnColliderEnter(Collision _col)
-    {
-        returnPool();
-    }
 
     public void startExpiration()
     {
@@ -43,7 +38,7 @@ public class KineticProjectilScript : MonoBehaviour
         returnPool();
     }
 
-    void returnPool()
+    public void returnPool()
     {
         StopAllCoroutines();
         gameObject.SetActive(false);

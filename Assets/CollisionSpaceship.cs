@@ -16,7 +16,6 @@ public class CollisionSpaceship : MonoBehaviour
             velocity = Vector3.Reflect(-other.GetComponent<ShipController>().velocity, other.transform.forward);
             Debug.Log("trigger " + other.tag);
         }
-
         if (other.tag == "Asteroid")
         {
             GetComponent<ShipController>().currrentSpeed = 0.0f;
@@ -37,7 +36,6 @@ public class CollisionSpaceship : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("OnTriggerExit");
         if ((gameObject.tag == "SpaceshipBlue" && other.tag == "SpaceshipRed") || (gameObject.tag == "SpaceshipRed" && other.tag == "SpaceshipBlue"))
         {
             velocity = new Vector3(0, 0, 0);
