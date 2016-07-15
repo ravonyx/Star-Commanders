@@ -24,13 +24,9 @@ public class LifePartController : MonoBehaviour
     private int m_ExplosionDamageInsideparts;
 
     [SerializeField]
-    private projectorController m_projectors;
-    [SerializeField]
     private ShieldController m_shields;
     [SerializeField]
     private ReactorController m_engines;
-    [SerializeField]
-    private TurretController m_turret;
     [SerializeField]
     private CoolingUnitController m_CoolingUnit;
 
@@ -120,11 +116,6 @@ public class LifePartController : MonoBehaviour
         {
             Debug.Log(part.getName() + " " + part.getLifeLevel());
         }
-        Debug.Log("PROJECTORS STATE");
-        for (int i = 1; i < 5; i++)
-        {
-            Debug.Log("Projector : " + i + " pv  " + m_projectors.GetProjetctorLifeLevel(i));
-        }
         Debug.Log("SHIELDS STATE");
         for (int i = 1; i < 5; i++)
         {
@@ -134,11 +125,6 @@ public class LifePartController : MonoBehaviour
         for (int i = 1; i < 3; i++)
         {
             Debug.Log("engine : " + i + " " + m_engines.GetReactorLifelevel(i));
-        }
-        Debug.Log("TURRETS STATE");
-        for (int i = 1; i < 4; i++)
-        {
-            Debug.Log("turret : " + i + " " + m_turret.GetTurretLifeLevel(i));
         }
         Debug.Log("COOLING UNIT STATE");
         for (int i = 1; i < 7; i++)
@@ -157,10 +143,6 @@ public class LifePartController : MonoBehaviour
     {
         return m_CoolingUnit.GetCoolingUnitLifeLevel(ID);
     }
-    public int getTurretlife(int ID)
-    {
-        return m_turret.GetTurretLifeLevel(ID);
-    }
     public int getEngineLife(int ID)
     {
         return m_engines.GetReactorLifelevel(ID);
@@ -168,10 +150,6 @@ public class LifePartController : MonoBehaviour
     public int getShieldLife(int ID)
     {
         return m_shields.GetShieldsLifeLevel(ID);
-    }
-    public int getProjectorLife(int ID)
-    {
-        return m_projectors.GetProjetctorLifeLevel(ID);
     }
     public int getConsoleLife(int ID)
     {

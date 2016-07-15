@@ -7,8 +7,8 @@ public class ShieldViewMonitor : MonoBehaviour
     [SerializeField]
     ShieldController _shieldCont;
 
-    [SerializeField]
-    projectorController _projectorCont;
+    /*[SerializeField]
+    projectorController _projectorCont;*/
 
     [SerializeField]
     Image[] _shieldImages;
@@ -51,7 +51,7 @@ public class ShieldViewMonitor : MonoBehaviour
             _shieldStates[id].text = lifeShield + "/100";
             _shieldImages[id].color = new Color((100.0f - lifeShield) / 100.0f, lifeShield / 100.0f, 0.0f, 1.0f);
 
-            int lifeProjector = _projectorCont.GetProjetctorLifeLevel(id + 1);
+            /* int lifeProjector = _projectorCont.GetProjetctorLifeLevel(id + 1);
             _projectorStates[id].text = lifeProjector + "/100";
             _projectorImages[id].color = new Color((100.0f - lifeProjector) / 100.0f, lifeProjector / 100.0f, 0.0f, 1.0f);
             _projectorImagesMain[id].color = new Color((100.0f - lifeProjector) / 100.0f, lifeProjector / 100.0f, 0.0f, 1.0f);
@@ -81,7 +81,7 @@ public class ShieldViewMonitor : MonoBehaviour
             {
                 _projectorStatus[id].text = "OFFLINE";
                 _projectorStatus[id].color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
-            }
+            }*/
             /*
             _fireImg[id].color = _projectorCont.isReactorOnfire(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
             _lightningImg[id].color = _projectorCont.isReactorOnElectrical(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
