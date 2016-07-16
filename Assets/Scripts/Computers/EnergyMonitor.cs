@@ -78,16 +78,11 @@ public class EnergyMonitor : MonoBehaviour
 
     void UpdateInterface()
     {
-        _generators[0].SetOverload(_powerOverload);
-        _generators[1].SetOverload(_powerOverload);
-
         _power = _generators[0].AvailablePower();
         _power += _generators[1].AvailablePower();
+        _power *= 2;
 
-        _powerTotal.text = (_power * 100).ToString("0") + "%";
-        _powerElements[0].text = (_powerShield * 100).ToString("0") + "%";
-        _powerElements[1].text = (_powerPropulsor * 100).ToString("0") + "%";
-        
+
         float coolingUnitRatio = 0.0f;
         for(int id = 1; id <= 6; id++)
         {
@@ -96,13 +91,18 @@ public class EnergyMonitor : MonoBehaviour
         _power *= coolingUnitRatio / 600;
 
         _powerShield = _power * _repartition;
+        _lifeControllerShip.setEnergyShield(_powerShield);
         _powerPropulsor = _power * (1 - _repartition);
 
         _shieldMonitor.setNewPower(_powerShield);
         _propMonitor.setPower(_powerPropulsor);
         _spaceShipController._powerPropulsor = _powerPropulsor;
 
-        _overload.enabled = _power > 1.0f ?  true : false;
+        _overload.enabled = _powerOverload > 1.0f ?  true : false;
+
+        _powerTotal.text = (_power * 100 / 2).ToString("0") + "%";
+        _powerElements[0].text = (_powerShield * 100).ToString("0") + "%";
+        _powerElements[1].text = (_powerPropulsor * 100).ToString("0") + "%";
 
         for (int id = 0; id < 2; id++)
         {
@@ -167,6 +167,9 @@ public class EnergyMonitor : MonoBehaviour
             _powerOverload += 0.1f;
         else
             _powerOverload = 5.0f;
+
+        _generators[0].SetOverload(_powerOverload);
+        _generators[1].SetOverload(_powerOverload);
     }
 
     [PunRPC]
@@ -176,6 +179,9 @@ public class EnergyMonitor : MonoBehaviour
             _powerOverload -= 0.1f;
         else
             _powerOverload = 1.0f;
+
+        _generators[0].SetOverload(_powerOverload);
+        _generators[1].SetOverload(_powerOverload);
     }
 
     [PunRPC]

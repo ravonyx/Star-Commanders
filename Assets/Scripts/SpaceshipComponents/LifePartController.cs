@@ -44,11 +44,11 @@ public class LifePartController : MonoBehaviour
     private int m_regenChances;
     //------------- Power Management
     //[SerializeField]
-    private int m_ShieldsPower;
+    private float m_ShieldsPower;
    // [SerializeField]
-    private int m_PropulsorPower;
+    private float m_PropulsorPower;
     //[SerializeField]
-    private int m_WeaponPower;
+    private float m_WeaponPower;
 
     //private float m_AvailablePower;
    //--------------END OF Power management
@@ -265,27 +265,29 @@ public class LifePartController : MonoBehaviour
     {
         m_WeaponPower += energy;
     }
-    public void setEnergyShield(int energy)
+    public void setEnergyShield(float energy)
     {
-        m_ShieldsPower += energy;
+        m_ShieldsPower = energy;
+        m_shields.setPower(energy);
     }
-    public void setEnergyPropulsor(int energy)
+    public void setEnergyPropulsor(float energy)
     {
         m_PropulsorPower += energy;
     }
 
-    public int getEnergyWeapon()
+    public float getEnergyWeapon()
     {
         return m_WeaponPower;
     }
-    public int getEnergyShield()
+    public float getEnergyShield()
     {
         return m_ShieldsPower;
     }
-    public int getEnergyPropulsor()
+    public float getEnergyPropulsor()
     {
         return m_PropulsorPower;
     }
+    
     /*
     public int AllocatePower(int power)
     {

@@ -239,7 +239,7 @@ public class RaycastInteraction : MonoBehaviour
                 _extinguisherStatus.gameObject.SetActive(false);
             }
         }
-        else if(!_inUse && (_nearConsole || _nearLifePart) && _consoleState != null)
+        else if(!_inUse && _nearLifePart && _consoleState != null)
         {
             _playerInfo.text = "";
         }
@@ -321,7 +321,7 @@ public class RaycastInteraction : MonoBehaviour
                 _nearExtinguisher = false;
                 _playerInfo.text = "";
             }
-            else if (other.tag == "generators")
+            else if ((other.tag == "generators") || other.tag == "CoolingUnits")
             {
                 _nearLifePart = false;
                 _playerInfo.text = "";
@@ -334,7 +334,7 @@ public class RaycastInteraction : MonoBehaviour
     
     IEnumerator TryToRepair()
     {
-        while (_toolInUse && _consoleState.currentlife < 100)
+        while (_toolInUse && _consoleState != null && _consoleState.currentlife < 100)
         {
             yield return new WaitForFixedUpdate();
 
