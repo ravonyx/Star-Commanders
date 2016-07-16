@@ -45,6 +45,7 @@ public class ShieldConsole : MonoBehaviour
         if (_isActive)
         {
             //Rotation manager
+            
             if (Input.GetKeyDown(KeyCode.Z))
                 _photonView.RPC("setRateFLShield", PhotonTargets.All);
             if (Input.GetKeyDown(KeyCode.E))

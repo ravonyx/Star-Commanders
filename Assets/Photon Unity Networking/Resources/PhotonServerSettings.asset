@@ -58,4 +58,16 @@ MonoBehaviour:
   - UpdateInterface
   - StationCaptured
   - ExitStation
+  - setRateBLShield
+  - setRateBRShield
+  - setRateFLShield
+  - setRateFRShield
+  - setRateDefault
+  - Decharge
+  - MorePowerPropulsor
+  - MorePowerShield
+  - RestaureDefault
+  - Surcharge
+  - setElectricFailure
+  - setOnFire
   DisableAutoOpenWizard: 1
