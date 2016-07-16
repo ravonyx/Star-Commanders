@@ -73,18 +73,21 @@ public class EnergyMonitor : MonoBehaviour
     void Start()
     {
         _photonView = GetComponent<PhotonView>();
-        InvokeRepeating("UpdateInterface", 1.0f, 1.0f);
+        InvokeRepeating("UpdateInterface", 1.0f, 0.5f);
     }
 
     void UpdateInterface()
     {
+        _generators[0].SetOverload(_powerOverload);
+        _generators[1].SetOverload(_powerOverload);
+
+        _power = _generators[0].AvailablePower();
+        _power += _generators[1].AvailablePower();
+
         _powerTotal.text = (_power * 100).ToString("0") + "%";
         _powerElements[0].text = (_powerShield * 100).ToString("0") + "%";
         _powerElements[1].text = (_powerPropulsor * 100).ToString("0") + "%";
         
-        _power = _generators[0].AvailablePower();
-        _power += _generators[1].AvailablePower();
-
         float coolingUnitRatio = 0.0f;
         for(int id = 1; id <= 6; id++)
         {
@@ -164,10 +167,6 @@ public class EnergyMonitor : MonoBehaviour
             _powerOverload += 0.1f;
         else
             _powerOverload = 5.0f;
-
-        _generators[0].SetOverload(_powerOverload);
-        _generators[1].SetOverload(_powerOverload);
-        UpdateInterface();
     }
 
     [PunRPC]
@@ -177,10 +176,6 @@ public class EnergyMonitor : MonoBehaviour
             _powerOverload -= 0.1f;
         else
             _powerOverload = 1.0f;
-
-        _generators[0].SetOverload(_powerOverload);
-        _generators[1].SetOverload(_powerOverload);
-        UpdateInterface();
     }
 
     [PunRPC]
@@ -190,7 +185,6 @@ public class EnergyMonitor : MonoBehaviour
             _repartition += 0.1f;
         else
             _repartition = 1.0f;
-        UpdateInterface();
     }
 
     [PunRPC]
@@ -200,7 +194,6 @@ public class EnergyMonitor : MonoBehaviour
             _repartition -= 0.1f;
         else
             _repartition = 0.0f;
-        UpdateInterface();
     }
 
     [PunRPC]
@@ -208,10 +201,6 @@ public class EnergyMonitor : MonoBehaviour
     {
         _repartition = 0.5f;
         _powerOverload = 1.0f;
-
-        _generators[0].SetOverload(_powerOverload);
-        _generators[1].SetOverload(_powerOverload);
-        UpdateInterface();
     }
 
     void Activate(bool active)

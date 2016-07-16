@@ -239,9 +239,12 @@ public class RaycastInteraction : MonoBehaviour
                 _extinguisherStatus.gameObject.SetActive(false);
             }
         }
-        else
+        else if(!_inUse && (_nearConsole || _nearLifePart) && _consoleState != null)
         {
             _playerInfo.text = "";
+        }
+        else
+        {
             _loader.gameObject.SetActive(false);
             _extinguisherStatus.gameObject.SetActive(false);
         }

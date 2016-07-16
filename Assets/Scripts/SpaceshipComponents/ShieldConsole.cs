@@ -37,7 +37,7 @@ public class ShieldConsole : MonoBehaviour
     void Start ()
     {
         _photonView = GetComponent<PhotonView>();
-        InvokeRepeating("UpdateInterface", 1.0f, 1.0f);
+        InvokeRepeating("UpdateInterface", 1.0f, 0.5f);
     }
 
     void Update()
@@ -61,6 +61,7 @@ public class ShieldConsole : MonoBehaviour
 
     void UpdateInterface()
     {
+        setNewGenerationValue();
         for (int id = 0; id < 4; id++)
         {
             float lifeShield = _shieldCont.GetShieldsLifeLevel(id + 1);
@@ -121,8 +122,6 @@ public class ShieldConsole : MonoBehaviour
             else
                 _shieldUpdateRateBR = -1.0f;
         }
-        setNewGenerationValue();
-        UpdateInterface();
     }
 
     [PunRPC]
@@ -162,8 +161,6 @@ public class ShieldConsole : MonoBehaviour
             else
                 _shieldUpdateRateBR = -1.0f;
         }
-        setNewGenerationValue();
-        UpdateInterface();
     }
 
     [PunRPC]
@@ -203,8 +200,6 @@ public class ShieldConsole : MonoBehaviour
             else
                 _shieldUpdateRateBR = -1.0f;
         }
-        setNewGenerationValue();
-        UpdateInterface();
     }
 
     [PunRPC]
@@ -244,8 +239,6 @@ public class ShieldConsole : MonoBehaviour
             else
                 _shieldUpdateRateFL = -1.0f;
         }
-        setNewGenerationValue();
-        UpdateInterface();
     }
 
     [PunRPC]
@@ -255,8 +248,6 @@ public class ShieldConsole : MonoBehaviour
         _shieldUpdateRateFR = 0;
         _shieldUpdateRateBL = 0;
         _shieldUpdateRateBR = 0;
-        setNewGenerationValue();
-        UpdateInterface();
     }
 
     void setNewGenerationValue()
@@ -265,7 +256,6 @@ public class ShieldConsole : MonoBehaviour
         _shieldCont.setUpdateShield(2, (1 + _shieldUpdateRateFR) * _dedicatedPower);
         _shieldCont.setUpdateShield(3, (1 + _shieldUpdateRateBL) * _dedicatedPower);
         _shieldCont.setUpdateShield(4, (1 + _shieldUpdateRateBR) * _dedicatedPower);
-        UpdateInterface();
     }
 
     public void setNewPower(float power)
@@ -273,6 +263,5 @@ public class ShieldConsole : MonoBehaviour
         _dedicatedPower = power;
         _powerDedicatedStates.text = power * 100 + "%";
         setNewGenerationValue();
-        UpdateInterface();
     }
 }
