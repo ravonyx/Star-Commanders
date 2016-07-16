@@ -29,8 +29,9 @@ public class EnergyMonitor : MonoBehaviour
     [SerializeField]
     PropulsorViewMonitor _propMonitor;
 
+    /*
     [SerializeField]
-    ShieldConsole _shieldMonitor;
+    ShieldConsole _shieldMonitor;*/
 
     [SerializeField]
     ShipController _spaceShipController;
@@ -98,7 +99,7 @@ public class EnergyMonitor : MonoBehaviour
         _powerShield = _power * _repartition;
         _powerPropulsor = _power * (1 - _repartition);
 
-        _shieldMonitor.setNewPower(_powerShield);
+        //_shieldMonitor.setNewPower(_powerShield);
         _propMonitor.setPower(_powerPropulsor);
         _spaceShipController._powerPropulsor = _powerPropulsor;
 
