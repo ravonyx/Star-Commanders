@@ -7,9 +7,6 @@ public class ShieldViewMonitor : MonoBehaviour
     [SerializeField]
     ShieldController _shieldCont;
 
-    /*[SerializeField]
-    projectorController _projectorCont;*/
-
     [SerializeField]
     Image[] _shieldImages;
 
@@ -47,16 +44,20 @@ public class ShieldViewMonitor : MonoBehaviour
     {
         for(int id = 0; id < 4; id++)
         {
-            int lifeShield = _shieldCont.GetShieldsLifeLevel(id + 1);
-            _shieldStates[id].text = lifeShield + "/100";
+            float lifeShield =  _shieldCont.GetShieldsLifeLevel(id + 1);
+            _shieldStates[id].text = lifeShield.ToString("0") + "/100";
             _shieldImages[id].color = new Color((100.0f - lifeShield) / 100.0f, lifeShield / 100.0f, 0.0f, 1.0f);
 
-            /* int lifeProjector = _projectorCont.GetProjetctorLifeLevel(id + 1);
-            _projectorStates[id].text = lifeProjector + "/100";
-            _projectorImages[id].color = new Color((100.0f - lifeProjector) / 100.0f, lifeProjector / 100.0f, 0.0f, 1.0f);
-            _projectorImagesMain[id].color = new Color((100.0f - lifeProjector) / 100.0f, lifeProjector / 100.0f, 0.0f, 1.0f);
+            float lifeProjector = _shieldCont.GetShieldsRateLevel(id + 1);
+            _projectorStates[id].text = lifeProjector.ToString("0.00") + "% / s";
 
+            if (lifeProjector > 1)
+                lifeProjector = 1;
 
+            _projectorImages[id].color = new Color(1.0f - lifeProjector, lifeProjector, 0.0f, 1.0f);
+            _projectorImagesMain[id].color = new Color(1.0f - lifeProjector, lifeProjector, 0.0f, 1.0f);
+
+            /* 
             if (lifeProjector > 80)
             {
                 _projectorStatus[id].text = "ONLINE";
@@ -87,5 +88,5 @@ public class ShieldViewMonitor : MonoBehaviour
             _lightningImg[id].color = _projectorCont.isReactorOnElectrical(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
             _empImg[id].color = _projectorCont.isReactorOnEMP(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);*/
         }
-	}
+    }
 }

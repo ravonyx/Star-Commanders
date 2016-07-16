@@ -15,31 +15,128 @@ using UnityEngine.UI;
 public class EnergyMonitor : MonoBehaviour 
 {
     private bool _isActive = false;
-    private int _maxEnergy = 120;
-    private int _Energy = 100;
+
 
     [SerializeField]
-    LifePartController _lifePartsCont;
+    GeneratorManager[] _generators;
 
     [SerializeField]
-    Image[] _energySlider;
+    LifePartController _lifeControllerShip;
 
     [SerializeField]
-    Text[] _energySliderText;
+    LifepartStateController[] _generatorsLifeState;
 
     [SerializeField]
-    Text _energyTotal;
+    PropulsorViewMonitor _propMonitor;
 
-    private int _energyWeapon = 100;
-    private int _energyShield = 100;
-    private int _energyPropulsor = 100;
+    [SerializeField]
+    ShieldConsole _shieldMonitor;
+
+    [SerializeField]
+    ShipController _spaceShipController;
+
+    [SerializeField]
+    Text[] _powerElements;
+
+    [SerializeField]
+    Text _powerTotal;
+
+    [SerializeField]
+    Text _overload;
+
+    [SerializeField]
+    Text[] _generatorsState;
+
+    [SerializeField]
+    Image[] _generatorsImage;
+
+    [SerializeField]
+    Text[] _generatorsStatus;
+
+    [SerializeField]
+    Image[] _fireImg;
+
+    [SerializeField]
+    Image[] _lightningImg;
+
+    [SerializeField]
+    Image[] _empImg;
+
+    private float _power;
+    private float _powerShield;
+    private float _powerPropulsor;
+    private float _powerOverload = 1.0f;
+
+    private float _repartition = 0.5f;
+    private PhotonView _photonView;
 
     void Start()
     {
-        _lifePartsCont.setEnergyWeapon(100);
-        _lifePartsCont.setEnergyShield(100);
-        _lifePartsCont.setEnergyPropulsor(100);
-        //InvokeRepeating("UpdateInterface", 1.0f, 2.0f);
+        _photonView = GetComponent<PhotonView>();
+        InvokeRepeating("UpdateInterface", 1.0f, 1.0f);
+    }
+
+    void UpdateInterface()
+    {
+        _powerTotal.text = (_power * 100).ToString("0") + "%";
+        _powerElements[0].text = (_powerShield * 100).ToString("0") + "%";
+        _powerElements[1].text = (_powerPropulsor * 100).ToString("0") + "%";
+        
+        _power = _generators[0].AvailablePower();
+        _power += _generators[1].AvailablePower();
+
+        float coolingUnitRatio = 0.0f;
+        for(int id = 1; id <= 6; id++)
+        {
+            coolingUnitRatio += _lifeControllerShip.getCoolingUnitLife(id);
+        }
+        _power *= coolingUnitRatio / 600;
+
+        _powerShield = _power * _repartition;
+        _powerPropulsor = _power * (1 - _repartition);
+
+        _shieldMonitor.setNewPower(_powerShield);
+        _propMonitor.setPower(_powerPropulsor);
+        _spaceShipController._powerPropulsor = _powerPropulsor;
+
+        _overload.enabled = _power > 1.0f ?  true : false;
+
+        for (int id = 0; id < 2; id++)
+        {
+            float lifeGenerator = _generatorsLifeState[id].currentlife;
+            _generatorsState[id].text = lifeGenerator.ToString("0") + "%";
+            _generatorsImage[id].color = new Color((100.0f - lifeGenerator) / 100.0f, lifeGenerator / 100.0f, 0.0f, 1.0f);
+            
+            if (lifeGenerator > 80)
+            {
+                _generatorsStatus[id].text = "ONLINE";
+                _generatorsStatus[id].color = new Color(0.0f, 200.0f / 255.0f, 0.0f, 1.0f);
+            }
+            else if (lifeGenerator > 50)
+            {
+                _generatorsStatus[id].text = "WARNING";
+                _generatorsStatus[id].color = new Color(200.0f / 255.0f, 200.0f / 255.0f, 0.0f, 1.0f);
+            }
+            else if (lifeGenerator > 20)
+            {
+                _generatorsStatus[id].text = "ALERT";
+                _generatorsStatus[id].color = new Color(1.0f, 0.0f, 100.0f / 255.0f, 1.0f);
+            }
+            else if (lifeGenerator > 0)
+            {
+                _generatorsStatus[id].text = "CRITICAL";
+                _generatorsStatus[id].color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
+            }
+            else if (lifeGenerator == 0)
+            {
+                _generatorsStatus[id].text = "OFFLINE";
+                _generatorsStatus[id].color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
+            }
+            
+            _fireImg[id].color = _generatorsLifeState[id].isOnFire() ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            _lightningImg[id].color = _generatorsLifeState[id].isElectricalDamage() ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            _empImg[id].color = _generatorsLifeState[id].isOnEMPDamages() ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
+        }
     }
 
     void LateUpdate()
@@ -47,85 +144,75 @@ public class EnergyMonitor : MonoBehaviour
         if (_isActive)
         {
             if (Input.GetKeyDown(KeyCode.Z))
-            {
-                if(verifyEnergyDisponibility())
-                {
-                    _energyWeapon += 10;
-                    _lifePartsCont.setEnergyWeapon(_energyWeapon);
-                    _energySliderText[0].text = _energyWeapon + "%";
-                    if (_energyWeapon <= 100)
-                        _energySlider[0].color = new Color((100.0f - _energyWeapon) / 100.0f, _energyWeapon / 100.0f, 0.0f, (200.0f * 100.0f) / 255.0f);
-                    _energyTotal.text = ((_energyWeapon + _energyShield + _energyPropulsor) / 3) + "% / " + _maxEnergy + "%\nUse / Max";
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                if(_energyWeapon - 10 >= 0)
-                {
-                    _energyWeapon -= 10;
-                    _lifePartsCont.setEnergyWeapon(_energyWeapon);
-                    _energySliderText[0].text = _energyWeapon + "%";
-                    if (_energyWeapon <= 100)
-                        _energySlider[0].color = new Color((100.0f - _energyWeapon) / 100.0f, _energyWeapon / 100.0f, 0.0f, (200.0f * 100.0f) / 255.0f);
-                    _energyTotal.text = ((_energyWeapon + _energyShield + _energyPropulsor) / 3) + "% / " + _maxEnergy + "%\nUse / Max";
-                }
-            }
+                _photonView.RPC("Surcharge", PhotonTargets.All);
             if (Input.GetKeyDown(KeyCode.S))
-            {
-                if (verifyEnergyDisponibility())
-                {
-                    _energyShield += 10;
-                    _lifePartsCont.setEnergyShield(_energyShield);
-                    _energySliderText[1].text = _energyShield + "%";
-                    if (_energyShield <= 100)
-                        _energySlider[1].color = new Color((100.0f - _energyShield) / 100.0f, _energyShield / 100.0f, 0.0f, (200.0f * 100.0f) / 255.0f);
-                    _energyTotal.text = ((_energyWeapon + _energyShield + _energyPropulsor) / 3) + "% / " + _maxEnergy + "%\nUse / Max";
-                }
-            }
+                _photonView.RPC("Decharge", PhotonTargets.All);
             if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (_energyShield - 10 >= 0)
-                {
-                    _energyShield -= 10;
-                    _lifePartsCont.setEnergyShield(_energyShield);
-                    _energySliderText[1].text = _energyShield + "%";
-                    if (_energyShield <= 100)
-                        _energySlider[1].color = new Color((100.0f - _energyShield) / 100.0f, _energyShield / 100.0f, 0.0f, (200.0f * 100.0f) / 255.0f);
-                    _energyTotal.text = ((_energyWeapon + _energyShield + _energyPropulsor) / 3) + "% / " + _maxEnergy + "%\nUse / Max";
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                if (verifyEnergyDisponibility())
-                {
-                    _energyPropulsor += 10;
-                    _lifePartsCont.setEnergyPropulsor(_energyPropulsor);
-                    _energySliderText[2].text = _energyPropulsor + "%";
-                    if (_energyPropulsor <= 100)
-                        _energySlider[2].color = new Color((100.0f - _energyPropulsor) / 100.0f, _energyPropulsor / 100.0f, 0.0f, (200.0f * 100.0f) / 255.0f);
-                    _energyTotal.text = ((_energyWeapon + _energyShield + _energyPropulsor) / 3) + "% / " + _maxEnergy + "%\nUse / Max";
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                if (_energyPropulsor - 10 >= 0)
-                {
-                    _energyPropulsor -= 10;
-                    _lifePartsCont.setEnergyPropulsor(_energyPropulsor);
-                    _energySliderText[2].text = _energyPropulsor + "%";
-                    if (_energyPropulsor <= 100)
-                        _energySlider[2].color = new Color((100.0f - _energyPropulsor) / 100.0f, _energyPropulsor / 100.0f, 0.0f, (200.0f * 100.0f) / 255.0f);
-                    _energyTotal.text = ((_energyWeapon + _energyShield + _energyPropulsor) / 3) + "% / " + _maxEnergy + "%\nUse / Max";
-                }
-            }
+                _photonView.RPC("MorePowerShield", PhotonTargets.All);
+            if (Input.GetKeyDown(KeyCode.D))
+                _photonView.RPC("MorePowerPropulsor", PhotonTargets.All);
+            if (Input.GetKeyDown(KeyCode.R))
+                _photonView.RPC("RestaureDefault", PhotonTargets.All);
         }
     }
 
-    private bool verifyEnergyDisponibility()
+
+    [PunRPC]
+    void Surcharge()
     {
-        return (_energyWeapon + _energyShield + _energyPropulsor + 10 > _maxEnergy * 3 ? false : true);
+        if (_powerOverload < 5.0f)
+            _powerOverload += 0.1f;
+        else
+            _powerOverload = 5.0f;
+
+        _generators[0].SetOverload(_powerOverload);
+        _generators[1].SetOverload(_powerOverload);
+        UpdateInterface();
     }
 
+    [PunRPC]
+    void Decharge()
+    {
+        if (_powerOverload > 1.0f)
+            _powerOverload -= 0.1f;
+        else
+            _powerOverload = 1.0f;
+
+        _generators[0].SetOverload(_powerOverload);
+        _generators[1].SetOverload(_powerOverload);
+        UpdateInterface();
+    }
+
+    [PunRPC]
+    void MorePowerShield()
+    {
+        if (_repartition < 1.0f)
+            _repartition += 0.1f;
+        else
+            _repartition = 1.0f;
+        UpdateInterface();
+    }
+
+    [PunRPC]
+    void MorePowerPropulsor()
+    {
+        if (_repartition > 0.0f)
+            _repartition -= 0.1f;
+        else
+            _repartition = 0.0f;
+        UpdateInterface();
+    }
+
+    [PunRPC]
+    void RestaureDefault()
+    {
+        _repartition = 0.5f;
+        _powerOverload = 1.0f;
+
+        _generators[0].SetOverload(_powerOverload);
+        _generators[1].SetOverload(_powerOverload);
+        UpdateInterface();
+    }
 
     void Activate(bool active)
     {

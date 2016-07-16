@@ -32,6 +32,7 @@ public class PropulsorViewMonitor : MonoBehaviour
     [SerializeField]
     Image[] _empImg;
 
+    private float _power = 1;
     void Start()
     {
         InvokeRepeating("UpdateInterface", 1.0f, 2.0f);
@@ -40,7 +41,7 @@ public class PropulsorViewMonitor : MonoBehaviour
 
     void UpdateInterface()
     {
-        int stateEff = 0;
+        float stateEff = 0;
         for (int id = 0; id < _propulsorStates.Length; id++)
         {
             int lifeProp = _propulsorCont.getEngineLife(id + 1);
@@ -78,8 +79,8 @@ public class PropulsorViewMonitor : MonoBehaviour
             _lightningImg[id].color = _propulsorCont.isReactorOnElectrical(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
             _empImg[id].color = _propulsorCont.isReactorOnEMP(id) ? new Color(1.0f, 1.0f, 1.0f, 1.0f) : new Color(1.0f, 1.0f, 1.0f, 0.2f);
         }
-        stateEff = stateEff / _propulsorStates.Length;
-        _efficiency.text = stateEff + "%";
+        stateEff = stateEff / _propulsorStates.Length * _power;
+        _efficiency.text = stateEff.ToString("0") + "%";
 
         if (stateEff > 80)
         {
@@ -106,5 +107,10 @@ public class PropulsorViewMonitor : MonoBehaviour
             _globalState.text = "OFFLINE";
             _globalState.color = new Color(200.0f / 255.0f, 0.0f, 0.0f, 1.0f);
         }
+    }
+
+    public void setPower(float power)
+    {
+        _power = power;
     }
 }

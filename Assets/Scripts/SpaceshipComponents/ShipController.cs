@@ -15,6 +15,7 @@ public class ShipController : MonoBehaviour
     public float rotationSpeed = 150;
     public float increaseFactor = 0.2f;
     public bool status = false;
+    
     public PropulsorControl propulsion;
 
     public float currrentSpeed = 0;
@@ -24,6 +25,7 @@ public class ShipController : MonoBehaviour
     public Vector3 velocity;
     public Text directionText;
     public Text speedText;
+    public float _powerPropulsor = 1.0f;
 
     void Start()
     {
@@ -56,7 +58,7 @@ public class ShipController : MonoBehaviour
             {
                 if (currrentSpeed < maxSpeed)
                 {
-                    currrentSpeed += increaseFactor;
+                    currrentSpeed += increaseFactor * _powerPropulsor;
                     propulsion.PropulsorRenderer(true);
                 }
                 //MaxTurbines(0.65f);
@@ -65,7 +67,7 @@ public class ShipController : MonoBehaviour
             {
                 if (currrentSpeed > minSpeed)
                 {
-                    currrentSpeed -= increaseFactor;
+                    currrentSpeed -= increaseFactor * _powerPropulsor;
                     propulsion.PropulsorRenderer(false);
                 }
                 //MaxTurbines(0.3f);
@@ -95,5 +97,7 @@ public class ShipController : MonoBehaviour
     {
         status = active;
     }
+
+
 }
 

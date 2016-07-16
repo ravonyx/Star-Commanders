@@ -10,11 +10,11 @@ public class LifepartStateController : MonoBehaviour
     private GameObject m_ParticleElectricalDamages;
     
 
-    private int m_lifeMax;
-    private int m_fireDamages;
-    private int m_EMPDamages;
-    private int m_ElectricDamages;
-    private int m_ExplosionDamages;
+    private int m_lifeMax = 100;
+    private int m_fireDamages = 2;
+    private int m_EMPDamages = 1;
+    private int m_ElectricDamages = 1;
+    private int m_ExplosionDamages = 10;
 
     public bool m_IsFireDamages;
     public bool m_IsEMPDamages;
@@ -38,9 +38,8 @@ public class LifepartStateController : MonoBehaviour
     {
         _photonView = GetComponent<PhotonView>();
 
-        //currentlife = m_lifeMax;
+        currentlife = m_lifeMax;
         InvokeRepeating("applyDamages", 1, 1);
-        name = gameObject.name;
 
         if (m_ParticleFireDamages != null)
         {

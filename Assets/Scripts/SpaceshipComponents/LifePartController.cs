@@ -37,6 +37,8 @@ public class LifePartController : MonoBehaviour
     [SerializeField]
     private GeneratorManager[] m_Generators;
     [SerializeField]
+    LifepartStateController[] _generatorsLifeState;
+    [SerializeField]
     private int m_GeneratorMaxLIfe;
     [SerializeField]
     private int m_regenChances;
@@ -48,7 +50,7 @@ public class LifePartController : MonoBehaviour
     //[SerializeField]
     private int m_WeaponPower;
 
-    private int m_AvailablePower;
+    //private float m_AvailablePower;
    //--------------END OF Power management
     void Update()
     {
@@ -81,14 +83,16 @@ public class LifePartController : MonoBehaviour
         //setConsoleOnFire(0, true);
         //setConsoleOnFire(1, true);
         //setConsoleOnFire(2, true);
-        m_Generators[0].setMaxLife(m_GeneratorMaxLIfe);
-        m_Generators[1].setMaxLife(m_GeneratorMaxLIfe);
+        _generatorsLifeState[0].setMaxLife(m_GeneratorMaxLIfe);
+        _generatorsLifeState[1].setMaxLife(m_GeneratorMaxLIfe);
         m_Generators[0].FailureEventAutoStopChances(m_regenChances);
         m_Generators[1].FailureEventAutoStopChances(m_regenChances);
+
+        /*
         m_AvailablePower = m_Generators[0].AvailablePower() + m_Generators[1].AvailablePower();
         m_AvailablePower += m_CoolingUnit.getWorkingCoolingUnit();
 
-        m_shields.setPower(AllocatePower(1));
+        m_shields.setPower(1);*/
     }
 
     public void HullImpact(int damageDone)
@@ -134,7 +138,7 @@ public class LifePartController : MonoBehaviour
         Debug.Log("GENERATOR STATE");
         for (int i = 0; i < 2; i++)
         {
-            Debug.Log("Generator : " + i + " " + m_Generators[i].getLifeLevel());
+            Debug.Log("Generator : " + i + " " + _generatorsLifeState[i].getLifeLevel());
         }
     }
 
@@ -147,7 +151,7 @@ public class LifePartController : MonoBehaviour
     {
         return m_engines.GetReactorLifelevel(ID);
     }
-    public int getShieldLife(int ID)
+    public float getShieldLife(int ID)
     {
         return m_shields.GetShieldsLifeLevel(ID);
     }
@@ -237,7 +241,7 @@ public class LifePartController : MonoBehaviour
     {
         if(ID >= 0 && ID < m_Generators.Length)
         {
-            m_Generators[ID].setOnFire(state);
+            _generatorsLifeState[ID].setOnFire(state);
         }
     }
 
@@ -245,7 +249,7 @@ public class LifePartController : MonoBehaviour
     {
         if (ID >= 0 && ID < m_Generators.Length)
         {
-            m_Generators[ID].setElectricFailure(state);
+            _generatorsLifeState[ID].setElectricFailure(state);
         }
     }
 
@@ -253,7 +257,7 @@ public class LifePartController : MonoBehaviour
     {
         if (ID >= 0 && ID < m_Generators.Length)
         {
-            m_Generators[ID].setEmpFailure(state);
+            _generatorsLifeState[ID].setEmpFailure(state);
         }
     }
 
@@ -282,7 +286,7 @@ public class LifePartController : MonoBehaviour
     {
         return m_PropulsorPower;
     }
-
+    /*
     public int AllocatePower(int power)
     {
         if (power < m_AvailablePower)
@@ -298,5 +302,5 @@ public class LifePartController : MonoBehaviour
     {
         m_AvailablePower += power;
         return power;
-    }
+    }*/
 }

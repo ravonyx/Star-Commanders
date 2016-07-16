@@ -28,6 +28,7 @@ public class RaycastInteraction : MonoBehaviour
     private bool _inUse = false;
     private bool _nearConsole = false;
     private bool _nearExtinguisher = false;
+    private bool _nearLifePart = false;
 
     private ExtinguisherPost _extinguisherPost;
     private Extinguisher _extinguisher;
@@ -96,6 +97,10 @@ public class RaycastInteraction : MonoBehaviour
                     {
                         _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
                     }
+                    else if (_console.tag == "ShieldMonitor")
+                    {
+                        _playerInfo.text = "Shields Controls:\nMore Power Front Left - Z\nMore Power Front Right - S\nMore Power Back Left - S\nMore Power Back Right - D\nReset Power - R\nHide Info - I\nExit Console - F";
+                    }
                 }
                 else
                     _playerInfo.text = "";
@@ -121,7 +126,11 @@ public class RaycastInteraction : MonoBehaviour
                     }
                     else if (_console.tag == "EnergyMonitor")
                     {
-                        _playerInfo.text = "Energy Controls:\nChange Weapon Power - A / Z\nChange Shield Power - Q / S\nChange Propulsor Power - W / X\nHide Info - I\nExit Console - F";
+                        _playerInfo.text = "Energy Controls:\nMore Shield Power - Q / S\nMore Propulsor Power - D\nOverload - Z\nDecharge - S\nHide Info - I\nExit Console - F";
+                    }
+                    else if (_console.tag == "ShieldMonitor")
+                    {
+                        _playerInfo.text = "Shields Controls:\nMore Power Front Left - Z\nMore Power Front Right - S\nMore Power Back Left - S\nMore Power Back Right - D\nReset Power - R\nHide Info - I\nExit Console - F";
                     }
 
 
@@ -135,10 +144,18 @@ public class RaycastInteraction : MonoBehaviour
         #endregion
 
         #region Repair Console
-        if(!_inUse && _nearConsole && _consoleState != null && _consoleState.currentlife < 100)
+        if(!_inUse && (_nearConsole || _nearLifePart) && _consoleState != null && _consoleState.currentlife < 100)
         {
-            _playerInfo.text = "Press F to interact !";
-            _playerInfo.text += "Console Damaged ! Health " + _consoleState.currentlife + "%";
+            if(_nearConsole)
+            {
+                _playerInfo.text = "Press F to interact !";
+                _playerInfo.text += "Console Damaged ! Health " + _consoleState.currentlife + "%";
+            }
+            else if(_nearLifePart)
+            {
+                _playerInfo.text = "Life Part Damaged ! Health " + _consoleState.currentlife + "%";
+            }
+
             if (_toolSelected == 1)
             {
                 _playerInfo.text += "\nMaintain 'MOUSE 0' to repair";
@@ -224,6 +241,7 @@ public class RaycastInteraction : MonoBehaviour
         }
         else
         {
+            _playerInfo.text = "";
             _loader.gameObject.SetActive(false);
             _extinguisherStatus.gameObject.SetActive(false);
         }
@@ -255,17 +273,28 @@ public class RaycastInteraction : MonoBehaviour
     {
         if (_photonView.isMine)
         {
-            if ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor"))
+            if ((other.tag == "Monitor") || (other.tag == "PilotMonitor"))
             {
                 _nearConsole = true;
                 _console = other.gameObject;
                 _consoleState = _console.GetComponentInParent<LifepartStateController>();
+            }
+            else if ((other.tag == "EnergyMonitor") || (other.tag == "ShieldMonitor"))
+            {
+                _nearConsole = true;
+                _console = other.gameObject;
             }
             else if (other.tag == "Extinguisher")
             {
                 _nearExtinguisher = true;
                 _console = other.gameObject;
                 _extinguisherPost = _console.GetComponent<ExtinguisherPost>();
+            }
+            else if ((other.tag == "generators") || other.tag == "CoolingUnits")
+            {
+                _nearLifePart = true;
+                _console = other.gameObject;
+                _consoleState = _console.GetComponentInParent<LifepartStateController>();
             }
         }
     }
@@ -274,7 +303,7 @@ public class RaycastInteraction : MonoBehaviour
     {
         if(_photonView.isMine)
         {
-            if (!_inUse && ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor")))
+            if (!_inUse && ((other.tag == "Monitor") || (other.tag == "PilotMonitor") || (other.tag == "EnergyMonitor") || (other.tag == "ShieldMonitor") || (other.tag == "generators")))
             {
                 _nearConsole = false;
                 _playerInfo.text = "";
@@ -282,11 +311,20 @@ public class RaycastInteraction : MonoBehaviour
                 _toolInUse = false;
                 StopCoroutine(TryToRepair());
                 _photonView.RPC("ExtinguisherOnOff", PhotonTargets.All, false);
+                _consoleState = null;
             }
             else if (other.tag == "Extinguisher")
             {
                 _nearExtinguisher = false;
                 _playerInfo.text = "";
+            }
+            else if (other.tag == "generators")
+            {
+                _nearLifePart = false;
+                _playerInfo.text = "";
+                _toolInUse = false;
+                StopCoroutine(TryToRepair());
+                _consoleState = null;
             }
         }
     }

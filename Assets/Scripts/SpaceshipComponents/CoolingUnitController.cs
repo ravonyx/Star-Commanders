@@ -16,57 +16,48 @@ public class CoolingUnitController : MonoBehaviour
     [SerializeField]
     private int m_coolingUnit_6_Max;
 
-    private int m_coolingUnit_1;
-    private int m_coolingUnit_2;
-    private int m_coolingUnit_3;
-    private int m_coolingUnit_4;
-    private int m_coolingUnit_5;
-    private int m_coolingUnit_6;
+    [SerializeField]
+    LifepartStateController[] _coolingUnits;
+    
 
     void Start()
     {
-        m_coolingUnit_1 = m_coolingUnit_1_Max;
-        m_coolingUnit_2 = m_coolingUnit_2_Max;
-        m_coolingUnit_3 = m_coolingUnit_3_Max;
-        m_coolingUnit_4 = m_coolingUnit_4_Max;
-        m_coolingUnit_5 = m_coolingUnit_5_Max;
-        m_coolingUnit_6 = m_coolingUnit_6_Max;
+        _coolingUnits[0].currentlife = m_coolingUnit_1_Max;
+        _coolingUnits[1].currentlife = m_coolingUnit_2_Max;
+        _coolingUnits[2].currentlife = m_coolingUnit_3_Max;
+        _coolingUnits[3].currentlife = m_coolingUnit_4_Max;
+        _coolingUnits[4].currentlife = m_coolingUnit_5_Max;
+        _coolingUnits[5].currentlife = m_coolingUnit_6_Max;
     }
 
     public void CoolingUnitImpact_1(int damage)
     {
-        m_coolingUnit_1 -= damage;
-        Debug.Log("m_coolingUnit_1 " + m_coolingUnit_1);
+        _coolingUnits[0].currentlife -= damage;
     }
 
     public void CoolingUnitImpact_2(int damage)
     {
-        m_coolingUnit_2 -= damage;
-        Debug.Log("m_coolingUnit_2 " + m_coolingUnit_2);
+        _coolingUnits[1].currentlife -= damage;
     }
 
     public void CoolingUnitImpact_3(int damage)
     {
-        m_coolingUnit_3 -= damage;
-        Debug.Log("m_coolingUnit_3 " + m_coolingUnit_3);
+        _coolingUnits[2].currentlife -= damage;
     }
 
     public void CoolingUnitImpact_4(int damage)
     {
-        m_coolingUnit_4 -= damage;
-        Debug.Log("m_coolingUnit_4 " + m_coolingUnit_4);
+        _coolingUnits[3].currentlife -= damage;
     }
 
     public void CoolingUnitImpact_5(int damage)
     {
-        m_coolingUnit_5 -= damage;
-        Debug.Log("m_coolingUnit_5 " + m_coolingUnit_5);
+        _coolingUnits[4].currentlife -= damage;
     }
 
     public void CoolingUnitImpact_6(int damage)
     {
-        m_coolingUnit_6 -= damage;
-        Debug.Log("m_coolingUnit_6 " + m_coolingUnit_6);
+        _coolingUnits[5].currentlife -= damage;
     }
 
     public int GetCoolingUnitLifeLevel(int CoolingUnitID)
@@ -74,17 +65,17 @@ public class CoolingUnitController : MonoBehaviour
         switch (CoolingUnitID)
         {
             case 1:
-                return m_coolingUnit_1;
+                return _coolingUnits[0].currentlife;
             case 2:
-                return m_coolingUnit_2;
+                return _coolingUnits[1].currentlife;
             case 3:
-                return m_coolingUnit_3;
+                return _coolingUnits[2].currentlife;
             case 4:
-                return m_coolingUnit_4;
+                return _coolingUnits[3].currentlife;
             case 5:
-                return m_coolingUnit_5;
+                return _coolingUnits[4].currentlife;
             case 6:
-                return m_coolingUnit_6;
+                return _coolingUnits[5].currentlife;
             default:
                 return -1;
         }
@@ -93,17 +84,17 @@ public class CoolingUnitController : MonoBehaviour
     public int getWorkingCoolingUnit()
     {
         int Amount = 0;
-        if (m_coolingUnit_1 == 0)
+        if (_coolingUnits[0].currentlife != 0)
             Amount++;
-        if (m_coolingUnit_2 == 0)
+        if (_coolingUnits[1].currentlife != 0)
             Amount++;
-        if (m_coolingUnit_3 == 0)
+        if (_coolingUnits[2].currentlife != 0)
             Amount++;
-        if (m_coolingUnit_4 == 0)
+        if (_coolingUnits[3].currentlife != 0)
             Amount++;
-        if (m_coolingUnit_5 == 0)
+        if (_coolingUnits[4].currentlife != 0)
             Amount++;
-        if (m_coolingUnit_6 == 0)
+        if (_coolingUnits[5].currentlife != 0)
             Amount++;
 
         return Amount;

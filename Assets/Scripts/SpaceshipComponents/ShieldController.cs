@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 
-public class ShieldController : MonoBehaviour {
+public class ShieldController : MonoBehaviour
+{
 
     [SerializeField]
     private int m_FrontLeftMax;
@@ -13,12 +15,18 @@ public class ShieldController : MonoBehaviour {
     [SerializeField]
     private int m_RearRightMax;
 
-    private int m_FrontLeftLevel;
-    private int m_FrontRightLevel;
-    private int m_RearLeftLevel;
-    private int m_RearRightLevel;
 
-    private int m_power; // Set Power  Rate for all shields 
+    private float m_FrontLeftLevel = 100;
+    private float m_FrontRightLevel = 100;
+    private float m_RearLeftLevel = 100;
+    private float m_RearRightLevel = 100;
+
+    private float m_updateFrontLeftLevel = 0.5f;
+    private float m_updateFrontRightLevel = 0.5f;
+    private float m_updateRearLeftLevel = 0.5f;
+    private float m_updateRearRightLevel = 0.5f;
+
+    private float m_power = 1; // Set Power  Rate for all shields 
    // private int m_regenRate; // Set Regeneration  Rate for all shields  
 
     void Start ()
@@ -27,7 +35,7 @@ public class ShieldController : MonoBehaviour {
         m_FrontRightLevel = m_FrontRightMax;
         m_RearLeftLevel = m_RearLeftMax;
         m_RearRightLevel = m_RearRightMax;
-        InvokeRepeating("UpdateShields", 0.0f, 5.0f);
+        InvokeRepeating("UpdateShields", 0.0f, 1.0f);
     }
 
     void UpdateShields()
@@ -42,11 +50,10 @@ public class ShieldController : MonoBehaviour {
         }
         else
         {
-           
-            m_FrontLeftLevel += m_power;
-            m_FrontRightLevel += m_power;
-            m_RearLeftLevel += m_power;
-            m_RearRightLevel += m_power;
+            m_FrontLeftLevel += m_updateFrontLeftLevel;
+            m_FrontRightLevel += m_updateFrontRightLevel;
+            m_RearLeftLevel += m_updateRearLeftLevel;
+            m_RearRightLevel += m_updateRearRightLevel;
 
             if (m_FrontLeftLevel > 100)
                 m_FrontLeftLevel = 100;
@@ -87,7 +94,7 @@ public class ShieldController : MonoBehaviour {
             m_RearRightLevel = 0;
     }
 
-    public int GetShieldsLifeLevel(int ShieldID)
+    public float GetShieldsLifeLevel(int ShieldID)
     {
         switch (ShieldID)
         {
@@ -104,12 +111,48 @@ public class ShieldController : MonoBehaviour {
         }
     }
 
-    public void setPower(int power)
+    public float GetShieldsRateLevel(int ShieldID)
+    {
+        switch (ShieldID)
+        {
+            case 1:
+                return m_updateFrontLeftLevel;
+            case 2:
+                return m_updateFrontRightLevel;
+            case 3:
+                return m_updateRearLeftLevel;
+            case 4:
+                return m_updateRearRightLevel;
+            default:
+                return -1;
+        }
+    }
+
+    public void setUpdateShield(int ShieldID, float value)
+    {
+        switch (ShieldID)
+        {
+            case 1:
+                m_updateFrontLeftLevel = value;
+                break;
+            case 2:
+                m_updateFrontRightLevel = value;
+                break;
+            case 3:
+                m_updateRearLeftLevel = value;
+                break;
+            case 4:
+                m_updateRearRightLevel = value;
+                break;
+        }
+    }
+
+    public void setPower(float power)
     {
         m_power = power;
     }
 
-    public int getPower()
+    public float getPower()
     {
         return m_power;
     }

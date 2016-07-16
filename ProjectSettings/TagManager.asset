@@ -28,6 +28,9 @@ TagManager:
   - Load
   - Asteroid
   - CaptureStation
+  - ShieldMonitor
+  - Generator
+  - CoolingUnits
   layers:
   - Default
   - TransparentFX
