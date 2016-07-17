@@ -207,6 +207,8 @@ public class EnergyMonitor : MonoBehaviour
     {
         _repartition = 0.5f;
         _powerOverload = 1.0f;
+        _generators[0].SetOverload(_powerOverload);
+        _generators[1].SetOverload(_powerOverload);
     }
 
     void Activate(bool active)
