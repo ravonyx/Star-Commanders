@@ -15,15 +15,11 @@ public class CoolingUnitColliderManager : Photon.MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "EnergyProjectile" && PhotonNetwork.isMasterClient)
-        {
             photonView.RPC("OnCoolingCollide", PhotonTargets.All, 1);
-            collision.gameObject.GetComponent<KineticProjectilScript>().returnPool();
-        }
         else if (collision.gameObject.tag == "KineticProjectile" && PhotonNetwork.isMasterClient)
-        {
             photonView.RPC("OnCoolingCollide", PhotonTargets.All, 3);
+        if (collision.gameObject.tag == "KineticProjectile" || collision.gameObject.tag == "EnergyProjectile")
             collision.gameObject.GetComponent<KineticProjectilScript>().returnPool();
-        }
     }
 
     [PunRPC]

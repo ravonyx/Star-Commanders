@@ -46,15 +46,11 @@ public class ShieldEffect : Photon.MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "EnergyProjectile" && PhotonNetwork.isMasterClient && collision.contacts.Length > 0)
-        {
             photonView.RPC("OnShiedCollide", PhotonTargets.All, collision.contacts[0].point, 3);
-            collision.gameObject.GetComponent<KineticProjectilScript>().returnPool();
-        }
         if (collision.gameObject.tag == "KineticProjectile" && PhotonNetwork.isMasterClient && collision.contacts.Length > 0)
-        {
             photonView.RPC("OnShiedCollide", PhotonTargets.All, collision.contacts[0].point, 1);
+        if (collision.gameObject.tag == "KineticProjectile" || collision.gameObject.tag == "EnergyProjectile")
             collision.gameObject.GetComponent<KineticProjectilScript>().returnPool();
-        }
     }
 
     [PunRPC]
