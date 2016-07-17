@@ -8,13 +8,10 @@ public class StateGameController : Photon.MonoBehaviour
     public LifePartController lifeControllerRed;
     public Text infoText;
     bool countdown = false;
-    private LevelLoader _levelLoader;
     private StationManager _stationManager;
 
     void Start()
     {
-        Debug.Log((int)PunTeams.Team.blue);
-        _levelLoader = GetComponent<LevelLoader>();
         _stationManager = GetComponent<StationManager>();
     }
 
@@ -30,7 +27,8 @@ public class StateGameController : Photon.MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         infoText.text = "";
-        _levelLoader.LoadLevel(0);
+        PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
+        PhotonNetwork.LeaveRoom();
     }
 
     [PunRPC]

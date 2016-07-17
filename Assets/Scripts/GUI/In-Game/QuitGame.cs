@@ -3,7 +3,14 @@ using System.Collections;
 
 public class QuitGame : MonoBehaviour
 {
-	public void Quit()
+    private LevelLoader _levelLoader;
+
+    void Start()
+    {
+        _levelLoader = GetComponent<LevelLoader>();
+    }
+
+    public void Quit()
     {
         PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
         PhotonNetwork.LeaveRoom();
@@ -11,6 +18,6 @@ public class QuitGame : MonoBehaviour
 
     void OnLeftRoom()
     {
-        PhotonNetwork.LoadLevel(0);
+        _levelLoader.LoadLevel(0);
     }
 }
