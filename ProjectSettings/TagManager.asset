@@ -31,6 +31,7 @@ TagManager:
   - ShieldMonitor
   - Generator
   - CoolingUnits
+  - generators
   layers:
   - Default
   - TransparentFX
@@ -52,7 +53,7 @@ TagManager:
   - Spaceship
   - Asteroid
   - CaptureStation
-  - 
+  - CoolingExtern
   - 
   - 
   - 
