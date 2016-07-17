@@ -56,13 +56,11 @@ public class LifepartStateController : MonoBehaviour
     {
         if (state)
         {
-            Debug.Log("Fire started on " + gameObject.name);
             m_IsFireDamages = true;
             _fireHealth = 100;
         }
         else
         {
-            Debug.Log("Fire stoped on " + gameObject.name);
             m_IsFireDamages = false;
             _fireHealth = 0;
         }
@@ -72,13 +70,11 @@ public class LifepartStateController : MonoBehaviour
     {
         if (state)
         {
-            Debug.Log("ElectricFailure started on " + gameObject.name);
             m_IsElectricDamages = true;
             _ElectricHealth = 100;
         }
         else
         {
-            Debug.Log("ElectricFailure  stopped on " + gameObject.name);
             m_IsElectricDamages = false;
             _ElectricHealth = 0;
 
@@ -89,13 +85,11 @@ public class LifepartStateController : MonoBehaviour
     {
         if (state)
         {
-            Debug.Log("EMP Failure started on " + gameObject.name);
             m_IsEMPDamages = true;
             _EMPHealth = 100;
         }
         else
         {
-            Debug.Log("EMP Failure  stopped on " + gameObject.name);
             m_IsEMPDamages = false;
             _EMPHealth = 0;
         }

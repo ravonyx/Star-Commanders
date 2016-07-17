@@ -27,7 +27,6 @@ public class ShieldController : MonoBehaviour
     private float m_updateRearRightLevel = 0.5f;
 
     private float m_power = 1; // Set Power  Rate for all shields 
-   // private int m_regenRate; // Set Regeneration  Rate for all shields  
 
     void Start ()
     {
@@ -40,7 +39,6 @@ public class ShieldController : MonoBehaviour
 
     void UpdateShields()
     {
-        //Debug.Log("Update Shields State");
         if(m_power == 0)
         {
             m_FrontLeftLevel = 0;

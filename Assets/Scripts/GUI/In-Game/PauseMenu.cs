@@ -30,7 +30,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu.alpha == 0)
         {
-            Debug.Log("activate pause");
             pauseMenu.alpha = 1;
             pauseMenu.blocksRaycasts = true;
             UnityEngine.Cursor.visible = true;
@@ -38,7 +37,6 @@ public class PauseMenu : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu.alpha == 1)
         {
-            Debug.Log("desactivate pause");
             pauseMenu.alpha = 0;
             pauseMenu.blocksRaycasts = false;
             pauseMenu.interactable = false;

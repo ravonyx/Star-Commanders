@@ -49,13 +49,7 @@ public class LifePartController : MonoBehaviour
     private float m_PropulsorPower;
     //[SerializeField]
     private float m_WeaponPower;
-
-    //private float m_AvailablePower;
    //--------------END OF Power management
-    void Update()
-    {
-        //showAllLifeLevel();
-    }
 
     void Start()
     {
@@ -72,27 +66,10 @@ public class LifePartController : MonoBehaviour
             part.setMaxLife(m_InsideConsoleLifeMax);
 
         }
-
-        //SET FIRE ON REACTORS FOR TESTING 
-        //setReactorOnFire(0, true);
-        //setReactorOnFire(1, true);
-        //setReactorOnFire(2, true);
-        //setReactorOnFire(3, true);
-
-        //SET FIRE ON CONSOLES FOR TESTING 
-        //setConsoleOnFire(0, true);
-        //setConsoleOnFire(1, true);
-        //setConsoleOnFire(2, true);
         _generatorsLifeState[0].setMaxLife(m_GeneratorMaxLIfe);
         _generatorsLifeState[1].setMaxLife(m_GeneratorMaxLIfe);
         m_Generators[0].FailureEventAutoStopChances(m_regenChances);
         m_Generators[1].FailureEventAutoStopChances(m_regenChances);
-
-        /*
-        m_AvailablePower = m_Generators[0].AvailablePower() + m_Generators[1].AvailablePower();
-        m_AvailablePower += m_CoolingUnit.getWorkingCoolingUnit();
-
-        m_shields.setPower(1);*/
     }
 
     public void HullImpact(int damageDone)
@@ -100,46 +77,6 @@ public class LifePartController : MonoBehaviour
         m_hullLife -= damageDone;
         if (m_hullLife < 0)
             m_hullLife = 0;
-    }
-
-
-    void showAllLifeLevel()
-    {
-        /*----------------------------------------------
-       |Showing life level of each parts of the ship 
-       |for debugging purpose and usage.
-       |
-       |-----------------------------------------------*/
-        Debug.Log("REACTORS STATE");
-        foreach (LifepartStateController part in m_insideReactors) // set damages for reactors
-        {
-            Debug.Log(part.getName() + " " + part.getLifeLevel());
-        }
-        Debug.Log("CONSOLES STATE");
-        foreach (LifepartStateController part in m_Console) // set damages for reactors
-        {
-            Debug.Log(part.getName() + " " + part.getLifeLevel());
-        }
-        Debug.Log("SHIELDS STATE");
-        for (int i = 1; i < 5; i++)
-        {
-            Debug.Log("shield : " + i + " pv  " + m_shields.GetShieldsLifeLevel(i));
-        }
-        Debug.Log("ENGINE STATE");
-        for (int i = 1; i < 3; i++)
-        {
-            Debug.Log("engine : " + i + " " + m_engines.GetReactorLifelevel(i));
-        }
-        Debug.Log("COOLING UNIT STATE");
-        for (int i = 1; i < 7; i++)
-        {
-            Debug.Log("cooling unit : " + i + " " + m_CoolingUnit.GetCoolingUnitLifeLevel(i));
-        }
-        Debug.Log("GENERATOR STATE");
-        for (int i = 0; i < 2; i++)
-        {
-            Debug.Log("Generator : " + i + " " + _generatorsLifeState[i].getLifeLevel());
-        }
     }
 
     //monitoring life level
@@ -287,22 +224,4 @@ public class LifePartController : MonoBehaviour
     {
         return m_PropulsorPower;
     }
-    
-    /*
-    public int AllocatePower(int power)
-    {
-        if (power < m_AvailablePower)
-        {
-            m_AvailablePower -= power;
-            return power;
-        }
-        else
-            return 0;
-    }
-
-    public int RemovePower(int power)
-    {
-        m_AvailablePower += power;
-        return power;
-    }*/
 }

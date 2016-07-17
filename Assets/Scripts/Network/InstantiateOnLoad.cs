@@ -84,9 +84,7 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         //Debug only
         if (!network)
         {
-            Debug.Log("JoinedLobby");
             PhotonNetwork.CreateRoom("test2", new RoomOptions() { maxPlayers = 1 }, null);
-
         }
     }
     void OnJoinedRoom()
@@ -94,7 +92,6 @@ public class InstantiateOnLoad : Photon.MonoBehaviour
         //Debug only
         if (!network)
         {
-            Debug.Log("JoinedRoom");
             GameObject player = null;
             player = PhotonNetwork.Instantiate("Player/Player", Vector3.zero, Quaternion.identity, 0);
             PhotonNetwork.player.SetTeam(team);

@@ -18,8 +18,6 @@ public class TPTo : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //other.name;
-        Debug.Log(other.name);
         if (other.GetComponent<PhotonView>().isMine && tpAvailable)
         {
             _photonView.RPC("SyncParent", PhotonTargets.All, other.gameObject.GetComponent<PhotonView>().viewID);

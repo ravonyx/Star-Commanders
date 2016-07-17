@@ -23,7 +23,6 @@ public class ObjectNetwork : Photon.MonoBehaviour
         {
              transform.position = Vector3.Lerp(transform.position, objectPos, Time.deltaTime * 15);
              transform.rotation = Quaternion.Lerp(transform.rotation, objectRot, Time.deltaTime * 20);
-              Debug.Log("your turn" + gameObject.name + photonView.isMine);
         }
     }
 

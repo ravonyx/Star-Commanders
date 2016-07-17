@@ -42,8 +42,6 @@ public class SettingsScript : MonoBehaviour
 
     public void SetAntiAlias(bool activated)
     {
-        Debug.Log(AntiAlias.isOn);
-
         if (activated)
         {
             QualitySettings.antiAliasing = 2;

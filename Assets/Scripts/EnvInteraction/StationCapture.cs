@@ -64,13 +64,9 @@ public class StationCapture : Photon.MonoBehaviour
                 teamSpaceship = 1;
 
             teamStation = -1;
-            Debug.Log("wait " + teamWait);
             if (teamWait != -1)
                 teamStation = teamWait;
-            Debug.Log("station " + teamWait);
-
             teamWait = -1;
-
             photonView.RPC("ExitStation", PhotonTargets.All, teamSpaceship, m_stationID);
         }
     }
